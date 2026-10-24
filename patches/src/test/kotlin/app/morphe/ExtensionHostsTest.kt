@@ -34,12 +34,12 @@ class ExtensionHostsTest {
     }
 
     @Test
-    fun `only the media transport and the proxy check open connections themselves`() {
+    fun `only documented media proxy and update code opens connections`() {
         val openers = sources().filter { (_, source) -> NETWORK.containsMatchIn(split(source).second) }
             .map { it.first }.toSortedSet()
         assertEquals(
-            "The README says the extension goes online by itself only through the media transport " +
-                "and Network proxy's check that the proxy answers. These files open connections",
+            "The README documents media downloads, the proxy check and voluntary GitHub updates. " +
+                "These files open connections",
             OPENERS.toSortedSet(),
             openers,
         )
@@ -107,6 +107,7 @@ class ExtensionHostsTest {
             "extensions/tiktok/src/main/java/app/morphe/extension/tiktok/download/MediaTransport.java",
             "extensions/tiktok/src/main/java/app/morphe/extension/tiktok/download/PinnedMediaConnection.java",
             "extensions/tiktok/src/main/java/app/morphe/extension/tiktok/network/NetworkProxy.java",
+            "extensions/tiktok/src/main/java/app/morphe/extension/tiktok/update/ModUpdater.java",
         )
         val URL = Regex("""(?:https?|wss?)://([A-Za-z0-9.-]+)""")
         val NETWORK = Regex(

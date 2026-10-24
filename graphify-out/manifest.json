@@ -8400,9 +8400,9 @@
     "semantic_hash": ""
   },
   "patches/src/test/kotlin/app/morphe/ExtensionHostsTest.kt": {
-    "mtime": 1792825247.8661644,
-    "seen": 1792825403.0595708,
-    "ast_hash": "8af54ce33d2bc180712f0f5b49c697ad",
+    "mtime": 1792825673.5744996,
+    "seen": 1792825774.0378551,
+    "ast_hash": "635ce6fec39cdd23200fb226a4d2da57",
     "semantic_hash": ""
   },
   "patches/src/test/kotlin/app/morphe/FingerprintOnFixture.kt": {
@@ -11574,9 +11574,9 @@
     "semantic_hash": ""
   },
   "extensions/tiktok/src/test/java/app/morphe/extension/tiktok/update/ModUpdateAppearanceTest.java": {
-    "mtime": 1792825246.7997744,
-    "seen": 1792825403.004933,
-    "ast_hash": "c004db1060b5455236745c61f5b44b57",
+    "mtime": 1792825895.2478454,
+    "seen": 1792825979.1898565,
+    "ast_hash": "e2902404e904b01a434f1675abff82d0",
     "semantic_hash": ""
   },
   "CONTRIBUTING.md": {

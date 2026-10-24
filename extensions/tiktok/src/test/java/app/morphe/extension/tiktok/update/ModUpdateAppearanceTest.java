@@ -21,7 +21,7 @@ import org.robolectric.annotation.GraphicsMode;
 import org.robolectric.shadows.ShadowAlertDialog;
 
 @RunWith(RobolectricTestRunner.class)
-@Config(sdk = 28, qualifiers = "ru-rRU-w360dp-h800dp-mdpi-night")
+@Config(sdk = 28, qualifiers = "ru-rRU-w360dp-h800dp-night-mdpi")
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 public class ModUpdateAppearanceTest {
     @Test public void downloadProgressHasACancelActionAndAConsistentRange() throws Exception {
@@ -43,9 +43,12 @@ public class ModUpdateAppearanceTest {
             assertEquals(100, bar.getMax());
             assertFalse(bar.isIndeterminate());
             bar.setProgress(42);
+            assertEquals(42, bar.getProgress());
+            ((android.widget.TextView) ((ViewGroup) bar.getParent()).getChildAt(0)).setText("42%");
             String directory = System.getProperty("morphe.screenshotDir");
             if (directory != null) {
                 View decor = dialog.getWindow().getDecorView();
+                prepareCapture(decor);
                 decor.measure(View.MeasureSpec.makeMeasureSpec(360, View.MeasureSpec.EXACTLY),
                         View.MeasureSpec.makeMeasureSpec(800, View.MeasureSpec.AT_MOST));
                 decor.layout(0, 0, decor.getMeasuredWidth(), decor.getMeasuredHeight());
@@ -57,9 +60,18 @@ public class ModUpdateAppearanceTest {
                 image.recycle();
             }
             dialog.getButton(AlertDialog.BUTTON_NEGATIVE).performClick();
+            org.robolectric.Shadows.shadowOf(android.os.Looper.getMainLooper()).idle();
             var cancelled = ModUpdater.class.getDeclaredField("cancelled");
             cancelled.setAccessible(true);
             assertTrue(((AtomicBoolean) cancelled.get(updater)).get());
+        }
+    }
+    private static void prepareCapture(View view) {
+        // Robolectric's dialog decor has no window attachment for scroll indicators.
+        view.setScrollIndicators(0);
+        if (view instanceof ViewGroup) {
+            ViewGroup group = (ViewGroup) view;
+            for (int i = 0; i < group.getChildCount(); i++) prepareCapture(group.getChildAt(i));
         }
     }
     private static ProgressBar progress(View view) {
