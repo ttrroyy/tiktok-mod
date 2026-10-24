@@ -1,40 +1,45 @@
-# TikTok — Функции мода
+# TikTok 47.5.3 - mod 0.1.3
 
-Version 0.1.3 uses a compact menu: Region, Downloads, Feed, Fonts, Extra features,
-Mod diagnostics and Check for updates. Search, quick setup cards, project status,
-pause, donation and promotional pages are absent. Controls use neutral colors with
-green switches. The native entry uses TikTok's own filled settings icon.
+TikTok mod
 
-SIM overriding is enabled by default and once when upgrading from 0.1.0. The chosen
-country stays saved. Optional **Принудительный регион** filters For You by the country
-in TikTok's video data, rejects unknown countries, and can leave the feed empty.
-An Advanced switch reveals carrier presets and separate SIM/operator/request-region fields.
-Descriptions explain the controls. The native photo picker has a **Save as video** checkbox
-above **Select all**, which saves the checked photos as one MP4 when Download is pressed,
-and the streak recipient picker reads this account's locally cached TikTok contacts.
-Ordinary automatic video saves remain native; mod saves publish progress and cancellation
-through TikTok's own download-status bus. Successful video saves do not show a folder banner.
-The host share configuration and channel order are initialized ahead of the first share sheet.
+[Скачать APK](https://github.com/ttrroyy/tiktok-mod/releases/latest) · [Что изменилось](https://github.com/ttrroyy/tiktok-mod/releases/tag/v0.1.3)
 
-Customization of [Hushfeed](https://github.com/SysAdminDoc/HushFeed), targeting the
-original TikTok 47.5.3 APK (`com.zhiliaoapp.musically`, version code `2024705030`).
+Настройки открываются через **Настройки и конфиденциальность → Функции мода**. Root не нужен.
 
-The first item in TikTok settings opens **Функции мода**. The update button checks this
-repository's latest release, shows its changes, downloads a compatible APK with a progress
-bar, verifies its size, SHA-256, package and signing certificate, then opens Android's installer.
-There is no embedded GitHub credential, automatic installation, forced update dialog,
-advertising redirect or remote update policy. Anonymous updating requires a public repository;
-while it is private, the button reports that no public release is available.
+## Функции
 
-Priority checks are region/SIM overrides and downloads without watermarks. Region changes
-inside the client do not change your IP or the server's account-region decisions.
+| Раздел | Возможности |
+| :--- | :--- |
+| **Регион** | Смена страны SIM внутри TikTok. В дополнительных настройках можно выбрать оператора, изменить ISO страны, MCC/MNC и регион запросов. Подмена SIM включена по умолчанию. |
+| **Принудительный регион** | В рекомендациях остаются только ролики, которые TikTok относит к выбранной стране SIM. |
+| **Загрузки** | Скачивание без водяного знака TikTok при наличии чистого источника. Выбор качества видео, оригиналы фотографий, отдельное сохранение звука, аватаров и историй. Выбор папок и лимита офлайн-видео. |
+| **Фото в видео** | Галочка «Сохранить как видео» над «Выбрать все» в окне скачивания фото. Выбранные фотографии собираются в MP4 со звуком публикации. Без галочки скачиваются фотографии. |
+| **Лента** | Скрытие рекламы, стримов, историй, фотопубликаций, AI-видео, магазина, Tako и предлагаемых аккаунтов. Фильтры по словам, длительности, просмотрам и лайкам. |
+| **Просмотр** | Фоновое воспроизведение, отключение повтора ролика и просмотр без элементов интерфейса. Настройка верхних и нижних вкладок. |
+| **Конфиденциальность** | Скрытие сетевого статуса, очистка ссылок перед отправкой, отключение аналитики и рекламного ID, скрытие VPN от приложения. |
+| **Шрифты** | Выбор шрифта и использование системных эмодзи. |
+| **Серии и комментарии** | Поддержание серии сообщением по расписанию. Получатели выбираются из локального списка чатов и друзей. Увеличение клиентского лимита текста. |
+| **Диагностика** | Локальные журналы, отчёты о сбоях, экспорт и очистка диагностических данных. |
+| **Обновления** | Ручная проверка в «Функциях мода», загрузка с индикатором прогресса и установка через стандартное окно Android. |
 
-This is a work in progress. A build or successful bytecode patch does not establish that
-every runtime feature works on a physical phone. See PORT_STATUS.md for the current checks
-and known gaps. No APK is committed to this source repository.
+## Установка
 
-The source is based on upstream Hushfeed 0.78.0. Existing copyright, author and license
-notices are retained. See LICENSE, NOTICE and [upstream documentation](UPSTREAM.md).
-Build instructions and dependency requirements are in UPSTREAM.md under Building from source.
+Откройте [последний релиз](https://github.com/ttrroyy/tiktok-mod/releases/latest) и выберите APK:
 
-If TikTok closes while saves are still going, the next time you open it a banner names the ones that didn't finish, or that Hushfeed can't confirm, and how many of their files are missing. Files that already reached your gallery count as saved and are left alone. Nothing picks a save up again by itself, so save it again if you still want it. The note Hushfeed keeps for this stays inside TikTok's own storage and holds no links or tokens. On Android 9 and older, a file that's still being written is noted by its own path, which is the name it's saved under and can include the creator and the video ID, until it's confirmed. Each save's entry goes when the save ends or once the banner has named it.
+- **arm64-v8a**: большинство современных Android-телефонов.
+- **armeabi-v7a**: устройства с 32-битным ARM.
+- **universal**: обе ARM-архитектуры в одном файле.
+
+Обновляйте предыдущую версию этого мода установкой поверх. Исходный TikTok не содержит библиотек x86/x86_64, поэтому отдельной сборки для них нет.
+
+## Что учитывать
+
+Смена региона не меняет IP и ограничения аккаунта на сервере. При принудительном регионе лента может оказаться пустой. Чужие надписи, уже нанесённые на фото или видео, сохраняются. Если звук поста недоступен, MP4 сохраняется без него с уведомлением.
+
+Пока репозиторий приватный, APK доступны участникам репозитория. Обновления внутри приложения для всех пользователей заработают после его открытия. Токен GitHub в APK не встроен.
+
+Автоматические проверки пройдены. Новую галочку и кодирование MP4 ещё нужно проверить на физическом телефоне. Подробности: [статус сборки](PORT_STATUS.md).
+
+## Исходники
+
+На основе [Hushfeed 0.78.0](https://github.com/SysAdminDoc/HushFeed). Авторство и лицензионные уведомления сохранены: [LICENSE](LICENSE), [NOTICE](NOTICE). Инструкции по сборке: [UPSTREAM.md](UPSTREAM.md).
