@@ -1,5 +1,14 @@
 # TikTok — Функции мода
 
+Version 0.1.1 uses a compact menu: Region, Downloads, Feed, Fonts, Extra features,
+Mod diagnostics and Check for updates. Search, quick setup cards, project status,
+pause, donation and promotional pages are absent. Controls use neutral colors with
+green switches. The native entry uses TikTok's own filled settings icon.
+
+SIM overriding is enabled by default and once when upgrading from 0.1.0. The chosen
+country stays saved. Optional **Принудительный регион** filters For You by the country
+in TikTok's video data, rejects unknown countries, and can leave the feed empty.
+
 Customization of [Hushfeed](https://github.com/SysAdminDoc/HushFeed), targeting the
 original TikTok 47.5.3 APK (`com.zhiliaoapp.musically`, version code `2024705030`).
 

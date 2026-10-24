@@ -210,6 +210,8 @@ internal fun swapOpenDebugIcon(
         """
             new-instance v$iconRegister, $vectorResource
             const v$tempRegister, $iconResourceId
+            invoke-static {v$tempRegister}, Lapp/morphe/extension/tiktok/settings/preference/SettingsUi;->nativeSettingsIcon(I)I
+            move-result v$tempRegister
             invoke-direct {v$iconRegister, v$tempRegister}, $vectorResource-><init>(I)V
         """,
     )

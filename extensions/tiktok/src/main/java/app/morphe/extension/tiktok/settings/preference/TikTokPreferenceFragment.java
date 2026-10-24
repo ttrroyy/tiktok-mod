@@ -137,10 +137,10 @@ public class TikTokPreferenceFragment extends AbstractPreferenceFragment {
      * Downloads row promised quality and subtitles while its page said path and watermark.
      */
     private enum Section {
-        FEED_FILTER("Feed filter", "Choose what reaches your feed", SettingsMenuPreference.Icon.FILTER),
+        FEED_FILTER("Feed", "Choose what reaches your feed", SettingsMenuPreference.Icon.FILTER),
         FEED_NAVIGATION("Feed tabs", "Arrange your feed and bottom tabs", SettingsMenuPreference.Icon.TABS),
         INTERFACE("Feed screen", "Captions, gestures and on-screen controls", SettingsMenuPreference.Icon.LAYOUT),
-        PLAYBACK("Playback", "Quality, speed and auto-advance", SettingsMenuPreference.Icon.PLAYBACK),
+        PLAYBACK("Extra features", "Quality, speed and auto-advance", SettingsMenuPreference.Icon.PLAYBACK),
         SCREEN_TIME("Screen time", "Daily budgets, reminders and the hold", SettingsMenuPreference.Icon.SCREEN_TIME),
         COMMENTS("Comments", "Filters, translation and copy options", SettingsMenuPreference.Icon.COMMENTS),
         DOWNLOADS("Downloads", "Quality, files, subtitles and hand-off", SettingsMenuPreference.Icon.DOWNLOADS),
@@ -148,8 +148,8 @@ public class TikTokPreferenceFragment extends AbstractPreferenceFragment {
         INBOX("Inbox", "Choose which rows and controls appear", SettingsMenuPreference.Icon.INBOX),
         PRIVACY("Privacy", "Tracking, device access and links", SettingsMenuPreference.Icon.PRIVACY),
         REGION("Region", "Country and network preferences", SettingsMenuPreference.Icon.REGION),
-        BEHAVIOR("App", "Layout, search, profile and system", SettingsMenuPreference.Icon.BEHAVIOR),
-        DIAGNOSTICS("Diagnostics", "Logging, hook status and reports", SettingsMenuPreference.Icon.DIAGNOSTICS),
+        BEHAVIOR("Fonts", "Layout, search, profile and system", SettingsMenuPreference.Icon.BEHAVIOR),
+        DIAGNOSTICS("Mod diagnostics", "Logging, hook status and reports", SettingsMenuPreference.Icon.DIAGNOSTICS),
         BACKUP("Backup and restore", "Save, restore, reset and undo your settings", SettingsMenuPreference.Icon.BACKUP);
 
         final String title;
@@ -734,7 +734,7 @@ public class TikTokPreferenceFragment extends AbstractPreferenceFragment {
             list.setCacheColorHint(SettingsUi.background());
             list.setDivider(null);
             list.setDividerHeight(0);
-            int side = 16;
+            int side = 8;
             list.setPadding(SettingsUi.dp(getActivity(), side), 0,
                     SettingsUi.dp(getActivity(), side), SettingsUi.dp(getActivity(), 24));
             list.setClipToPadding(false);
@@ -1477,46 +1477,20 @@ public class TikTokPreferenceFragment extends AbstractPreferenceFragment {
      * line takes the reader down to them.
      */
     private void createMasterMenu(Context context, PreferenceScreen screen) {
-        // A home page aimed at a row was opened over the search results, so its Back goes back
-        // to them. Only the home page settings opened on closes settings.
-        Bundle arguments = getArguments();
-        boolean overResults = arguments != null && arguments.getString(ARG_TARGET_KEY) != null;
-        masterHeader = SettingsHeaderPreference.master(context,
-                overResults ? this::navigateBack : this::closeSettings,
-                () -> showRow(SettingsStatusPreference.KEY));
+        masterHeader = SettingsHeaderPreference.master(context, this::closeSettings);
         screen.addPreference(masterHeader);
-        SettingsSearchEntryPreference search = new SettingsSearchEntryPreference(context,
-                preference -> {
-                    openSearch();
+        for (Section section : new Section[]{Section.REGION, Section.DOWNLOADS,
+                Section.FEED_FILTER, Section.BEHAVIOR, Section.PLAYBACK, Section.DIAGNOSTICS}) {
+            if (section.isAvailable()) addMenu(screen, section);
+        }
+        SettingsMenuPreference update = new SettingsMenuPreference(context, ModUpdatesPreference.TITLE,
+                "", SettingsMenuPreference.Icon.NEWS, preference -> {
+                    app.morphe.extension.tiktok.update.ModUpdater.check(getActivity());
                     return true;
                 });
-        search.setKey("action_search_settings");
-        search.setOrder(-900);
-        screen.addPreference(search);
-        quickSetupsRow = new QuickSetupsPreference(context, this::settingsOnPages, this::hideQuickSetups);
-        quickSetupsRow.setOrder(-850);
-        if (!BaseSettings.HIDE_QUICK_SETUPS.get()) screen.addPreference(quickSetupsRow);
-
-        addGroup(context, screen, "Your feed", Section.FEED_FILTER, Section.FEED_NAVIGATION,
-                Section.INTERFACE, Section.PLAYBACK, Section.SCREEN_TIME);
-        addGroup(context, screen, "Conversations", Section.COMMENTS, Section.INBOX);
-        addGroup(context, screen, "Saving and sharing", Section.DOWNLOADS, Section.SHARE);
-        addGroup(context, screen, "Privacy and app", Section.PRIVACY, Section.BEHAVIOR,
-                Section.REGION, Section.BACKUP);
-        if (FeatureGateLabRuntime.isInstalled()) addFeatureGateLab(screen);
-
-        screen.addPreference(SectionHeadingPreference.compact(context, SettingsUi.MOD_TITLE));
-        screen.addPreference(new ModUpdatesPreference(context));
-        // Detailed state and recovery, with Turn Hushfeed back on while paused.
-        SettingsStatusPreference status = new SettingsStatusPreference(context,
-                Section.DIAGNOSTICS.isAvailable() ? () -> openSection(Section.DIAGNOSTICS) : null);
-        status.setTurnBackOnAction(this::turnHushfeedBackOn);
-        screen.addPreference(status);
-        screen.addPreference(pauseRow(context));
-        if (Section.DIAGNOSTICS.isAvailable()) addMenu(screen, Section.DIAGNOSTICS);
-        addAbout(screen);
-        addReportProblem(screen);
-        addSupport(screen);
+        update.setKey(ModUpdatesPreference.KEY);
+        update.setCompact(true);
+        screen.addPreference(update);
     }
 
     /** The long press on the Quick setups card: it leaves the home page now, and the banner says where it comes back. */
@@ -1840,7 +1814,7 @@ public class TikTokPreferenceFragment extends AbstractPreferenceFragment {
         SettingsMenuPreference row = new SettingsMenuPreference(
                 getActivity(),
                 section.title,
-                description,
+                "",
                 section.icon,
                 preference -> {
                     openSection(section);
@@ -1854,14 +1828,7 @@ public class TikTokPreferenceFragment extends AbstractPreferenceFragment {
 
     private void createSectionMenu(Context context, PreferenceScreen screen, Section section) {
         screen.addPreference(SettingsHeaderPreference.section(context, section.title, this::navigateBack));
-        screen.addPreference(SettingsHeaderPreference.caption(context, section.description));
-
-        PreferenceCategory category = createCategory(context, screen, section);
-        flattenCategory(screen, category);
-        if (section == Section.BACKUP) {
-            screen.addPreference(new SectionHeadingPreference(context, "Your settings"));
-            SettingsBackupPreference.addTo(this, screen);
-        }
+        ModSettingsPages.addTo(context, screen, section.name());
     }
 
     void refreshBackupSettings() { updateUIToSettingValues(); }

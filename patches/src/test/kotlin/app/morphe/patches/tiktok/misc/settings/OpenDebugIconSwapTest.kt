@@ -165,7 +165,15 @@ class OpenDebugIconSwapTest {
         val temp = (id as OneRegisterInstruction).registerA
         assertFalse("v$temp still holds a live value", temp in liveRegisters || temp == iconRegister)
 
-        val init = instructions[loadIndex + 3] as FiveRegisterInstruction
+        val resolve = instructions[loadIndex + 3] as FiveRegisterInstruction
+        assertEquals(Opcode.INVOKE_STATIC, resolve.opcode)
+        assertEquals(temp, resolve.registerC)
+        assertEquals("Lapp/morphe/extension/tiktok/settings/preference/SettingsUi;->nativeSettingsIcon(I)I",
+            (resolve as ReferenceInstruction).reference.toString())
+        val resolved = instructions[loadIndex + 4] as OneRegisterInstruction
+        assertEquals(Opcode.MOVE_RESULT, resolved.opcode)
+        assertEquals(temp, resolved.registerA)
+        val init = instructions[loadIndex + 5] as FiveRegisterInstruction
         assertEquals(Opcode.INVOKE_DIRECT, init.opcode)
         assertEquals(listOf(iconRegister, temp), listOf(init.registerC, init.registerD))
         assertEquals("$VECTOR-><init>(I)V", (init as ReferenceInstruction).reference.toString())

@@ -1,5 +1,18 @@
 # Status of this port
 
+Current release: 0.1.1, updater build 2. The selected profile contains 38 patches.
+The settings menu has seven entries: Region, Downloads, Feed, Fonts, Extra features,
+Mod diagnostics and Check for updates. The original project's search, quick setups,
+status/pause card, About, support and bug-report routes are not exposed.
+
+The SIM country and carrier override is on by default. Upgrading from 0.1.0 enables
+it once while retaining the chosen country; switching it off afterwards is respected.
+Country selection fills the operator fields without displaying raw MCC/MNC settings.
+The optional forced-region rule applies to recommendations, compares TikTok's video
+country with the selected SIM country, and rejects unknown countries. It does not
+change IP addresses or force TikTok's server to supply matching videos. An empty feed
+is possible. Explicitly opened videos retain their normal handling.
+
 Base: original TikTok 47.5.3, versionCode 2024705030, package
 `com.zhiliaoapp.musically`. Foundation: Hushfeed 0.78.0, upstream commit
 `c3e0c1845aa98e0cee7aa97d596f0cb9ba1807e8`, GPL-3.0. This is an independent

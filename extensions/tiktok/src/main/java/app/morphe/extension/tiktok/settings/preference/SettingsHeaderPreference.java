@@ -92,71 +92,10 @@ public final class SettingsHeaderPreference extends Preference {
     }
 
     private View createMasterHeader() {
-        Context context = getContext();
-        LinearLayout header = createHeader(context, heading, backAction, true);
-        LinearLayout toolbar = header.findViewWithTag("hushfeed_toolbar");
-        statusView = SettingsUi.text(context, "", SettingsUi.TEXT_CAPTION,
-                SettingsUi.textSecondary(), 0);
-        statusView.setTag("hushfeed_compact_status");
-        statusView.setGravity(Gravity.CENTER_VERTICAL | Gravity.END);
-        statusView.setMinimumHeight(SettingsUi.dp(context, 48));
-        statusView.setMinimumWidth(SettingsUi.dp(context, 48));
-        statusView.setPaddingRelative(SettingsUi.dp(context, 8), 0, 0, 0);
-        if (statusAction != null) {
-            SettingsUi.markAsButton(statusView);
-            statusView.setFocusable(true);
-            statusView.setBackground(SettingsUi.pressAndFocusOver(context,
-                    SettingsUi.RADIUS_CONTROL, new android.graphics.drawable.ColorDrawable(
-                            SettingsUi.background())));
-            statusView.setOnClickListener(view -> statusAction.run());
-        }
-        if (context.getResources().getConfiguration().fontScale >= 1.3f) {
-            // Keep the product name whole when large text makes a single toolbar too narrow.
-            View brand = toolbar.getChildAt(1);
-            toolbar.removeView(brand);
-            LinearLayout state = new LinearLayout(context);
-            state.setOrientation(LinearLayout.VERTICAL);
-            state.setGravity(Gravity.START);
-            state.addView(brand, new LinearLayout.LayoutParams(-1, -2));
-            LinearLayout.LayoutParams statusParams = new LinearLayout.LayoutParams(-2, -2);
-            statusParams.gravity = Gravity.END;
-            state.addView(statusView, statusParams);
-            LinearLayout.LayoutParams stateParams = new LinearLayout.LayoutParams(0, -2, 1);
-            stateParams.setMarginStart(SettingsUi.dp(context, 8));
-            toolbar.addView(state, stateParams);
-        } else {
-            toolbar.addView(statusView, new LinearLayout.LayoutParams(-2, -2));
-        }
-        TextView subtitle = SettingsUi.text(context, L10n.t(context, "Your feed. Your rules."),
-                SettingsUi.TEXT_BODY, SettingsUi.textSecondary(), 0);
-        subtitle.setTag("hushfeed_home_subtitle");
-        LinearLayout.LayoutParams subtitleParams = new LinearLayout.LayoutParams(-1, -2);
-        subtitleParams.topMargin = SettingsUi.dp(context, 6);
-        header.addView(subtitle, subtitleParams);
-        refreshStatus();
-        return header;
+        return createHeader(getContext(), heading, backAction, true);
     }
 
-    /** Keeps the compact state truthful after returning from a page with restart-gated settings. */
-    public void refreshStatus() {
-        if (statusView == null) return;
-        boolean pending = !AbstractPreferenceFragment.restartPending.isEmpty();
-        boolean paused = HushfeedPause.isPaused();
-        String label = L10n.t(getContext(), pending ? "Restart pending" : paused ? "Paused" : "Active");
-        statusView.setText(label);
-        statusView.setTextColor(pending ? SettingsUi.accent() : SettingsUi.textSecondary());
-        android.graphics.drawable.GradientDrawable dot = new android.graphics.drawable.GradientDrawable();
-        dot.setShape(android.graphics.drawable.GradientDrawable.OVAL);
-        dot.setColor(paused && !pending ? SettingsUi.textSecondary() : SettingsUi.accent());
-        int dotSize = SettingsUi.dp(getContext(), 6);
-        dot.setBounds(0, 0, dotSize, dotSize);
-        statusView.setCompoundDrawablesRelative(dot, null, null, null);
-        statusView.setCompoundDrawablePadding(SettingsUi.dp(getContext(), 6));
-        String description = pending ? label
-                : L10n.t(getContext(), paused ? "Hushfeed is paused" : "Hushfeed is active");
-        // The press scrolls this page down to the status card, so there's no other page to name.
-        statusView.setContentDescription(description);
-    }
+    public void refreshStatus() { }
 
     @Override
     protected void onBindView(View view) {
@@ -182,43 +121,29 @@ public final class SettingsHeaderPreference extends Preference {
         LinearLayout header = new LinearLayout(context);
         header.setTag("hushfeed_page_header");
         header.setOrientation(LinearLayout.VERTICAL);
-        header.setPaddingRelative(SettingsUi.dp(context, 8), SettingsUi.dp(context, 8),
-                SettingsUi.dp(context, 8), SettingsUi.dp(context, compact ? 12 : 0));
+        header.setPadding(0, 0, 0, SettingsUi.dp(context, 20));
         header.setBackgroundColor(SettingsUi.background());
         LinearLayout toolbar = new LinearLayout(context);
         toolbar.setTag("hushfeed_toolbar");
-        toolbar.setGravity(Gravity.CENTER_VERTICAL);
         ImageView back = new ImageView(context);
         back.setContentDescription(L10n.t(context, "Back"));
-        // An ImageView with a click listener is read as an image; this says it is a button.
         SettingsUi.markAsButton(back);
         back.setImageDrawable(new BackDrawable(context));
         back.setOnClickListener(view -> { if (onBack != null) onBack.run(); });
         back.setFocusable(true);
-        // The same accent-at-15%-alpha the grouped rows use. divider() is 1.3:1 against the
-        // dark surface, which is no press feedback at all. The ring under it is what a reader
-        // moving by keyboard or d-pad sees: the ripple's own focus tint is fainter still.
-        android.graphics.drawable.LayerDrawable backSurface = new android.graphics.drawable.LayerDrawable(
-                new Drawable[]{SettingsUi.borderedSurface(context, SettingsUi.RADIUS_PILL, false),
-                        SettingsUi.focusRing(context, SettingsUi.RADIUS_PILL)});
-        back.setBackground(SettingsUi.pressAndFocusOver(context, SettingsUi.RADIUS_PILL, backSurface));
+        back.setBackground(SettingsUi.pressAndFocusOver(context, SettingsUi.RADIUS_SQUARE,
+                new android.graphics.drawable.ColorDrawable(android.graphics.Color.TRANSPARENT)));
         toolbar.addView(back, new LinearLayout.LayoutParams(SettingsUi.dp(context, 48), SettingsUi.dp(context, 48)));
-        TextView brand = SettingsUi.text(context, BRAND_MARK, SettingsUi.TEXT_CAPTION, SettingsUi.accent(), 1);
-        brand.setLetterSpacing(0.12f);
-        brand.setGravity(Gravity.START | Gravity.CENTER_VERTICAL);
-        LinearLayout.LayoutParams brandParams = new LinearLayout.LayoutParams(0, -2, 1);
-        brandParams.setMarginStart(SettingsUi.dp(context, 8));
-        toolbar.addView(brand, brandParams);
         header.addView(toolbar, new LinearLayout.LayoutParams(-1, -2));
-        TextView heading = SettingsUi.text(
-                context, title, headingSizeSp(context, title),
-                SettingsUi.textPrimary(), 1);
+        TextView heading = SettingsUi.text(context, title, headingSizeSp(context, title), SettingsUi.textPrimary(), 1);
         heading.setTag("hushfeed_page_title");
         heading.setHyphenationFrequency(android.text.Layout.HYPHENATION_FREQUENCY_NONE);
         SettingsUi.markHeading(heading);
-        LinearLayout.LayoutParams titleParams = new LinearLayout.LayoutParams(-1, -2);
-        titleParams.topMargin = SettingsUi.dp(context, 12);
-        header.addView(heading, titleParams);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(-1, -2);
+        params.setMarginStart(SettingsUi.dp(context, 24));
+        params.setMarginEnd(SettingsUi.dp(context, 24));
+        params.topMargin = SettingsUi.dp(context, 16);
+        header.addView(heading, params);
         return header;
     }
 
@@ -240,8 +165,8 @@ public final class SettingsHeaderPreference extends Preference {
      */
     public static int headingSizeSp(Context context) {
         float scale = context.getResources().getConfiguration().fontScale;
-        if (scale <= 1.3f) return 34;
-        return Math.max(20, Math.round(34 * 1.3f / scale));
+        if (scale <= 1.3f) return 28;
+        return Math.max(20, Math.round(28 * 1.3f / scale));
     }
 
     /**

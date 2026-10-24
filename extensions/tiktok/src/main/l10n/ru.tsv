@@ -281,7 +281,7 @@ Auto-advance stopped after %1$d videos|one	Автопереключение ос
 Auto-advance stopped after %1$d videos|few	Автопереключение остановлено после %1$d видео
 Auto-advance stopped after %1$d videos|many	Автопереключение остановлено после %1$d видео
 Auto-advance stopped after one video	Автопереключение остановлено после одного видео
-Automatic Clear display	Автоматический чистый вид
+Automatic Clear display	Чистый экран
 Avatar and follow button	Аватар и кнопка «Подписаться»
 Back	Назад
 Back up settings	Создать резервную копию настроек
@@ -351,7 +351,7 @@ Couldn't record the screen's layout. Start again from Diagnostics.	Не удал
 Clear diagnostic data	Очистить диагностические данные
 Clear display	Чистый вид
 Clear display delay	Задержка чистого вида
-Keep Clear display across videos	Сохранять чистый вид между видео
+Keep Clear display across videos	Сохранять чистый экран
 Clear display you turn on stays on as you swipe to the next video. Off, each new video starts with its controls showing.	Включённый «Чистый вид» остаётся, когда вы листаете к следующему видео. Если выключено, каждое новое видео начинается с видимыми кнопками.
 Clear preset	Очистить пресет
 Clear search	Очистить поиск
@@ -535,9 +535,9 @@ Field %1$s can't be changed on this build. Take it out of the override, or reset
 Field edits were discarded	Изменения полей отменены
 Field edits weren't saved	Изменения полей не сохранены
 Files	Файлы
-Filter bottom tabs	Фильтровать нижние вкладки
+Filter bottom tabs	Нижние вкладки
 Filter comments by keyword	Фильтровать комментарии по ключевому слову
-Filter feed tabs	Фильтровать вкладки ленты
+Filter feed tabs	Верхние вкладки
 Filter TikTok's offline videos	Фильтровать офлайн-видео TikTok
 Filter settings	Настройки фильтра
 Filter the list	Отфильтровать список
@@ -1184,7 +1184,7 @@ Stop feature gate recording	Остановить запись переключа
 Stop the brand animation that plays over the comments when what someone typed matches an advertiser's trigger.	Останавливать анимацию бренда, которая проигрывается поверх комментариев, когда написанное кем-то совпадает с триггерной фразой рекламодателя.
 Stop the bubble that asks you to share a video with friends after you like it.	Останавливать всплывающую подсказку, которая предлагает поделиться видео с друзьями после того, как вы его лайкнули.
 Stops websites you open from inside TikTok from reaching back into the app. TikTok's own pages, such as Activity center, Watch history, shop checkout and CAPTCHA, keep working.	Не даёт сайтам, которые вы открываете из TikTok, обращаться обратно к приложению. Собственные страницы TikTok, такие как Activity center, история просмотров, оплата в магазине и CAPTCHA, продолжают работать.
-Stop video looping	Останавливать зацикливание видео
+Stop video looping	Не повторять видео
 Stop videos at the end instead of replaying them.	Останавливать видео в конце вместо повторного воспроизведения.
 Stopped after dismissing %1$s suggested accounts	Остановлено после %1$s отклонённых предложенных аккаунтов
 Stopped after dismissing one suggested account	Остановлено после одного отклонённого предложенного аккаунта
@@ -1378,7 +1378,7 @@ Use 0 for TikTok's size, or %1$d to %2$d. Applies to the next caption.	Испо�
 Use TikTok's own hold, pull down and release gesture to keep playing at the hold speed, 2x unless Playback sets another.	Используйте собственный жест TikTok «удержать, потянуть вниз и отпустить», чтобы продолжить воспроизведение на скорости удержания, обычно 2x, если в разделе «Воспроизведение» не задано другое значение.
 Use a default playback speed	Использовать скорость воспроизведения по умолчанию
 Use non-personalized search	Использовать неперсонализированный поиск
-Use system font	Использовать системный шрифт
+Use system font	Шрифт телефона
 Use the preset for the region TikTok reports for your account and its shop too. May affect search.	Использовать эту предустановку и для региона, который TikTok сообщает для вашего аккаунта и его магазина. Может повлиять на поиск.
 Makes TikTok see the country and carrier you pick as your SIM. Your IP address, account history and language don't change, and any one of them can make TikTok keep your current region. Restart TikTok to see the change.	TikTok видит выбранные вами страну и оператора как данные вашей SIM-карты. IP-адрес, история аккаунта и язык не меняются, и любого из них достаточно, чтобы TikTok сохранил текущий регион. Перезапустите TikTok, чтобы увидеть изменение.
 Makes TikTok see the country you pick as your SIM. Your IP address, account history and language don't change, and any one of them can make TikTok keep your current region. Restart TikTok to see the change.	TikTok видит выбранную вами страну как страну вашей SIM-карты. IP-адрес, история аккаунта и язык не меняются, и любого из них достаточно, чтобы TikTok сохранил текущий регион. Перезапустите TikTok, чтобы увидеть изменение.
@@ -1668,7 +1668,7 @@ Problem detected.	Обнаружена проблема.
 Couldn't save these choices. Try again.	Не удалось сохранить этот выбор. Повторите попытку.
 Clearing seen videos	Просмотренные видео очищаются
 Couldn't clear seen videos. Try again.	Не удалось очистить просмотренные видео. Повторите попытку.
-Keep playing in the background	Продолжать воспроизведение в фоне
+Keep playing in the background	Фоновое аудио
 The video you're watching keeps playing to its end after you leave TikTok or turn the screen off, with TikTok's own media notification to pause it. TikTok's background play switch stays on while this is on. Restart TikTok to apply this.	Видео, которое вы смотрите, продолжает играть до конца после того, как вы покидаете TikTok или выключаете экран, с собственным медиа-уведомлением TikTok для паузы. Переключатель фонового воспроизведения TikTok остаётся включённым, пока включено это. Перезапустите TikTok, чтобы это применить.
 Replay in the background	Повтор в фоне
 When a video ends while TikTok plays in the background, it starts over instead of waiting for you to press Play in the notification. A call or another app's sound still pauses it.	Когда видео заканчивается, пока TikTok играет в фоне, оно начинается заново, а не ждёт, пока вы нажмёте «Воспроизвести» в уведомлении. Звонок или звук другого приложения всё так же ставят его на паузу.
@@ -2060,7 +2060,7 @@ Hide the LIVE bubble	Скрыть пузырь LIVE
 Stop the bubble TikTok floats at the top of the feed to point you to a LIVE.	Отключает пузырь, который TikTok показывает вверху ленты, чтобы позвать вас в LIVE.
 Auto-advance in search results	Автопереход в результатах поиска
 Also turns on TikTok's own Auto scroll for videos opened from search. Restart TikTok to apply this.	Также включает собственную автопрокрутку TikTok для видео, открытых из поиска. Перезапустите TikTok, чтобы применить.
-Use system emoji	Использовать системные эмодзи
+Use system emoji	Эмодзи телефона
 Shows every emoji in your phone's own emoji font. The newest emoji your phone doesn't have yet may show as a box or in pieces.	Показывает все эмодзи шрифтом эмодзи вашего телефона. Самые новые эмодзи, которых в телефоне ещё нет, могут выглядеть как квадрат или распасться на части.
 Open shared videos alone	Открывать видео по ссылке отдельно
 A link to one video opens just that video, and the feed won't swipe past it. It swipes again once another video plays, like after a refresh or a tap on Following, or when you come back to TikTok after %1$d minutes or more away. Auto-advance doesn't move on from it either.	Ссылка на одно видео открывает только это видео, и лента не листается дальше него. Листать снова можно, как только начнётся другое видео, например после обновления или нажатия на «Подписки», или когда вы вернётесь в TikTok, пробыв вне его %1$d минут или больше. Автоматическое переключение тоже не уходит с него.
@@ -2247,8 +2247,8 @@ The list changed while loading. Results are incomplete.	Список измен�
 TikTok reports additional filtered accounts. This list is incomplete.	По данным TikTok, есть ещё отфильтрованные аккаунты. Этот список неполный.
 Saved post	Сохранённая публикация
 Blocked account	Заблокированный аккаунт
-Use an imported font	Использовать импортированный шрифт
-Shows TikTok's text in the font file you import below. While both are on, this one wins over Use system font. If the file is removed or can't be read, the text goes back to what Use system font shows.	Показывает текст TikTok шрифтом из файла, который вы импортируете ниже. Если включены оба переключателя, этот важнее, чем Использовать системный шрифт. Если файл удалён или не читается, текст снова выглядит так, как его показывает Использовать системный шрифт.
+Use an imported font	Свой шрифт
+Shows TikTok's text in the font file you import below. While both are on, this one wins over Use system font. If the file is removed or can't be read, the text goes back to what Use system font shows.	Показывает текст TikTok шрифтом из файла, который вы импортируете ниже. Если включены оба переключателя, этот важнее, чем Шрифт телефона. Если файл удалён или не читается, текст снова выглядит так, как его показывает Шрифт телефона.
 Import a font file	Импортировать файл шрифта
 Remove the imported font	Удалить импортированный шрифт
 Pick a .ttf or .otf file of up to %1$s MB.	Выберите файл .ttf или .otf размером до %1$s МБ.
@@ -2499,3 +2499,14 @@ Allow this app to install updates, then check for updates again. The downloaded 
 Open settings	Открыть настройки
 Installation	Установка
 Couldn't open the Android installer. Try again from Settings.	Не удалось открыть установщик Android. Попробуй ещё раз.
+Feed	Лента
+Fonts	Шрифты
+Extra features	Дополнительно
+Mod diagnostics	Диагностика мода
+SIM region	Смена региона
+SIM country	Выбор страны
+Force SIM country feed	Принудительный регион
+TikTok uses the selected SIM country. Restart after changing the country.	TikTok использует выбранную страну SIM. После смены страны перезапусти приложение.
+Only videos TikTok marks with the selected country stay in For You. The feed can be empty if no videos match.	В рекомендациях остаются только ролики из выбранной страны по данным TikTok. Если подходящих роликов нет, лента может быть пустой.
+Download folders	Папки загрузок
+Navigation	Навигация

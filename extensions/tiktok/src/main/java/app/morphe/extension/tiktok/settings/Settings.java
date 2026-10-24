@@ -43,7 +43,7 @@ public class Settings extends BaseSettings {
 
     public static final BooleanSetting REGION_SPOOF = new BooleanSetting(
             "region_spoof",
-            FALSE,
+            TRUE,
             true,
             // Not Setting.parent(SIM_SPOOF): that switch is declared further down this file and
             // a static initializer cannot read it yet. Naming it inside the methods is the same
@@ -80,7 +80,7 @@ public class Settings extends BaseSettings {
     // The same two switches as the store row, and the row names the one to turn on the same way.
     public static final BooleanSetting REGION_REQUEST_SPOOF = new BooleanSetting(
             "region_request_spoof",
-            FALSE,
+            TRUE,
             true,
             new Setting.Availability() {
                 @Override public boolean isAvailable() {
@@ -1297,7 +1297,9 @@ public class Settings extends BaseSettings {
             new BooleanSetting("enable_non_personalized_search", FALSE, true);
     public static final BooleanSetting ENABLE_LIVE_SEARCH =
             new BooleanSetting("enable_live_search", FALSE, true);
-    public static final BooleanSetting SIM_SPOOF = new BooleanSetting("simspoof", FALSE, true);
+    public static final BooleanSetting SIM_SPOOF = new BooleanSetting("simspoof", TRUE, true);
+    public static final IntegerSetting MOD_MENU_REVISION = new IntegerSetting("mod_menu_revision", 0);
+    public static final BooleanSetting FORCE_SIM_REGION = new BooleanSetting("force_sim_region", FALSE, true, Setting.parent(SIM_SPOOF));
     public static final StringSetting SIM_SPOOF_ISO = new StringSetting("simspoof_iso", "us");
     public static final StringSetting SIMSPOOF_MCCMNC = new StringSetting("simspoof_mccmnc", "310260");
     public static final StringSetting SIMSPOOF_OP_NAME = new StringSetting("simspoof_op_name", "T-Mobile");
@@ -1365,6 +1367,29 @@ public class Settings extends BaseSettings {
             DOWNLOAD_PATHS_MIGRATED.save(TRUE);
         }
         migrateCaptionWeight();
+        upgradeModDefaults();
+    }
+
+    public static void upgradeModDefaults() {
+        if (Settings.MOD_MENU_REVISION.savedValue() >= 2) return;
+        if (app.morphe.extension.shared.settings.BaseSettings.PAUSED.savedValue()) {
+            Settings.AUTO_STREAK.save(false);
+            app.morphe.extension.shared.settings.BaseSettings.PAUSED.save(false);
+        }
+        Settings.SIM_SPOOF.save(true);
+        Settings.REGION_SPOOF.save(true);
+        Settings.REGION_REQUEST_SPOOF.save(true);
+        Settings.REGION_STORE_SPOOF.save(false);
+        Settings.SIM_SPOOF_FEED_REAL.save(false);
+        Settings.SEE_THROUGH_BOTTOM_BAR.save(false);
+        Settings.FLOATING_BOTTOM_BAR.save(false);
+        Settings.LIQUID_GLASS_BOTTOM_BAR.save(false);
+        Settings.GLASS_TAB_LENS.save(false);
+        Settings.GLASS_VIDEO_BLUR.save(false);
+        Settings.SEE_THROUGH_STATUS_BAR.save(false);
+        Settings.SWIPE_LEVELS.save(false);
+        Settings.FADE_CONTROLS_OPACITY.save(100);
+        Settings.MOD_MENU_REVISION.save(2);
     }
 
     /** A Normal-weight captions switch left on becomes Caption boldness's Normal, once. */

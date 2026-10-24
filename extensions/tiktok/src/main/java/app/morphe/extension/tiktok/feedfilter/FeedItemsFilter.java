@@ -87,6 +87,7 @@ public final class FeedItemsFilter {
      * The main feed's rules: every content rule, then the one that reads For You's own
      * distribution marks, which no other route carries.
      */
+    private static final IFilter SIM_REGION_FILTER = new SimRegionFilter();
     private static final List<IFilter> FOR_YOU_FILTERS = forYouFilters();
     private static volatile List<IFilter> RANGE_FILTERS = createRangeFilters();
     private static final List<IFilter> AD_ONLY_FILTERS = List.of(ADS_FILTER);
@@ -150,6 +151,7 @@ public final class FeedItemsFilter {
 
     private static List<IFilter> forYouFilters() {
         List<IFilter> filters = new ArrayList<>(CONTENT_FILTERS);
+        filters.add(0, SIM_REGION_FILTER);
         filters.add(UNPERSONALIZED_FILTER);
         return Collections.unmodifiableList(filters);
     }
@@ -1362,6 +1364,7 @@ public final class FeedItemsFilter {
         // videos in it are the ones they chose to watch (#135).
         if (owner instanceof FeedItemList && !isMainFeedList((FeedItemList) owner)) {
             activeContentFilters.remove(SEEN_FILTER);
+            activeContentFilters.remove(SIM_REGION_FILTER);
         }
         List<IFilter> activeRangeFilters = getActiveFilters(RANGE_FILTERS);
         if (activeContentFilters.isEmpty() && activeRangeFilters.isEmpty()) {
@@ -1434,7 +1437,7 @@ public final class FeedItemsFilter {
             String contentReason = getFilterReason(steady ? steadyContentFilters
                 : watched ? watchedContentFilters : activeContentFilters, item);
             String rangeReason = contentReason == null && !steady ? getFilterReason(activeRangeFilters, item) : null;
-            if ((contentReason != null || rangeReason != null) && own.owns(item)) {
+            if ((contentReason != null || rangeReason != null) && !"SimRegionFilter".equals(contentReason) && own.owns(item)) {
                 if (capture != null) {
                     capture.spared(item, contentReason != null ? contentReason : rangeReason, OWN_POST);
                 }

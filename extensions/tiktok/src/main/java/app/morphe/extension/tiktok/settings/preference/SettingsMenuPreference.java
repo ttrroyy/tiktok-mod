@@ -64,7 +64,7 @@ public final class SettingsMenuPreference extends Preference {
         this.menuIcon = icon;
         setTitle(title);
         setSummary(summary);
-        setIcon(new MenuIconDrawable(context, icon));
+        setIcon(new NativeMenuIconDrawable(icon));
         setOnPreferenceClickListener(listener);
     }
 
@@ -81,7 +81,7 @@ public final class SettingsMenuPreference extends Preference {
     public void setCompact(boolean compact) {
         if (this.compact == compact) return;
         this.compact = compact;
-        setIcon(new MenuIconDrawable(getContext(), menuIcon));
+        setIcon(new NativeMenuIconDrawable(menuIcon));
         notifyChanged();
     }
 
@@ -99,7 +99,7 @@ public final class SettingsMenuPreference extends Preference {
         LinearLayout row = new LinearLayout(context);
         row.setGravity(Gravity.CENTER_VERTICAL);
         row.setOrientation(LinearLayout.HORIZONTAL);
-        row.setMinimumHeight(SettingsUi.dp(context, compact ? 72 : 80));
+        row.setMinimumHeight(SettingsUi.dp(context, compact ? 56 : 64));
         row.setPadding(
                 SettingsUi.dp(context, compact ? 14 : 16),
                 SettingsUi.dp(context, 12),
@@ -113,13 +113,13 @@ public final class SettingsMenuPreference extends Preference {
         icon.setId(android.R.id.icon);
         icon.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
         iconFrame.addView(icon, new FrameLayout.LayoutParams(
-                SettingsUi.dp(context, 40),
-                SettingsUi.dp(context, 40),
+                SettingsUi.dp(context, 24),
+                SettingsUi.dp(context, 24),
                 Gravity.CENTER
         ));
         row.addView(iconFrame, new LinearLayout.LayoutParams(
-                SettingsUi.dp(context, 40),
-                SettingsUi.dp(context, 40)
+                SettingsUi.dp(context, 24),
+                SettingsUi.dp(context, 24)
         ));
 
         LinearLayout labels = new LinearLayout(context);
@@ -156,7 +156,7 @@ public final class SettingsMenuPreference extends Preference {
     protected void onBindView(View view) {
         super.onBindView(view);
         SettingsUi.styleTitleAndSummary(view);
-        view.setMinimumHeight(SettingsUi.dp(getContext(), compact ? 72 : 80));
+        view.setMinimumHeight(SettingsUi.dp(getContext(), compact ? 56 : 64));
         styleText(view);
         styleIcon(view);
         addAccessory(view);
@@ -187,7 +187,7 @@ public final class SettingsMenuPreference extends Preference {
         if (icon == null) {
             return;
         }
-        int size = SettingsUi.dp(getContext(), 40);
+        int size = SettingsUi.dp(getContext(), 24);
         View iconFrame = view.findViewById(android.R.id.icon_frame);
         if (iconFrame != null) {
             ViewGroup.LayoutParams frameParams = iconFrame.getLayoutParams();
@@ -203,6 +203,59 @@ public final class SettingsMenuPreference extends Preference {
         }
         icon.setLayoutParams(params);
         icon.setScaleType(ImageView.ScaleType.FIT_CENTER);
+    }
+
+    private static final class NativeMenuIconDrawable extends Drawable {
+        private final Icon icon;
+        private final Paint ink = new Paint(Paint.ANTI_ALIAS_FLAG);
+        private final Paint cut = new Paint(Paint.ANTI_ALIAS_FLAG);
+        NativeMenuIconDrawable(Icon icon) { this.icon = icon; }
+        @Override public void draw(Canvas canvas) {
+            int save = canvas.save();
+            canvas.translate(getBounds().left, getBounds().top);
+            canvas.scale(getBounds().width() / 24f, getBounds().height() / 24f);
+            ink.setColor(SettingsUi.textSecondary());
+            ink.setStyle(Paint.Style.FILL);
+            cut.setColor(SettingsUi.surface());
+            cut.setStyle(Paint.Style.FILL);
+            if (icon == Icon.REGION) {
+                canvas.drawCircle(12, 12, 10, ink);
+                cut.setStyle(Paint.Style.STROKE);
+                cut.setStrokeWidth(1.5f);
+                canvas.drawOval(7, 2, 17, 22, cut);
+                canvas.drawLine(3, 8, 21, 8, cut);
+                canvas.drawLine(3, 16, 21, 16, cut);
+            } else if (icon == Icon.DOWNLOADS || icon == Icon.NEWS) {
+                Path p = new Path();
+                if (icon == Icon.NEWS) canvas.rotate(180, 12, 12);
+                p.moveTo(10, 3); p.lineTo(14, 3); p.lineTo(14, 12); p.lineTo(19, 12);
+                p.lineTo(12, 19); p.lineTo(5, 12); p.lineTo(10, 12); p.close();
+                canvas.drawPath(p, ink);
+                canvas.drawRoundRect(new RectF(4, 20, 20, 23), 1, 1, ink);
+            } else if (icon == Icon.FILTER) {
+                canvas.drawRoundRect(new RectF(2, 3, 22, 21), 3, 3, ink);
+                Path p = new Path(); p.moveTo(9, 7); p.lineTo(17, 12); p.lineTo(9, 17); p.close();
+                canvas.drawPath(p, cut);
+            } else if (icon == Icon.BEHAVIOR) {
+                ink.setTypeface(Typeface.DEFAULT_BOLD); ink.setTextSize(24);
+                canvas.drawText("A", 3, 21, ink);
+            } else if (icon == Icon.DIAGNOSTICS) {
+                canvas.drawRoundRect(new RectF(3, 13, 7, 22), 1, 1, ink);
+                canvas.drawRoundRect(new RectF(10, 8, 14, 22), 1, 1, ink);
+                canvas.drawRoundRect(new RectF(17, 2, 21, 22), 1, 1, ink);
+            } else {
+                canvas.drawCircle(12, 12, 7, ink);
+                for (int i = 0; i < 8; i++) {
+                    canvas.drawRoundRect(new RectF(10, 2, 14, 8), 1, 1, ink);
+                    canvas.rotate(45, 12, 12);
+                }
+                canvas.drawCircle(12, 12, 3, cut);
+            }
+            canvas.restoreToCount(save);
+        }
+        @Override public void setAlpha(int alpha) { ink.setAlpha(alpha); }
+        @Override public void setColorFilter(ColorFilter filter) { ink.setColorFilter(filter); }
+        @Override public int getOpacity() { return PixelFormat.TRANSLUCENT; }
     }
 
     private void addAccessory(View view) {

@@ -54,16 +54,23 @@ import app.morphe.extension.tiktok.settings.L10n;
 
 public final class SettingsUi {
     public static final String MOD_TITLE = "Функции мода";
-    public static final @ColorInt int ACCENT = Color.rgb(254, 44, 85);
+
+    public static int nativeSettingsIcon(int fallback) {
+        Context context = Utils.getContext();
+        if (context == null) return fallback;
+        int filled = context.getResources().getIdentifier("icon_gear_fill", "raw", context.getPackageName());
+        return filled == 0 ? fallback : filled;
+    }
+    public static final @ColorInt int ACCENT = Color.rgb(225, 225, 225);
     public static final @ColorInt int DARK_BACKGROUND = Color.BLACK;
     public static final @ColorInt int DARK_SURFACE = Color.rgb(31, 31, 31);
     public static final @ColorInt int DARK_SURFACE_LIFTED = Color.rgb(31, 31, 31);
     public static final @ColorInt int DARK_BORDER = Color.rgb(53, 53, 62);
     public static final @ColorInt int DARK_DIVIDER = Color.rgb(41, 41, 48);
     public static final @ColorInt int DARK_TEXT_PRIMARY = Color.rgb(245, 245, 247);
-    public static final @ColorInt int DARK_TEXT_SECONDARY = Color.rgb(168, 168, 179);
+    public static final @ColorInt int DARK_TEXT_SECONDARY = Color.rgb(136, 136, 136);
     public static final @ColorInt int DARK_TEXT_DISABLED = Color.argb(255, 109, 109, 118);
-    public static final @ColorInt int DARK_ERROR = Color.rgb(255, 138, 147);
+    public static final @ColorInt int DARK_ERROR = Color.rgb(225, 225, 225);
 
     public static final @ColorInt int LIGHT_BACKGROUND = Color.rgb(245, 245, 245);
     public static final @ColorInt int LIGHT_SURFACE = Color.WHITE;
@@ -73,9 +80,9 @@ public final class SettingsUi {
     public static final @ColorInt int LIGHT_TEXT_PRIMARY = Color.rgb(22, 22, 28);
     public static final @ColorInt int LIGHT_TEXT_SECONDARY = Color.rgb(87, 87, 98);
     public static final @ColorInt int LIGHT_TEXT_DISABLED = Color.argb(255, 117, 117, 125);
-    public static final @ColorInt int LIGHT_ERROR = Color.rgb(180, 35, 61);
+    public static final @ColorInt int LIGHT_ERROR = Color.rgb(45, 45, 45);
 
-    public static final int LIGHT_ACCENT = Color.rgb(184, 22, 77);
+    public static final int LIGHT_ACCENT = Color.rgb(45, 45, 45);
 
     static final @ColorInt int DARK_SWITCH_TRACK_OFF = Color.rgb(100, 100, 111);
     static final @ColorInt int LIGHT_SWITCH_TRACK_OFF = Color.rgb(116, 116, 127);
@@ -117,7 +124,7 @@ public final class SettingsUi {
     public static final int RADIUS_CARD = 10;
 
     /** Settings geometry stays independent of the controls drawn over a playing video. */
-    public static final int RADIUS_SETTINGS_CARD = 10;
+    public static final int RADIUS_SETTINGS_CARD = 8;
     public static final int RADIUS_SETTINGS_FIELD = 16;
     public static final int RADIUS_PILL = 24;
     /** Taller than any bar TikTok draws, so a pill's ends stay round at whatever height it's given. */
@@ -216,7 +223,7 @@ public final class SettingsUi {
      * TikTok's own red, for the controls this patch draws over the app itself rather than in
      * the settings screen. Those sit on the app's surfaces, not on ours.
      */
-    public static final @ColorInt int OVERLAY_ACCENT = Color.rgb(254, 44, 85);
+    public static final @ColorInt int OVERLAY_ACCENT = Color.rgb(225, 225, 225);
 
     /** The same red, dark enough to read as text on a white surface (6.4:1 rather than 3.7:1). */
     public static @ColorInt int overlayAccentOn(boolean darkSurface) {
@@ -381,7 +388,7 @@ public final class SettingsUi {
     static void styleCompactMenuRow(View row, boolean last, boolean footer) {
         Context context = row.getContext();
         row.setPaddingRelative(dp(context, 14), dp(context, 12), dp(context, 14), dp(context, 12));
-        row.setMinimumHeight(dp(context, 72));
+        row.setMinimumHeight(dp(context, 56));
         TextView title = row.findViewById(android.R.id.title);
         if (title != null) {
             title.setTextSize(TEXT_TITLE);
@@ -515,11 +522,11 @@ public final class SettingsUi {
         // greyed switch looks the same on as off: a reader cannot see what state it will come
         // back in when the parent is turned on again.
         track.addState(new int[]{-android.R.attr.state_enabled, android.R.attr.state_checked},
-                switchShape(context, (accent() & 0x00ffffff) | 0x66000000, 44, 26, 13));
+                switchShape(context, 0x660be09b, 44, 26, 13));
         track.addState(new int[]{-android.R.attr.state_enabled},
                 switchShape(context, border(), 44, 26, 13));
         track.addState(new int[]{android.R.attr.state_checked},
-                switchShape(context, accent(), 44, 26, 13));
+                switchShape(context, 0xff0be09b, 44, 26, 13));
         track.addState(new int[]{}, switchShape(context,
                 isDarkMode() ? DARK_SWITCH_TRACK_OFF : LIGHT_SWITCH_TRACK_OFF, 44, 26, 13));
         control.setTrackTintList(null);
@@ -697,12 +704,8 @@ public final class SettingsUi {
             }
             paint.setStyle(Paint.Style.STROKE);
             paint.setStrokeWidth(1);
-            paint.setColor(activated ? accent() : border());
+            paint.setColor(activated ? accent() : surface());
             canvas.drawRoundRect(frame, radius, radius, paint);
-            if (!last) {
-                paint.setColor(divider());
-                canvas.drawLine(bounds.left + inset, bottom - 0.5f, bounds.right - inset, bottom - 0.5f, paint);
-            }
             if (focused) {
                 // Last, and with its own stroke width: this Paint is shared, and a ring drawn
                 // before the divider left the divider at the ring's width, which on a 3x screen
