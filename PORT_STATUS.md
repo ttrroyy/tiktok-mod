@@ -21,18 +21,18 @@ customization; no MN native library or MN source is included.
 ## Main features
 
 - Region and SIM overrides: country ISO, MCC/MNC, operator name, network/SIM country
-  getters and supported cell identity getters. Region presets and separate region settings
-  are available. These affect the application's view of the device; they do not hide the
-  IP address or override TikTok's server-side account restrictions. Enable the overrides
-  in the Region page and restart TikTok. Sign-in requests retain their special handling.
+  getters and supported cell identity getters. Country selection sets the operator fields
+  together. These affect the application's view of the device; they do not hide the
+  IP address or override TikTok's server-side account restrictions. The override is enabled
+  by default; restart TikTok after changing country. Sign-in requests retain their special handling.
 - Download video and images without a TikTok watermark where the original media URL
   is available. Extra download controls cover audio, stickers, paths and naming. A missing
   clean source is a failure to report, not a reason to promise a watermark-free copy.
 - Feed advertising and content filters, keywords and repetition filtering, navigation
   controls, playback/background audio and loop settings, sharing-link cleanup, privacy
-  switches, comment tools, fonts and diagnostic options supplied by the selected patches.
+  switches, comment length limits, fonts and diagnostic options supplied by the selected patches.
 - First native settings entry: **Функции мода**. Black/gray or light surfaces and TikTok's
-  pink accent replace the reference mod's blue glass style.
+  filled gray icons and green switches replace the reference mod's blue glass style.
 - Voluntary update button: GitHub release metadata, compatible ABI, progress and cancel,
   size/SHA-256 checks, matching package and installed certificate, Android installer.
   GitHub tokens and signing private keys are never bundled. No startup update prompt.
@@ -42,7 +42,7 @@ catalog is larger; the release does not apply every catalog entry.
 
 ## Limits and acceptance
 
-This first release is a testing build. Compilation, unit checks, APK patch reports and
+This release remains a testing build. Compilation, unit checks, APK patch reports and
 signature verification are separate from device acceptance. No personal account has
 been used to test sign-in, uploads, SIM/region behavior or downloads on a physical phone.
 Google login has the upstream fix selected, but every login provider cannot be promised:
