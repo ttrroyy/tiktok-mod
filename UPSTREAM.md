@@ -378,7 +378,7 @@ pwsh -File scripts/validate-release-facts.ps1
 ./gradlew :patches:buildAndroid
 ```
 
-The patch tests read the stock TikTok APKs from the folder `HUSHFEED_FIXTURE_DIR` names, which [CONTRIBUTING.md](CONTRIBUTING.md) covers along with the release steps. The finished bundle is `patches/build/release/patches-<version>.mpp`, with `bundle.sha256` beside it. Publish that one. The copy in `patches/build/libs` gets turned back into a plain jar by later Gradle tasks, and Morphe Manager then shows zero patches. Two clean builds of the same commit give the same file and checksum.
+The patch tests read the stock TikTok APKs from the folder `HUSHFEED_FIXTURE_DIR` names, which [DEVELOPMENT.md](DEVELOPMENT.md) covers along with the release steps. The finished bundle is `patches/build/release/patches-<version>.mpp`, with `bundle.sha256` beside it. Publish that one. The copy in `patches/build/libs` gets turned back into a plain jar by later Gradle tasks, and Morphe Manager then shows zero patches. Two clean builds of the same commit give the same file and checksum.
 
 For Android 17 emulator checks, use Android SDK Command-line Tools 23 and inspect the new AVD's `.ini` target before launching it. Tools 12 can misread `android-37.1` as `android-0` even when creation succeeds. Run `python scripts/verify-native-alignment.py <apk>` to check native LOAD alignment, stored ZIP offsets and RELRO ranges that overlap writable data on 16 KB pages. Safely isolated RELRO LOAD segments are accepted. A 16 KB image still needs actual TikTok launch and playback checks. A static pass doesn't prove it runs.
 

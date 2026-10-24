@@ -1,4 +1,4 @@
-# Contributing
+# Development
 
 Feature ideas, bug reports, and pull requests are welcome.
 

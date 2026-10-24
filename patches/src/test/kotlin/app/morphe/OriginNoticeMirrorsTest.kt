@@ -11,7 +11,7 @@ import org.junit.Test
  * Every mirror URL in a source notice answers.
  *
  * <p>The notices that cite `github.com/ReVanced/revanced-patches` point at a repository GitHub
- * has blocked under a DMCA notice since 2026-03-24, and CONTRIBUTING keeps those lines as the
+ * has blocked under a DMCA notice since 2026-03-24, and DEVELOPMENT keeps those lines as the
  * record of which revision the code came from. The line beside each is the GitLab mirror, which
  * is the one a reader can open. This fetches each distinct mirror once, so the next takedown is
  * found by the suite rather than by a reader, and it is the only test here that needs the
@@ -29,7 +29,7 @@ class OriginNoticeMirrorsTest {
     @Test
     fun `every mirror cited by a source notice answers 200`() {
         val root = generateSequence(File("").absoluteFile) { it.parentFile }
-            .first { File(it, "extensions").isDirectory && File(it, "CONTRIBUTING.md").isFile }
+            .first { File(it, "extensions").isDirectory && File(it, "settings.gradle.kts").isFile }
         val mirrors = File(root, "extensions").walkTopDown()
             .filter { it.isFile && (it.extension == "java" || it.extension == "kt") }
             .flatMap { file -> MIRROR.findAll(file.readText()).map { it.value } }
