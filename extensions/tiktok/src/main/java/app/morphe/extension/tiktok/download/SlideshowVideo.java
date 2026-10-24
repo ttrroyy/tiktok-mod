@@ -4,8 +4,6 @@
  */
 package app.morphe.extension.tiktok.download;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -20,13 +18,11 @@ import app.morphe.extension.tiktok.blockauthor.Reflect;
 import app.morphe.extension.tiktok.settings.L10n;
 import app.morphe.extension.tiktok.settings.Settings;
 import app.morphe.extension.tiktok.settings.SettingsStatus;
-import app.morphe.extension.tiktok.settings.preference.SettingsUi;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -38,10 +34,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * builds that video on the phone and stamps its logo, the creator's handle and an end card on
  * it, and a post with several photos has no video choice at all.
  *
- * <p>Two ways in, both from saves Advanced downloads already hooks. "Download video" on a
- * one-photo post is the conversion entry, and with the switch on it comes here instead of to
- * TikTok's renderer. The photo picker's Download on a post with several photos is the photo save
- * job, and with the switch on it asks whether the picked photos go out as photos or as a video.
+ * <p>The native photo picker offers a per-save checkbox above Select all.
  *
  * <p>The video is drawn in {@link SlideshowEncoder}. Everything decided along the way is a static
  * method here, so a test can reach it without a codec.
@@ -65,46 +58,6 @@ public final class SlideshowVideo {
     static boolean enabled() {
         return SettingsStatus.advancedDownloadsEnabled
                 && !app.morphe.extension.shared.settings.Setting.isPaused();
-    }
-
-    /**
-     * The picker's save on a post with several photos. Asks between the picked photos and one
-     * video of them, and answers whether it took the save. A post with one photo, the switch off
-     * or no screen to ask on leaves the save where it was going.
-     */
-    static boolean offer(Object aweme, Set<?> indices) {
-        if (!enabled()) return false;
-        Object info = Reflect.property(aweme, "getPhotoModeImageInfo", "photoModeImageInfo");
-        Object raw = Reflect.property(info, "getImageList", "imageList");
-        if (!(raw instanceof List<?>) || ((List<?>) raw).isEmpty()
-                || OriginalPhotos.anyChosenIsLive(aweme, indices)) return false;
-        Activity activity = Utils.getVisibleActivity();
-        if (activity == null || activity.isFinishing() || activity.isDestroyed()) return false;
-        Set<Object> picked = indices == null ? null : new HashSet<Object>(indices);
-        Utils.runOnMainThread(() -> ask(aweme, picked));
-        return true;
-    }
-
-    private static void ask(Object aweme, Set<?> picked) {
-        try {
-            Activity activity = Utils.getVisibleActivity();
-            if (activity == null || activity.isFinishing() || activity.isDestroyed()) {
-                throw new IllegalStateException("No screen to ask on");
-            }
-            SettingsUi.syncDarkMode(activity);
-            AlertDialog dialog = new AlertDialog.Builder(activity)
-                    .setTitle(L10n.t("Save photos or a video?"))
-                    .setNegativeButton(L10n.t("Save photos"), (ignored, which) -> OriginalPhotos.savePicked(aweme, picked))
-                    .setPositiveButton(L10n.t("Save as video"), (ignored, which) -> start(aweme, picked))
-                    .setNeutralButton(L10n.t("Cancel"), null)
-                    .create();
-            dialog.setOnShowListener(ignored -> SettingsUi.styleStandardAlertDialog(dialog));
-            dialog.show();
-        } catch (RuntimeException failure) {
-            // Download was pressed, so the photos still go out rather than nothing.
-            Logger.printException(() -> "Could not ask between photos and a video", failure);
-            OriginalPhotos.savePicked(aweme, picked);
-        }
     }
 
     /**

@@ -1,6 +1,6 @@
 # Status of this port
 
-Current release: 0.1.2, updater build 3. The selected profile contains 38 patches.
+Current release: 0.1.3, updater build 4. The selected profile contains 38 patches.
 Posted Android notifications use the system's default color and disable app colorization;
 their content, reply actions, sounds and channel settings are retained.
 The settings menu has seven entries: Region, Downloads, Feed, Fonts, Extra features,
@@ -17,7 +17,11 @@ change IP addresses or force TikTok's server to supply matching videos. An empty
 is possible. Explicitly opened videos retain their normal handling.
 
 The downloads page omits the separate progress switch and persistent photo-to-video switch.
-Photo downloads offer photos or an MP4 at the moment of saving. Normal video saves at automatic
+The native PhotoModeDownloadFragment has a per-picker Save as video checkbox above Select all.
+Checked: Download queues an MP4 of the selected photos in their original order. Unchecked:
+the normal photo save runs. There is no follow-up format dialog, and closing the picker clears
+the choice. The checkbox and label are inflated from the host's own layout and theme.
+Normal video saves at automatic
 quality keep TikTok's downloader; custom saves report through its native status bus, with the
 native Cancel connected to the active job. Normal completed video saves have no folder banner.
 The streak recipient selector reads the signed-in account's local TikTok contact cache, retains

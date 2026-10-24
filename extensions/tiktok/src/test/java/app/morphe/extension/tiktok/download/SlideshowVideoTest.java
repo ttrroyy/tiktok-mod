@@ -3,8 +3,6 @@ package app.morphe.extension.tiktok.download;
 import static org.junit.Assert.*;
 import static org.robolectric.util.ReflectionHelpers.ClassParameter.from;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.os.Looper;
@@ -199,7 +197,6 @@ public class SlideshowVideoTest {
 
         SettingsStatus.advancedDownloadsEnabled = false;
         assertFalse(OriginalPhotos.startImageAsVideo(one));
-        assertFalse(SlideshowVideo.offer(two, Set.of(0, 1)));
 
         idle();
         for (var post : List.of(one, two)) {
@@ -216,7 +213,6 @@ public class SlideshowVideoTest {
         var ordinary = new PhotoConversionTest.VideoPost("slideshow-ordinary", video);
         ownIds.add(ordinary.getAid());
         assertFalse(OriginalPhotos.startImageAsVideo(ordinary));
-        assertFalse(SlideshowVideo.offer(ordinary, null));
 
         var live = post("slideshow-live", List.of(photo("https://example.com/still"),
                 photo("https://example.com/live").live()));
@@ -250,71 +246,21 @@ public class SlideshowVideoTest {
         assertNull(MediaJobScheduler.job("photo video " + post.getAid()));
     }
 
-    @Test public void aOnePhotoPostSkipsTheQuestionAndNoScreenLeavesThePickerAlone() {
-        Activity previous = Utils.getActivity();
-        try {
-            var one = post("slideshow-picker-one", List.of(photo("https://example.com/one")));
-            assertFalse(SlideshowVideo.offer(one, Set.of(0)));
-            Utils.setActivity(null);
-            var two = post("slideshow-picker-no-screen", List.of(photo("https://example.com/one"),
-                    photo("https://example.com/two")));
-            if (Utils.getVisibleActivity() == null) assertFalse(SlideshowVideo.offer(two, Set.of(0, 1)));
-            idle();
-            assertNull(ShadowAlertDialog.getLatestAlertDialog());
-        } finally {
-            Utils.setActivity(previous);
-        }
-    }
-
-    @Test public void thePickerAsksAndEachAnswerQueuesItsOwnSave() throws Exception {
+    @Test public void nativePickerCheckboxQueuesVideoAndIsClearedWhenClosed() throws Exception {
         holdWorkers();
-        Activity previous = Utils.getActivity();
-        try (var owner = Robolectric.buildActivity(SaveNoticeTest.HostActivity.class).setup().visible()) {
-            Utils.setActivity(owner.get());
-            var images = List.of(photo("https://example.com/one"), photo("https://example.com/two"),
-                    photo("https://example.com/three"));
-
-            var asVideo = post("slideshow-ask-video", images);
-            assertTrue(OriginalPhotos.startPhotos(asVideo, Set.of(2, 0), true));
-            idle();
-            AlertDialog dialog = ShadowAlertDialog.getLatestAlertDialog();
-            assertNotNull(dialog);
-            assertTrue(dialog.isShowing());
-            assertEquals("Save photos or a video?", Shadows.shadowOf(dialog).getTitle().toString());
-            assertEquals("Save as video", dialog.getButton(AlertDialog.BUTTON_POSITIVE).getText().toString());
-            assertEquals("Save photos", dialog.getButton(AlertDialog.BUTTON_NEGATIVE).getText().toString());
-            assertEquals("Cancel", dialog.getButton(AlertDialog.BUTTON_NEUTRAL).getText().toString());
-            assertNull("Nothing is queued before an answer", MediaJobScheduler.job("photo video " + asVideo.getAid()));
-            dialog.getButton(AlertDialog.BUTTON_POSITIVE).performClick();
-            idle();
-            MediaJobScheduler.Job video = MediaJobScheduler.job("photo video " + asVideo.getAid());
-            assertNotNull(video);
-            assertEquals(1, video.record.files);
-            assertNull(MediaJobScheduler.job("photos " + asVideo.getAid()));
-            assertTrue(video.cancel());
-
-            var asPhotos = post("slideshow-ask-photos", images);
-            assertTrue(OriginalPhotos.startPhotos(asPhotos, Set.of(2, 0), true));
-            idle();
-            dialog = ShadowAlertDialog.getLatestAlertDialog();
-            dialog.getButton(AlertDialog.BUTTON_NEGATIVE).performClick();
-            idle();
-            MediaJobScheduler.Job photos = MediaJobScheduler.job("photos " + asPhotos.getAid());
-            assertNotNull("Save photos works with Download original photos off", photos);
-            assertEquals("The picked photos, not the whole post", 2, photos.record.files);
-            assertNull(MediaJobScheduler.job("photo video " + asPhotos.getAid()));
-            assertTrue(photos.cancel());
-
-            var cancelled = post("slideshow-ask-cancel", images);
-            assertTrue(OriginalPhotos.startPhotos(cancelled, Set.of(1), true));
-            idle();
-            dialog = ShadowAlertDialog.getLatestAlertDialog();
-            dialog.getButton(AlertDialog.BUTTON_NEUTRAL).performClick();
-            idle();
-            assertNull(MediaJobScheduler.job("photos " + cancelled.getAid()));
-            assertNull(MediaJobScheduler.job("photo video " + cancelled.getAid()));
-        } finally {
-            Utils.setActivity(previous);
+        try(var owner=Robolectric.buildActivity(SaveNoticeTest.HostActivity.class).setup().visible()) {
+            var post=post("native-picker-selected",List.of(photo("https://example.com/one"),photo("https://example.com/two").live(),photo("https://example.com/three")));
+            var ui=new PhotoVideoPickerTest.Fixture(owner.get(),post);
+            Set<Integer> selected=new java.util.HashSet<>(Set.of(0,2));
+            assertFalse("Unchecked keeps the native photo save",OriginalPhotos.startPhotos(post,selected,true));
+            ui.check.setChecked(true);
+            assertTrue(OriginalPhotos.startPhotos(post,selected,true));
+            var job=MediaJobScheduler.job("photo video "+post.getAid()); assertNotNull(job); assertTrue(job.waiting());
+            assertNull(MediaJobScheduler.job("photos "+post.getAid())); assertEquals(Set.of(0,2),selected);
+            assertTrue(job.cancel());
+            PhotoVideoPicker.clearPost(post);
+            assertFalse("Closing clears the per-picker choice",OriginalPhotos.startPhotos(post,selected,true));
+            assertNull(ShadowAlertDialog.getLatestAlertDialog());
         }
     }
 

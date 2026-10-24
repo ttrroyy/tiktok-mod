@@ -1,6 +1,6 @@
 # TikTok — Функции мода
 
-Version 0.1.2 uses a compact menu: Region, Downloads, Feed, Fonts, Extra features,
+Version 0.1.3 uses a compact menu: Region, Downloads, Feed, Fonts, Extra features,
 Mod diagnostics and Check for updates. Search, quick setup cards, project status,
 pause, donation and promotional pages are absent. Controls use neutral colors with
 green switches. The native entry uses TikTok's own filled settings icon.
@@ -9,7 +9,8 @@ SIM overriding is enabled by default and once when upgrading from 0.1.0. The cho
 country stays saved. Optional **Принудительный регион** filters For You by the country
 in TikTok's video data, rejects unknown countries, and can leave the feed empty.
 An Advanced switch reveals carrier presets and separate SIM/operator/request-region fields.
-Descriptions explain the controls. Photo posts ask between photos and an MP4 when downloaded,
+Descriptions explain the controls. The native photo picker has a **Save as video** checkbox
+above **Select all**, which saves the checked photos as one MP4 when Download is pressed,
 and the streak recipient picker reads this account's locally cached TikTok contacts.
 Ordinary automatic video saves remain native; mod saves publish progress and cancellation
 through TikTok's own download-status bus. Successful video saves do not show a folder banner.

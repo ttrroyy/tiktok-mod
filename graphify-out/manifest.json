@@ -780,9 +780,9 @@
     "semantic_hash": ""
   },
   "extensions/tiktok/src/main/java/app/morphe/extension/tiktok/download/OriginalPhotos.java": {
-    "mtime": 1792849505.2196229,
-    "seen": 1792850285.2485394,
-    "ast_hash": "df4611e678776784cbe58e810b3b38fc",
+    "mtime": 1792872687.5669124,
+    "seen": 1792872961.8931391,
+    "ast_hash": "9768285699d28abd3b9e2c010efc4f49",
     "semantic_hash": ""
   },
   "extensions/tiktok/src/main/java/app/morphe/extension/tiktok/download/OriginalSoundDownloads.java": {
@@ -888,9 +888,9 @@
     "semantic_hash": ""
   },
   "extensions/tiktok/src/main/java/app/morphe/extension/tiktok/download/SlideshowVideo.java": {
-    "mtime": 1792849927.752485,
-    "seen": 1792850285.258351,
-    "ast_hash": "d732d7e34017ffd61a235ab76cf75109",
+    "mtime": 1792872388.7796338,
+    "seen": 1792872961.920583,
+    "ast_hash": "58935718374c931caa1580bda5240169",
     "semantic_hash": ""
   },
   "extensions/tiktok/src/main/java/app/morphe/extension/tiktok/download/SoundFormat.java": {
@@ -2340,63 +2340,63 @@
     "semantic_hash": ""
   },
   "extensions/tiktok/src/main/java/app/morphe/extension/tiktok/settings/L10nTranslations.java": {
-    "mtime": 1792850318.4412625,
-    "seen": 1792850544.2819371,
+    "mtime": 1792872690.2445524,
+    "seen": 1792872962.344808,
     "ast_hash": "0d1d4adac92416f53a9f5c07952860c7",
     "semantic_hash": ""
   },
   "extensions/tiktok/src/main/java/app/morphe/extension/tiktok/settings/L10nTranslationsAz.java": {
-    "mtime": 1792850318.4498785,
-    "seen": 1792850544.2819371,
-    "ast_hash": "2fa536128f968ac92f35d9d8b7a9ea1d",
+    "mtime": 1792872690.250031,
+    "seen": 1792872962.344808,
+    "ast_hash": "ab40ee36255e51d2d11c891955f26f99",
     "semantic_hash": ""
   },
   "extensions/tiktok/src/main/java/app/morphe/extension/tiktok/settings/L10nTranslationsDe.java": {
-    "mtime": 1792850318.4569938,
-    "seen": 1792850544.2819371,
-    "ast_hash": "d8d70e2f1f70df7da3c3a2a24ed5bae1",
+    "mtime": 1792872690.2542384,
+    "seen": 1792872962.344808,
+    "ast_hash": "baf3f13985568d00a958114236b6e201",
     "semantic_hash": ""
   },
   "extensions/tiktok/src/main/java/app/morphe/extension/tiktok/settings/L10nTranslationsEs.java": {
-    "mtime": 1792850318.4630742,
-    "seen": 1792850544.2819371,
-    "ast_hash": "3dec45e77a013e3bbd5a6f9b5df5f11a",
+    "mtime": 1792872690.2579837,
+    "seen": 1792872962.344808,
+    "ast_hash": "37f373d104b96a2801f609a00fa0c071",
     "semantic_hash": ""
   },
   "extensions/tiktok/src/main/java/app/morphe/extension/tiktok/settings/L10nTranslationsIn.java": {
-    "mtime": 1792850318.468903,
-    "seen": 1792850544.2819371,
-    "ast_hash": "645b05e5cb4c7d4574d72b9999c2260c",
+    "mtime": 1792872690.2618961,
+    "seen": 1792872962.344808,
+    "ast_hash": "2bf25b5c800c0422b7b60f03236df598",
     "semantic_hash": ""
   },
   "extensions/tiktok/src/main/java/app/morphe/extension/tiktok/settings/L10nTranslationsIt.java": {
-    "mtime": 1792850318.4742105,
-    "seen": 1792850544.2819371,
-    "ast_hash": "c9a7380419a5018d4ab5b590eac2ec60",
+    "mtime": 1792872690.2668958,
+    "seen": 1792872962.344808,
+    "ast_hash": "983c0bee6c665dd6a420514b543b4406",
     "semantic_hash": ""
   },
   "extensions/tiktok/src/main/java/app/morphe/extension/tiktok/settings/L10nTranslationsPt_rBR.java": {
-    "mtime": 1792850318.4799187,
-    "seen": 1792850544.2819371,
-    "ast_hash": "eeb183e696e54950f46fb40fe289d071",
+    "mtime": 1792872690.2707703,
+    "seen": 1792872962.344808,
+    "ast_hash": "a3924d1811c6ebe96006db481a50eed1",
     "semantic_hash": ""
   },
   "extensions/tiktok/src/main/java/app/morphe/extension/tiktok/settings/L10nTranslationsRu.java": {
-    "mtime": 1792850318.4879582,
-    "seen": 1792850544.2819371,
-    "ast_hash": "1db6e67183dd975e3255abb21daa4bc9",
+    "mtime": 1792872690.2761915,
+    "seen": 1792872962.344808,
+    "ast_hash": "47f9abae2460be367798068b0774e4a0",
     "semantic_hash": ""
   },
   "extensions/tiktok/src/main/java/app/morphe/extension/tiktok/settings/L10nTranslationsTr.java": {
-    "mtime": 1792850318.4960065,
-    "seen": 1792850544.2819371,
-    "ast_hash": "95641ff41c322b8b27e0375d2a7cc88a",
+    "mtime": 1792872690.2803526,
+    "seen": 1792872962.344808,
+    "ast_hash": "5d1852d13306aa9a82da27cecde87665",
     "semantic_hash": ""
   },
   "extensions/tiktok/src/main/java/app/morphe/extension/tiktok/settings/L10nTranslationsZh_Hans.java": {
-    "mtime": 1792850318.5002036,
-    "seen": 1792850544.2819371,
-    "ast_hash": "f5a1f52ad25eee53eab6489a5269b64f",
+    "mtime": 1792872690.2836087,
+    "seen": 1792872962.344808,
+    "ast_hash": "1fee6cc64c07bb4f11391cc78e557c62",
     "semantic_hash": ""
   },
   "extensions/tiktok/src/main/java/app/morphe/extension/tiktok/settings/LaunchCrashCleanup.java": {
@@ -3138,9 +3138,9 @@
     "semantic_hash": ""
   },
   "extensions/tiktok/src/main/java/app/morphe/extension/tiktok/update/UpdateSpec.java": {
-    "mtime": 1792849505.2206218,
-    "seen": 1792850285.5216117,
-    "ast_hash": "4dddd1f99e31dc42e18e51e0b8c3fd15",
+    "mtime": 1792872512.7953084,
+    "seen": 1792872962.4835868,
+    "ast_hash": "dcb1b2e6da362ac6f06e710dd6ff8633",
     "semantic_hash": ""
   },
   "extensions/tiktok/src/main/java/app/morphe/extension/tiktok/upload/HdUpload.java": {
@@ -4140,9 +4140,9 @@
     "semantic_hash": ""
   },
   "extensions/tiktok/src/test/java/app/morphe/extension/tiktok/download/SlideshowVideoTest.java": {
-    "mtime": 1792848364.6857035,
-    "seen": 1792850285.654266,
-    "ast_hash": "3e97a2eec132f99f79693a8af5379e08",
+    "mtime": 1792872563.7276547,
+    "seen": 1792872962.698529,
+    "ast_hash": "97d743e0679852bbd0fbd57f2ad16c78",
     "semantic_hash": ""
   },
   "extensions/tiktok/src/test/java/app/morphe/extension/tiktok/download/SoundFormatTest.java": {
@@ -6822,8 +6822,8 @@
     "semantic_hash": ""
   },
   "patches-list.json": {
-    "mtime": 1792860354.5079448,
-    "seen": 1792860451.4004104,
+    "mtime": 1792873149.0083072,
+    "seen": 1792873356.8531158,
     "ast_hash": "b2930cb1b2a8aaa4eef2b2b181815bac",
     "semantic_hash": ""
   },
@@ -6990,9 +6990,9 @@
     "semantic_hash": ""
   },
   "patches/src/main/kotlin/app/morphe/patches/tiktok/interaction/downloads/AdvancedDownloadsPatch.kt": {
-    "mtime": 1792849505.2186213,
-    "seen": 1792850286.05654,
-    "ast_hash": "7f605da3042e8f7c70752d226911f4e6",
+    "mtime": 1792872347.8267972,
+    "seen": 1792872963.1499896,
+    "ast_hash": "ec6759a19119cf782d72f67a2d5f6e35",
     "semantic_hash": ""
   },
   "patches/src/main/kotlin/app/morphe/patches/tiktok/interaction/downloads/DmStickerPreviewHook.kt": {
@@ -10914,9 +10914,9 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1792850055.5694382,
-    "seen": 1792850286.512255,
-    "ast_hash": "40040c8d5ce5afaa1e11ecbe321eacc2",
+    "mtime": 1792872814.2922819,
+    "seen": 1792872963.8137898,
+    "ast_hash": "ed267b5ef26530ac1bed88cd742c7a11",
     "semantic_hash": ""
   },
   "UPSTREAM.md": {
@@ -11568,9 +11568,9 @@
     "semantic_hash": ""
   },
   "PORT_STATUS.md": {
-    "mtime": 1792859222.145023,
-    "seen": 1792859469.721153,
-    "ast_hash": "95cbe00b64405ff2da7d0e6914fe4076",
+    "mtime": 1792872814.2932863,
+    "seen": 1792872963.8137898,
+    "ast_hash": "c106f2c142335c916d6651a861b83c42",
     "semantic_hash": ""
   },
   "extensions/tiktok/src/test/java/app/morphe/extension/tiktok/update/ModUpdateAppearanceTest.java": {
@@ -11667,6 +11667,18 @@
     "mtime": 1792859685.9719403,
     "seen": 1792859956.3862152,
     "ast_hash": "97826b2b25f7d74fecd62e3c733b237a",
+    "semantic_hash": ""
+  },
+  "extensions/tiktok/src/main/java/app/morphe/extension/tiktok/download/PhotoVideoPicker.java": {
+    "mtime": 1792872892.5589757,
+    "seen": 1792872961.897445,
+    "ast_hash": "68eb0679101ecaf15bc5763d3e65f145",
+    "semantic_hash": ""
+  },
+  "extensions/tiktok/src/test/java/app/morphe/extension/tiktok/download/PhotoVideoPickerTest.java": {
+    "mtime": 1792872947.2192416,
+    "seen": 1792872962.682519,
+    "ast_hash": "54d840d47afc8dbd312503990b3df5d0",
     "semantic_hash": ""
   }
 }

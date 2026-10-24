@@ -10,6 +10,8 @@ import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.methodCall
 import app.morphe.util.addInstruction
 import app.morphe.util.addInstructions
+import app.morphe.util.addInstructionsAtControlFlowLabel
+import app.morphe.util.findInstructionIndicesReversedOrThrow
 import app.morphe.util.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.PatchException
@@ -32,6 +34,8 @@ import app.morphe.util.cloneMutable
 import app.morphe.util.implementationOrPatchException
 import app.morphe.util.numberOfParameterRegisters
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.Field
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
@@ -216,6 +220,37 @@ private object StartDownloadFingerprint : Fingerprint(
 private const val STRING = "Ljava/lang/String;"
 private const val SET = "Ljava/util/Set;"
 private const val FUNCTION1 = "Lkotlin/jvm/functions/Function1;"
+private const val PHOTO_PICKER = "Lcom/ss/android/ugc/aweme/photodownload/PhotoModeDownloadFragment;"
+
+private object PhotoPickerBindFingerprint : Fingerprint(
+    definingClass = PHOTO_PICKER, returnType = "V", parameters = emptyList(),
+    strings = listOf("download_photo_selection_keva", "is_default_select_all"),
+)
+private object PhotoPickerLayoutFingerprint : Fingerprint(
+    definingClass = PHOTO_PICKER, name = "onCreateView",
+    parameters = listOf("Landroid/view/LayoutInflater;", "Landroid/view/ViewGroup;", "Landroid/os/Bundle;"),
+    returnType = "Landroid/view/View;",
+)
+private object PhotoPickerDestroyFingerprint : Fingerprint(
+    definingClass = PHOTO_PICKER, name = "onDestroyView", parameters = emptyList(), returnType = "V",
+)
+
+context(context: app.morphe.patcher.patch.BytecodePatchContext)
+private fun hookPhotoVideoCheckbox() {
+    val layout = PhotoPickerLayoutFingerprint.method.implementation!!.instructions
+        .filterIsInstance<NarrowLiteralInstruction>().map { it.narrowLiteral }
+        .first { it ushr 16 == 0x7f0d }
+    context.mutableClassDefBy("${EXTENSION}PhotoVideoPicker;").methods.single { it.name == "nativeLayout" }
+        .addInstructions(0, "const v0, $layout\nreturn v0")
+    PhotoPickerBindFingerprint.method.apply {
+        findInstructionIndicesReversedOrThrow { opcode == Opcode.RETURN_VOID }.forEach { at ->
+            addInstructionsAtControlFlowLabel(at,
+                "invoke-static/range { p0 .. p0 }, ${EXTENSION}PhotoVideoPicker;->install(Ljava/lang/Object;)V")
+        }
+    }
+    PhotoPickerDestroyFingerprint.method.addInstruction(0,
+        "invoke-static/range { p0 .. p0 }, ${EXTENSION}PhotoVideoPicker;->clear(Ljava/lang/Object;)V")
+}
 
 /**
  * TikTok's photo save job: static, void, (its own class, String, String, ?, Aweme, the Set of
@@ -368,6 +403,7 @@ val advancedDownloadsPatch = bytecodePatch(
             """, ExternalLabel("original", getInstruction(0)))
         }
         hookNativeDownloadProgress()
+        hookPhotoVideoCheckbox()
         PhotoVideoConversionFingerprint.method.interceptPhotoVideoConversion()
         ProfileUserResponseFingerprint.method.addInstruction(
             0,

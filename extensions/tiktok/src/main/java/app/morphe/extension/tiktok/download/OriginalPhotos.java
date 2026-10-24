@@ -28,7 +28,6 @@ public final class OriginalPhotos {
     private OriginalPhotos() {}
 
     public static boolean start(Object aweme, Context context) {
-        if (SlideshowVideo.offer(aweme, null)) return true;
         // Handing the link to another app replaces the save, so it comes before all of it.
         if (ExternalDownloader.handOff(aweme, context)) return true;
         // With Ask for the quality on each save on, the choice comes before any of the save, the
@@ -61,9 +60,8 @@ public final class OriginalPhotos {
      * @return true when Hushfeed took the save, so TikTok's own must not run.
      */
     public static boolean startPhotos(Object aweme, Set<?> indices, boolean video) {
+        if (PhotoVideoPicker.saveIfSelected(aweme, indices)) return true;
         if (video && anyChosenIsLive(aweme, indices)) return false;
-        // With Save photo posts as a video on, a post with several photos asks first.
-        if (SlideshowVideo.offer(aweme, indices)) return true;
         return savePhotos(aweme, Utils.getContext(), indices);
     }
 
@@ -86,14 +84,6 @@ public final class OriginalPhotos {
         if (raw instanceof List<?> && anyChosenIsLive(aweme, null)) return false;
         if (asVideo) return SlideshowVideo.start(aweme, null);
         return savePhotos(aweme, Utils.getContext(), null, true);
-    }
-
-    /**
-     * "Save photos" in the photos-or-video question. The question already took the save from
-     * TikTok, so the picked photos go out as originals whatever Download original photos says.
-     */
-    static void savePicked(Object aweme, Set<?> indices) {
-        savePhotos(aweme, Utils.getContext(), indices, false, true);
     }
 
     /**
