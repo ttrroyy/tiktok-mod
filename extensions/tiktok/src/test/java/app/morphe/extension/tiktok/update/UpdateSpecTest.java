@@ -51,4 +51,19 @@ public class UpdateSpecTest {
         }
         UpdateSpec.requireGitHub(new URL("https://release-assets.githubusercontent.com/file?signature=test"));
     }
+
+    @Test public void metadataComesOnlyFromThisRepositoryMainBranch() throws Exception {
+        assertEquals("https://raw.githubusercontent.com/ttrroyy/tiktok-mod/main/update.json", UpdateSpec.MANIFEST_URL);
+        UpdateSpec.requireGitHub(new URL(UpdateSpec.MANIFEST_URL));
+        for (String url : new String[]{
+                "https://raw.githubusercontent.com/other/repo/main/update.json",
+                "https://raw.githubusercontent.com/ttrroyy/tiktok-mod/other/update.json",
+                "https://raw.githubusercontent.com/ttrroyy/tiktok-mod/main/file.apk",
+                UpdateSpec.MANIFEST_URL + "?token=test", UpdateSpec.MANIFEST_URL + "#other"}) {
+            assertThrows(url, Exception.class, () -> UpdateSpec.requireGitHub(new URL(url)));
+        }
+        JSONObject json = release();
+        json.getJSONObject("assets").getJSONObject("arm64-v8a").put("url", UpdateSpec.MANIFEST_URL);
+        assertThrows(Exception.class, () -> new UpdateSpec(json, new String[]{"arm64-v8a"}));
+    }
 }

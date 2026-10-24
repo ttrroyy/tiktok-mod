@@ -1,17 +1,17 @@
 # Graph Report - tiktok-mod  (2026-10-24)
 
 ## Corpus Check
-- 1839 files · ~3,304,025 words
+- 1839 files · ~3,303,919 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 33 file(s) not represented in the graph (top: .tsv 9, .xml 8, (none) 5)
 
 ## Summary
-- 32239 nodes · 122907 edges · 821 communities (500 shown, 321 thin omitted)
+- 32245 nodes · 122917 edges · 870 communities (510 shown, 360 thin omitted)
 - Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 6033 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `1dd39f71`
+- Built from commit: `7ba26eaa`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -24,58 +24,58 @@
 - opcode
 - .applyTo
 - SettingsUi
-- .t
-- android.content.Context
+- FeatureGateLabFragment
+- .showNotice
 - Method
 - LocalProfileCountsCaptureTest
 - .t
 - .listOf
-- CommentToolsPatch.kt
-- .forEachDeclared
+- VideoOverlayHider
+- RootSignalAnchorsTest
 - .listOf
 - .versionOf
 - LiveStatusBar
-- android.util.AtomicFile
+- SettingsBackup
 - .burn
-- .rules
+- .setMasterEnabled
 - CommentBatchTranslator
 - DmTranslationAnchorsTest
-- FollowingLatestFirstTest
+- FollowingLatestFirst
 - .buildExportText
 - SettingsStatus
 - SettingsBackupTest
-- HomeTabSettingsShortcutTest
+- .set
 - .isLocked
 - .printInfo
 - TakoSearchTabTest
-- FeedCapturePreferenceTest
-- VideoAuthor
-- .options
+- FeedCapture
+- ShareBlockAuthor
+- PlaybackQuality
 - addInstructionsAtControlFlowLabel
 - .apks
 - TikTokPatchAnchorsMatchFixturesTest.kt
 - .resetAllLabData
-- SimPresetPreference
+- InputTextPreference
 - LiveStatusBarTest
 - AccentColorPatch.kt
 - Commands
-- .printDebug
+- SpoofSimPatch
 - SwitchedReturnFixturesTest.kt
 - guardAtEntry
 - FeatureGateLabRuntime
 - FeedMuteTest
 - CreatorExceptionsTest
 - AutomaticClearDisplayTest
-- RegionSpoofTest
+- RegionSpoof
 - Entry
 - SettingsL10nTest
 - test-script-contracts.ps1
 - GridSortTest
-- ClearSeenVideoHistoryPreference
+- Item
 - BudgetWaitSettingsTest
 - .emptyList
 - Surface
-- .string
+- Comment
 - FeedItemList
 - PausePlayback
 - PictureInPicture
@@ -87,22 +87,22 @@
 - LivePanelTheme
 - FeatureGateLabActionsTest
 - StickerGallerySaver
-- .publishForResult
+- .printException
 - AppLanguage
 - .invoke
 - .execute
 - .filterBanners
 - CaptchaGateTest
 - GridPickerTest
-- android.view.ViewGroup
+- BlockAuthorOverlay
 - SeenVideoHistoryTest
-- android.graphics.drawable.Drawable
+- Override
 - AdvancedDownloadsTest
 - LoadedInboxQuery
-- CommentExport
+- OwnedShareActionHooks.kt
 - Bundle
-- CustomLauncherIconPatch.kt
-- CaptionBurner.java
+- CustomLauncherIconTest
+- .convert
 - feedfilter/Fingerprints.kt
 - .quantity
 - SlideshowVideoTest
@@ -113,14 +113,14 @@
 - Host
 - LivePanelThemeTest
 - BytecodeUtils.kt
-- android.graphics.Rect
+- SeeThroughBottomBarTest
 - VideoFit
 - PrivacySwitchesTest
 - StartPageTest
 - HostSocket
 - StickerGallerySaverTest
 - SeenVideoHistory
-- BuildDetails
+- AccentColorPatch.kt
 - ImportedFontTest
 - org.robolectric.annotation.Implementation
 - test-release-publication.ps1
@@ -138,15 +138,15 @@
 - EdgeDragProbe
 - run-audit.ps1
 - .queuedJobs
-- .queue
+- OriginalPhotosRetryTest
 - Changelog
-- MediaCache
-- .saveAll
-- AuthorRegionTest
-- android.app.Dialog
-- Aweme
-- java.net.InetAddress
 - LiveFeedFilterTest
+- CalmFeedPreset
+- AuthorRegionTest
+- android.app.Activity
+- Aweme
+- SettingsManagerObservationRecorder
+- KeywordRules
 - SearchLynxCardsTest
 - .clear
 - .fetch
@@ -161,25 +161,25 @@
 - .fail
 - .fail
 - H264PlaybackTest
-- NumberInputPreference
+- .t
 - DevIndexTest
 - AutoStreak
 - Assert-DeviceLease
 - TranslatedCommentFilterTest
-- .isOn
+- FeatureControls
 - DmTranslationPreviewTest
 - ContentAndSoundFilterTest
-- android.content.res.ColorStateList
+- LiveThemeAwareDialogFragment
 - LocationBadgeFilterTest
 - NetworkProxyTest
 - SessionNativeFocusTest
 - RestorationRetry
-- RegistrationPackageAnchorsTest
+- TapThroughControlsTest
 - .recordBatch
-- android.view.View
+- CommentTools
 - AutoStreakTest
 - ShareSaveCoverTest
-- NetworkProxy
+- AdvancedFeedRules
 - LocalProfileCountsTest
 - UnpersonalizedForYouFilterTest
 - AppLock
@@ -207,7 +207,7 @@
 - DownloadFilenameFormatter
 - DoubleTapCommentsTest
 - android.graphics.Bitmap
-- .resetForTests
+- ShareSheetToolsTest
 - LiveStreamSourcesTest
 - StoryOverLiveTest
 - FollowVerdictTest
@@ -215,7 +215,7 @@
 - ClassLoader
 - OverlayControlsTest
 - CommenterDetailsTest
-- AdvancedFeedRules
+- Item
 - HapticsTest
 - Icon
 - FeedOverlaySettingsTest
@@ -236,11 +236,11 @@
 - .filterSearchAds
 - RuntimeViewIdAnchorsTest
 - InboxNativeRequests
-- DoNotAutoTranslateTest
+- TranslateIntoTest
 - SettingsPagesTest
 - MediaCacheRecoveryTest
-- Setting
-- SwitchListPreference
+- android.content.Context
+- android.os.Parcelable
 - FoldableSplitViewTest
 - ScreenLayoutTest
 - WebFontTest
@@ -252,7 +252,7 @@
 - L10nTranslationsPt_rBR
 - L10nTranslationsTr
 - L10nTranslationsZh_Hans
-- MediaStopPropagationTest
+- SearchLynxEvidence
 - CurrentVideoAuthorTest
 - CatalogDependencyTest
 - CaptionCommentsTest
@@ -265,23 +265,23 @@
 - UrlModel
 - FlvSink
 - SubtitleDownloadsTest
-- Override
+- MediaTransportSecurityTest
 - AdvancedDownloadsPatch.kt
 - SessionPlaybackHold
 - InboxLayoutLifecycleTest
-- .set
-- GridPicker
+- .bound
+- FilteredCountPillTest
 - Mp4TagsTest
-- .startAgain
+- Binding
 - SeekbarTimeTest
-- SeenHistoryFilePreference
+- BarShade
 - .changingTheSessionLimitFromItsSettingsRowResetsTheRetainedFeedSession
 - FeatureGateLabStore
 - android.text.TextWatcher
-- MediaCachePendingSweepTest
+- AppLanguageTest
 - GestureActions
 - CommentPublishDiagnosticsTest
-- BlockFeedAdvanceTest
+- LookupScan
 - Rows
 - LiveRecorder
 - EdgeSwipeLevelsTest
@@ -307,11 +307,10 @@
 - .initialize
 - LinkedVideoTest
 - .listeners
-- CustomLauncherIconPatch.kt
+- SettingsStatusPreference
 - Audio
 - KeepPausedTest
 - DiagnosticRedactor
-- RootSignalsTest
 - CreatorListPreference
 - CountRangeFilterTest
 - .logParsedResponse
@@ -330,22 +329,21 @@
 - BudgetFocusProbe
 - Session
 - LiveRoomStreamTest
-- NotInterestedQueueTest
 - MusicDiscSpinAnchorsTest
 - FeedFilterCountersTest
 - ShareSheetTools
 - Call
 - NativeCoordinateLongPressTest
-- ShareAppPickerPreference
+- ShareTargets
 - NativeAlignmentTest
 - SearchLynxEvidence
 - StoreIdentityTest
-- PrivacySwitchesTest
+- android.content.Intent
 - AccountListSession
 - OpusTranscoder
 - ProfileAvatarGestureTest
 - .logCommonFollowRequest
-- FinishLastVideoTest
+- CreatorPatternTest
 - navigation/Fingerprints.kt
 - StorageScan
 - ShareButtonTapTest
@@ -359,20 +357,20 @@
 - .video
 - .execute
 - .showNotice
-- ContextWrapper
+- Result
 - PhotoToJpegTest
-- Reason
+- OpenAction
 - LiveRecordChip
 - CommentReplySearchTest
-- ExternalBrowserPatch
+- GlassVideoBlurTest
 - InboxModelFilterTest
 - ProblemReport
-- java.net.URI
+- ShareModelFilterTest
 - CommentPageSceneRegisterTest
 - ModUpdater
 - DebugCaptureTest
-- Watcher
-- Availability
+- BatchSaveTest
+- EnumSetting
 - RepostDiagnosticsTest
 - FrameSaverTest
 - LinkTaskGuardTest
@@ -397,15 +395,15 @@
 - InboxRowShapesTest
 - StorageReport
 - WebPFrame
-- .visit
-- MediaRouteContractTest
+- .`each declared build has one offline lifetime, the fingerprint takes it and the guard fits it`
+- java.net.URL
 - CommentBoxButtonsTest
 - SoundSeekbar.kt
 - .parse
-- SaveRecordsLegacyFileTest
+- .actions
 - .sawList
 - CommentControlOwnershipTest
-- MusicDiscSpin.kt
+- .recover
 - .setLiveSpeed
 - InboxQuerySnapshot
 - RailHoldHookTest
@@ -420,17 +418,17 @@
 - SimPresetRowTest
 - FeedTextContracts.kt
 - ForYouLongPressTest
-- DownloadPathPreference
+- RangeValuePreference
 - FocusFixtureService
 - CustomDialog
 - Override
 - PatchListGenerator.kt
 - ResourceTableCheck
 - .write
-- .place
+- android.graphics.Rect
 - CommentSearchSettingsTest
 - .bioLinkColor
-- TrustUserCertificatesTest.kt
+- PopupSwitchesTest
 - ChatDeclutterAnchorsTest
 - RestReminderTest
 - SleepTimerTest
@@ -438,7 +436,7 @@
 - android.net.Uri
 - CommenterDetails
 - SoundFormatTest
-- .reconcile
+- SettingsSearchQueryTest
 - gen-l10n.py
 - InboxFilter
 - NavigationTabsFilter
@@ -452,102 +450,104 @@
 - TranslationXmlTest
 - gen-release-notes.py
 - Override
-- QuickSetupsPreference
-- android.app.Activity
+- GlassVideoBlur
+- android.widget.TextView
 - BatchSaveTest
-- FeedTextSizeTest
+- GlobalLayoutHook
 - InboxQueryPublicationHooks.kt
-- PrivacyPreferenceCategory
-- ActionRowChevronTest
+- .isAvailable
+- ShareActionChecklistPreference
 - EditorDraftRecreationTest
 - CommentTranslateButtonTest
 - PictureInPictureAnchorsTest
 - ImportedFont
-- .showToast
+- MusicDiscSpinTest
 - test-apk-signing.ps1
 - phone.sh
 - NativeMediaProbeContract
 - Files
 - .string
-- WindDownScreens
+- SeeThroughStatusBarTest
 - NumberInputPreferenceTest
 - GateCallers
-- CurrentVideoSoundTest
-- SeekbarTime
+- LocalProfileCountHooks.kt
+- .restyle
 - PhotoSlideFitTest
 - .cardLabels
 - CommentBlockAccountsTest
-- BurnInGuard
+- ProfileMenuCellsTest
 - VideoMusicLineTest
 - DmTranslationCaptureTest
-- RegionSpoofPatch.kt
+- .apply
 - MiniDramaFilterTest
 - .single
 - NetworkProxyAnchorsTest
 - patches/build.gradle.kts
-- .save
+- ShortLinkExpanderTest
 - RegionFilterTest
 - .parse
 - .hideSearchAnswerCard
 - FeedButtonsTest
-- ReleaseNotesTest
+- ReleaseNotes
 - CaptionLanguageFilter
-- SettingsSearchSummaryTest
+- RegionSpoofTest
 - LiveQualityListColors
 - BottomTabLabelsTest
-- .clearLogBuffer
+- SettingsPreferenceOwnershipTest
+- .text
 - CaptchaMemberContractsTest
 - FakePreview
 - Override
-- AiProfilingTest
-- VideoAutoTranslate.kt
-- DeviceIdentityPreference
+- SuggestedVideoPushBlockTest
+- StoreInstallSourceTest
+- .createHeader
 - CommentBoxButtons.kt
 - Video
 - verify-native-alignment.py
 - generate_hero.py
-- Kind
+- Failure
 - android.graphics.Typeface
 - Override
-- .publicClient
-- TabModelListAnchorTest
+- MutedDashSaveTest
+- IVideoCommentAbility
 - ConfirmInteractionsPatch.kt
 - SeekbarHandleTest
 - .run
 - Stat
 - ReflectMissingMemberTest
-- PasskeySignInTest
+- H264Playback
 - DownloadDestination
 - .of
 - SeekbarFullWidth
-- .trim
+- NativeAccountRows
 - DisableTelemetryPatchTest
-- UnfinishedSavesTest
+- BurnInGuardTest
 - Button
-- PerformanceSwitchesTest
+- .isOn
 - FeedScreenCoverageTest
 - LiveRoomHashTest
 - TikTok runtime observation, October 9, 2026
 - PreferenceDestroyRaceTest
-- previewCheckOf
+- SeekbarPreview.kt
 - CommentTranslateButtonAnchorsTest
 - SeekbarGatesTest
 - Hushfeed
 - Override
+- .reason
+- .onCreateView
 - LiveButtonReport
 - CaptionCommentsAnchorsTest.kt
 - .read
 - Port
-- .lines
-- .clear
+- ReportSection
+- GhostModeDiagnosticsTest
 - TabKeys
 - CustomOfflineVideosLimitPatch
-- PulledSoundsTest
+- Override
 - ModSettingsLayoutTest
 - NativeFocusBridgeTest
 - Fixture
 - Player
-- NativeDmTranslationTest
 - Audio
 - Override
 - AlwaysShowPublishDatePatch
@@ -564,7 +564,7 @@
 - AndroidTargetChangesGuardTest
 - BlockAuthorServiceAccountTest
 - Event
-- DiagnosticCategory
+- ResourceIds
 - CardFilters
 - .declaredVersions
 - CacheDeliveryHookTest
@@ -573,12 +573,12 @@
 - android.database.sqlite.SQLiteDatabase
 - ArtifactContracts
 - .repeat
-- SaveNoticeTest
-- FeedDescriptionSizeTest
-- FeatureGateCompactLayoutTest
-- LynxTextAccent.kt
+- CompactCommentHeaderTest
+- CreatorExceptions
+- AutoAdvancePatch.kt
+- Measuring TikTok network and power use
 - .injected
-- .`the name, reply label and time hooks resolve on each declared build`
+- Cancellation
 - .verifyFeatureGateLanguage
 - ProfileTopBarTest
 - .`a slot asking both checks as it's built, or a trigger in high registers or reusing p0, leaves the screens out`
@@ -588,36 +588,35 @@
 - VendorSlice
 - .record
 - LoggerDiagnosticPrivacyTest
-- RestartGatedRowsTest
+- OnAttachStateChangeListener
 - ShareTargetsTest
 - .`search reads its auto scroll flag once in the gate and once in the service`
-- ReplayNumber
+- RuntimePatchListTest
 - HdUploadTest
 - Override
-- Post
+- .rewriteShareUrl
 - Owner
-- NarrowedResult
+- .theFeedCellIsHandedAFittedCopyAndOtherwiseItsOwnResult
 - Mode
 - progressClearRegistersAt
 - FoldableSplitViewConfigurationTest
 - ExtensionBridgeLookupTest
 - RenderFirstFrameAnchorTest
-- AuditedLabSurfacesTest
-- VideoDiggAssemAbility
-- .declared
-- Override
-- isCustomOfflineOptionConstructor
-- ShowProgressBarPredicateAnchorsTest
+- GroupChatBannerTest
+- BottomTabLabelsAnchorsTest
+- VideoFitTest
+- LaunchCrashKeepListTest
+- GlassPill
 - BuildDetails
 - App and patch development map
-- .thePostDateFollowsTheAuthorSizeAndKeepsItsTextSpansAndVisibility
-- CheckedInstructions.kt
-- Report
+- CaptionsAvailableTest
+- Reason
+- .refit
 - .get
-- ChangeAppNamePatch.kt
+- OverlayGlyphDrawable
 - GridVideoLengthTest
 - ScreenRecordManifestTest.kt
-- BackgroundPlayPatch.kt
+- FirstLaunchSetupTest
 - DownloadNameHookTest
 - SharePanelHooksTest
 - .dexContainer
@@ -626,7 +625,8 @@
 - Bucket
 - CaptionCommentsHookTest
 - NotInterestedTest
-- Problem
+- DownloadFolderPickerTest
+- CopyLabel
 - SearchAutoplayTest
 - .fieldShapeAndUnreadableResponsesAreUnconfirmed
 - DmTranslationAccountEvents
@@ -634,18 +634,19 @@
 - .assertNativeGesture
 - AddonContractTest
 - GridSort.kt
-- .`each declared build builds every call's request before the chain the report counts at`
+- FavoritesTabTest
 - Application.ActivityLifecycleCallbacks
 - HookBindings
-- .interceptSensorRegistration
+- UpdateSpecTest
 - .`each declared build keeps the response names the repost diagnostics read`
 - .`the bar's progress and style methods resolve from the show-type setter`
+- AuditedSurfacesTest
 - CopyIds
-- VoiceCommentsTest
+- .`a state constructor that loads the icon itself gets the gear there`
 - .`the story pager reads one play mode enum and has one play completed callback`
 - .method
 - BlockPopupsAnchorsTest
-- .coldStartTag
+- .requiredMethod
 - QuickShareGate.kt
 - OptimizerMethodContractsTest.kt
 - StallingMediaProvider
@@ -654,43 +655,44 @@
 - SettingsReturn
 - Tile
 - SettingsBackupUndoGenerationTest
-- decode
+- Keeper
 - PhotoSlideFit.kt
 - .`native list mode joins primary then extra stubs and applies loading predicates to state`
 - .single
 - UPSTREAM.md
-- AbstractList
+- InboxQuerySnapshotContract
 - LiveRecordSourceTest
 - .callback
 - EditorAccessibilityTest
 - .recover
 - CaptionActivity
-- .onViewDetachedFromWindow
-- FriendsMutuals.java
+- ProfileTabWatchHistory
+- Override
 - VideoAutoTranslate
-- GhostModeDiagnosticsTest
-- DoNotAutoTranslate.kt
+- LabelBackground
+- TabSelectionAccessibilityTest
 - .`the click wrapper and the Function2 lambda are the ones the old name check found`
-- RecordingMediaProvider
+- speed/Fingerprints.kt
 - FaultyMoves
 - 0.11.0 (2026-09-05)
 - StoryOverLive.kt
-- native_media.py
+- verify-abi-apks.py
 - InboxWidgetFingerprints.kt
-- Override
+- ReviewedProfilesMatchFixturesTest
 - ObfuscatedIdentityTest
 - InboxRowSummariesTest
-- .`each front flash is one method whose one brightness store goes to the switch`
-- FeatureGateLabFramesTest
+- StorageProbe
+- NativeAccountRows.java
 - GateCatalogGenerator.kt
-- .getApplicationInfo
+- Binding
 - 0.41.0 (2026-09-18)
 - Override
 - RefreshRate
+- SystemEmojiTest
 - .`progress captures its controller and aid without overwriting wide parameters`
-- PauseSettingsScreenTest
+- PauseAnswersUnpatchedTest
 - .textOfNotice
-- .`the self-package wrapper fingerprint skips the extension's own stand-in`
+- .fitWidthFor
 - FeedOverlayControlsPatchTest
 - Role
 - .convert
@@ -700,83 +702,109 @@
 - .aFailedOverlayActionReportsFailureInsteadOfSuccess
 - StreakRecipientsTest
 - .`search text follows the typed native notice paths and structured text config fields`
-- [0.1.2](https://github.com/icysymmetra/tiktok-patches-for-morphe/compare/v0.1.1...v0.1.2) (2026-05-29)
+- .eventBox
 - Test-AuditResults
 - test-injected-registers.ps1
 - Result
 - DiagnosticRedactor
 - ScreenCapture
-- [0.1.4](https://github.com/icysymmetra/tiktok-patches-for-morphe/compare/v0.1.3...v0.1.4) (2026-05-30)
+- FakeHost
 - GifEncoderTest
-- 0.43.0 (2026-09-18)
+- .openConnection
 - ChatDeclutter.kt
 - FakeHttpsConnection
 - StickerSaveButtonPressTest
-- ConstantReturnSourceTest
+- Result
 - WebResourceRequest
-- 0.43.1 (2026-09-18)
+- settings/Fingerprints.kt
 - Post
 - LimitTextFollowsConstantsTest
-- 0.45.2 (2026-09-19)
+- rawAdvertisingIdReads
 - AppAbShapeTest
-- 0.75.0 (2026-10-16)
+- LiveGiftWidgetAnchorsTest
 - FloatSetting
 - .`every haptic call TikTok makes is one the patch rewrites on each build`
 - .`each declared build has one Auto adjust boot step, one rollback and one default-on clean-up and the guards fit them`
 - ShareRecipientHooksTest
-- 0.78.0 (2026-10-22)
+- State
 - FeedTranslationsAnchorsTest
 - test-resource-table-check.ps1
 - TranslatedNotesGateTest
-- [0.7.0-dev.6](https://github.com/icysymmetra/tiktok-patches-for-morphe/compare/v0.7.0-dev.5...v0.7.0-dev.6) (2026-08-20)
+- .leave
 - AvatarRings
-- [0.7.0-dev.8](https://github.com/icysymmetra/tiktok-patches-for-morphe/compare/v0.7.0-dev.7...v0.7.0-dev.8) (2026-08-22)
+- LiveRecordChipTest
 - cleardisplay/Fingerprints.kt
+- .`each declared build has one step decision that reads the step's id`
 - GridPickHook.kt
-- CommentSortControls
+- PhotoSlideFitAnchorsTest
+- CheckedInstructionsTest
+- Guard
 - SuggestedAccountCellsTest
+- .settle
 - ExtensionHostsTest
 - OriginNoticeMirrorsTest
+- Application.ActivityLifecycleCallbacks
 - CaptionSearchPanelAnchorsTest
 - SmartSearchCaptionAnchorsTest
+- .locale
 - .read
 - .binder
 - Test-CosignBlobSignature
+- .`every TikTok member the extension names exists on every fixture`
+- TapThroughControls
 - Reader
 - Sort
 - TabSelectionDialogFitTest
 - BundleVerifier.kt
+- Comment
+- GetterVideo
 - SerializedNativeRuntimeLoader
 - SourceNoticeTest
 - feedmute/Fingerprints.kt
+- UndoRowTest
 - quickactions/Fingerprints.kt
 - RenderFirstFrameAnchorTest.kt
+- .onViewCreated
 - SettingsHeadingFitTest
+- .setIcon
+- ImageVideoFilter
 - ShareButtonTapHooks.kt
-- CaptionComments.kt
-- ReceivedDmTranslationHooksTest
+- .onStartCommand
+- LiveQualityGlyphDrawable
 - .rowModelsAreReadThroughTheirOnlyNoticeFieldWhateverR8NamesThem
+- SeenVideoRowsTest
+- FakeNativeZone
+- .`all reviewed native request entries guard before effects and retain every original instruction`
 - TranslationLangKevaServiceImpl
 - captionSearchPanelGate
 - PlayerLayerPatch.kt
-- AlwaysShowPublishDatePatchTest
 - searchfeatures/Fingerprints.kt
 - externalbrowser/Fingerprints.kt
+- EnglishSummariesGateTest
+- RecentReleasesTest
+- .subscribe
 - SmartImageView
 - [0.2.0](https://github.com/icysymmetra/tiktok-patches-for-morphe/compare/v0.1.5...v0.2.0) (2026-06-06)
 - [0.3.0](https://github.com/icysymmetra/tiktok-patches-for-morphe/compare/v0.2.0...v0.3.0) (2026-06-17)
 - 0.50.0 (2026-09-20)
 - 0.76.0 (2026-10-18)
 - seekbar/Fingerprints.kt
-- CountingZone
+- BuildDetailsPreference
+- TestActivity
+- android.text.TextWatcher
 - SavedStickers
 - [0.7.0-dev.7](https://github.com/icysymmetra/tiktok-patches-for-morphe/compare/v0.7.0-dev.6...v0.7.0-dev.7) (2026-08-20)
 - MediaCacheDurableJournalTest
+- .`the story hold's monitor and cell params keep TikTok's own names on every declared build`
+- .methodsOf
 - PluggableExtentionKt
+- .`the profile background gate resolves to one class and one method on each build`
 - GuavaPatchSourceGuardTest.kt
 - [0.7.0](https://github.com/icysymmetra/tiktok-patches-for-morphe/compare/v0.6.1...v0.7.0) (2026-08-23)
+- SourceNoticeTest.kt
 - FirstLaunchSkipListTest.kt
 - GifReader
+- Kind
 - Api24NegativeControl
 - 0.10.0 (2026-09-05)
 - 0.13.0 (2026-09-05)
@@ -787,23 +815,38 @@
 - looping/Fingerprints.kt
 - 0.8.0 (2026-09-05)
 - 0.9.0 (2026-09-05)
+- ViewCountFilter
 - GeneratedFeatureGateCatalog
 - GeneratedGateCatalogBuilds
 - GeneratedPlayerFeatureGateCatalog
 - GeneratedSettingsManagerCatalog
 - GeneratedSettingsManagerSites
 - GeneratedVeFeatureGateCatalog
-- .clipboardFailureIsReportedWithoutCrashing
+- .write
 - LicenseNotice
 - SearchRewardsGettersTest
-- LiveRecordQuality
+- Mode
+- PreferenceCommitFailure
 - publishdate/Fingerprints.kt
+- Override
+- .`an existing Open Debug row is removed before it is inserted at index zero`
 - share/Fingerprints.kt
 - sim/Fingerprints.kt
+- DoubleTapRoutesTest.kt
+- StoryFilter
+- NotificationControls
+- Extra
 - .theIdStandsInWhenCreateTimeIsZeroOrMissing
-- SecurePopupProbe
+- State
+- ReleaseNotesGeneratorTest
+- L10nTranslations
+- TestActivity
+- TestActivity
+- TestActivity
 - ProfileLongPressPanel.kt
-- FeatureGateLabImportResultTest
+- fixgoogle/Fingerprints.kt
+- .nativeTimerUsesItsViewAndKeepsTheOriginalPausePathWhenUnhandled
+- .nativeEligibilityUsesTheDownXAndPreservesEveryOriginalBranchWhenAllowed
 - CommentTypingStickerSuggestionGateTest
 - SoundSeekbarBridgesTest.kt
 - ReceivedDmTranslationIconTest.kt
@@ -837,175 +880,167 @@
 ## Import Cycles
 - None detected.
 
-## Communities (821 total, 321 thin omitted)
+## Communities (870 total, 360 thin omitted)
 
 ### Community 0 - "org.robolectric.annotation.Config"
 Cohesion: 0.03
-Nodes (67): BaseSettings, LogBufferManager, Utils, ProfileGridCount, BuildNamesTest, EarlyApplication, PausedProcess, LogExportFilterPreferenceTest (+59 more)
+Nodes (74): BuildNames, Utils, BlockAuthorPatch, ProfileGridCount, CommentsPreferenceCategory, ExtensionPreferenceCategory, EarlyApplication, PausedProcess (+66 more)
 
 ### Community 1 - "list"
 Cohesion: 0.02
-Nodes (26): HookStatus, Logger, ResourceIdCache, EarlySwitch, BlockAuthorMessages, CurrentVideoAuthor, Consumer, FeedVisibility (+18 more)
+Nodes (26): HookStatus, Logger, ResourceIdCache, ApplicationSource, EarlySwitch, MatchFilter, BlockAuthorMessages, BlockGlyphDrawable (+18 more)
 
 ### Community 2 - "file"
 Cohesion: 0.02
-Nodes (7): BuildNames, BackgroundPoolSaturation, BuildDetailsFixture, MediaCacheJournalProcess, ProfileAvatarSizeTest, StorageReportTest, UnsignedPatcherFixture
+Nodes (9): LinkResolver, FeedRuleLimits, BottomNavigationTabOptions, L10n, BackgroundPoolSaturation, MediaCacheJournalProcess, Egl, ProfileUser (+1 more)
 
 ### Community 3 - "patchexception"
 Cohesion: 0.01
-Nodes (248): AppCompatibilities, ExtensionHook, sharedExtensionPatch(), RiskControlServiceExecuteFingerprint, BdTuringCaptchaPopupFingerprint, CaptchaPopupFingerprint, LegacyCaptchaPopupFingerprint, LiveHostCaptchaPopupFingerprint (+240 more)
+Nodes (252): AppCompatibilities, ExtensionHook, sharedExtensionPatch(), RiskControlServiceExecuteFingerprint, filterChainedCacheDelivery(), filterNormalizedCacheDelivery(), filterPlayLagCacheInsertion(), filterProfileAdResponseReads() (+244 more)
 
 ### Community 4 - "org.junit.Test"
 Cohesion: 0.01
-Nodes (31): CommentSheetHeight, CommentSurvey, LengthLimits, SystemEmoji, ProfileLongPressPanel, ResumeVideoAfterScrollPatch, CameraBrightness, DuetStitch (+23 more)
+Nodes (34): CommentSheetHeight, CommentSurvey, LengthLimits, ProfileLongPressPanel, ResumeVideoAfterScrollPatch, DuetStitch, ReleaseNotesData, DoNotAutoTranslate (+26 more)
 
 ### Community 5 - "opcode"
 Cohesion: 0.04
-Nodes (16): isCoverAnimationHold(), PollShowsResultsFingerprint, C2paServiceInitFingerprint, SpeechEngineGetInstanceFingerprint, returnEarlyWhen(), LaunchCrashKeepListFingerprint, getReference(), addInstructionsWithLabels() (+8 more)
+Nodes (10): isPollShowsResults(), PollShowsResultsFingerprint, SpeechEngineGetInstanceFingerprint, getReference(), BridgeTypeFlow, takes(), Fixtures, DiscChain (+2 more)
 
 ### Community 6 - ".applyTo"
-Cohesion: 0.02
-Nodes (13): SeeThroughStatusBar, TapThroughControls, TraversalScratch, VideoOverlayHider, BurnInGuardTest, Scene, SeeThroughBottomBarTest, StackedPager (+5 more)
+Cohesion: 0.09
+Nodes (3): ClearEvent, VideoOverlayHiderTest, LinearLayout
 
 ### Community 7 - "SettingsUi"
-Cohesion: 0.02
-Nodes (17): DetailChange, FeatureGateDetailFragment, View.AccessibilityDelegate, AdapterView.OnItemSelectedListener, android.text.TextWatcher, FieldSnapshot, ObjectFieldEditor, ValueAdapter (+9 more)
+Cohesion: 0.03
+Nodes (9): AccountManagement, ScrollView, FeatureGateRecorderPreference, RowPaint, SettingsUi, View.AccessibilityDelegate, View.AccessibilityDelegate, Builder (+1 more)
 
-### Community 8 - ".t"
+### Community 8 - "FeatureGateLabFragment"
 Cohesion: 0.02
-Nodes (28): SaveNotice, FeatureGateLabFragment, FeatureGateCatalog.Callback, android.widget.ArrayAdapter<String>, GateAdapter, LabChange, NoticePresenter, Refused (+20 more)
+Nodes (24): DetailChange, FeatureGateDetailFragment, View.AccessibilityDelegate, AdapterView.OnItemSelectedListener, android.text.TextWatcher, FieldSnapshot, ObjectFieldEditor, ValueAdapter (+16 more)
 
-### Community 9 - "android.content.Context"
-Cohesion: 0.01
-Nodes (43): ClearLogBufferPreference, ImmediateAction, AccountManagement, QualityChoice, FeatureGateLabText, ValueSource, CURRENT, DEFAULT (+35 more)
+### Community 9 - ".showNotice"
+Cohesion: 0.06
+Nodes (7): ForgetSavedVideosPreference, ImportedFontPreference, NotSaved, Restarter, RestartPendingPreference, SettingsActionBanner, SettingsActionBannerTest
 
 ### Community 10 - "Method"
 Cohesion: 0.02
-Nodes (98): Method, ClearDisplayControllerMembers, clearDisplayPanelBridge(), hookClearDisplayCompletion(), resolveClearDisplayController(), addDmStickerPreviewHook(), DmStickerPreviewAnchor, hookDmStickerPreview() (+90 more)
+Nodes (114): Method, CaptureSite, ClearDisplayControllerMembers, clearDisplayPanelBridge(), hookClearDisplayCompletion(), resolveClearDisplayController(), addDmStickerPreviewHook(), DmStickerPreviewAnchor (+106 more)
 
 ### Community 12 - ".t"
-Cohesion: 0.03
-Nodes (25): Kind, CAPTION, MASTER, SECTION, SettingsHeaderPreference, Hub, ABOUT, SearchResult (+17 more)
+Cohesion: 0.02
+Nodes (29): LicensesPreference, Kind, CAPTION, MASTER, SECTION, QueryListener, SettingsSearchInputPreference, Hub (+21 more)
 
 ### Community 13 - ".listOf"
 Cohesion: 0.02
-Nodes (26): requireStoryBindMethods(), isSuggestionListCell(), publishedStateConstructor(), InsertionPayloadKeyTest, TakoSugCardHookTest, ClearDisplayCompletionTest, DownloadDestinationHookTest, StoryBindContractTest (+18 more)
+Nodes (27): requireStoryBindMethods(), isCustomOfflineOptionConstructor(), isSuggestionListCell(), publishedStateConstructor(), InsertionPayloadKeyTest, ClearDisplayCompletionTest, DownloadDestinationHookTest, StoryBindContractTest (+19 more)
 
-### Community 14 - "CommentToolsPatch.kt"
-Cohesion: 0.04
-Nodes (58): CommentSortOptionStyleFingerprint, resolveCommentSortEligibility(), asksComment(), body(), captureDislikeTouchListener(), CommentLikeAndHateBindFingerprint, CommentMoreCellBindFingerprint, CommentSearchHeaderFactoryFingerprint (+50 more)
-
-### Community 15 - ".forEachDeclared"
-Cohesion: 0.04
-Nodes (17): RootSignalFingerprint, Found, ProfileLongPressPanelAnchorsTest, LiveQualityPickAnchorsTest, Build, StorySeekbarAnchorsTest, Found, OwnedShareActionAnchorsTest (+9 more)
+### Community 15 - "RootSignalAnchorsTest"
+Cohesion: 0.08
+Nodes (8): RootSignalFingerprint, Build, StorySeekbarAnchorsTest, CameraBrightnessAnchorsTest, FeatureGateLabFramesTest, Found, RootSignalAnchorsTest, Target
 
 ### Community 16 - ".listOf"
 Cohesion: 0.02
-Nodes (149): isModelSetItems(), isTopViewPreloadHandoff(), antiRecordingFingerprint(), validateBlockPager(), isFavoriteRootVisibilityCall(), isSidebarSwipeQuestion(), doubleTapRoute(), answerRailHitTests() (+141 more)
+Nodes (148): isModelSetItems(), isTopViewPreloadHandoff(), isStaticAwemeCheck(), photoModeCall(), validateBlockPager(), resolveStoryLongPressTimer(), addShareActionToSnapshot(), addStorySaveToSnapshot() (+140 more)
 
 ### Community 17 - ".versionOf"
 Cohesion: 0.02
-Nodes (23): ShowAuthorRegionFixturesTest, BackgroundPlayAnchorsTest, FinishLastVideoAnchorsTest, GridPickHookFixturesTest, PhotoSaveJobFixturesTest, AutoScrollRailAnchorsTest, PublishDateAnchorsTest, AwemeRiskModelAnchorsTest (+15 more)
+Nodes (38): isFootnoteBannerGate(), Item, Scan, VeEntry, ShowAuthorRegionFixturesTest, BackgroundPlayAnchorsTest, FinishLastVideoAnchorsTest, GridPickHookFixturesTest (+30 more)
 
 ### Community 18 - "LiveStatusBar"
-Cohesion: 0.06
-Nodes (7): BarShade, Detail, LiveStatusBar, Application.ActivityLifecycleCallbacks, Offset, Room, ShadeSearches
+Cohesion: 0.13
+Nodes (3): LiveStatusBar, Offset, Room
 
-### Community 19 - "android.util.AtomicFile"
-Cohesion: 0.11
-Nodes (12): Limits, SettingsJson, State, JournalDelete, JournalEntry, Recovery, ALREADY_COMMITTED, FAILED (+4 more)
+### Community 19 - "SettingsBackup"
+Cohesion: 0.03
+Nodes (37): Limits, SettingsJson, State, Failure, RECOVERY_REQUIRED, REJECTED_INPUT, ROLLED_BACK, ProxyHold (+29 more)
 
 ### Community 20 - ".burn"
-Cohesion: 0.03
-Nodes (12): AnimatedWebpMp4Converter, CodecSurface, EncoderState, Burn, CaptionBurner, DecodedFrames, Measure, OpusTranscoder (+4 more)
+Cohesion: 0.04
+Nodes (12): EncoderState, Burn, CaptionBurner, DecodedFrames, Measure, OpusTranscoder, Progress, SlideshowEncoder (+4 more)
 
-### Community 21 - ".rules"
-Cohesion: 0.09
-Nodes (6): FeatureGateLabUndo, UndoBaseline, FeatureGateCommentAndPublishPresetsTest, Sample, FeatureGateLabRuleLimitTest, FeatureGateRegionPresetsTest
+### Community 21 - ".setMasterEnabled"
+Cohesion: 0.06
+Nodes (11): FeatureGateLabReport, FeatureGateLabUndo, UndoBaseline, FeatureGateCommentAndPublishPresetsTest, Sample, FeatureGateLabBuildChangeTest, ContextWrapper, FeatureGateLabReportProbe (+3 more)
 
 ### Community 22 - "CommentBatchTranslator"
 Cohesion: 0.07
 Nodes (10): AnchorHistory, AnchorParts, AnchorShape, Batch, CommentBatchTranslator, LoadedBatch, PendingRequest, ResolvedMethod (+2 more)
 
 ### Community 23 - "DmTranslationAnchorsTest"
-Cohesion: 0.15
-Nodes (3): resolveSettingsIconResourceId(), SettingsIconSelectorTest, DmTranslationAnchorsTest
+Cohesion: 0.10
+Nodes (4): resolveSettingsIconResourceId(), SettingsIconSelectorTest, DmTranslationAccountHooksTest, DmTranslationAnchorsTest
 
-### Community 24 - "FollowingLatestFirstTest"
-Cohesion: 0.08
-Nodes (7): Checked, FollowingLatestFirst, OrderWriter, Owner, FollowingLatestFirstTest, Item, Params
+### Community 24 - "FollowingLatestFirst"
+Cohesion: 0.15
+Nodes (4): Checked, FollowingLatestFirst, OrderWriter, Owner
 
 ### Community 25 - ".buildExportText"
-Cohesion: 0.02
-Nodes (25): DiagnosticEvent, ClearSnapshot, UndoResult, FAILED, NOTHING_TO_RESTORE, RESTORED, MusicDiscSpin, GhostMode (+17 more)
-
-### Community 26 - "SettingsStatus"
-Cohesion: 0.01
-Nodes (33): ExportDiagnosticReportPreference, CommentsPreferenceCategory, ConditionalPreferenceCategory, DebugPreferenceCategory, DownloadsPreferenceCategory, ExtensionPreferenceCategory, FeedNavigationPreferenceCategory, InboxPreferenceCategory (+25 more)
+Cohesion: 0.03
+Nodes (16): ClearSnapshot, UndoResult, FAILED, NOTHING_TO_RESTORE, RESTORED, BuildDetailsExportTest, PauseSettingsScreenTest, BlockingFilesContext (+8 more)
 
 ### Community 27 - "SettingsBackupTest"
-Cohesion: 0.03
-Nodes (15): ProxyHold, KEPT_THIS_PHONES, LEFT_OFF, NONE, RejectedBackup, RuleListTooLarge, SettingsBackup, Snapshot (+7 more)
+Cohesion: 0.05
+Nodes (6): SettingsBackupTest, android.content.ContextWrapper, android.content.ContextWrapper, android.content.ContextWrapper, android.content.ContextWrapper, BudgetRestoreTest
+
+### Community 28 - ".set"
+Cohesion: 0.06
+Nodes (7): CameraBrightness, HomeTabSettingsShortcut, SearchHistoryRecording, WatchHistoryRecording, CameraBrightnessTest, TestActivity, HomeTabSettingsShortcutTest
 
 ### Community 29 - ".isLocked"
-Cohesion: 0.04
-Nodes (7): Clock, SessionBudget, BudgetLockSettingsTest, HostFragment, PauseLiftsTheHoldTest, SessionBudgetTest, SessionLockOverlayTest
+Cohesion: 0.03
+Nodes (14): BroadcastReceiver, FinishLastVideo, Clock, SessionBudget, android.content.BroadcastReceiver, SessionBudgetNotice, View.OnAttachStateChangeListener, BudgetLockSettingsTest (+6 more)
 
 ### Community 30 - ".printInfo"
-Cohesion: 0.03
-Nodes (19): UnpersonalizedForYouFilter, FeedCapture, Recording, AwemeExtractor, FeedItemsFilter, FilterPhase, LATE_FOLLOW, RESPONSE (+11 more)
+Cohesion: 0.04
+Nodes (16): UnpersonalizedForYouFilter, AwemeExtractor, FeedItemsFilter, FilterPhase, LATE_FOLLOW, RESPONSE, KeptBefore, ListFingerprint (+8 more)
 
 ### Community 31 - "TakoSearchTabTest"
 Cohesion: 0.06
-Nodes (10): TakoAiFilter, BgAdTopBarServiceImpl, BgTakoTopBarServiceImpl, TakoAskBarTest, Grid, NamedTab, RecyclerView, Results (+2 more)
+Nodes (10): TakoAiFilter, BgAdTopBarServiceImpl, BgTakoTopBarServiceImpl, TakoAskBarTest, Grid, NamedTab, RecyclerView, Tab (+2 more)
 
-### Community 32 - "FeedCapturePreferenceTest"
-Cohesion: 0.20
-Nodes (3): FeedCapturePreferenceTest, ContextWrapper, TestActivity
+### Community 32 - "FeedCapture"
+Cohesion: 0.04
+Nodes (11): Batch, FeedCapture, Recording, Author, FeedCaptureTest, Aweme, com.ss.android.ugc.aweme.feed.model.AwemeStatistics, Item (+3 more)
 
-### Community 33 - "VideoAuthor"
-Cohesion: 0.06
-Nodes (13): BlockAuthorService, Callback, Result, CONFIRMED, REJECTED, UNCONFIRMED, VideoAuthor, Post (+5 more)
+### Community 33 - "ShareBlockAuthor"
+Cohesion: 0.10
+Nodes (9): Built, CatalogEntry, Creator, Feedback, Native, Pending, Post, ShareBlockAuthor (+1 more)
 
-### Community 34 - ".options"
+### Community 34 - "PlaybackQuality"
 Cohesion: 0.07
-Nodes (6): DownloadPickerReport, Option, QualitySelector, SourceGear, DownloadPickerSourcesTest, QualityChoiceTest
+Nodes (7): Address, JsonKey, MeteredState, PlaybackQuality, Variant, PlaybackQualityModelTest, PlaybackQualityTest
 
 ### Community 35 - "addInstructionsAtControlFlowLabel"
-Cohesion: 0.04
-Nodes (94): filterLateInsertedAds(), filterProfileDetailAdEvent(), hideSearchAnswerCardAtReturns(), hideTakoSugCardAtReturns(), insertionPayloadKeyRegister(), hookQuickCommentVisibility(), QuickCommentVisibilityWrite, quickCommentVisibilityWrites() (+86 more)
+Cohesion: 0.03
+Nodes (99): BdTuringCaptchaPopupFingerprint, CaptchaPopupFingerprint, LegacyCaptchaPopupFingerprint, LiveHostCaptchaPopupFingerprint, OecCaptchaPopupFingerprint, filterLateInsertedAds(), filterProfileDetailAdEvent(), hideSearchAnswerCardAtReturns() (+91 more)
 
 ### Community 36 - ".apks"
-Cohesion: 0.03
-Nodes (18): ExtensionReferencesResolveTest, FriendsFeedFixturesTest, PlaylistBottomBarFixturesTest, Build, ConfirmInteractionAnchorsTest, DownloadGearsFixturesTest, DuetStitchCallersTest, GridVideoLengthFixturesTest (+10 more)
+Cohesion: 0.02
+Nodes (24): FollowFeedFirstReadCountTest, FriendsFeedFixturesTest, PlaylistBottomBarFixturesTest, SearchTabAnchorsTest, TopViewPreloadAnchorsTest, Build, ConfirmInteractionAnchorsTest, CommentLivePhotoAnchorsTest (+16 more)
 
 ### Community 37 - "TikTokPatchAnchorsMatchFixturesTest.kt"
 Cohesion: 0.02
-Nodes (66): coldStartCall(), coldStartOrchestrators(), countColdStartFeedItemListStores(), isCommentTopBarCanShow(), isTakoSearchEntranceInflater(), BioBindFingerprint, bioTextField(), resolveShareAppsPanel() (+58 more)
+Nodes (85): coldStartCall(), coldStartOrchestrators(), countColdStartFeedItemListStores(), isCommentTopBarCanShow(), isTakoSearchEntranceInflater(), BioBindFingerprint, bioTextField(), resolveShareAppsPanel() (+77 more)
 
 ### Community 38 - ".resetAllLabData"
 Cohesion: 0.06
-Nodes (5): DetailChangeTestHook, FeatureGateLabBuildChangeTest, FeatureGatePagesTest, NullableConfig, Payload
+Nodes (6): DetailChangeTestHook, AuditedLabSurfacesTest, FeatureGateCompactLayoutTest, FeatureGatePagesTest, NullableConfig, Payload
 
-### Community 39 - "SimPresetPreference"
-Cohesion: 0.10
-Nodes (5): PresetAdapter, SimPresetPreference, TextWatcher, SimPreset, SimPresetsTest
+### Community 39 - "InputTextPreference"
+Cohesion: 0.04
+Nodes (14): FeedFilterPreferenceCategory, Check, InputTextPreference, TextWatcher, SettingsUi.DialogCheck, Note, Preview, SamplePreview (+6 more)
 
 ### Community 41 - "AccentColorPatch.kt"
-Cohesion: 0.05
-Nodes (40): accentBadges(), accentIcons(), accentRecolor(), accentShade(), accentTokens(), appendColorEntries(), badgeFill(), checkedAccent() (+32 more)
+Cohesion: 0.06
+Nodes (28): accentRecolor(), accentShade(), appendColorEntries(), badgeFill(), checkedAccent(), colorLiterals(), Hsl, isOpaqueLiteral() (+20 more)
 
 ### Community 42 - "Commands"
 Cohesion: 0.05
 Nodes (5): Resources, View, Commands, android.view.Choreographer.FrameCallback, Runnable
 
-### Community 43 - ".printDebug"
-Cohesion: 0.10
-Nodes (5): NetworkType, MOBILE, NONE, OTHER, SpoofSimPatch
-
 ### Community 44 - "SwitchedReturnFixturesTest.kt"
-Cohesion: 0.05
-Nodes (25): PasskeyDeviceSupportFingerprint, AnimatedDrawableFactoryFingerprint, BufferPreloadGateFingerprint, InitPushTaskFingerprint, LiveGiftInitViewFingerprint, LiveGiftOnCreateFingerprint, RealTimeSplashTaskFingerprint, SplashPreloadEntryFingerprint (+17 more)
+Cohesion: 0.03
+Nodes (51): CommentSortOptionStyleFingerprint, resolveCommentSortEligibility(), PasskeyDeviceSupportFingerprint, AnimatedDrawableFactoryFingerprint, BufferPreloadGateFingerprint, InitPushTaskFingerprint, LiveGiftInitViewFingerprint, LiveGiftOnCreateFingerprint (+43 more)
 
 ### Community 45 - "guardAtEntry"
 Cohesion: 0.03
@@ -1013,31 +1048,27 @@ Nodes (86): awemeParameterRegister(), calls(), distinctCalls(), hasString(), imp
 
 ### Community 46 - "FeatureGateLabRuntime"
 Cohesion: 0.04
-Nodes (7): FeatureGateLabRuntime, Snapshot, Clock, FeatureGateLearnMode, Read, Observation, SettingsManagerObservationRecorder
+Nodes (7): FeatureGateLabRuntime, Snapshot, Clock, FeatureGateLearnMode, Read, FeatureGateLabBoundaryTest, FeatureGateRecorderTest
 
 ### Community 47 - "FeedMuteTest"
 Cohesion: 0.06
 Nodes (10): FeedMute, Application.ActivityLifecycleCallbacks, Native, Report, Controller, FeedMuteTest, Aweme, Object (+2 more)
 
 ### Community 48 - "CreatorExceptionsTest"
-Cohesion: 0.05
-Nodes (11): Author, Case, CreatorExceptionsTest, Item, Item, Labelled, Mix, Music (+3 more)
+Cohesion: 0.14
+Nodes (8): Case, CreatorExceptionsTest, Item, Labelled, Mix, Music, Paid, Sticker
 
 ### Community 49 - "AutomaticClearDisplayTest"
 Cohesion: 0.06
 Nodes (9): ClearEvent, Condition, ReaderPost, RememberClearDisplayPatch, AutomaticClearDisplayTest, Event, NativeCell, NativeItem (+1 more)
 
-### Community 50 - "RegionSpoofTest"
-Cohesion: 0.06
-Nodes (7): AppliedZone, LocaleAnswer, NativeZone, RegionSpoof, FakeNativeZone, RegionSpoofTest, RegionSpoof.NativeZone
+### Community 50 - "RegionSpoof"
+Cohesion: 0.09
+Nodes (3): AppliedZone, NativeZone, RegionSpoof
 
 ### Community 51 - "Entry"
 Cohesion: 0.04
-Nodes (14): AbTypesCallback, Callback, Entry, FeatureGateCatalog, RowReader, Snapshot, Table, RebuildRequest (+6 more)
-
-### Community 52 - "SettingsL10nTest"
-Cohesion: 0.04
-Nodes (3): L10nTranslations, SettingsL10nTest, TestActivity
+Nodes (13): AbTypesCallback, Callback, Entry, FeatureGateCatalog, RowReader, Snapshot, Table, RebuildRequest (+5 more)
 
 ### Community 53 - "test-script-contracts.ps1"
 Cohesion: 0.05
@@ -1047,25 +1078,29 @@ Nodes (60): Get-PatchVerdicts(), Get-BundleVersion(), Get-ManagerChangelogGroups
 Cohesion: 0.05
 Nodes (11): GridSort, Key, Adapter, Clip, Counts, GridAdapter, GridFragment, GridSortTest (+3 more)
 
+### Community 55 - "Item"
+Cohesion: 0.06
+Nodes (4): Author, Item, Stats, StickerTextFilterTest
+
 ### Community 56 - "BudgetWaitSettingsTest"
-Cohesion: 0.05
-Nodes (13): ScreenTimePreferenceCategory, ClockHourPreference, NumberInputPreference, NumberInputPreference, NumberInputPreference, NumberInputPreference, Shown, StartTodayOverPreference (+5 more)
+Cohesion: 0.06
+Nodes (12): ClockHourPreference, NumberInputPreference, NumberInputPreference, NumberInputPreference, NumberInputPreference, Shown, StartTodayOverPreference, BudgetChanges (+4 more)
 
 ### Community 57 - ".emptyList"
 Cohesion: 0.03
-Nodes (30): doubleTapTimeoutReads(), badgeTileCalls(), groupChatBackgrounds(), hookBadgeTiles(), hookGroupChat(), hookPageContexts(), hookRoomConfiguration(), hookRowBinder() (+22 more)
+Nodes (38): FollowingLatestFirstTest, Item, Params, doubleTapTimeoutReads(), badgeTileCalls(), groupChatBackgrounds(), hookBadgeTiles(), hookEventBox() (+30 more)
 
 ### Community 58 - "Surface"
 Cohesion: 0.06
 Nodes (16): View.OnAttachStateChangeListener, NativeAdapter, NativeConfig, NativeDiff, NativeFragment, NativeHolder, NativeLayout, NativeList (+8 more)
 
-### Community 59 - ".string"
-Cohesion: 0.08
-Nodes (10): Author, Author, Clip, LikeView, Params, PhotoLike, Story, TapConfirmationTest (+2 more)
+### Community 59 - "Comment"
+Cohesion: 0.19
+Nodes (3): PhotoLike, TwoComments, Comment
 
 ### Community 60 - "FeedItemList"
 Cohesion: 0.05
-Nodes (17): Detection details that matter, Field reports and route coverage, How ad delivery appears to work, DeepFeedFilterBoundaryTest, java.util.AbstractList<Object>, Duration, FollowFeedList4693, ForYouPanel (+9 more)
+Nodes (18): Detection details that matter, Field reports and route coverage, How ad delivery appears to work, DeepFeedFilterBoundaryTest, java.util.AbstractList<Object>, Duration, FollowFeedList4693, ForYouPanel (+10 more)
 
 ### Community 61 - "PausePlayback"
 Cohesion: 0.07
@@ -1073,11 +1108,11 @@ Nodes (5): PausePlayback, View.OnAttachStateChangeListener, Application.Activity
 
 ### Community 63 - "LiveControlsPatch.kt"
 Cohesion: 0.05
-Nodes (72): appDarkTheme(), AppDarkThemeFingerprint, BioLinkColor, calls(), CardLabels, contextReadIsSafe(), DefinitionPickStore, EventBox (+64 more)
+Nodes (63): appDarkTheme(), AppDarkThemeFingerprint, BioLinkColor, calls(), CardLabels, contextReadIsSafe(), DefinitionPickStore, EventBox (+55 more)
 
 ### Community 64 - "AdsFilterTest"
-Cohesion: 0.04
-Nodes (14): AdsFilter, AdsFilterTest, Object, Object, Alliance, Business, Commerce, Content (+6 more)
+Cohesion: 0.05
+Nodes (13): AdsFilter, AdsFilterTest, Object, Object, Alliance, Business, Commerce, Content (+5 more)
 
 ### Community 65 - ".sync"
 Cohesion: 0.07
@@ -1085,139 +1120,139 @@ Nodes (7): Clock, FeedLock, FeedLockTest, LinkHost, HostFragment, LinkHost, Shar
 
 ### Community 66 - "SavedVideoArchive"
 Cohesion: 0.07
-Nodes (20): Check, FAILED, NEW, OFFERED, Database, ForgetResult, FAILED, FORGOTTEN (+12 more)
+Nodes (19): Check, FAILED, NEW, OFFERED, ForgetResult, FAILED, FORGOTTEN, NOTHING_SAVED (+11 more)
 
 ### Community 67 - "StorySeekbarTest"
 Cohesion: 0.09
 Nodes (7): Controller, Manager, Root, Story, StorySeekbarTest, TouchView, RadiusLayout
 
-### Community 68 - "LivePanelTheme"
-Cohesion: 0.09
-Nodes (4): LivePanelTheme, ViewTreeObserver.OnGlobalLayoutListener, ViewTreeObserver.OnPreDrawListener, StockContext
-
 ### Community 69 - "FeatureGateLabActionsTest"
 Cohesion: 0.07
-Nodes (8): FeatureGateLabSession, FeatureGateLabActionsTest, android.content.ContextWrapper, android.content.ContextWrapper, android.content.ContextWrapper, SettingsWindow, TestActivity, ContextWrapper
+Nodes (7): FeatureGateLabSession, FeatureGateLabActionsTest, android.content.ContextWrapper, android.content.ContextWrapper, android.content.ContextWrapper, SettingsWindow, TestActivity
 
 ### Community 70 - "StickerGallerySaver"
 Cohesion: 0.06
-Nodes (5): FileWriter, MediaFormat, PendingWriter, SaveResult, StickerGallerySaver
+Nodes (6): FileWriter, MediaFormat, PendingWriter, SaveResult, StickerAsset, StickerGallerySaver
 
-### Community 71 - ".publishForResult"
-Cohesion: 0.07
-Nodes (4): Saved, PhotoVideoPicker, Maker, SlideshowVideo
+### Community 71 - ".printException"
+Cohesion: 0.04
+Nodes (13): AudioDownloads, Saved, OriginalPhotos, PhotoStep, Retry, SaveNotice, Maker, SlideshowVideo (+5 more)
 
 ### Community 72 - "AppLanguage"
 Cohesion: 0.02
 Nodes (77): AppLanguage, AF, AM, AR, AS, AZ, BE, BG (+69 more)
 
 ### Community 73 - ".invoke"
-Cohesion: 0.06
+Cohesion: 0.05
 Nodes (9): Claim, Emission, Fault, InboxQueryNative, RenderedReader, Surface, InboxQueryOwners, Owner (+1 more)
 
 ### Community 74 - ".execute"
-Cohesion: 0.05
-Nodes (7): SidebarButtonOptionalTest, SidebarSwipeAnchorsTest, GridSortAnchorsTest, PhotoSlideFitAnchorsTest, BackgroundPushSetupTest, SpeechEngineGuardTest, ControlFlowLabelInjectionTest
+Cohesion: 0.04
+Nodes (8): SidebarButtonOptionalTest, SidebarSwipeAnchorsTest, GridSortAnchorsTest, StoryOverLiveAnchorsTest, BackgroundPushSetupTest, SpeechEngineGuardTest, ClassesCallingTest, ControlFlowLabelInjectionTest
 
 ### Community 75 - ".filterBanners"
-Cohesion: 0.11
+Cohesion: 0.10
 Nodes (7): BottomSearchBannerTest, Video, Video, TakoAskBannerTest, Video, BannerCommonKey, BannerCommonStruct
 
 ### Community 76 - "CaptchaGateTest"
-Cohesion: 0.07
-Nodes (8): CaptchaGate, Stamped, CaptchaGateTest, Request, SignedInAccount, ThrowingScene, VerifyRequest, WrongTypeScene
+Cohesion: 0.06
+Nodes (9): ExternalBrowserPatch, CaptchaGate, Stamped, CaptchaGateTest, Request, SignedInAccount, ThrowingScene, VerifyRequest (+1 more)
 
 ### Community 77 - "GridPickerTest"
-Cohesion: 0.13
-Nodes (5): Adapter, GridPickerTest, Post, RecyclerView, Row
+Cohesion: 0.08
+Nodes (8): GridPicker, View.OnAttachStateChangeListener, View.AccessibilityDelegate, Adapter, GridPickerTest, Post, RecyclerView, Row
 
-### Community 78 - "android.view.ViewGroup"
+### Community 78 - "BlockAuthorOverlay"
 Cohesion: 0.03
-Nodes (9): MatchFilter, BlockAuthorOverlay, Application.ActivityLifecycleCallbacks, View.AccessibilityDelegate, Binding, Host, Curtained, SessionLockOverlay (+1 more)
+Nodes (26): BlockAuthorOverlay, Application.ActivityLifecycleCallbacks, View.AccessibilityDelegate, BlockAuthorService, Callback, Result, CONFIRMED, REJECTED (+18 more)
 
-### Community 80 - "android.graphics.drawable.Drawable"
-Cohesion: 0.02
-Nodes (35): BlockGlyphDrawable, OverlayGlyphDrawable, Shape, BLOCK, CROSS, MINUS, NOTE, SPEAKER (+27 more)
+### Community 80 - "Override"
+Cohesion: 0.07
+Nodes (7): ActionFlow, ClearGlyphDrawable, DialogCheckMarkDrawable, FocusRingDrawable, GroupRowDrawable, android.text.TextWatcher, AbsListView.OnScrollListener
 
 ### Community 81 - "AdvancedDownloadsTest"
 Cohesion: 0.03
-Nodes (26): Address, AdvancedDownloadsTest, Audio, AudioMeta, AudioUrls, Author, Gear, Info (+18 more)
+Nodes (25): DownloadPickerReport, Option, QualityChoice, QualitySelector, SourceGear, Address, AdvancedDownloadsTest, Audio (+17 more)
 
 ### Community 82 - "LoadedInboxQuery"
 Cohesion: 0.07
 Nodes (24): Alignment, Commit, LoadedInboxQuery, Matcher, Ownership, Phase, CLEARING, CLOSED (+16 more)
 
-### Community 83 - "CommentExport"
+### Community 83 - "OwnedShareActionHooks.kt"
 Cohesion: 0.09
-Nodes (6): CommentExport, Format, CSV, JSON, Request, Row
+Nodes (32): extendsLinearLayout(), isStickerPreviewBind(), resolveStickerPreviewBind(), extendsAndroidView(), flagRegister(), isInvoke(), nullInto(), ReportChain (+24 more)
 
 ### Community 84 - "Bundle"
-Cohesion: 0.04
-Nodes (13): TestActivity, TestActivity, TestActivity, TestActivity, TestActivity, TestActivity, TestActivity, localBundleFile() (+5 more)
+Cohesion: 0.07
+Nodes (8): TestActivity, TestActivity, localBundleFile(), Bundle, BundleLoader, LocalBundleFileTest, URLStreamHandler, URLStreamHandler
 
-### Community 85 - "CustomLauncherIconPatch.kt"
-Cohesion: 0.17
-Nodes (3): IconLayers, restyleAdaptiveIcon(), CustomLauncherIconTest
+### Community 85 - "CustomLauncherIconTest"
+Cohesion: 0.06
+Nodes (21): bigEndianInt(), copyInto(), drawInline(), glyphVector(), IconLayers, IconStyle, BLACK, BLACK_ON_WHITE (+13 more)
 
-### Community 86 - "CaptionBurner.java"
-Cohesion: 0.11
-Nodes (4): AnimatedWebpMp4ConverterTest, BoundedGles, Egl, TabSelectionAccessibilityTest
+### Community 86 - ".convert"
+Cohesion: 0.08
+Nodes (5): AnimatedWebpMp4Converter, CodecSurface, AnimatedWebpMp4ConverterTest, BoundedGles, RecordingEgl
 
 ### Community 87 - "feedfilter/Fingerprints.kt"
 Cohesion: 0.05
 Nodes (70): AiTheaterRecordEntranceFingerprint, AwemeBannersFingerprint, CacheChainDeliveryFingerprint, CacheResultClassFingerprint, CacheResultNormalizerFingerprint, CaptionSearchPanelFingerprint, ColdStartGoldenCacheFingerprint, ColdStartOfflineCacheFingerprint (+62 more)
 
-### Community 88 - ".quantity"
-Cohesion: 0.07
-Nodes (4): Table, AdoptSeenVideoHistoryPreference, FeatureGateRecorderPreference, L10nQuantityTest
-
 ### Community 89 - "SlideshowVideoTest"
-Cohesion: 0.11
-Nodes (3): PhotoConversionTest, PhotoPostSavedRecordTest, SlideshowVideoTest
+Cohesion: 0.08
+Nodes (5): PhotoVideoPicker, PhotoPost, PhotoConversionTest, PhotoPostSavedRecordTest, SlideshowVideoTest
 
 ### Community 91 - "DocumentOperation"
-Cohesion: 0.06
-Nodes (19): DocumentOperation, Kind, COMMENT_FILE, FONT_FILE, LAB_FILE, SEEN_HISTORY_FILE, SETTINGS_FILE, WATCH_HISTORY_FILE (+11 more)
+Cohesion: 0.04
+Nodes (25): CommentExport, Format, CSV, JSON, Request, Row, DocumentOperation, Kind (+17 more)
 
 ### Community 93 - "AbstractPreferenceFragment"
-Cohesion: 0.05
-Nodes (7): AbstractPreferenceFragment, ErrorActionPreference, View.AccessibilityDelegate, ErrorActionStyler, RestartFeedbackPresenter, ErrorActionStyleTest, PreviewControlsCaptureTest
+Cohesion: 0.06
+Nodes (7): AbstractPreferenceFragment, ErrorActionPreference, View.AccessibilityDelegate, ErrorActionStyler, RestartFeedbackPresenter, Pages, QuickSetupsPreference
 
 ### Community 95 - "LivePanelThemeTest"
-Cohesion: 0.08
-Nodes (15): GiftList, HourlyRanking, LivePanelThemeTest, GradientDrawable, GradientDrawable, RankPage, RoomFragment, SchemaBundle (+7 more)
+Cohesion: 0.13
+Nodes (9): GiftList, HourlyRanking, LivePanelThemeTest, RankPage, RoomFragment, SchemaBundle, ShareDialog, SparkPage (+1 more)
 
 ### Community 96 - "BytecodeUtils.kt"
-Cohesion: 0.03
-Nodes (50): AbandonAudioFocusFingerprint, calls(), captureNativeFocusAbandon(), captureNativeFocusChange(), captureNativeFocusRequest(), implementsAudioListener(), NativeFocus, requestsFocus() (+42 more)
+Cohesion: 0.05
+Nodes (32): AbandonAudioFocusFingerprint, calls(), captureNativeFocusAbandon(), captureNativeFocusChange(), captureNativeFocusRequest(), implementsAudioListener(), NativeFocus, requestsFocus() (+24 more)
 
-### Community 97 - "android.graphics.Rect"
-Cohesion: 0.03
-Nodes (18): Done, Finder, GlassVideoBlur, LayerSource, Painter, Source, ViewSource, ClearBackground (+10 more)
+### Community 97 - "SeeThroughBottomBarTest"
+Cohesion: 0.07
+Nodes (7): ClearBackground, GlassLensBackground, LensSpot, SeeThroughBottomBar, Scene, SeeThroughBottomBarTest, StackedPager
 
 ### Community 98 - "VideoFit"
-Cohesion: 0.05
-Nodes (14): Decision, Fitted, Mode, FILL, FIT, LEAVE_ALONE, VideoFit, LayoutTrackingView (+6 more)
+Cohesion: 0.15
+Nodes (6): Decision, Mode, FILL, FIT, LEAVE_ALONE, VideoFit
+
+### Community 99 - "PrivacySwitchesTest"
+Cohesion: 0.04
+Nodes (8): ContactListBlocker, DevicePrivacyGuard, InstalledAppsBlocker, LocationGovernor, ResourceBatteryGovernor, FakeAdInfo, PrivacySwitchesTest, SensorEventListener
 
 ### Community 100 - "StartPageTest"
-Cohesion: 0.12
-Nodes (6): LineWriter, Account, BrokenHost, Host, Services, StartPageTest
+Cohesion: 0.07
+Nodes (10): LineWriter, PollResults, Classes, StartPage, PollResultsTest, Account, BrokenHost, Host (+2 more)
+
+### Community 101 - "HostSocket"
+Cohesion: 0.04
+Nodes (6): HostSocket, PinnedFactory, PinnedMediaConnection, PeerSocket, PinnedMediaConnectionTest, RecordingFactory
 
 ### Community 102 - "StickerGallerySaverTest"
-Cohesion: 0.09
+Cohesion: 0.08
 Nodes (9): PreviewModel, RenamedEveryBuild, StickerGallerySaverTest, StickerSheet, PreviewModel, PreviewUrls, RenamedSource, SheetWithActions (+1 more)
 
 ### Community 103 - "SeenVideoHistory"
-Cohesion: 0.06
-Nodes (30): AccountChanged, AdoptCallback, ClearCallback, ClearResult, CLEARED, FAILED, SUPERSEDED, DatabaseFactory (+22 more)
+Cohesion: 0.05
+Nodes (33): SeenEviction, AccountChanged, AdoptCallback, ClearCallback, ClearResult, CLEARED, FAILED, SUPERSEDED (+25 more)
 
-### Community 104 - "BuildDetails"
-Cohesion: 0.09
-Nodes (15): BuildChoice, AMOLED, CORE, CREATION, LANGUAGES, LIVE, P2P, VERSION_CODE (+7 more)
+### Community 104 - "AccentColorPatch.kt"
+Cohesion: 0.03
+Nodes (46): checkedAppName(), elements(), isLauncherEntry(), names(), renameApp(), adaptiveIconFiles(), appResource(), decodedXmlFiles() (+38 more)
 
 ### Community 106 - "org.robolectric.annotation.Implementation"
 Cohesion: 0.04
-Nodes (10): AndroidAtomicFileShadow, RecordingEgl, Encoder, Muxer, TextureUpload, RecordingMuxer, Sample, SampleExtractor (+2 more)
+Nodes (11): Encoder, Muxer, RecordingMuxer, Sample, SampleExtractor, TrackMuxerTest, StoppedComponent, ClipboardWithItsOwnListeners (+3 more)
 
 ### Community 107 - "test-release-publication.ps1"
 Cohesion: 0.06
@@ -1225,15 +1260,15 @@ Nodes (41): Remove-GeneratedPath(), Resolve-WithinRoot(), Assert-ReleaseAttestat
 
 ### Community 108 - "GestureActionsTest"
 Cohesion: 0.08
-Nodes (8): FakeController, FakePlayer, GestureActionsTest, Params, PostWithSound, ShapelessController, ShareInfoStub, SoundStub
+Nodes (9): Clip, FakeController, FakePlayer, GestureActionsTest, Params, PostWithSound, ShapelessController, ShareInfoStub (+1 more)
 
 ### Community 109 - "ShareLiveQuality"
-Cohesion: 0.11
-Nodes (6): Built, Native, Picker, ShareLiveQuality, Action, Package
+Cohesion: 0.09
+Nodes (8): OwnedShareActions, Built, Native, Picker, ShareLiveQuality, Action, Package, ShareLiveQualityTest
 
 ### Community 110 - ".string"
-Cohesion: 0.05
-Nodes (13): AudioDownloads, Source, Save, VideoDownloads, Address, BothAddresses, Cover, CoverPost (+5 more)
+Cohesion: 0.04
+Nodes (19): Save, VideoDownloads, Post, VideoData, VideoPost, QualityChoiceTest, VideoPost, Address (+11 more)
 
 ### Community 111 - "LiveControlsTest"
 Cohesion: 0.07
@@ -1244,7 +1279,7 @@ Cohesion: 0.08
 Nodes (17): FeatureGateFailure, Reason, CANNOT_COPY, NO_FIELDS, NO_LIST_VALUE, NO_OBJECT, NOT_IN_CATALOGUE, THREW (+9 more)
 
 ### Community 113 - "android.view.MotionEvent"
-Cohesion: 0.12
+Cohesion: 0.10
 Nodes (3): Cell, StorySeekbar, StorySeekbarView
 
 ### Community 114 - ".stream"
@@ -1252,16 +1287,16 @@ Cohesion: 0.11
 Nodes (5): BitWriter, FlvFixtures, FlvReaderTest, FakeWriter, LiveRemuxTest
 
 ### Community 115 - ".run"
-Cohesion: 0.07
-Nodes (10): Outcome, SaveProgress, Step, Stop, NO_SPACE, NO_TIME, NONE, SERVER_WAIT (+2 more)
+Cohesion: 0.04
+Nodes (17): Outcome, SaveProgress, Step, Stop, NO_SPACE, NO_TIME, NONE, SERVER_WAIT (+9 more)
 
 ### Community 116 - "Item"
 Cohesion: 0.06
 Nodes (5): ContentShapeFilterTest, Item, AwemeStatistics, PhotoModeImageInfo, PhotoModeTextInfo
 
 ### Community 117 - "PopupSwitchesTest"
-Cohesion: 0.08
-Nodes (11): PopupLabelCatalog, PopupLabels, PopupSwitches, PopupLabelsTest, Sub, Task, Callback, Campaign (+3 more)
+Cohesion: 0.12
+Nodes (5): PopupLabelCatalog, PopupLabels, PopupLabelsTest, Sub, Task
 
 ### Community 118 - "BesideStoreAppTest"
 Cohesion: 0.09
@@ -1276,76 +1311,72 @@ Cohesion: 0.09
 Nodes (45): ConvertFrom-AuditVerdictJson(), ConvertTo-AuditJsonString(), Get-AuditCanonicalJson(), Get-AuditCatalogProblems(), Get-AuditDefinitionHash(), Get-AuditEvidenceHashes(), Get-AuditHash(), Get-AuditResultValidation() (+37 more)
 
 ### Community 121 - ".queuedJobs"
-Cohesion: 0.08
-Nodes (7): Account, Profile, Account, ProfileAvatarPermissionTest, ProfileResponse, URLStreamHandler, FakeHttpsConnection
-
-### Community 122 - ".queue"
-Cohesion: 0.11
-Nodes (4): OriginalPhotos, PhotoStep, Retry, OriginalPhotosRetryTest
+Cohesion: 0.07
+Nodes (4): ProfileAvatarSaver, Account, Profile, ProfileResponse
 
 ### Community 123 - "Changelog"
 Cohesion: 0.02
-Nodes (105): 0.12.0 (2026-09-05), 0.14.0 (2026-09-05), 0.14.1 (2026-09-05), 0.15.0 (2026-09-06), 0.15.1 (2026-09-06), 0.16.0 (2026-09-06), 0.17.0 (2026-09-06), 0.18.0 (2026-09-06) (+97 more)
+Nodes (123): 0.12.0 (2026-09-05), 0.14.0 (2026-09-05), 0.14.1 (2026-09-05), 0.15.0 (2026-09-06), 0.15.1 (2026-09-06), 0.16.0 (2026-09-06), 0.17.0 (2026-09-06), 0.18.0 (2026-09-06) (+115 more)
 
-### Community 124 - "MediaCache"
-Cohesion: 0.11
-Nodes (5): MediaCache, PendingIntent, MediaCacheOwnershipTest, ContextWrapper, File
+### Community 124 - "LiveFeedFilterTest"
+Cohesion: 0.15
+Nodes (12): LiveFeedFilter, Auth, Bc, Follow, GameCategory, GameTag, Hashtag, LiveFeedFilterTest (+4 more)
 
-### Community 125 - ".saveAll"
-Cohesion: 0.06
-Nodes (15): CalmFeedPreset, Result, State, ACTIVE, ADJUSTED, ALREADY_ACTIVE, AVAILABLE, Choice (+7 more)
+### Community 125 - "CalmFeedPreset"
+Cohesion: 0.13
+Nodes (7): CalmFeedPreset, Result, State, ACTIVE, ADJUSTED, ALREADY_ACTIVE, AVAILABLE
 
 ### Community 126 - "AuthorRegionTest"
 Cohesion: 0.11
 Nodes (5): Author, AuthorRegionTest, BadgeRow, Clip, Params
 
-### Community 127 - "android.app.Dialog"
-Cohesion: 0.09
-Nodes (9): DialogFragmentOnStartAction, DialogFragmentWrapper, LinkedHashMap<>, android.app.Application.ActivityLifecycleCallbacks, MenuSheet, LiveThemeAwareDialogFragment, PopularityRankingEducationDialog, FansClubPanel (+1 more)
+### Community 127 - "android.app.Activity"
+Cohesion: 0.02
+Nodes (27): DialogFragmentOnStartAction, DialogFragmentWrapper, NetworkType, MOBILE, NONE, OTHER, ToastObserver, LinkedHashMap<> (+19 more)
 
 ### Community 128 - "Aweme"
-Cohesion: 0.04
-Nodes (9): LiveReplayFilter, PromotionalMusicFilter, CreatorIdentity, Batch, ImageVideoFilter, LikeCountFilter, StoryFilter, ViewCountFilter (+1 more)
+Cohesion: 0.03
+Nodes (22): DiagnosticCategory, CRASH_REPORTS, DOWNLOADS, FEATURE_GATE_LAB, FEED_AND_NAVIGATION, FOLLOW, OTHER, PATCH_ERRORS (+14 more)
 
-### Community 129 - "java.net.InetAddress"
-Cohesion: 0.07
-Nodes (8): ConnectionOpener, MediaTransport, Resolver, PinnedFactory, PinnedMediaConnection, PeerSocket, PinnedMediaConnectionTest, RecordingFactory
+### Community 129 - "SettingsManagerObservationRecorder"
+Cohesion: 0.10
+Nodes (3): Observation, SettingsManagerObservationRecorder, FeatureGateLabRuleLimitTest
 
-### Community 130 - "LiveFeedFilterTest"
-Cohesion: 0.05
-Nodes (21): StickerTextFilter, KeywordRulePreview, CachedRules, KeywordRules, Rule, LiveFeedFilter, LiveRoom, Report (+13 more)
+### Community 130 - "KeywordRules"
+Cohesion: 0.10
+Nodes (6): StickerTextFilter, KeywordRulePreview, CachedRules, KeywordRules, Rule, KeywordRulesTest
 
 ### Community 131 - "SearchLynxCardsTest"
 Cohesion: 0.09
 Nodes (7): SearchLynxCards, Cell, DynamicPatch, Item, RawPatch, SearchLynxCardsTest, TypedPatch
 
 ### Community 132 - ".clear"
-Cohesion: 0.06
+Cohesion: 0.07
 Nodes (13): Closure, InboxQueryNativeTest, NativeEmptyState, NativeIndices, NativeLoading, NativeLoadingModel, NativeLoadingState, NativePhase (+5 more)
 
 ### Community 133 - ".fetch"
-Cohesion: 0.03
-Nodes (30): Clock, Deadline, MediaBudget, Reason, CANCELLED, SERVER_WAIT, SPACE, TIME (+22 more)
+Cohesion: 0.04
+Nodes (24): Clock, Deadline, MediaBudget, Reason, CANCELLED, SERVER_WAIT, SPACE, TIME (+16 more)
+
+### Community 134 - "ModSettingsPages"
+Cohesion: 0.16
+Nodes (4): ModSettingsPages, Preference, ActionRowChevronTest, HostFragment
 
 ### Community 136 - "BrowserPrivacyGuard"
-Cohesion: 0.10
+Cohesion: 0.09
 Nodes (4): BridgeState, BrowserPrivacyGuard, BridgeThatOwnsItsView, BrowserPrivacyGuardTest
 
 ### Community 137 - ".start"
-Cohesion: 0.10
+Cohesion: 0.09
 Nodes (7): CoverSaver, Author, CoverSaverTest, Post, UrlModel, Video, Post
 
 ### Community 138 - "FakeHttpsConnection"
-Cohesion: 0.13
+Cohesion: 0.14
 Nodes (3): FakeHttpsConnection, SigningCertificateCheck, SigningKeyFixtures
 
-### Community 139 - "PushShutoffTest"
-Cohesion: 0.05
-Nodes (24): Background execution, Comparing a patch, Counter acceptance, Coverage and privacy, Destination metadata, Identity and reproducibility, Interpreting results against Hushfeed source, Literal endpoints and hosts in this source (+16 more)
-
 ### Community 140 - "GhostModeCallSites.kt"
-Cohesion: 0.06
-Nodes (32): flagRegister(), isInvoke(), nullInto(), ReportChain, reportChainAt(), Sent, skipReportAtCallSite(), skipReportsAtEveryCallSite() (+24 more)
+Cohesion: 0.11
+Nodes (15): AwemeStatsSenderFingerprint, OnlineStatusIrregularReportFingerprint, OnlineStatusRegularReportFingerprint, ProfileViewReportFingerprint, returnBeforeReporting(), StoryViewReportFingerprint, TypingStatusSenderFingerprint, FeedPlayCompletedFingerprint (+7 more)
 
 ### Community 141 - "EdgeSwipeLevels"
 Cohesion: 0.06
@@ -1353,54 +1384,54 @@ Nodes (15): EdgeSwipeLevels, Gesture, Mode, BRIGHTNESS, SPEED, VOLUME, Side, LEF
 
 ### Community 142 - ".fail"
 Cohesion: 0.07
-Nodes (12): AutoAdvanceTest, FeedView, ImmediateLoadBridge, IndicatorView, LoadStrategy, IMMEDIATE, LAZY, State (+4 more)
+Nodes (11): AutoAdvanceTest, FeedView, ImmediateLoadBridge, IndicatorView, LoadStrategy, IMMEDIATE, LAZY, State (+3 more)
 
 ### Community 143 - ".fail"
 Cohesion: 0.08
 Nodes (9): AutoAdvance, Control, StateReader, AutoAdvanceSearchTest, HostComponent, State, AUTO_SCROLL_STATE_PAUSE, AUTO_SCROLL_STATE_START (+1 more)
 
 ### Community 144 - "H264PlaybackTest"
-Cohesion: 0.03
-Nodes (17): H264Playback, Address, JsonKey, MeteredState, PlaybackQuality, Variant, PreferredGears, SdrPlayback (+9 more)
-
-### Community 145 - "NumberInputPreference"
-Cohesion: 0.04
-Nodes (13): ClockHourPreference, ClockTimePreference, Check, InputTextPreference, TextWatcher, SettingsUi.DialogCheck, Note, Preview (+5 more)
-
-### Community 147 - "AutoStreak"
 Cohesion: 0.08
-Nodes (18): AutoStreak, Cancelled, Done, RecipientState, Result, DISPATCHED, DISPATCHING, FAILED (+10 more)
+Nodes (8): Address, Gear, H264PlaybackTest, TestActivity, Address, Gear, SdrPlaybackTest, TestActivity
+
+### Community 145 - ".t"
+Cohesion: 0.02
+Nodes (23): FeatureGateLabText, ValueSource, CURRENT, DEFAULT, HISTORICAL, RESEARCHED, SELECTED, StreakRecipientsPreference (+15 more)
 
 ### Community 148 - "Assert-DeviceLease"
 Cohesion: 0.08
 Nodes (38): Grant-AuditLease(), Assert-InstalledApkSigner(), Get-AndroidPackagePaths(), Remove-AndroidPackageIfInstalled(), Assert-DeviceLease(), ConvertTo-DeviceLeaseExpiry(), Get-DeviceLeasePath(), Initialize-DeviceLeaseFile() (+30 more)
 
 ### Community 149 - "TranslatedCommentFilterTest"
-Cohesion: 0.10
-Nodes (10): TranslatedCommentFilter, CellComment, CellManager, Comment, CommentWithoutFlag, Result, ResultWithoutContent, Runner (+2 more)
+Cohesion: 0.12
+Nodes (8): TranslatedCommentFilter, CellManager, CommentWithoutFlag, Result, ResultWithoutContent, Runner, Task, TranslatedCommentFilterTest
 
-### Community 150 - ".isOn"
-Cohesion: 0.11
-Nodes (3): ApplicationSource, ThoughtsGate, EarlySwitchTest
+### Community 150 - "FeatureControls"
+Cohesion: 0.05
+Nodes (6): FeatureControls, ProfileThoughts, ThoughtsGate, FeatureSwitchesTest, Object, ProfileThoughtsTest
 
 ### Community 151 - "DmTranslationPreviewTest"
 Cohesion: 0.11
 Nodes (5): Assem, Composer, DmTranslationPreviewTest, Input, Session
 
 ### Community 152 - "ContentAndSoundFilterTest"
-Cohesion: 0.04
-Nodes (21): SoundFilter, SoundIdentity, Aigc, Alive, Anchor, Author, C2pa, Commerce (+13 more)
+Cohesion: 0.05
+Nodes (20): SoundFilter, Aigc, Alive, Anchor, Author, C2pa, Commerce, ContentAndSoundFilterTest (+12 more)
+
+### Community 153 - "LiveThemeAwareDialogFragment"
+Cohesion: 0.12
+Nodes (5): MenuSheet, StripView, LiveThemeAwareDialogFragment, PopularityRankingEducationDialog, FansClubPanel
 
 ### Community 154 - "LocationBadgeFilterTest"
-Cohesion: 0.06
-Nodes (8): FeedServedKinds, LocationBadgeFilter, Anchor, LocationBadgeFilterTest, TypedAnchor, Video, ProfileAdRequestTest, StickerTextFilterTest
+Cohesion: 0.09
+Nodes (6): LocationBadgeFilter, Anchor, LocationBadgeFilterTest, TypedAnchor, Video, ProfileAdRequestTest
 
 ### Community 155 - "NetworkProxyTest"
-Cohesion: 0.10
-Nodes (3): NetworkRoutes, NetworkProxyTest, TestActivity
+Cohesion: 0.04
+Nodes (13): Config, Credentials, NetworkProxy, Application.ActivityLifecycleCallbacks, Probe, NEEDS_PASSWORD, REACHED, UNREACHABLE (+5 more)
 
 ### Community 156 - "SessionNativeFocusTest"
-Cohesion: 0.11
+Cohesion: 0.13
 Nodes (5): ExternalFocus, Hold, NativeFocusClient, NativeFocusListener, SessionNativeFocusTest
 
 ### Community 157 - "RestorationRetry"
@@ -1408,108 +1439,108 @@ Cohesion: 0.08
 Nodes (17): BudgetStateSnapshot, OwnershipLost, RestorationRetry, State, OWNERSHIP_LOST, PENDING, RECOVERY_REQUIRED, RESTORED (+9 more)
 
 ### Community 159 - ".recordBatch"
-Cohesion: 0.10
+Cohesion: 0.08
 Nodes (5): FeedFilterFeedback, MarkerSwitch, Notice, Streak, FeedFilterFeedbackTest
 
-### Community 160 - "android.view.View"
-Cohesion: 0.02
-Nodes (33): View.OnAttachStateChangeListener, Keeper, CommentLikeTouchTarget, View.AccessibilityDelegate, CommentTools, ControlState, ControlTouchListener, DislikeTouchListener (+25 more)
+### Community 160 - "CommentTools"
+Cohesion: 0.08
+Nodes (6): CommentTools, ControlState, ControlTouchListener, DislikeTouchListener, Gesture, SurpriseOrigin
 
 ### Community 162 - "ShareSaveCoverTest"
-Cohesion: 0.07
-Nodes (11): OwnedShareActions, Built, CatalogEntry, Native, Saver, ShareSaveCover, Action, Post (+3 more)
+Cohesion: 0.15
+Nodes (5): Action, Post, ShareSaveCoverTest, UrlModel, Video
 
-### Community 163 - "NetworkProxy"
-Cohesion: 0.07
-Nodes (8): Config, Credentials, NetworkProxy, Application.ActivityLifecycleCallbacks, Probe, NEEDS_PASSWORD, REACHED, UNREACHABLE
+### Community 163 - "AdvancedFeedRules"
+Cohesion: 0.11
+Nodes (5): AdvancedFeedRules, CreatorRuleCache, CreatorRules, LiveReplayFilter, PromotionalMusicFilter
 
 ### Community 164 - "LocalProfileCountsTest"
 Cohesion: 0.09
 Nodes (12): LocalProfileCounts, Metric, FOLLOWERS, FOLLOWING, LIKES, Parsed, SaveResult, ACCOUNT_CHANGED (+4 more)
 
 ### Community 165 - "UnpersonalizedForYouFilterTest"
-Cohesion: 0.07
-Nodes (9): Author, Aweme, com.ss.android.ugc.aweme.feed.model.AwemeStatistics, Item, Author, Item, UnpersonalizedForYouFilterTest, Untouchable (+1 more)
+Cohesion: 0.11
+Nodes (5): Author, Item, UnpersonalizedForYouFilterTest, Untouchable, RecReasonsStruct
 
 ### Community 166 - "AppLock"
 Cohesion: 0.06
 Nodes (12): Unreleased, AppLock, Asker, Asking, CREDENTIAL, NONE, PROMPT, CredentialRequest (+4 more)
 
 ### Community 167 - "PauseSwitchPlaybackTest"
-Cohesion: 0.08
-Nodes (8): PauseSwitchPlaybackTest, Clip, FocusOwnerShadow, NativeController, NativeManager, Params, SessionPlaybackHoldTest, SessionPlaybackHold.NativeControls
+Cohesion: 0.07
+Nodes (10): FeedActivity, PauseSwitchPlaybackTest, SessionPlaybackHold.NativeControls, Clip, FocusOwnerShadow, NativeController, NativeManager, Params (+2 more)
 
 ### Community 168 - "ChatDeclutterTest"
-Cohesion: 0.03
-Nodes (14): ChatGestures, InboxControls, ChatDeclutterTest, Gesture, DOUBLE_TAP, LONG_PRESS, SINGLE_TAP, SWIPE (+6 more)
+Cohesion: 0.09
+Nodes (9): ChatGestures, InboxControls, ChatDeclutterTest, Gesture, DOUBLE_TAP, LONG_PRESS, SINGLE_TAP, SWIPE (+1 more)
 
 ### Community 169 - "ReceivedDmTranslationPreview"
-Cohesion: 0.08
-Nodes (10): Binding, Binding, ItemFactory, MenuOwner, MenuReader, Pending, ReceivedDmTranslationPreview, Row (+2 more)
+Cohesion: 0.13
+Nodes (5): Binding, Pending, Row, RowReader, Snapshot
 
 ### Community 170 - "HushfeedPause"
-Cohesion: 0.10
+Cohesion: 0.09
 Nodes (9): CrashMark, CrashState, HushfeedPause, Reason, CRASH_LOOP, MARKER_FILE, NONE, SWITCH (+1 more)
 
 ### Community 171 - "CommentBatchTranslatorTest"
-Cohesion: 0.08
-Nodes (15): Anchor, Comment, CommentBatchTranslatorTest, CommentItemList, ListWithoutItems, NativeManager, OwnRunner, Runner (+7 more)
+Cohesion: 0.06
+Nodes (17): Anchor, Comment, CommentBatchTranslatorTest, CommentItemList, EmptyCommentItemList, ListWithoutItems, NativeManager, OwnRunner (+9 more)
 
 ### Community 173 - "VerifiedResourceStripperTest"
-Cohesion: 0.09
-Nodes (22): bundleOf(), file(), isStartupDex(), keepsEveryLanguage(), LanguageInventoryContract, languagesNotShipped(), parseLanguageSelection(), relativePathFrom() (+14 more)
+Cohesion: 0.13
+Nodes (18): bundleOf(), file(), isStartupDex(), keepsEveryLanguage(), LanguageInventoryContract, languagesNotShipped(), parseLanguageSelection(), relativePathFrom() (+10 more)
 
 ### Community 174 - "DeviceIdentity"
-Cohesion: 0.08
-Nodes (7): DeviceIdentity, Processes, ProcessName, SecureRandom, ContextWrapper, ContextWrapper, RecordingProcesses
+Cohesion: 0.07
+Nodes (8): DeviceIdentity, Processes, ProcessName, DeviceIdentityTest, SecureRandom, ContextWrapper, ContextWrapper, RecordingProcesses
 
 ### Community 175 - "LiveFilter"
 Cohesion: 0.09
 Nodes (10): LiveFilter, ShopFilter, Commerce, FieldAweme, GetterAweme, GoodsRoom, LiveFilterTest, Room (+2 more)
 
 ### Community 176 - "ExternalDownloaderTest"
-Cohesion: 0.11
-Nodes (7): ExternalDownloader, Author, ExternalDownloaderTest, GetterAuthor, GetterVideo, Shared, Unshared
+Cohesion: 0.13
+Nodes (6): ExternalDownloader, Author, ExternalDownloaderTest, Shared, TestActivity, Unshared
 
 ### Community 177 - "SeekbarPatchTest"
 Cohesion: 0.06
 Nodes (7): CommentCopySanitizer, SeekbarPatch, FakeAweme, FakeSheet, FakeVideo, SeekbarPatchTest, SettingBridgesTest
 
 ### Community 178 - "ShareBlockAuthorTest"
-Cohesion: 0.06
-Nodes (15): Built, CatalogEntry, Creator, Feedback, Native, Pending, ShareBlockAuthor, Transport (+7 more)
+Cohesion: 0.12
+Nodes (6): Action, Author, Params, Post, ShareBlockAuthorTest, AwemeSharePackage
 
 ### Community 179 - "native_media.py"
 Cohesion: 0.09
-Nodes (4): NativeMediaTests, fake_probe(), unexpected_audio(), fail()
+Nodes (16): decoded(), digest(), main(), object_pairs(), prepare(), probe(), read_json(), require() (+8 more)
 
 ### Community 180 - "CameraMicIndicator"
 Cohesion: 0.09
 Nodes (4): CameraMicIndicator, Application.ActivityLifecycleCallbacks, DotView, SystemOps
 
 ### Community 181 - "Encoder"
-Cohesion: 0.09
-Nodes (5): Encoder, ScreenSource, Ready, ScreenCapture, ScreenSourceTest
+Cohesion: 0.11
+Nodes (3): Encoder, Ready, ScreenCapture
 
 ### Community 182 - "DmTranslationPreview"
 Cohesion: 0.11
-Nodes (5): DmTranslationPreview, Identity, IdentityReader, Owner, Pending
+Nodes (6): Binding, DmTranslationPreview, Identity, IdentityReader, Owner, Pending
 
 ### Community 184 - "DownloadDetails"
-Cohesion: 0.08
-Nodes (5): DownloadDetails, Mp4Tags, Author, DownloadDetailsTest, Post
+Cohesion: 0.10
+Nodes (4): DownloadDetails, Author, DownloadDetailsTest, Post
 
 ### Community 185 - "CommentDislikeGestureTest"
 Cohesion: 0.08
-Nodes (8): Cell, Comment, CommentDislikeGestureTest, QueueTestBlockService, QueueTestBody, QueueTestCall, QueueTestResponse, User
+Nodes (9): Cell, Comment, CommentDislikeGestureTest, Manager, QueueTestBlockService, QueueTestBody, QueueTestCall, QueueTestResponse (+1 more)
 
 ### Community 186 - "SeenHistoryFileTest"
 Cohesion: 0.09
 Nodes (13): Contents, Encoded, Reason, DAMAGED, NEWER, TOO_LARGE, TOO_MANY, UNREADABLE (+5 more)
 
 ### Community 187 - "FixtureResourceTable"
-Cohesion: 0.05
-Nodes (18): storePackageChecks(), stringLoads(), composeArgb(), darkBackgroundColors(), isDarkOpaqueLiteral(), rewriteDarkStyleItems(), surfaceStyleItems(), unreadPaletteRefusal() (+10 more)
+Cohesion: 0.04
+Nodes (20): accentIcons(), wallpaperIconDrawable(), wallpaperIconLayers(), composeArgb(), darkBackgroundColors(), isDarkOpaqueLiteral(), rewriteDarkStyleItems(), surfaceStyleItems() (+12 more)
 
 ### Community 188 - "DownloadFilenameFormatter"
 Cohesion: 0.12
@@ -1517,15 +1548,19 @@ Nodes (4): DownloadFilenameFormatter, PendingName, PhotoSequence, Planned
 
 ### Community 189 - "DoubleTapCommentsTest"
 Cohesion: 0.09
-Nodes (7): BareAssem, CommentAssem, DoubleTapCommentsTest, HeartAssem, Params, RecyclerView, Clip
+Nodes (6): BareAssem, CommentAssem, DoubleTapCommentsTest, HeartAssem, Params, RecyclerView
 
 ### Community 190 - "android.graphics.Bitmap"
-Cohesion: 0.10
-Nodes (12): Copied, Copy, FrameSaver, LayerFinder, LayerReader, PixelCopyLayerReader, PixelCopyReader, SurfaceReader (+4 more)
+Cohesion: 0.14
+Nodes (9): Copied, Copy, FrameSaver, LayerFinder, LayerReader, PixelCopyLayerReader, PixelCopyReader, SurfaceReader (+1 more)
+
+### Community 191 - "ShareSheetToolsTest"
+Cohesion: 0.16
+Nodes (6): CountingActivityRoot, NativeActionCell, View.AccessibilityDelegate, NativePanel, ShareSheetToolsTest, TestActivity
 
 ### Community 192 - "LiveStreamSourcesTest"
-Cohesion: 0.10
-Nodes (11): Control, Output, Flv, Hls, Http, LiveStreamSources, NoOpListener, FakeControl (+3 more)
+Cohesion: 0.09
+Nodes (13): Control, Output, Source, Flv, Hls, Http, LiveStreamSources, NoOpListener (+5 more)
 
 ### Community 193 - "StoryOverLiveTest"
 Cohesion: 0.09
@@ -1541,54 +1576,54 @@ Nodes (7): NetworkRequests, Body, BrokenRequest, Call, NetworkRequestsTest, Path
 
 ### Community 196 - "ClassLoader"
 Cohesion: 0.10
-Nodes (10): NativeAccountOwner, Object, Runnable, Runnable, Probe, Runnable, Owned, SessionHoldProbe (+2 more)
+Nodes (10): Object, Runnable, Runnable, Probe, Runnable, SecurePopupProbe, Owned, SessionHoldProbe (+2 more)
 
 ### Community 198 - "CommenterDetailsTest"
 Cohesion: 0.16
 Nodes (3): CommenterDetailsTest, Remark, TimeView
 
-### Community 199 - "AdvancedFeedRules"
-Cohesion: 0.04
-Nodes (17): AdvancedFeedRules, CreatorFilter, CreatorRuleCache, CreatorRules, KeywordFilter, PublicationAgeFilter, QualityFilter, CreatorExceptions (+9 more)
+### Community 199 - "Item"
+Cohesion: 0.07
+Nodes (8): KeywordFilter, PublicationAgeFilter, QualityFilter, AdvancedFeedRulesTest, Author, Item, Stats, Video
 
 ### Community 200 - "HapticsTest"
-Cohesion: 0.08
+Cohesion: 0.09
 Nodes (7): Haptics, QuietLongClick, CountingView, HapticsTest, RecordingView, WithView, WitnessView
 
 ### Community 201 - "Icon"
-Cohesion: 0.04
-Nodes (26): SettingsListAdapter, ChevronDrawable, Icon, ABOUT, BACKUP, BEHAVIOR, COMMENTS, DIAGNOSTICS (+18 more)
+Cohesion: 0.06
+Nodes (25): ChevronDrawable, Icon, ABOUT, BACKUP, BEHAVIOR, COMMENTS, DIAGNOSTICS, DOWNLOADS (+17 more)
 
 ### Community 202 - "FeedOverlaySettingsTest"
-Cohesion: 0.15
-Nodes (4): Aweme, FeedOverlaySettingsTest, Params, User
+Cohesion: 0.13
+Nodes (5): Aweme, FeedOverlaySettingsTest, Music, Params, User
 
 ### Community 204 - ".onActivityResult"
-Cohesion: 0.09
-Nodes (3): ImportSeenVideoHistoryPreference, DownloadFolderPickerTest, ImportSeenVideoHistoryPreferenceTest
+Cohesion: 0.10
+Nodes (5): ImportTarget, ImportSeenVideoHistoryPreference, PendingPick, PendingPick, ImportSeenVideoHistoryPreferenceTest
 
 ### Community 206 - "PlaybackSpeedPatch"
 Cohesion: 0.08
 Nodes (4): NativePlayer, PlaybackSpeedPatch, PlaybackSpeedTest, Aweme
 
 ### Community 207 - "ReceivedDmTranslationPreviewTest"
-Cohesion: 0.15
-Nodes (7): Action, Assem, MenuOwner, Message, Model, ReceivedDmTranslationPreviewTest, Session
+Cohesion: 0.07
+Nodes (14): Transport, NativeDmTranslation, ItemFactory, MenuOwner, MenuReader, ReceivedDmTranslationPreview, NativeDmTranslationTest, Action (+6 more)
 
 ### Community 209 - "FlvReader"
 Cohesion: 0.09
 Nodes (7): AacConfig, Bits, FlvReader, Listener, SpsSize, UnsupportedStream, Recorded
 
 ### Community 211 - "CommentSearch"
-Cohesion: 0.11
-Nodes (5): CommentSearch, TextWatcher, LoadedComments, Matches, SearchField
+Cohesion: 0.10
+Nodes (6): CommentSearch, TextWatcher, LoadedComments, Matches, SearchField, View.AccessibilityDelegate
 
 ### Community 212 - "Address"
 Cohesion: 0.10
 Nodes (10): CommentLivePhotoSaver, Comment, CommentLivePhotoSaverTest, Image, LivePhotoInfo, RenamedComment, Base, CountingList (+2 more)
 
 ### Community 213 - ".assertSame"
-Cohesion: 0.15
+Cohesion: 0.13
 Nodes (3): CommentPopupAdsTest, Surprise, FixtureDexCacheTest
 
 ### Community 214 - "SlideshowVideoTest"
@@ -1596,7 +1631,7 @@ Cohesion: 0.07
 Nodes (8): Ended, Job, MediaJobScheduler, Entry, SaveQueue, Runnable, MediaJobSchedulerTest, SaveQueueTest
 
 ### Community 215 - "StoryShareSaveTest"
-Cohesion: 0.09
+Cohesion: 0.11
 Nodes (7): Built, Native, StoryShareSave, Action, Post, SharePackage, StoryShareSaveTest
 
 ### Community 216 - "FriendsFeedFilterTest"
@@ -1608,24 +1643,20 @@ Cohesion: 0.12
 Nodes (8): Card, Result, SearchAdFilterTest, Aweme, Card, Patch, Result, SearchShopFilterTest
 
 ### Community 218 - "RuntimeViewIdAnchorsTest"
-Cohesion: 0.05
-Nodes (35): Call, Caller, Constant, Header, Lookup, LookupScan, Named, Result (+27 more)
+Cohesion: 0.11
+Nodes (17): Anchor, At, ClassLiteral, ClassMethod, Coverage, Facts, IdUse, LayoutClass (+9 more)
 
 ### Community 219 - "InboxNativeRequests"
 Cohesion: 0.12
 Nodes (11): InboxNativeRequests, RequestOwner, BaseNotificationResultViewModel, InboxNativeRequestsTest, JoblessNotificationResultViewModel, NativeJob, NotificationAllTabResultViewModel, NotificationCreatorResultViewModel (+3 more)
 
-### Community 220 - "DoNotAutoTranslateTest"
-Cohesion: 0.08
-Nodes (4): DoNotAutoTranslate, TranslateInto, DoNotAutoTranslateTest, TranslateIntoTest
+### Community 223 - "android.content.Context"
+Cohesion: 0.02
+Nodes (37): BooleanSetting, IntegerSetting, Setting, StringSetting, BottomTabLabels, ConditionalPreferenceCategory, DebugPreferenceCategory, DownloadsPreferenceCategory (+29 more)
 
-### Community 223 - "Setting"
+### Community 224 - "android.os.Parcelable"
 Cohesion: 0.03
-Nodes (12): FeedFilterCounters, BooleanSetting, IntegerSetting, Setting, StringSetting, Utils, PauseAnswersUnpatchedTest, PreferenceCommitFailure (+4 more)
-
-### Community 224 - "SwitchListPreference"
-Cohesion: 0.12
-Nodes (5): Item, OpenState, SwitchListPreference, View.OnLayoutChangeListener, SwitchListPreferenceTest
+Nodes (11): DialogDraft, Typed, PopupLabelChecklistPreference, ProfileShortcutChecklistPreference, ShareAppPickerPreference, android.text.TextWatcher, Item, OpenState (+3 more)
 
 ### Community 225 - "FoldableSplitViewTest"
 Cohesion: 0.12
@@ -1636,40 +1667,36 @@ Cohesion: 0.10
 Nodes (8): Listener, Result, FAILED, RECORDED, STILL_HERE, ScreenLayout, ScreenLayoutTest, TargetActivity
 
 ### Community 227 - "WebFontTest"
-Cohesion: 0.10
+Cohesion: 0.11
 Nodes (4): PickedFont, WebFont, WebFontTest, WebView
 
-### Community 236 - "MediaStopPropagationTest"
-Cohesion: 0.10
-Nodes (6): MediaStopPropagationTest, File, File, ByteArrayInputStream, FakeHttpsConnection, RunningDeadline
+### Community 236 - "SearchLynxEvidence"
+Cohesion: 0.12
+Nodes (5): JsonBoundary, Payload, Rows, SearchLynxEvidence, SearchLynxSnapshot
 
 ### Community 237 - "CurrentVideoAuthorTest"
 Cohesion: 0.08
-Nodes (14): Author, Clip, Params, Author, BudgetBody, Clip, CurrentVideoAuthorTest, Params (+6 more)
+Nodes (10): BlockFeedAdvance, BlockFeedAdvanceTest, FakeCall, FakeReply, FakeService, Author, BudgetBody, Clip (+2 more)
 
 ### Community 239 - "CaptionCommentsTest"
-Cohesion: 0.07
-Nodes (13): CaptionComments, Caption, CaptionCommentsTest, CommentAssem, Item, Mechanism, SEE_MORE_BTN, TAP_PHOTO (+5 more)
+Cohesion: 0.12
+Nodes (10): CaptionComments, Caption, CaptionCommentsTest, Item, Mechanism, SEE_MORE_BTN, TAP_PHOTO, TAP_TEXT (+2 more)
 
 ### Community 240 - "OriginalSoundDownloadsTest"
 Cohesion: 0.12
 Nodes (6): OriginalSoundDownloads, BarePost, Music, OriginalSoundDownloadsTest, PlayUrl, Post
 
-### Community 241 - "BudgetCueTest"
-Cohesion: 0.13
-Nodes (3): BudgetCue, BudgetCueTest, android.text.TextWatcher
-
 ### Community 242 - "PreferenceFailureRecoveryTest"
-Cohesion: 0.09
+Cohesion: 0.10
 Nodes (10): HarnessFragment, PreferenceFailureRecoveryTest, Stage, AVAILABILITY, CHANGE_SYNC, INITIAL_SYNC, INITIALIZE, NONE (+2 more)
 
 ### Community 243 - "GhostModeCallSitesTest"
-Cohesion: 0.19
-Nodes (3): Call, GhostModeCallSitesTest, Run
+Cohesion: 0.16
+Nodes (4): FollowingStoriesBubbleAnchorsTest, Call, GhostModeCallSitesTest, Run
 
 ### Community 246 - "UrlModel"
 Cohesion: 0.07
-Nodes (8): Candidate, DownloadsPatch, Address, ThrowingAddress, Video4693, UrlModel, Video, VideoUrlModel
+Nodes (9): Candidate, DownloadsPatch, Address, DownloadsPatchTest, ThrowingAddress, Video4693, UrlModel, Video (+1 more)
 
 ### Community 247 - "FlvSink"
 Cohesion: 0.10
@@ -1677,71 +1704,79 @@ Nodes (8): FlvSink, Held, LiveRemux, Mp4Writer, MuxerWriter, NothingRecorded, Su
 
 ### Community 248 - "SubtitleDownloadsTest"
 Cohesion: 0.10
-Nodes (7): SubtitleDownloads, Track, SubtitleFormat, Model, SubtitleDownloadsTest, Track, Video
+Nodes (8): SubtitleDownloads, Track, SubtitleFormat, AndroidAtomicFileShadow, Model, SubtitleDownloadsTest, Track, Video
 
-### Community 249 - "Override"
-Cohesion: 0.09
-Nodes (6): Address, FakeConnection, File, File, InputStream, HttpsURLConnection
+### Community 249 - "MediaTransportSecurityTest"
+Cohesion: 0.05
+Nodes (12): DmStickerDecryptionTest, Address, CheckedRunnable, ConnectionFactory, FakeConnection, Gear, MediaTransportSecurityTest, File (+4 more)
 
 ### Community 250 - "AdvancedDownloadsPatch.kt"
-Cohesion: 0.08
-Nodes (27): avatarCaptureField(), CleanDownloadAddressFingerprint, DownloadAddressFingerprint, interceptProfileAvatarLongPress(), isAvatarLongPressHandler(), isAvatarLongPressShape(), OtherProfileAvatarLongPressFingerprint, OwnProfileAvatarLongPressFingerprint (+19 more)
+Cohesion: 0.12
+Nodes (17): avatarCaptureField(), CleanDownloadAddressFingerprint, DownloadAddressFingerprint, interceptProfileAvatarLongPress(), isAvatarLongPressHandler(), isAvatarLongPressShape(), OtherProfileAvatarLongPressFingerprint, OwnProfileAvatarLongPressFingerprint (+9 more)
 
 ### Community 251 - "SessionPlaybackHold"
-Cohesion: 0.09
-Nodes (5): NativeControls, SessionPlaybackHold, Target, FeedActivity, SessionPlaybackHold.NativeControls
+Cohesion: 0.12
+Nodes (3): NativeControls, SessionPlaybackHold, Target
 
 ### Community 252 - "InboxLayoutLifecycleTest"
-Cohesion: 0.18
+Cohesion: 0.19
 Nodes (5): Archive, Bulletin, Holder, Inbox, InboxLayoutLifecycleTest
 
-### Community 253 - ".set"
-Cohesion: 0.01
-Nodes (39): CaptionsAvailable, PollResults, VoiceComments, FavoritesTab, FeatureControls, AiCastFilter, FullScreenHold, StoryControls (+31 more)
+### Community 253 - ".bound"
+Cohesion: 0.03
+Nodes (13): AiCastFilter, FullScreenHold, TabBadges, OfflineVideoExpiry, ProfileBackground, LanguagePageTranslations, BuildNamesTest, HookStatusTest (+5 more)
 
-### Community 254 - "GridPicker"
-Cohesion: 0.15
-Nodes (3): GridPicker, View.OnAttachStateChangeListener, View.AccessibilityDelegate
+### Community 256 - "Binding"
+Cohesion: 0.12
+Nodes (3): Binding, CommentLikeTouchTarget, Host
 
-### Community 258 - "SeenHistoryFilePreference"
-Cohesion: 0.15
-Nodes (4): ImportTarget, PendingPick, PendingPick, SeenHistoryFilePreference
+### Community 257 - "SeekbarTimeTest"
+Cohesion: 0.11
+Nodes (4): SeekbarTime, Tick, Post, SeekbarTimeTest
+
+### Community 258 - "BarShade"
+Cohesion: 0.09
+Nodes (3): BarShade, Application.ActivityLifecycleCallbacks, ShadeSearches
 
 ### Community 259 - ".changingTheSessionLimitFromItsSettingsRowResetsTheRetainedFeedSession"
 Cohesion: 0.09
-Nodes (9): AutoAdvanceLimitPreferenceTest, FixtureAweme, NativeBridges, NativeComponent, NativeState, AUTO_SCROLL_STATE_PAUSE, AUTO_SCROLL_STATE_START, AUTO_SCROLL_STATE_STOP (+1 more)
+Nodes (8): FixtureAweme, NativeBridges, NativeComponent, NativeState, AUTO_SCROLL_STATE_PAUSE, AUTO_SCROLL_STATE_START, AUTO_SCROLL_STATE_STOP, SettingsActivity
 
 ### Community 260 - "FeatureGateLabStore"
-Cohesion: 0.04
-Nodes (32): FieldValueException, ScalarValueException, FeatureGateLabReport, FeatureGateLabStore, ImportRejection, ImportRejectionCode, DUPLICATE_RULE, INVALID_FIELD_TYPE (+24 more)
+Cohesion: 0.05
+Nodes (29): FieldValueException, ScalarValueException, FeatureGateLabStore, ImportRejection, ImportRejectionCode, DUPLICATE_RULE, INVALID_FIELD_TYPE, INVALID_OBJECT (+21 more)
+
+### Community 262 - "AppLanguageTest"
+Cohesion: 0.09
+Nodes (5): AppLanguage, Language, AppLanguageTest, FakeLanguage, TestActivity
 
 ### Community 263 - "GestureActions"
-Cohesion: 0.08
+Cohesion: 0.07
 Nodes (4): FeedSeek, CommentControl, GestureActions, OnScreen
 
 ### Community 264 - "CommentPublishDiagnosticsTest"
-Cohesion: 0.11
+Cohesion: 0.12
 Nodes (11): CommentPublishDiagnostics, Fragment, Comment, CommentContextSource, CommentPublishDiagnosticsTest, CommonModel, DetachedPage, GiftStruct (+3 more)
 
-### Community 265 - "BlockFeedAdvanceTest"
-Cohesion: 0.16
-Nodes (5): BlockFeedAdvance, BlockFeedAdvanceTest, FakeCall, FakeReply, FakeService
+### Community 265 - "LookupScan"
+Cohesion: 0.19
+Nodes (11): Call, Caller, Constant, Header, Lookup, LookupScan, Named, Result (+3 more)
+
+### Community 266 - "Rows"
+Cohesion: 0.17
+Nodes (4): Row, AccountListSession.Dispatch, View.OnAttachStateChangeListener, Rows
 
 ### Community 267 - "LiveRecorder"
-Cohesion: 0.07
-Nodes (26): Clock, End, APP_EXIT, DISCONNECTED, ERROR, LEFT_ROOM, SIZE_LIMIT, STOPPED (+18 more)
-
-### Community 269 - "BackgroundPlay"
-Cohesion: 0.10
-Nodes (5): BackgroundPlay, Host, BackgroundPlayTest, FakeHost, TestActivity
+Cohesion: 0.08
+Nodes (20): Clock, End, APP_EXIT, DISCONNECTED, ERROR, LEFT_ROOM, SIZE_LIMIT, STOPPED (+12 more)
 
 ### Community 270 - "StickerPublicationBudgetTest"
-Cohesion: 0.08
-Nodes (13): Capacity, AFTER_BYTES, AFTER_OPEN, BEFORE_PUBLICATION, ROOMY, DeadlineClock, Kind, BYTES (+5 more)
+Cohesion: 0.07
+Nodes (14): Capacity, AFTER_BYTES, AFTER_OPEN, BEFORE_PUBLICATION, ROOMY, DeadlineClock, Kind, BYTES (+6 more)
 
 ### Community 271 - "ContentMarkerCorpusTest"
-Cohesion: 0.14
-Nodes (11): ContentMarkerCorpusTest, ReplayAigc, ReplayCardInsert, ReplayCommerce, ReplayDramaCard, ReplayMix, ReplayModeration, ReplayPaidContent (+3 more)
+Cohesion: 0.11
+Nodes (12): ContentMarkerCorpusTest, ReplayAigc, ReplayCardInsert, ReplayCommerce, ReplayDramaCard, ReplayMix, ReplayModeration, ReplayNumber (+4 more)
 
 ### Community 272 - "InputCheckTest"
 Cohesion: 0.13
@@ -1760,7 +1795,7 @@ Cohesion: 0.13
 Nodes (18): Action, Adapter, Config, Diff, EmptyState, InboxRenderedModelsContract, InheritedAdapter, Loading (+10 more)
 
 ### Community 276 - "ResourceUtils"
-Cohesion: 0.05
+Cohesion: 0.06
 Nodes (27): ResourceType, ANIM, ANIMATOR, ARRAY, ATTR, BOOL, COLOR, DIMEN (+19 more)
 
 ### Community 277 - "android.view.Surface"
@@ -1768,11 +1803,11 @@ Cohesion: 0.16
 Nodes (6): Layer, Placed, PlayerLayers, Parent, Player, PlayerLayersTest
 
 ### Community 278 - "l10n-xml.py"
-Cohesion: 0.08
-Nodes (12): atomic_write(), export_xml(), import_xml(), language_code(), main(), read_xml(), table_entries(), tag() (+4 more)
+Cohesion: 0.13
+Nodes (9): atomic_write(), export_xml(), import_xml(), language_code(), main(), read_xml(), table_entries(), tag() (+1 more)
 
 ### Community 279 - "SwipeLeftTest"
-Cohesion: 0.12
+Cohesion: 0.16
 Nodes (3): Adapter, Pager, SwipeLeftTest
 
 ### Community 280 - "CommentMenuBlock"
@@ -1780,8 +1815,8 @@ Cohesion: 0.12
 Nodes (6): Built, CommentMenuBlock, Feedback, Pending, Shape, Transport
 
 ### Community 281 - "CommentExportTest"
-Cohesion: 0.13
-Nodes (5): Author, Comment, CommentExportTest, SettingsWindow, Comment
+Cohesion: 0.14
+Nodes (4): Author, Comment, CommentExportTest, SettingsWindow
 
 ### Community 282 - "InboxQueryOwnersTest"
 Cohesion: 0.12
@@ -1789,7 +1824,7 @@ Nodes (6): InboxQueryOwnersTest, NativeFragment, NativeHolder, NativeList, Nativ
 
 ### Community 283 - "DmStickerPreviewTest"
 Cohesion: 0.12
-Nodes (7): StickerAsset, DmStickerPreviewTest, ImageComponent, MissingKeyComponent, MissingKeyTemplate, Template, RoundingCornerLayout
+Nodes (6): DmStickerPreviewTest, ImageComponent, MissingKeyComponent, MissingKeyTemplate, Template, RoundingCornerLayout
 
 ### Community 284 - "FollowProfileReadbackTest"
 Cohesion: 0.09
@@ -1800,28 +1835,28 @@ Cohesion: 0.16
 Nodes (22): bullets(), catalog(), catalog_patches(), check_translations(), counted(), cut(), fail(), fold_next_release() (+14 more)
 
 ### Community 286 - "CommentMenuBlockTest"
-Cohesion: 0.15
-Nodes (10): Click, CommentMenuBlockTest, CommentMenuBlock.Feedback, Item, Measure, Panel, Row, Style (+2 more)
+Cohesion: 0.21
+Nodes (9): Click, CommentMenuBlockTest, Item, Measure, Panel, Row, Style, Tone (+1 more)
 
 ### Community 287 - "MediaCacheJournalHandoffTest"
-Cohesion: 0.20
-Nodes (4): FinishWithoutPublication, FinishWithWrongRecords, MediaCacheJournalHandoffTest, WriteFailure
+Cohesion: 0.09
+Nodes (6): MediaCache, PendingIntent, FinishWithoutPublication, FinishWithWrongRecords, MediaCacheJournalHandoffTest, WriteFailure
 
 ### Community 288 - ".initialize"
-Cohesion: 0.09
-Nodes (4): SystemBackHandler, View.OnAttachStateChangeListener, SystemBackHandlerTest, SystemBarInsetsTest
+Cohesion: 0.08
+Nodes (5): SystemBackHandler, View.OnAttachStateChangeListener, SystemBarInsets, SystemBackHandlerTest, SystemBarInsetsTest
 
 ### Community 289 - "LinkedVideoTest"
-Cohesion: 0.18
+Cohesion: 0.17
 Nodes (4): Clock, Link, LinkedVideo, LinkedVideoTest
 
 ### Community 290 - ".listeners"
 Cohesion: 0.12
 Nodes (5): applyAfterCommentToolsPreflight(), CommentDislikeTouchTest, CommentReplySearchPatchTest, CommentSearchSuggestionsPatchTest, CompactCommentHeaderPatchTest
 
-### Community 291 - "CustomLauncherIconPatch.kt"
-Cohesion: 0.13
-Nodes (22): adaptiveIconFiles(), appResource(), bigEndianInt(), copyInto(), decodedXmlFiles(), drawInline(), glyphVector(), IconStyle (+14 more)
+### Community 291 - "SettingsStatusPreference"
+Cohesion: 0.10
+Nodes (4): MorpheTikTokAboutPreference, ActiveDrawable, PausedDrawable, SettingsStatusPreference
 
 ### Community 292 - "Audio"
 Cohesion: 0.09
@@ -1831,16 +1866,20 @@ Nodes (7): Audio, Brightness, EdgeDragRestoration, Audio, Brightness, EdgeDragRe
 Cohesion: 0.10
 Nodes (6): KeepPaused, EmptyCallbacks, KeepPausedTest, View.AccessibilityDelegate, EmptyCallbacks, OtherScreen
 
+### Community 294 - "DiagnosticRedactor"
+Cohesion: 0.12
+Nodes (3): JavaCrashCapture, MorpheCrashHandler, JavaCrashCaptureTest
+
 ### Community 296 - "CreatorListPreference"
-Cohesion: 0.03
-Nodes (9): CreatorListPreference, TextWatcher, SettingsUi.DialogCheck, DialogDraft, PopupLabelChecklistPreference, ProfileShortcutChecklistPreference, ShareActionChecklistPreference, android.text.TextWatcher (+1 more)
+Cohesion: 0.09
+Nodes (4): CreatorListPreference, TextWatcher, SettingsUi.DialogCheck, CreatorListTest
 
 ### Community 297 - "CountRangeFilterTest"
 Cohesion: 0.10
 Nodes (7): CommentCountFilter, FavouriteCountFilter, ShareCountFilter, CountRangeFilterTest, Aweme, AwemeStatistics, Aweme
 
 ### Community 298 - ".logParsedResponse"
-Cohesion: 0.13
+Cohesion: 0.16
 Nodes (5): CaptchaGateRequest, ChatBody, EnterBody, FollowDiagnosticsTest, ParsedResponse
 
 ### Community 299 - "ScreenTransitionsTest"
@@ -1860,15 +1899,15 @@ Cohesion: 0.13
 Nodes (4): EngagementRate, EngagementRateTest, Item, Stats
 
 ### Community 305 - "FeedTextSize"
-Cohesion: 0.17
-Nodes (3): AuthorSize, DescriptionSize, FeedTextSize
+Cohesion: 0.06
+Nodes (10): AuthorSize, DescriptionSize, FeedTextSize, Native, NumberInputPreference, NumberInputPreference, NumberInputPreference, FeedDescriptionSizeTest (+2 more)
 
 ### Community 306 - "SaveRecords"
-Cohesion: 0.13
-Nodes (7): Outcome, DONE, MISSING, UNCERTAIN, Record, SaveRecords, Slot
+Cohesion: 0.04
+Nodes (15): Outcome, DONE, MISSING, UNCERTAIN, Record, Report, SaveRecords, Slot (+7 more)
 
 ### Community 307 - "RailHoldTest"
-Cohesion: 0.16
+Cohesion: 0.15
 Nodes (3): RailHold, ShareMenu, RailHoldTest
 
 ### Community 308 - "LocalProfileAppearanceTest"
@@ -1876,16 +1915,12 @@ Cohesion: 0.12
 Nodes (3): Binding, LocalProfileAppearance, LocalProfileAppearanceTest
 
 ### Community 309 - "NativeEdgeLongPressTest"
-Cohesion: 0.11
-Nodes (9): NativeCell, Clip, NativeCell, GestureDetector.SimpleOnGestureListener, NativeEdgeLongPressTest, PlayerController, PlayerManager, Sound (+1 more)
-
-### Community 310 - "DmTranslationHooks.kt"
-Cohesion: 0.14
-Nodes (4): findDmAccountTargets(), findDmPreviewPlans(), DmTranslationAccountHooksTest, ReceivedDmTranslationFixturesTest
+Cohesion: 0.10
+Nodes (11): NativeCell, Author, Clip, NativeCell, GestureDetector.SimpleOnGestureListener, NativeEdgeLongPressTest, PlayerController, PlayerManager (+3 more)
 
 ### Community 311 - "BudgetFocusProbe"
-Cohesion: 0.13
-Nodes (8): BudgetFocusProbe, RestorationRetry.Work, RestorationRetry.Work, Choice, Snapshot, Commit, VerifiedJournal, VerifiedJournalContract
+Cohesion: 0.17
+Nodes (5): BudgetFocusProbe, RestorationRetry.Work, RestorationRetry.Work, Choice, Snapshot
 
 ### Community 312 - "Session"
 Cohesion: 0.18
@@ -1895,160 +1930,144 @@ Nodes (4): Check, Contract, NativeMediaProbe, Session
 Cohesion: 0.14
 Nodes (3): LiveRoomStream, Pick, LiveRoomStreamTest
 
-### Community 314 - "NotInterestedQueueTest"
-Cohesion: 0.19
-Nodes (5): NotInterested, Author, Clip, NotInterestedQueueTest, Params
-
 ### Community 315 - "MusicDiscSpinAnchorsTest"
-Cohesion: 0.20
-Nodes (5): isBoxedAbIntRead(), staticBooleanReadIndex(), code(), counted(), MusicDiscSpinAnchorsTest
+Cohesion: 0.21
+Nodes (4): isBoxedAbIntRead(), code(), counted(), MusicDiscSpinAnchorsTest
 
 ### Community 316 - "FeedFilterCountersTest"
-Cohesion: 0.13
+Cohesion: 0.11
 Nodes (3): FeedFilterCountersTest, ArrayList<Object>, LoggableVideo
-
-### Community 317 - "ShareSheetTools"
-Cohesion: 0.05
-Nodes (12): GlobalLayoutHook, ActionFlow, PanelRows, ShareSheetTools, CountingActivityRoot, NativeActionCell, View.AccessibilityDelegate, NativePanel (+4 more)
 
 ### Community 318 - "Call"
 Cohesion: 0.13
-Nodes (9): Completion, DispatchGuard, Request, Transport, Call, NativeDmTranslation, Call, Call (+1 more)
+Nodes (7): Completion, DispatchGuard, Request, Call, Call, Call, Call
 
 ### Community 319 - "NativeCoordinateLongPressTest"
-Cohesion: 0.10
+Cohesion: 0.11
 Nodes (10): CoordinateAuthor, CoordinateClip, CoordinateParams, CoordinatePlayerController, CoordinatePlayerManager, CoordinateSound, CoordinateTouchLayer, GestureDetector.SimpleOnGestureListener (+2 more)
 
-### Community 320 - "ShareAppPickerPreference"
-Cohesion: 0.07
-Nodes (6): InstalledAppsBlocker, ShareAppPickerPreference, android.text.TextWatcher, App, Native, ShareTargets
+### Community 320 - "ShareTargets"
+Cohesion: 0.14
+Nodes (3): App, Native, ShareTargets
 
 ### Community 321 - "NativeAlignmentTest"
-Cohesion: 0.14
+Cohesion: 0.16
 Nodes (4): apk_image(), elf_image(), NativeAlignmentTest, read()
 
 ### Community 322 - "SearchLynxEvidence"
-Cohesion: 0.06
-Nodes (13): JsonBoundary, Payload, Row, Rows, SearchLynxEvidence, Templates, SearchLynxSnapshot, Opaque (+5 more)
-
-### Community 323 - "StoreIdentityTest"
-Cohesion: 0.08
-Nodes (4): StoreIdentity, StoreInstallSource, StoreIdentityTest, StoreInstallSourceTest
-
-### Community 324 - "PrivacySwitchesTest"
 Cohesion: 0.10
-Nodes (4): ContactListBlocker, LocationGovernor, DeviceReads, PrivacySwitchesTest
+Nodes (9): Preset, Row, Templates, Opaque, OpaqueNumber, ParentPatch, Patch, SearchLynxEvidenceContract (+1 more)
+
+### Community 324 - "android.content.Intent"
+Cohesion: 0.06
+Nodes (5): AutoStreakReceiver, ScreenRecordConsentActivity, PictureInPictureTest, DeviceReads, PushQuickActionReceiver
 
 ### Community 325 - "AccountListSession"
-Cohesion: 0.06
-Nodes (34): AccountListSession, Accounts, BlockMetadata, BlockSource, Cancellation, Dispatch, Listener, Reason (+26 more)
+Cohesion: 0.15
+Nodes (9): AccountListSession, Accounts, Dispatch, Kind, BLOCKED_ACCOUNTS, SAVED_POSTS, Listener, Snapshot (+1 more)
 
 ### Community 327 - "ProfileAvatarGestureTest"
-Cohesion: 0.15
-Nodes (6): LegacyResponse, MyProfileOwner, NativeSlotThree, OtherProfileOwner, ProfileAvatarGestureTest, ProfileOwner
+Cohesion: 0.14
+Nodes (7): AmbiguousOwner, LegacyResponse, MyProfileOwner, NativeSlotThree, OtherProfileOwner, ProfileAvatarGestureTest, ProfileOwner
 
-### Community 329 - "FinishLastVideoTest"
-Cohesion: 0.12
-Nodes (3): FinishLastVideo, SessionBudgetNotice, FinishLastVideoTest
+### Community 329 - "CreatorPatternTest"
+Cohesion: 0.18
+Nodes (4): CreatorFilter, Author, CreatorPatternTest, Aweme
 
 ### Community 330 - "navigation/Fingerprints.kt"
 Cohesion: 0.12
 Nodes (25): BottomTabModelListFingerprint, branchTargets(), ColdStartTab, ColdStartTabFingerprint, DefaultPageFingerprint, FeedButtonsGateFingerprint, FeedButtonStateFingerprint, FirstTopTab (+17 more)
 
 ### Community 331 - "StorageScan"
-Cohesion: 0.12
-Nodes (10): Counted, Directory, FileSystem, Kind, DIRECTORY, FILE, OTHER, SYMLINK (+2 more)
+Cohesion: 0.11
+Nodes (9): Directory, Failure, FileSystem, Problem, CHANGED, IO, MISSING, UNREADABLE (+1 more)
 
 ### Community 332 - "ShareButtonTapTest"
-Cohesion: 0.13
-Nodes (4): ShareButtonTap, Item, Post, ShareButtonTapTest
+Cohesion: 0.12
+Nodes (5): ShareButtonTap, Item, Post, ShareButtonTapTest, View.AccessibilityDelegate
 
 ### Community 334 - "FrameLayout"
 Cohesion: 0.07
-Nodes (6): CaptionStyle, Lift, CaptionTools, FrameLayout, CaptionToolsTest, Video
+Nodes (7): CaptionStyle, Lift, CaptionTools, View.OnAttachStateChangeListener, FrameLayout, CaptionToolsTest, Video
 
 ### Community 336 - "LiveRecorderTest"
-Cohesion: 0.17
+Cohesion: 0.16
 Nodes (5): Finisher, FakeClock, Finish, LiveRecorderTest, ScriptedSource
 
 ### Community 337 - "SeenHistoryFilePreferenceTest"
-Cohesion: 0.09
-Nodes (5): DocumentExportProvider, SeenHistoryFilePreferenceTest, SlowTransfers, FilterInputStream, FilterOutputStream
+Cohesion: 0.07
+Nodes (7): DocumentExportProvider, PageActivity, DocumentOperationTest, SeenHistoryFilePreferenceTest, SlowTransfers, FilterInputStream, FilterOutputStream
 
 ### Community 338 - "ForYouTabSettingsShortcutTest"
 Cohesion: 0.21
 Nodes (4): ForYouTabSettingsShortcutTest, View.AccessibilityDelegate, View.AccessibilityDelegate, TopTab
 
 ### Community 339 - "SettingsActionFlowTest"
-Cohesion: 0.08
-Nodes (5): SearchTogglePreference, SettingsSearchHistory, SettingsActionFlowTest, SettingsSearchHistoryTest, SettingsSearchToggleTest
+Cohesion: 0.10
+Nodes (4): SearchTogglePreference, SettingsSearchHistory, SettingsSearchHistoryTest, SettingsSearchToggleTest
 
 ### Community 341 - ".execute"
 Cohesion: 0.15
 Nodes (5): Driver, EdgeDragPlan, Event, EdgeDragPlanContract, Fake
 
+### Community 343 - "Result"
+Cohesion: 0.10
+Nodes (16): Cancelled, RecipientState, Result, DISPATCHED, DISPATCHING, FAILED, NO_RECIPIENT, NONE (+8 more)
+
 ### Community 344 - "PhotoToJpegTest"
 Cohesion: 0.16
 Nodes (4): KeepAsSent, PhotoToJpeg, PrimaryImageReader, PhotoToJpegTest
 
-### Community 345 - "Reason"
-Cohesion: 0.11
-Nodes (16): Failure, RECOVERY_REQUIRED, REJECTED_INPUT, ROLLED_BACK, Reason, DAMAGED, ENCODING, FORMAT (+8 more)
+### Community 345 - "OpenAction"
+Cohesion: 0.14
+Nodes (3): ForYouTabSettingsShortcut, OpenAction, Press
 
 ### Community 347 - "CommentReplySearchTest"
-Cohesion: 0.14
-Nodes (6): Comment, Manager, Author, CellState, CommentReplySearchTest, Sheet
+Cohesion: 0.13
+Nodes (6): Comment, Author, CellState, Comment, CommentReplySearchTest, Sheet
 
-### Community 348 - "ExternalBrowserPatch"
-Cohesion: 0.14
-Nodes (3): ExternalBrowserPatch, AllowedSparkContext, ExternalBrowserPatchTest
+### Community 348 - "GlassVideoBlurTest"
+Cohesion: 0.16
+Nodes (3): GlassBackground, Bar, GlassVideoBlurTest
 
 ### Community 349 - "InboxModelFilterTest"
-Cohesion: 0.14
-Nodes (9): InboxModelFilter, Cell, InboxModelFilterTest, Kind, ACTIVITY, FOLLOWER, SHOP, Pod (+1 more)
+Cohesion: 0.12
+Nodes (11): InboxModelFilter, Cell, Cell, Entrance, InboxModelFilterTest, Kind, ACTIVITY, FOLLOWER (+3 more)
 
 ### Community 350 - "ProblemReport"
 Cohesion: 0.20
 Nodes (3): Facts, ProblemReport, ProblemReportTest
 
-### Community 351 - "java.net.URI"
-Cohesion: 0.13
-Nodes (3): Target, Selector, ProxySelector
+### Community 351 - "ShareModelFilterTest"
+Cohesion: 0.17
+Nodes (4): HostileList, Item, Package, ShareModelFilterTest
 
 ### Community 352 - "CommentPageSceneRegisterTest"
 Cohesion: 0.15
 Nodes (5): commentPageSceneRegister(), writes(), CommentPageSceneRegisterTest, CommentSurpriseAnchorsTest, Read
 
-### Community 353 - "ModUpdater"
-Cohesion: 0.18
-Nodes (3): ModUpdater, UiAction, UpdateSpec
-
 ### Community 354 - "DebugCaptureTest"
 Cohesion: 0.11
 Nodes (4): Clock, DebugCapture, DebugCaptureTest, FakeClock
 
-### Community 355 - "Watcher"
-Cohesion: 0.14
-Nodes (3): Report, UnfinishedSaves, Watcher
-
-### Community 356 - "Availability"
-Cohesion: 0.10
-Nodes (3): EnumSetting, LongSetting, Availability
+### Community 355 - "BatchSaveTest"
+Cohesion: 0.21
+Nodes (4): BatchSave, Saver, Source, BatchSaveTest
 
 ### Community 357 - "RepostDiagnosticsTest"
-Cohesion: 0.08
+Cohesion: 0.09
 Nodes (9): RepostDiagnostics, Body, HttpFailure, Item, Parsed, RawResponse, RepostDiagnosticsTest, Request (+1 more)
 
 ### Community 358 - "FrameSaverTest"
-Cohesion: 0.16
-Nodes (4): Author, FrameSaverTest, Post, Size
+Cohesion: 0.12
+Nodes (7): Author, FrameSaverTest, TextureView, TextureView, Post, ShowingTexture, Size
 
 ### Community 359 - "LinkTaskGuardTest"
 Cohesion: 0.17
 Nodes (3): LinkTaskGuard, LinkTaskGuardTest, RecordingActivity
 
 ### Community 360 - "SensitiveWarningsTest"
-Cohesion: 0.14
+Cohesion: 0.18
 Nodes (8): SensitiveWarnings, Clip, Mask, Params, RenamedClip, RenamedMask, RenamedParams, SensitiveWarningsTest
 
 ### Community 361 - "FeedRefreshTest"
@@ -2056,12 +2075,12 @@ Cohesion: 0.12
 Nodes (10): FeedRefresh, FeedFollowFragment, FeedRefreshTest, ForYouVariant, Trigger, CLICK_BOTTOM, CLICK_TOP, PULL_DOWN_REFRESH (+2 more)
 
 ### Community 362 - "WindDownScreensTest"
-Cohesion: 0.16
-Nodes (4): Service, WindDownScreensTest, UserDetailsInfoBean, IProtectionService
+Cohesion: 0.09
+Nodes (7): AdultCheck, Lookups, WindDownScreens, Service, WindDownScreensTest, UserDetailsInfoBean, IProtectionService
 
 ### Community 363 - "ProfileShortcuts"
 Cohesion: 0.09
-Nodes (10): Entry, ProfileShortcutCatalog, ProfileShortcuts, Shortcut, Node, ProfileShortcutsTest, Object, ProfileUser (+2 more)
+Nodes (9): Entry, ProfileShortcutCatalog, ProfileShortcuts, Shortcut, Node, ProfileShortcutsTest, Object, ProfileUser (+1 more)
 
 ### Community 364 - ".toggleBoost"
 Cohesion: 0.14
@@ -2075,29 +2094,21 @@ Nodes (6): LynxAccent, Palette, Palette, LynxAccentTest, LynxAccent.Palette, Lyn
 Cohesion: 0.14
 Nodes (26): AppLogFlushAsyncFingerprint, AppLogFlushFingerprint, AppLogForwardSendFingerprint, AppLogOnActivityPauseFingerprint, AppLogOnEventFingerprint, AppLogOnEventV3BundleFingerprint, AppLogOnEventV3JsonFingerprint, AppLogOnEventV3StringFingerprint (+18 more)
 
-### Community 370 - "androidx.annotation.NonNull"
-Cohesion: 0.10
-Nodes (3): StringKeyLookup, StringRef, SettingRangeTest
-
-### Community 371 - "ChangedSettingsReportTest"
-Cohesion: 0.13
-Nodes (3): ReportSection, ChangedSettingsReport, ChangedSettingsReportTest
-
 ### Community 372 - "CommentMediaFilterTest"
-Cohesion: 0.20
+Cohesion: 0.19
 Nodes (6): Comment, CommentMediaFilterTest, ItemList, ItemListWithoutPoll, ItemListWithPrimitivePoll, User
 
 ### Community 373 - "ShortLinkExpander"
-Cohesion: 0.09
-Nodes (6): ShareUrlSanitizer, Opened, Resolver, ShortLinkExpander, Then, ShortLinkExpanderTest
+Cohesion: 0.21
+Nodes (4): Opened, Resolver, ShortLinkExpander, Then
 
 ### Community 374 - "StoryDownloads"
 Cohesion: 0.05
-Nodes (16): StoryDownloads, VideoSource, StoryHoldTest, FieldView, NativeLongPressView, PlayArea, Story, StoryNativeLongPressTest (+8 more)
+Nodes (17): StoryDownloads, VideoSource, StoryHoldTest, FieldView, NativeLongPressView, PlayArea, Story, StoryNativeLongPressTest (+9 more)
 
 ### Community 375 - "LauncherShortcutsTest"
-Cohesion: 0.16
-Nodes (3): LauncherShortcuts, LauncherShortcutsTest, RebuildBridge
+Cohesion: 0.12
+Nodes (4): LauncherShortcuts, LauncherShortcutsTest, RebuildBridge, TestActivity
 
 ### Community 376 - "SearchSuggestionsEntryTest"
 Cohesion: 0.14
@@ -2112,16 +2123,12 @@ Cohesion: 0.13
 Nodes (10): ActivityPod, ArchivePod, Cell, Conversation, EntrancePod, InboxRowShapesTest, Kind, ACTIVITY (+2 more)
 
 ### Community 379 - "StorageReport"
-Cohesion: 0.13
-Nodes (4): Budget, Folder, Root, StorageReport
+Cohesion: 0.14
+Nodes (5): Budget, Folder, Root, StorageReport, StorageReportTest
 
-### Community 381 - ".visit"
-Cohesion: 0.10
-Nodes (14): carriedDefault(), Catalog, Catalogs, combine(), Combined, generate(), Item, main() (+6 more)
-
-### Community 382 - "MediaRouteContractTest"
-Cohesion: 0.15
-Nodes (6): Action, Fake, MediaRouteContractTest, ProxySelector, URLStreamHandler, Opener
+### Community 382 - "java.net.URL"
+Cohesion: 0.06
+Nodes (11): ConnectionOpener, MediaTransport, Resolver, Response, Target, Action, Fake, MediaRouteContractTest (+3 more)
 
 ### Community 384 - "SoundSeekbar.kt"
 Cohesion: 0.29
@@ -2131,17 +2138,21 @@ Nodes (9): declaresPublic(), resolveSoundPreviewMembers(), soundCalls(), SoundCo
 Cohesion: 0.18
 Nodes (5): Follower, HlsPlaylist, Segment, Variant, HlsPlaylistTest
 
+### Community 386 - ".actions"
+Cohesion: 0.15
+Nodes (5): Built, CatalogEntry, Native, Saver, ShareSaveCover
+
 ### Community 387 - ".sawList"
-Cohesion: 0.10
-Nodes (5): Counter, Line, Snapshot, FeedFilterKindsTest, FilteredCountPillTest
+Cohesion: 0.13
+Nodes (5): Counter, Line, Snapshot, FeedServedKinds, FeedFilterKindsTest
 
 ### Community 388 - "CommentControlOwnershipTest"
-Cohesion: 0.22
+Cohesion: 0.20
 Nodes (3): Cell, CommentControlOwnershipTest, NativeRow
 
-### Community 389 - "MusicDiscSpin.kt"
-Cohesion: 0.16
-Nodes (17): answer(), answerMusicDiscRead(), answerMusicDiscReturn(), answerMusicDiscSetting(), degradeCheckType(), highFrameRateHoldIndex(), isDegradeEnable(), isIntBoxing() (+9 more)
+### Community 389 - ".recover"
+Cohesion: 0.18
+Nodes (5): LiveSpoolRecovery, Publisher, Save, LiveSpoolRecoveryTest, Saves
 
 ### Community 390 - ".setLiveSpeed"
 Cohesion: 0.15
@@ -2156,8 +2167,12 @@ Cohesion: 0.20
 Nodes (17): bundle_version(), https_url(), identity(), main(), prepare(), read_index(), read_text(), release_url() (+9 more)
 
 ### Community 394 - "ShareSurface"
-Cohesion: 0.09
-Nodes (9): Entry, ShareActionCatalog, ShareModelFilter, ShareSurface, LIVE, PROFILE, VIDEO, Item (+1 more)
+Cohesion: 0.13
+Nodes (7): Entry, ShareActionCatalog, ShareModelFilter, ShareSurface, LIVE, PROFILE, VIDEO
+
+### Community 395 - "FeedOverlayControlsTest"
+Cohesion: 0.11
+Nodes (4): Binding, FeedOverlayControls, FeedOverlayControlsTest, Fixture
 
 ### Community 396 - "CopyIdsTest"
 Cohesion: 0.22
@@ -2168,11 +2183,11 @@ Cohesion: 0.20
 Nodes (4): CommentMenuBlockAnchorsTest, Caller, Signature, TelemetrySendAnchorsTest
 
 ### Community 398 - "TabSelectionPreference"
-Cohesion: 0.09
-Nodes (7): OptionRow, TabSelectionPreference, View.AccessibilityDelegate, AuditedSurfacesTest, Host, Host, Host
+Cohesion: 0.16
+Nodes (3): OptionRow, TabSelectionPreference, View.AccessibilityDelegate
 
 ### Community 399 - "SeekbarTimeRoomTest"
-Cohesion: 0.20
+Cohesion: 0.15
 Nodes (4): Feed, Post, SeekbarTimeRoomTest, StackedPager
 
 ### Community 400 - "InboxQueryTextTest"
@@ -2180,23 +2195,19 @@ Cohesion: 0.19
 Nodes (10): Config, General, InboxQueryTextTest, Link, Notice, Pair, Struct, Template (+2 more)
 
 ### Community 402 - "FeedTextContracts.kt"
-Cohesion: 0.20
-Nodes (18): CacheBypass, calls(), constantBefore(), FeedTextMembers, fields(), freeLocal(), hasCall(), hasLayoutWrapperShape() (+10 more)
+Cohesion: 0.17
+Nodes (21): CacheBypass, calls(), constantBefore(), FeedTextMembers, fields(), freeLocal(), hasCall(), hasLayoutWrapperShape() (+13 more)
 
-### Community 403 - "ForYouLongPressTest"
-Cohesion: 0.22
-Nodes (3): findTopTabBind(), topTabStripType(), ForYouLongPressTest
-
-### Community 404 - "DownloadPathPreference"
-Cohesion: 0.18
-Nodes (3): DownloadPathPreference, TextWatcher, SettingsUi.DialogCheck
+### Community 404 - "RangeValuePreference"
+Cohesion: 0.06
+Nodes (9): DownloadPathPreference, TextWatcher, SettingsUi.DialogCheck, RangeValuePreference, TextWatcher, TextWatcher, SettingsUi.DialogCheck, DialogCheck (+1 more)
 
 ### Community 405 - "FocusFixtureService"
 Cohesion: 0.16
 Nodes (3): FocusFixtureService, PcmFocusFixture, PcmFocusFixtureContract
 
 ### Community 407 - "Override"
-Cohesion: 0.13
+Cohesion: 0.12
 Nodes (3): EditorActions, Mode, NativeActions
 
 ### Community 408 - "PatchListGenerator.kt"
@@ -2207,13 +2218,17 @@ Nodes (11): URLClassLoader, SettingsStatusStartupTest, generatePatchList(), Json
 Cohesion: 0.16
 Nodes (8): BlockWriter, BudgetCheck, Frame, FramePass, ENCODE, PALETTE, PRECISION_MASK, GifEncoder
 
+### Community 411 - "android.graphics.Rect"
+Cohesion: 0.07
+Nodes (7): Done, LayerSource, Source, ViewSource, SeekbarTimePlacement, Video, VideoDiggAssemAbility
+
 ### Community 412 - "CommentSearchSettingsTest"
-Cohesion: 0.17
+Cohesion: 0.10
 Nodes (4): CellState, Comment, CommentSearchSettingsTest, SettingsActivity
 
-### Community 414 - "TrustUserCertificatesTest.kt"
-Cohesion: 0.21
-Nodes (3): networkSecurityConfigReference(), trustUserCertificates(), TrustUserCertificatesTest
+### Community 414 - "PopupSwitchesTest"
+Cohesion: 0.17
+Nodes (6): PopupSwitches, Callback, Campaign, PopupSwitchesTest, Throwing, Unnamed
 
 ### Community 416 - "RestReminderTest"
 Cohesion: 0.21
@@ -2224,8 +2239,8 @@ Cohesion: 0.17
 Nodes (3): Closer, SleepTimer, SleepTimerTest
 
 ### Community 419 - "android.net.Uri"
-Cohesion: 0.05
-Nodes (9): ModUpdateProvider, HttpsBody, URLStreamHandler, FakeHttpsConnection, Provider, Provider, CountingProvider, OneRowProvider (+1 more)
+Cohesion: 0.03
+Nodes (16): ModUpdateProvider, ContextWrapper, UnavailableMediaProvider, HidingMediaProvider, MediaCachePendingSweepTest, RecordingMediaProvider, android.content.ContextWrapper, HttpsBody (+8 more)
 
 ### Community 420 - "CommenterDetails"
 Cohesion: 0.13
@@ -2234,10 +2249,6 @@ Nodes (5): CommenterDetails, NameColorSpan, NameState, ClickableSpan, SpannableS
 ### Community 423 - "gen-l10n.py"
 Cohesion: 0.17
 Nodes (13): add(), class_name(), java_name(), language_class(), literal(), main(), method_name(), plural_base() (+5 more)
-
-### Community 424 - "InboxFilter"
-Cohesion: 0.06
-Nodes (5): FilteredCountPill, InboxFilter, FrontWindow, Listener, HomeTabSettingsShortcut
 
 ### Community 425 - "NavigationTabsFilter"
 Cohesion: 0.10
@@ -2248,16 +2259,16 @@ Cohesion: 0.11
 Nodes (4): BeforeDispatch, Contact, StreakMessenger, UnconfirmedDispatch
 
 ### Community 428 - "InboxRowLanguageTest"
-Cohesion: 0.12
-Nodes (12): Cell, Entrance, Archive, Cell, Entrance, Holder, InboxRowLanguageTest, Kind (+4 more)
+Cohesion: 0.14
+Nodes (10): Archive, Cell, Entrance, Holder, InboxRowLanguageTest, Kind, ACTIVITY, FOLLOWER (+2 more)
 
 ### Community 429 - "FollowStatusTest"
 Cohesion: 0.21
 Nodes (5): CommonInfo, FollowStatusTest, Item, Profile, Relation
 
 ### Community 432 - "User"
-Cohesion: 0.10
-Nodes (10): UserComment, AmbiguousOwner, AccountFactsTest, BaseAdapter, Grid, GridAdapter, Video, CommentDeleteVM (+2 more)
+Cohesion: 0.12
+Nodes (9): UserComment, AccountFactsTest, BaseAdapter, Grid, GridAdapter, Video, CommentDeleteVM, UserBlocked (+1 more)
 
 ### Community 433 - "TranslationXmlTest"
 Cohesion: 0.13
@@ -2267,24 +2278,36 @@ Nodes (6): TranslationXmlTest, change(), change(), changed(), blank(), markup()
 Cohesion: 0.17
 Nodes (14): builder(), bullets(), constant(), main(), name(), published(), recent(), releases() (+6 more)
 
-### Community 437 - "android.app.Activity"
+### Community 436 - "GlassVideoBlur"
+Cohesion: 0.14
+Nodes (3): Finder, GlassVideoBlur, Painter
+
+### Community 437 - "android.widget.TextView"
 Cohesion: 0.02
-Nodes (37): BlockAuthorPatch, CommentLinks, LinkOnlyMovementMethod, Application.ActivityLifecycleCallbacks, Application.ActivityLifecycleCallbacks, SettingsActionBanner, TikTokActivityHook, Application.ActivityLifecycleCallbacks (+29 more)
+Nodes (28): ClearLogBufferPreference, ExportDiagnosticReportPreference, ImmediateAction, CommentLinks, LinkOnlyMovementMethod, AdoptSeenVideoHistoryPreference, LocalProfileCountsPreference, ModUpdatesPreference (+20 more)
 
 ### Community 438 - "BatchSaveTest"
-Cohesion: 0.09
-Nodes (6): BatchSave, Saver, BatchSaveTest, SavedVideoArchiveAccess, BackgroundQueueRefusalTest, ContextWrapper
+Cohesion: 0.07
+Nodes (8): NotInterested, SavedVideoArchiveAccess, Author, Clip, NotInterestedQueueTest, Params, BackgroundQueueRefusalTest, ContextWrapper
+
+### Community 439 - "GlobalLayoutHook"
+Cohesion: 0.18
+Nodes (3): GlobalLayoutHook, GlobalLayoutHookTest, ObserverRoot
 
 ### Community 440 - "InboxQueryPublicationHooks.kt"
-Cohesion: 0.06
-Nodes (43): lastWriteOf(), OwnPackageCheckFingerprint, ProviderNameTemplateFingerprint, RegistrationPackageHeaderFingerprint, registrationPackageWrites(), swapAfterLoad(), WallpaperCallerUrisFingerprint, captureLoadedInboxOwner() (+35 more)
+Cohesion: 0.04
+Nodes (53): answerRailHitTests(), asksHoldCheck(), CommentMenuFingerprint, dropsCallbacks(), FavoritesMenuFingerprint, HoldTouchFingerprint, railHitTests(), routeHoldDrops() (+45 more)
 
-### Community 442 - "ActionRowChevronTest"
-Cohesion: 0.21
-Nodes (4): Preference, ActionRowChevronTest, HostFragment, ShareActionChecklistTest
+### Community 441 - ".isAvailable"
+Cohesion: 0.08
+Nodes (5): AiProfiling, BenchmarkRuns, PrivacyPreferenceCategory, AiProfilingTest, TestActivity
+
+### Community 442 - "ShareActionChecklistPreference"
+Cohesion: 0.12
+Nodes (3): ShareActionChecklistPreference, android.text.TextWatcher, ShareActionChecklistTest
 
 ### Community 446 - "ImportedFont"
-Cohesion: 0.17
+Cohesion: 0.16
 Nodes (6): ImportedFont, Moves, Reason, NOT_A_FONT, TOO_LARGE, Rejected
 
 ### Community 448 - "test-apk-signing.ps1"
@@ -2304,60 +2327,52 @@ Cohesion: 0.20
 Nodes (3): Files, StorageScan.Directory, Node
 
 ### Community 452 - ".string"
-Cohesion: 0.06
-Nodes (15): Item, CurrentVideoSound, AiGeneratedFilter, ContentMarkerFilters, DramaFilter, PaidPartnershipFilter, PlaylistFilter, SeriesFilter (+7 more)
-
-### Community 453 - "WindDownScreens"
-Cohesion: 0.22
-Nodes (3): AdultCheck, Lookups, WindDownScreens
+Cohesion: 0.04
+Nodes (18): Item, CurrentVideoSound, AiGeneratedFilter, ContentMarkerFilters, DramaFilter, PaidPartnershipFilter, PlaylistFilter, SeriesFilter (+10 more)
 
 ### Community 454 - "NumberInputPreferenceTest"
 Cohesion: 0.17
 Nodes (3): NumberInputPreferenceTest, NumberInputPreference, TestActivity
 
-### Community 459 - ".cardLabels"
-Cohesion: 0.20
-Nodes (5): LabelBackground, ProfileCardLabel, Sticker, hookCardLabels(), LiveCardLabelsHookTest
+### Community 456 - "LocalProfileCountHooks.kt"
+Cohesion: 0.17
+Nodes (17): descriptor(), hookLocalProfileCounts(), isCountFormatter(), isTextSetter(), LegacyCountIdentity, profileCountBridge(), profileCountFormats(), ProfileCountFormatSite (+9 more)
+
+### Community 457 - ".restyle"
+Cohesion: 0.16
+Nodes (4): Glyph, NativeShareIcon, Icon, NativeShareIconTest
+
+### Community 461 - "ProfileMenuCellsTest"
+Cohesion: 0.11
+Nodes (3): ProfileMenuCells, ProfileMenuCellsTest, TestActivity
 
 ### Community 463 - "DmTranslationCaptureTest"
-Cohesion: 0.18
+Cohesion: 0.21
 Nodes (9): Composer, DmTranslationCaptureTest, Input, InputAssem, Message, Model, ReceiveAssem, ReceivedAction (+1 more)
 
-### Community 464 - "RegionSpoofPatch.kt"
-Cohesion: 0.18
-Nodes (14): AppLogBuilderFingerprint, AppLogEntry, AppLogUrlFingerprint, CommonParamsBuilderFingerprint, CommonParamsFill, CommonParamsHandlerFingerprint, LocaleOrTimeZoneGetDefaultFingerprint, processZoneIndex() (+6 more)
+### Community 464 - ".apply"
+Cohesion: 0.21
+Nodes (6): Choice, DEFAULTS, PRIVACY, QUIET, QuickSetups, Result
 
 ### Community 465 - "MiniDramaFilterTest"
-Cohesion: 0.24
-Nodes (5): Card, CardInsert, Item, MiniDramaFilterTest, PaidContent
+Cohesion: 0.16
+Nodes (6): LikeCountFilter, Card, CardInsert, Item, MiniDramaFilterTest, PaidContent
 
 ### Community 466 - ".single"
 Cohesion: 0.17
 Nodes (3): Build, CommentBoxButtonsAnchorsTest, LanguageAtStartAnchorsTest
 
-### Community 467 - "NetworkProxyAnchorsTest"
-Cohesion: 0.11
-Nodes (4): proxyInstallIndex(), HdUploadChoiceAnchorsTest, Use, NetworkProxyAnchorsTest
-
 ### Community 468 - "patches/build.gradle.kts"
-Cohesion: 0.14
+Cohesion: 0.15
 Nodes (3): BundleSource, CaptureBundleSource, Snapshot
 
 ### Community 470 - "RegionFilterTest"
 Cohesion: 0.16
 Nodes (3): RegionFilter, RegionFilterTest, Aweme
 
-### Community 474 - "ReleaseNotesTest"
-Cohesion: 0.06
-Nodes (9): ReleaseNotes, Section, ReleaseNotesData, HostActivity, ReleaseNotesTest, Building, Limits and acceptance, Main features (+1 more)
-
 ### Community 475 - "CaptionLanguageFilter"
 Cohesion: 0.12
 Nodes (6): CaptionLanguageFilter, CaptionLanguageFilterTest, Item, Caption, CaptionModel, Duration
-
-### Community 479 - ".clearLogBuffer"
-Cohesion: 0.10
-Nodes (4): BuildDetailsPreferenceTest, ContextWrapper, SettingsActivity, SettingsPreferenceOwnershipTest
 
 ### Community 481 - "CaptchaMemberContractsTest"
 Cohesion: 0.26
@@ -2367,72 +2382,84 @@ Nodes (7): captchaDismissCall(), hasInstanceMethodInHierarchy(), hasInstanceRece
 Cohesion: 0.14
 Nodes (4): Post, RenamedStoryGetter, Story, Views
 
-### Community 484 - "AiProfilingTest"
-Cohesion: 0.19
-Nodes (3): AiProfiling, AiProfilingTest, TestActivity
-
-### Community 485 - "VideoAutoTranslate.kt"
-Cohesion: 0.23
-Nodes (15): AlwaysTranslateHooks, callsTo(), hookVideoAutoTranslate(), indexOfIsOn(), isCommentTranslationDefault(), isMasterTranslationRead(), isMasterTranslationSetter(), isMasterTranslationState() (+7 more)
+### Community 486 - ".createHeader"
+Cohesion: 0.17
+Nodes (3): BackDrawable, SettingsHeaderPreference, SettingsHeadingSemanticsTest
 
 ### Community 487 - "CommentBoxButtons.kt"
 Cohesion: 0.18
 Nodes (15): CommentBoxButton, GIFT, MENTION, PHOTO, commentBoxButtonFields(), commentBoxButtonOf(), commentBoxButtonStore(), CommentInputViewCreatedFingerprint (+7 more)
 
 ### Community 489 - "verify-native-alignment.py"
-Cohesion: 0.16
+Cohesion: 0.15
 Nodes (5): inspect_apk(), inspect_elf(), local_data_offset(), main(), MetadataReader
 
 ### Community 490 - "generate_hero.py"
 Cohesion: 0.27
 Nodes (13): add_brand(), add_glow(), base_canvas(), comparison(), draw_pill(), fit_inside(), font(), hero_a() (+5 more)
 
-### Community 491 - "Kind"
-Cohesion: 0.08
-Nodes (16): Completion, Failure, Guard, Kind, BLOCKED_ACCOUNTS, SAVED_POSTS, Page, Row (+8 more)
+### Community 491 - "Failure"
+Cohesion: 0.25
+Nodes (5): Completion, Failure, NativeAccountLists, ReadCall, Runner
 
 ### Community 493 - "Override"
-Cohesion: 0.17
-Nodes (4): Availability, Availability, Availability, Availability
+Cohesion: 0.10
+Nodes (5): Availability, Availability, Availability, Availability, Availability
 
-### Community 494 - ".publicClient"
-Cohesion: 0.07
-Nodes (9): MediaRetryAfterTest, HttpURLConnection, URLStreamHandler, FakeHttpsConnection, ConnectionFactory, MediaTransportFixtures, HttpURLConnection, Mp4Facts (+1 more)
+### Community 494 - "MutedDashSaveTest"
+Cohesion: 0.12
+Nodes (5): ConnectionFactory, MediaTransportFixtures, HttpURLConnection, Mp4Facts, MutedDashSaveTest
+
+### Community 495 - "IVideoCommentAbility"
+Cohesion: 0.13
+Nodes (3): CommentAssem, Video, IVideoCommentAbility
 
 ### Community 496 - "ConfirmInteractionsPatch.kt"
-Cohesion: 0.06
-Nodes (31): branchTarget(), BubbleClearMode, checkBubbleList(), findBubbleClearMode(), hookBubbleClearMode(), CommentLikeClickFingerprint, firstCommentRead(), FollowClickFingerprint (+23 more)
+Cohesion: 0.05
+Nodes (42): branchTarget(), BubbleClearMode, checkBubbleList(), findBubbleClearMode(), hookBubbleClearMode(), CommentLikeClickFingerprint, firstCommentRead(), FollowClickFingerprint (+34 more)
 
 ### Community 498 - ".run"
 Cohesion: 0.16
 Nodes (6): BlockFlowProbe, Runnable, View.OnAttachStateChangeListener, Call, Reply, Transport
 
+### Community 499 - "Stat"
+Cohesion: 0.18
+Nodes (3): AndroidDirectory, AndroidFiles, Stat
+
 ### Community 500 - "ReflectMissingMemberTest"
-Cohesion: 0.10
+Cohesion: 0.18
 Nodes (6): DefaultPathRequest, InterfaceRequest, KnownCard, QuietCard, ReflectMissingMemberTest, RenamedCard
 
-### Community 501 - "PasskeySignInTest"
-Cohesion: 0.22
-Nodes (3): PasskeySignIn, PasskeySignInTest, TestActivity
+### Community 501 - "H264Playback"
+Cohesion: 0.16
+Nodes (3): H264Playback, PreferredGears, SdrPlayback
 
 ### Community 502 - "DownloadDestination"
 Cohesion: 0.24
 Nodes (5): DownloadDestination, Kind, PHOTO, STICKER, VIDEO
 
+### Community 505 - "SeekbarFullWidth"
+Cohesion: 0.22
+Nodes (3): Saved, SeekbarFullWidth, SideMargins
+
+### Community 506 - "NativeAccountRows"
+Cohesion: 0.26
+Nodes (3): ReflectBridge, NativeAccountRows, Refused
+
 ### Community 507 - "DisableTelemetryPatchTest"
-Cohesion: 0.14
-Nodes (3): DisableTelemetryPatch, DisableTelemetryPatchTest, PriorityHttpResponse
+Cohesion: 0.09
+Nodes (5): PulledSounds, DisableTelemetryPatch, PulledSoundsTest, DisableTelemetryPatchTest, PriorityHttpResponse
 
 ### Community 509 - "Button"
 Cohesion: 0.18
 Nodes (5): Button, COMMENT, FAVORITES, SHARE, Fixture
 
-### Community 510 - "PerformanceSwitchesTest"
-Cohesion: 0.17
-Nodes (3): PerformanceSwitches, PerformanceSwitchesTest, TestActivity
+### Community 510 - ".isOn"
+Cohesion: 0.04
+Nodes (12): VoiceComments, PasskeySignIn, PerformanceSwitches, EarlySwitchTest, TestActivity, VoiceCommentsTest, PasskeySignInTest, TestActivity (+4 more)
 
 ### Community 511 - "FeedScreenCoverageTest"
-Cohesion: 0.18
+Cohesion: 0.19
 Nodes (7): Coverage, FeedScreenCoverageTest, Reach, NO, NONE, UNCHECKED, YES
 
 ### Community 512 - "LiveRoomHashTest"
@@ -2444,19 +2471,27 @@ Cohesion: 0.11
 Nodes (18): Conditions and timing, Current-build settings UI, Device restoration, Excluded transition trace, Installed build and comparison limits, Matched packet windows, Native CPU and whole-phone battery samples, Packet capture and destination evidence (+10 more)
 
 ### Community 514 - "PreferenceDestroyRaceTest"
-Cohesion: 0.29
+Cohesion: 0.26
 Nodes (3): HarnessFragment, PreferenceDestroyRaceTest, TestActivity
 
-### Community 515 - "previewCheckOf"
-Cohesion: 0.13
-Nodes (6): isBooleanGetter(), previewCheckOf(), isFootnoteBannerGate(), SeekbarPreviewTest, KnowTheFactsAnchorsTest, FootnoteBannerAnchorsTest
+### Community 515 - "SeekbarPreview.kt"
+Cohesion: 0.28
+Nodes (5): isBooleanGetter(), PreviewCheck, previewCheckOf(), reportPreviewCheck(), SeekbarPreviewTest
 
 ### Community 518 - "Hushfeed"
 Cohesion: 0.08
 Nodes (25): A LIVE bid or a payment fails, A photo post saved as a video still has TikTok's watermark, A save didn't finish, A second TikTok beside the store app, Coming from Kveld, Credits, Going back, Help (+17 more)
 
+### Community 520 - ".reason"
+Cohesion: 0.19
+Nodes (3): CreatorIdentity, LiveRoom, Rules
+
+### Community 521 - ".onCreateView"
+Cohesion: 0.18
+Nodes (5): HistoryDrawable, OnDeleteListener, OnSelectListener, RecentSearchPreference, TrashDrawable
+
 ### Community 522 - "LiveButtonReport"
-Cohesion: 0.13
+Cohesion: 0.12
 Nodes (9): LiveButtonReport, Route, BOTTOM_TAB, BOTTOM_TAB_TAKEN, SHOWN, SWITCH_HID, TIKTOK_OFF, TOP_TAB (+1 more)
 
 ### Community 524 - ".read"
@@ -2467,21 +2502,29 @@ Nodes (6): InboxRenderedModels, Mode, DIFF_CACHE, STUB_AGGREGATE, Result, Schema
 Cohesion: 0.35
 Nodes (3): GestureAudio, Port, Snapshot
 
-### Community 527 - ".clear"
-Cohesion: 0.11
-Nodes (4): GhostModePrivacyTest, Aweme, EmptyCommentItemList, StrangeManager
+### Community 526 - "ReportSection"
+Cohesion: 0.14
+Nodes (3): ReportSection, Report, Report
+
+### Community 527 - "GhostModeDiagnosticsTest"
+Cohesion: 0.05
+Nodes (14): GhostMode, Status, BLOCKED, OFF, PAUSED, PROBLEM, UNOBSERVED, GhostModePreference (+6 more)
 
 ### Community 528 - "TabKeys"
 Cohesion: 0.10
 Nodes (4): NavigationTabOptions, TabKeys, TabOption, TabOptionsBehaviourTest
 
+### Community 530 - "Override"
+Cohesion: 0.17
+Nodes (3): HttpURLConnection, URLStreamHandler, FakeHttpsConnection
+
+### Community 531 - "ModSettingsLayoutTest"
+Cohesion: 0.11
+Nodes (4): ModSettingsLayoutTest, Page, DialogActivity, PreferenceDialogActivity
+
 ### Community 533 - "Fixture"
 Cohesion: 0.14
 Nodes (4): Row, SearchMatch, SearchText, Fixture
-
-### Community 535 - "NativeDmTranslationTest"
-Cohesion: 0.30
-Nodes (3): NativeDmTranslationTest, MultiTranslationResultDM, TranslationResultDM
 
 ### Community 537 - "Override"
 Cohesion: 0.17
@@ -2505,7 +2548,7 @@ Nodes (5): ExportPayload, Cache, Callback, SettingsManager, Wrapper
 
 ### Community 548 - ".captionProblem"
 Cohesion: 0.19
-Nodes (5): FeedRuleLimits, Violation, ENTRIES, UTF8_BYTES, FeedRuleStringSetting
+Nodes (3): Violation, ENTRIES, UTF8_BYTES
 
 ### Community 550 - "BlockAuthorServiceAccountTest"
 Cohesion: 0.19
@@ -2515,21 +2558,21 @@ Nodes (5): BlockAuthorServiceAccountTest, Body, Call, Response, Service
 Cohesion: 0.36
 Nodes (3): Event, GestureSequence, GestureSequenceContract
 
-### Community 552 - "DiagnosticCategory"
-Cohesion: 0.20
-Nodes (9): DiagnosticCategory, CRASH_REPORTS, DOWNLOADS, FEATURE_GATE_LAB, FEED_AND_NAVIGATION, FOLLOW, OTHER, PATCH_ERRORS (+1 more)
+### Community 552 - "ResourceIds"
+Cohesion: 0.36
+Nodes (3): PackageHeader, ResourceIds, StringPool
 
 ### Community 554 - ".declaredVersions"
 Cohesion: 0.04
-Nodes (13): keepHushfeedPreferenceFiles(), GateCatalogFixturesTest, Narrowed, NarrowedFingerprintsTest, NativePlaybackFixturesTest, SharePanelFixturesTest, CopyCommentsAnchorsTest, InboxQueryOwnerFixturesTest (+5 more)
+Nodes (12): GateCatalogFixturesTest, main(), Narrowed, NarrowedFingerprintsTest, NativePlaybackFixturesTest, CopyCommentsAnchorsTest, InboxQueryOwnerFixturesTest, PushShutoffAnchorsTest (+4 more)
 
 ### Community 555 - "CacheDeliveryHookTest"
 Cohesion: 0.33
 Nodes (3): CacheDeliveryHookTest, CachePayload, CacheResult
 
 ### Community 558 - "android.database.sqlite.SQLiteDatabase"
-Cohesion: 0.25
-Nodes (3): Database, SeenVideoHistory.Database, Aweme
+Cohesion: 0.19
+Nodes (4): Database, Database, SeenVideoHistory.Database, Aweme
 
 ### Community 559 - "ArtifactContracts"
 Cohesion: 0.19
@@ -2539,16 +2582,24 @@ Nodes (3): ArtifactContracts, RewriterModule, Work
 Cohesion: 0.07
 Nodes (8): FeedRuleLimitsTest, SettingValue, publishesShortcuts(), AutoScrollLoadStrategyTest, SearchSuggestionsNativeHooksTest, FeatureGatePresetFixturesTest, ShortcutPublishInjectionTest, LanguagePageTranslationsAnchorsTest
 
-### Community 564 - "LynxTextAccent.kt"
-Cohesion: 0.44
-Nodes (8): accentLynxBackground(), accentLynxColors(), boxedRegister(), boxedStoreAt(), lynxBackgroundSetter(), lynxColorStores(), lynxTextAccentPatch(), lynxTextColorField()
+### Community 563 - "AutoAdvancePatch.kt"
+Cohesion: 0.18
+Nodes (15): answerSearchFlag(), Availability, chooseAutoAdvanceLoadStrategy(), Completion, LazyRegistrationFingerprint, loadsExactly(), loadsSearchFlag(), PanelAction (+7 more)
+
+### Community 564 - "Measuring TikTok network and power use"
+Cohesion: 0.12
+Nodes (17): Background execution, Comparing a patch, Counter acceptance, Coverage and privacy, Destination metadata, Identity and reproducibility, Interpreting results against Hushfeed source, Literal endpoints and hosts in this source (+9 more)
+
+### Community 566 - "Cancellation"
+Cohesion: 0.20
+Nodes (3): Cancellation, Slot, NativeAccountOwner
 
 ### Community 567 - ".verifyFeatureGateLanguage"
 Cohesion: 0.27
 Nodes (4): Expected, FeatureGateLocalizationTest, NestedConfig, StructuredConfig
 
 ### Community 568 - "ProfileTopBarTest"
-Cohesion: 0.17
+Cohesion: 0.16
 Nodes (3): ProfileTopBar, Bar, ProfileTopBarTest
 
 ### Community 571 - ".takes"
@@ -2567,6 +2618,10 @@ Nodes (4): Family, FamilySnapshot, Miss, Snapshot
 Cohesion: 0.21
 Nodes (3): GeneratingCause, LoggerDiagnosticPrivacyTest, RuntimeException
 
+### Community 576 - "OnAttachStateChangeListener"
+Cohesion: 0.18
+Nodes (3): ChatTitleBar, Guard, Keeper
+
 ### Community 577 - "ShareTargetsTest"
 Cohesion: 0.11
 Nodes (6): Channel, ShareTargetsTest, ShareTargets.Native, ShareTargets.Native, ShareChannelInfo, TargetComponentInfo
@@ -2575,57 +2630,57 @@ Nodes (6): Channel, ShareTargetsTest, ShareTargets.Native, ShareTargets.Native, 
 Cohesion: 0.22
 Nodes (3): URLStreamHandler, FakeHttpsConnection, ByteArrayInputStream
 
+### Community 584 - ".theFeedCellIsHandedAFittedCopyAndOtherwiseItsOwnResult"
+Cohesion: 0.15
+Nodes (4): NarrowedResult, LayoutTrackingView, Shapeless, Uncopyable
+
 ### Community 586 - "progressClearRegistersAt"
 Cohesion: 0.43
 Nodes (3): ProgressClearRegisters, progressClearRegistersAt(), ProgressClearRegistersTest
 
-### Community 592 - ".declared"
-Cohesion: 0.04
-Nodes (11): setupStepType(), FollowFeedFirstReadCountTest, SearchTabAnchorsTest, TopViewPreloadAnchorsTest, CommentLivePhotoAnchorsTest, HoldSpeedAnchorsTest, SavedStickersRefreshTest, BottomTabLabelsAnchorsTest (+3 more)
+### Community 593 - "VideoFitTest"
+Cohesion: 0.17
+Nodes (3): PagesViewPager, RecordingSpace, VideoFitTest
 
 ### Community 597 - "App and patch development map"
 Cohesion: 0.12
 Nodes (16): Adding or changing a patch, App and patch development map, Build and injection path, Factory install observation, Gradle module map, Home page coverage, How the in-app settings connect, Moving to a newer TikTok target (+8 more)
 
-### Community 599 - "CheckedInstructions.kt"
-Cohesion: 0.38
-Nodes (3): countedInstructions(), keepsEvery(), smaliInstructionCount()
+### Community 599 - "Reason"
+Cohesion: 0.14
+Nodes (14): Reason, COUNT_MISMATCH, DUPLICATE_PAGE, EMPTY_MORE, FILTERED_MORE, LIMIT, LIST_CHANGED, NETWORK (+6 more)
 
-### Community 603 - "ChangeAppNamePatch.kt"
-Cohesion: 0.15
-Nodes (6): checkedAppName(), elements(), isLauncherEntry(), names(), renameApp(), ChangeAppNameTest
-
-### Community 606 - "BackgroundPlayPatch.kt"
+### Community 603 - "OverlayGlyphDrawable"
 Cohesion: 0.19
-Nodes (11): BackgroundEnd, BackgroundPlayEndFingerprint, BackgroundPlayGateReadFingerprint, BackgroundPlayRememberedReadFingerprint, BackgroundPlaySceneCheckFingerprint, isStaticAwemeCheck(), PageAudioFocusFingerprint, photoModeCall() (+3 more)
+Nodes (8): OverlayGlyphDrawable, Shape, BLOCK, CROSS, MINUS, NOTE, SPEAKER, SPEAKER_OFF
 
 ### Community 609 - ".dexContainer"
 Cohesion: 0.02
-Nodes (31): CacheKey, Lemon8CardRequestAnchorsTest, ProfileListAnchorsTest, SearchAnswerProtocolsTest, FeedPagerPageSelectedAnchorsTest, FollowingStoriesBubbleAnchorsTest, DmStickerPreviewFixturesTest, DownloadDestinationFixturesTest (+23 more)
+Nodes (34): CacheKey, Lemon8CardRequestAnchorsTest, ProfileListAnchorsTest, SearchAnswerProtocolsTest, FeedPagerPageSelectedAnchorsTest, DmStickerPreviewFixturesTest, DownloadDestinationFixturesTest, FeedLongPressAnchorsTest (+26 more)
 
 ### Community 612 - "Bucket"
-Cohesion: 0.18
-Nodes (11): Bucket, DIAGNOSTICS, FEATURE_LAB, MEDIA_TEMP, PUBLICATION_JOURNAL, REMAINING_PRIVATE, SAVE_RECORDS, SAVED_VIDEO_ARCHIVE (+3 more)
+Cohesion: 0.17
+Nodes (12): Bucket, DIAGNOSTICS, FEATURE_LAB, MEDIA_TEMP, PUBLICATION_JOURNAL, REMAINING_PRIVATE, SAVE_RECORDS, SAVED_VIDEO_ARCHIVE (+4 more)
 
 ### Community 614 - "NotInterestedTest"
 Cohesion: 0.33
 Nodes (3): Body, NotInterestedTest, Response
-
-### Community 615 - "Problem"
-Cohesion: 0.33
-Nodes (6): Failure, Problem, CHANGED, IO, MISSING, UNREADABLE
 
 ### Community 618 - ".fieldShapeAndUnreadableResponsesAreUnconfirmed"
 Cohesion: 0.24
 Nodes (5): BlockAuthorServiceTest, FieldBody, GetterBody, GetterResponse, UnknownResponse
 
 ### Community 622 - "AddonContractTest"
-Cohesion: 0.16
-Nodes (4): AddonContractTest, PageActivity, Add-on bundles, Building from source
+Cohesion: 0.21
+Nodes (3): AddonContractTest, Add-on bundles, Building from source
 
 ### Community 623 - "GridSort.kt"
 Cohesion: 0.29
 Nodes (9): fillGridPageLoader(), GridAdapterPageFingerprint, GridAdapterSetDataFingerprint, GridAdapterTagFingerprint, GridCellOpenFingerprint, GridLoadAfterRefreshFingerprint, GridPageLoader, gridPageLoaderIn() (+1 more)
+
+### Community 632 - ".`a state constructor that loads the icon itself gets the gear there`"
+Cohesion: 0.33
+Nodes (3): openDebugStateConstructor(), swapOpenDebugIcon(), OpenDebugIconSwapTest
 
 ### Community 635 - "BlockPopupsAnchorsTest"
 Cohesion: 0.26
@@ -2635,45 +2690,45 @@ Nodes (5): campaignCast(), failureCallbackRegister(), passCampaignToChecklist(),
 Cohesion: 0.12
 Nodes (11): Reason, DAMAGED, TOO_LARGE, TOO_MANY, UNREADABLE, UNSUPPORTED, Records, Rejected (+3 more)
 
-### Community 642 - "SettingsReturn"
-Cohesion: 0.18
-Nodes (3): Opener, SettingsReturn, SettingsReturnTest
-
 ### Community 643 - "Tile"
 Cohesion: 0.20
 Nodes (10): Tile, AUDIO, EMOJI, GIFT, GROUP_CHAT, MENTION, PHOTO, POLL (+2 more)
-
-### Community 645 - "decode"
-Cohesion: 0.40
-Nodes (4): chunks(), decode(), readJavaSource(), Stored
 
 ### Community 646 - "PhotoSlideFit.kt"
 Cohesion: 0.27
 Nodes (5): containerViewField(), hookPhotoSlides(), ShowsWholeImageFingerprint, SlideContainerCropFingerprint, SlideScaleTypeFingerprint
 
 ### Community 649 - "UPSTREAM.md"
-Cohesion: 0.32
-Nodes (4): Contributing, Settings for your machine, Source notices, TikTok — Функции мода
-
-### Community 650 - "AbstractList"
 Cohesion: 0.13
-Nodes (5): AbstractList, HostileList, Action, InboxQuerySnapshotContract, Opaque
+Nodes (13): Contributing, Settings for your machine, Source notices, Building, Limits and acceptance, Main features, Status of this port, TikTok mod (+5 more)
+
+### Community 650 - "InboxQuerySnapshotContract"
+Cohesion: 0.29
+Nodes (3): Action, InboxQuerySnapshotContract, Opaque
 
 ### Community 651 - "LiveRecordSourceTest"
-Cohesion: 0.19
+Cohesion: 0.18
 Nodes (4): LiveRecordSource, LiveRecordSourceTest, Owner, Room
 
 ### Community 654 - ".recover"
 Cohesion: 0.08
-Nodes (11): Result, ALREADY_SAVED, SAVED, Published, LiveRecordingSaver, LiveSpoolRecovery, Publisher, Save (+3 more)
+Nodes (11): Result, ALREADY_SAVED, SAVED, Published, Target, Transport, FLV, HLS (+3 more)
 
-### Community 661 - "DoNotAutoTranslate.kt"
-Cohesion: 0.83
-Nodes (3): addWithExcluded(), doNotTranslateReads(), hookDoNotAutoTranslate()
+### Community 660 - "LabelBackground"
+Cohesion: 0.24
+Nodes (6): LabelBackground, ProfileCardLabel, SharedColor, SharedColorLabel, SharedLabel, Sticker
+
+### Community 661 - "TabSelectionAccessibilityTest"
+Cohesion: 0.24
+Nodes (4): Host, Host, TabSelectionAccessibilityTest, Host
 
 ### Community 662 - ".`the click wrapper and the Function2 lambda are the ones the old name check found`"
-Cohesion: 0.25
+Cohesion: 0.26
 Nodes (5): isOpenDebugRowComposeMethod(), OpenDebugClickWrapper, openDebugFunction2LambdaClass(), openDebugStateClass(), OpenDebugClickWrapperFixtureTest
+
+### Community 663 - "speed/Fingerprints.kt"
+Cohesion: 0.30
+Nodes (9): EdgeSpeedupPressFingerprint, EdgeSpeedupReleaseFingerprint, HoldBannerReceiverFingerprint, LongPressSpeedUpEnableFingerprint, LongPressSpeedUpLockFingerprint, PlaybackSpeedMenuFingerprint, PlaybackSpeedSelectionBoundaryFingerprint, PlayerControllerSetSpeedFingerprint (+1 more)
 
 ### Community 664 - "FaultyMoves"
 Cohesion: 0.27
@@ -2687,17 +2742,25 @@ Nodes (3): 0.11.0 (2026-09-05), Bug Fixes, Features
 Cohesion: 0.23
 Nodes (10): hookStoryOverLive(), hookStoryOverLiveOn(), InboxAvatarClickFingerprint, InboxStorySite, openChatStoryBeforeLive(), openStoryBeforeLive(), ProfileAvatarClickFingerprint, readsBusinessInto() (+2 more)
 
-### Community 667 - "native_media.py"
-Cohesion: 0.13
-Nodes (16): main(), make_variant(), sha256(), verify(), decoded(), digest(), main(), object_pairs() (+8 more)
+### Community 667 - "verify-abi-apks.py"
+Cohesion: 0.33
+Nodes (4): main(), make_variant(), sha256(), verify()
 
 ### Community 668 - "InboxWidgetFingerprints.kt"
 Cohesion: 0.38
 Nodes (8): ActivityRecommendUserWidgetEnableFingerprint, ExpandNotificationListFingerprint, FollowerWidgetContainerConstructorFingerprint, InboxRecommendUserWidgetEnableFingerprint, NewFollowersRecommendUserSkeletonEnableFingerprint, NewFollowersRecommendUserWidgetEnableFingerprint, NotificationWidgetContainerConstructorFingerprint, NotificationWidgetContainerOnCreateFingerprint
 
+### Community 672 - "StorageProbe"
+Cohesion: 0.27
+Nodes (5): Api24, Api26, StorageProbe, BroadcastReceiver, UidStats
+
+### Community 673 - "NativeAccountRows.java"
+Cohesion: 0.25
+Nodes (3): BlockMetadata, BlockSource, Page
+
 ### Community 674 - "GateCatalogGenerator.kt"
-Cohesion: 0.14
-Nodes (11): appAbClass(), Boxed, ClassConst, EnumConst, Instance, Num, SettingsCall, signature() (+3 more)
+Cohesion: 0.13
+Nodes (22): appAbClass(), Boxed, carriedDefault(), Catalog, Catalogs, chunks(), ClassConst, combine() (+14 more)
 
 ### Community 676 - "0.41.0 (2026-09-18)"
 Cohesion: 0.22
@@ -2707,9 +2770,9 @@ Nodes (9): 0.41.0 (2026-09-18), Accessibility, Diagnostics, Feature Gate Lab, Mo
 Cohesion: 0.20
 Nodes (4): AbstractList<Object>, AbstractList<Object>, AbstractList<Object>, Opaque
 
-### Community 681 - "PauseSettingsScreenTest"
-Cohesion: 0.15
-Nodes (3): ClearEvent, Tab, PauseSettingsScreenTest
+### Community 681 - "PauseAnswersUnpatchedTest"
+Cohesion: 0.20
+Nodes (3): ClearEvent, PauseAnswersUnpatchedTest, Tab
 
 ### Community 685 - "Role"
 Cohesion: 0.25
@@ -2724,12 +2787,28 @@ Cohesion: 0.28
 Nodes (4): Compare-VerifierTallies(), Resolve-D8(), Invoke-Checked(), New-CompiledDex()
 
 ### Community 697 - "DiagnosticRedactor"
-Cohesion: 0.09
-Nodes (8): DiagnosticRedactor, LogLevel, DEBUG, ERROR, INFO, LogMessage, RuntimeException, RuntimeException
+Cohesion: 0.12
+Nodes (6): LogLevel, DEBUG, ERROR, INFO, LogMessage, CommentSortControls
+
+### Community 699 - "FakeHost"
+Cohesion: 0.22
+Nodes (3): Host, FakeHost, TestActivity
 
 ### Community 702 - "ChatDeclutter.kt"
 Cohesion: 0.26
 Nodes (9): callButtonStores(), chatGestureRegister(), ChatMessageGestureFingerprint, ChatSmartReplyIntroEnabledFingerprint, ChatStickerBannerEnabledFingerprint, ChatSuggestedReplyEnabledFingerprint, ChatTitleBarRightBindFingerprint, hideCallButtonsAtBind() (+1 more)
+
+### Community 707 - "settings/Fingerprints.kt"
+Cohesion: 0.33
+Nodes (8): AdPersonalizationActivityOnBackPressedFingerprint, AdPersonalizationActivityOnCreateFingerprint, isSettingsComposeRowsMethod(), isSettingsRowsSort(), NpthExtentTaskInitFingerprint, OpenDebugCellVmDefaultStateFingerprint, SettingsComposeRowsFingerprint, SupportGroupDefaultStateFingerprint
+
+### Community 710 - "rawAdvertisingIdReads"
+Cohesion: 0.20
+Nodes (10): AdIdRead, ID, LIMIT_FIELD, LIMIT_REPLY, AdIdReadSite, advertisingInfoFieldReads(), answerReads(), constantBefore() (+2 more)
+
+### Community 717 - "State"
+Cohesion: 0.20
+Nodes (10): State, ACCOUNT_CHANGED, CANCELLED, CLOSED, COMPLETE, ERROR, LOADING, MORE (+2 more)
 
 ### Community 719 - "test-resource-table-check.ps1"
 Cohesion: 0.36
@@ -2742,10 +2821,6 @@ Nodes (5): ClearDisplayCellFingerprint, ClearModeLogStateFingerprint, FeedPagerP
 ### Community 726 - "GridPickHook.kt"
 Cohesion: 0.36
 Nodes (8): boundPostField(), CollectionGridHolderBindFingerprint, gridPickFieldProblem(), gridPickProblem(), holderProblem(), hookGridPick(), hookGridPickFromField(), parameterRegisters()
-
-### Community 731 - "SuggestedAccountCellsTest"
-Cohesion: 0.27
-Nodes (3): SuggestedAccountCells, Cell, SuggestedAccountCellsTest
 
 ### Community 745 - "Sort"
 Cohesion: 0.33
@@ -2762,10 +2837,6 @@ Nodes (4): ExposedEmojiPanelTriggerFingerprint, LongPressRepostGateFingerprint, 
 ### Community 760 - "ShareButtonTapHooks.kt"
 Cohesion: 0.31
 Nodes (4): clickListenerSites(), ShareButtonClickFingerprint, ShareButtonViewCreatedFingerprint, ShareItemRead
-
-### Community 761 - "CaptionComments.kt"
-Cohesion: 0.36
-Nodes (6): CaptionExpandFingerprint, captionRowAnswer(), CaptionRowFingerprint, readsShowVideoDesc(), resolveCaptionOpensComments(), resolveCaptionRow()
 
 ### Community 763 - ".rowModelsAreReadThroughTheirOnlyNoticeFieldWhateverR8NamesThem"
 Cohesion: 0.39
@@ -2811,6 +2882,10 @@ Nodes (3): [0.7.0-dev.7](https://github.com/icysymmetra/tiktok-patches-for-morph
 Cohesion: 0.67
 Nodes (3): [0.7.0](https://github.com/icysymmetra/tiktok-patches-for-morphe/compare/v0.6.1...v0.7.0) (2026-08-23), Bug Fixes, Features
 
+### Community 801 - "Kind"
+Cohesion: 0.33
+Nodes (5): Kind, DIRECTORY, FILE, OTHER, SYMLINK
+
 ### Community 803 - "0.10.0 (2026-09-05)"
 Cohesion: 0.67
 Nodes (3): 0.10.0 (2026-09-05), Bug Fixes, Features
@@ -2839,25 +2914,33 @@ Nodes (3): 0.8.0 (2026-09-05), Bug Fixes, Features
 Cohesion: 0.67
 Nodes (3): 0.9.0 (2026-09-05), Bug Fixes, Features
 
+### Community 824 - "Mode"
+Cohesion: 0.40
+Nodes (5): Mode, AUTO_PLAY_NEXT_USER, LOOP_CURRENT_USER, LOOP_CURRENT_VIDEO, QUIT_AFTER_FINISH
+
+### Community 837 - "State"
+Cohesion: 0.50
+Nodes (4): State, BROKEN, OWNED, UNOWNED
+
 ## Knowledge Gaps
 - **547 isolated node(s):** `DEBUG`, `INFO`, `ERROR`, `ANIM`, `ANIMATOR` (+542 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 3184 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **321 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 3187 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **360 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Method` connect `Method` to `patchexception`, `previewCheckOf`, `opcode`, `CommentTranslateButtonAnchorsTest`, `CaptionCommentsAnchorsTest.kt`, `.listOf`, `CommentToolsPatch.kt`, `.forEachDeclared`, `.listOf`, `.versionOf`, `DmTranslationAnchorsTest`, `addInstructionsAtControlFlowLabel`, `.apks`, `TikTokPatchAnchorsMatchFixturesTest.kt`, `.declaredVersions`, `LikePressAnchorsTest`, `guardAtEntry`, `SwitchedReturnFixturesTest.kt`, `.repeat`, `SettingsL10nTest`, `LynxTextAccent.kt`, `.`the name, reply label and time hooks resolve on each declared build``, `.emptyList`, `.`a slot asking both checks as it's built, or a trigger in high registers or reusing p0, leaves the screens out``, `.takes`, `LiveControlsPatch.kt`, `progressClearRegistersAt`, `.execute`, `FoldableSplitViewConfigurationTest`, `RenderFirstFrameAnchorTest`, `.declared`, `ShowProgressBarPredicateAnchorsTest`, `feedfilter/Fingerprints.kt`, `BackgroundPlayPatch.kt`, `BytecodeUtils.kt`, `.dexContainer`, `GridSort.kt`, `.`the bar's progress and style methods resolve from the show-type setter``, `.method`, `BlockPopupsAnchorsTest`, `.`native list mode joins primary then extra stubs and applies loading predicates to state``, `.single`, `GhostModeCallSites.kt`, `.`the click wrapper and the Function2 lambda are the ones the old name check found``, `StoryOverLive.kt`, `RegistrationPackageAnchorsTest`, `.`each front flash is one method whose one brightness store goes to the switch``, `FeatureGateLabFramesTest`, `VerifiedResourceStripperTest`, `FixtureResourceTable`, `ChatDeclutter.kt`, `.`each declared build has one Auto adjust boot step, one rollback and one default-on clean-up and the guards fit them``, `LazyAbGateTest`, `FeedTranslationsAnchorsTest`, `Setting`, `CaptionSearchPanelAnchorsTest`, `SmartSearchCaptionAnchorsTest`, `RenderFirstFrameAnchorTest.kt`, `FeedMutePatch.kt`, `DmTranslationHooks.kt`, `SearchRewardsGettersTest`, `MusicDiscSpinAnchorsTest`, `CommentPageSceneRegisterTest`, `.visit`, `SoundSeekbar.kt`, `MusicDiscSpin.kt`, `TelemetrySendAnchorsTest`, `FeedTextContracts.kt`, `ForYouLongPressTest`, `ChatDeclutterAnchorsTest`, `InboxQueryPublicationHooks.kt`, `PictureInPictureAnchorsTest`, `RegionSpoofPatch.kt`, `.single`, `NetworkProxyAnchorsTest`, `CaptchaMemberContractsTest`, `CommentBoxButtons.kt`, `TabModelListAnchorTest`, `ConfirmInteractionsPatch.kt`?**
-  _High betweenness centrality (0.021) - this node is a cross-community bridge._
+- **Why does `Aweme` connect `Aweme` to `org.robolectric.annotation.Config`, `list`, `file`, `KeywordRules`, `SeekbarTimeTest`, `.changingTheSessionLimitFromItsSettingsRowResetsTheRetainedFeedSession`, `.setLiveSpeed`, `.reason`, `GhostModeDiagnosticsTest`, `SeekbarTimeRoomTest`, `ContentMarkerCorpusTest`, `Player`, `FollowingLatestFirst`, `ContentAndSoundFilterTest`, `LocationBadgeFilterTest`, `.printInfo`, `FeedCapture`, `LinkedVideoTest`, `ShareSaveCoverTest`, `AdvancedFeedRules`, `UnpersonalizedForYouFilterTest`, `CardFilters`, `CountRangeFilterTest`, `ViewCountFilter`, `LiveFilter`, `FeedMuteTest`, `EngagementRateTest`, `User`, `ShareBlockAuthorTest`, `android.widget.TextView`, `GridSortTest`, `Item`, `FeedItemList`, `FeedFilterCountersTest`, `AdsFilterTest`, `StoryFilter`, `SavedVideoArchive`, `.theIdStandsInWhenCreateTimeIsZeroOrMissing`, `.string`, `StorySeekbarTest`, `Item`, `CreatorPatternTest`, `.filterBanners`, `GridPickerTest`, `PlaybackSpeedPatch`, `SeenVideoHistoryTest`, `MiniDramaFilterTest`, `RegionFilterTest`, `StoryShareSaveTest`, `FriendsFeedFilterTest`, `.filterSearchAds`, `CaptionLanguageFilter`, `GridVideoLengthTest`, `Override`, `Video`, `.toggleBoost`, `IVideoCommentAbility`, `Item`, `ImageVideoFilter`, `.requiredMethod`?**
+  _High betweenness centrality (0.018) - this node is a cross-community bridge._
 - **What connects `DEBUG`, `INFO`, `ERROR` to the rest of the system?**
   _547 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `org.robolectric.annotation.Config` be split into smaller, more focused modules?**
-  _Cohesion score 0.02987829402268833 - nodes in this community are weakly interconnected._
-- **Why does `Utils` connect `org.robolectric.annotation.Config` to `list`, `file`, `SettingsUi`, `.t`, `android.content.Context`, `.t`, `ResourceUtils`, `CustomDialog`, `SettingsStatus`, `.printInfo`, `android.view.View`, `.printDebug`, `android.app.Activity`, `.showToast`, `android.view.ViewGroup`, `CaptionBurner.java`, `Setting`, `.getTextDirectionString`, `Sort`, `androidx.annotation.NonNull`, `android.app.Dialog`?**
+  _Cohesion score 0.031538879825992384 - nodes in this community are weakly interconnected._
+- **Why does `Utils` connect `org.robolectric.annotation.Config` to `Aweme`, `list`, `file`, `.getTextDirectionString`, `android.content.Intent`, `SettingsUi`, `FeatureGateLabFragment`, `Sort`, `.printException`, `.t`, `ModSettingsLayoutTest`, `android.widget.TextView`, `CustomDialog`, `DiagnosticRedactor`, `SettingsStatus`, `android.app.Activity`, `.printInfo`, `android.content.Context`?**
   _High betweenness centrality (0.018) - this node is a cross-community bridge._
 - **Should `list` be split into smaller, more focused modules?**
-  _Cohesion score 0.020352965960598834 - nodes in this community are weakly interconnected._
-- **Why does `Aweme` connect `Aweme` to `org.robolectric.annotation.Config`, `list`, `LiveFeedFilterTest`, `file`, `.changingTheSessionLimitFromItsSettingsRowResetsTheRetainedFeedSession`, `.setLiveSpeed`, `SeekbarTimeRoomTest`, `ContentMarkerCorpusTest`, `FriendsMutuals.java`, `Player`, `FollowingLatestFirstTest`, `ContentAndSoundFilterTest`, `LocationBadgeFilterTest`, `.buildExportText`, `SettingsStatus`, `.printInfo`, `LinkedVideoTest`, `ShareSaveCoverTest`, `UnpersonalizedForYouFilterTest`, `CardFilters`, `CountRangeFilterTest`, `LiveFilter`, `FeedMuteTest`, `EngagementRateTest`, `CreatorExceptionsTest`, `User`, `ShareBlockAuthorTest`, `android.app.Activity`, `GridSortTest`, `FeedItemList`, `AdsFilterTest`, `SavedVideoArchive`, `.theIdStandsInWhenCreateTimeIsZeroOrMissing`, `.string`, `StorySeekbarTest`, `Post`, `AdvancedFeedRules`, `SeekbarTime`, `.filterBanners`, `GridPickerTest`, `PlaybackSpeedPatch`, `SeenVideoHistoryTest`, `MiniDramaFilterTest`, `RegionFilterTest`, `StoryShareSaveTest`, `FriendsFeedFilterTest`, `.filterSearchAds`, `CaptionLanguageFilter`, `GridVideoLengthTest`, `Setting`, `Override`, `Video`, `.toggleBoost`, `CaptionCommentsTest`, `ReflectMissingMemberTest`, `Item`?**
+  _Cohesion score 0.02059935990689555 - nodes in this community are weakly interconnected._
+- **Why does `Method` connect `Method` to `patchexception`, `SeekbarPreview.kt`, `opcode`, `CommentTranslateButtonAnchorsTest`, `CaptionCommentsAnchorsTest.kt`, `.listOf`, `RootSignalAnchorsTest`, `.listOf`, `.versionOf`, `DmTranslationAnchorsTest`, `addInstructionsAtControlFlowLabel`, `.apks`, `TikTokPatchAnchorsMatchFixturesTest.kt`, `.declaredVersions`, `SwitchedReturnFixturesTest.kt`, `guardAtEntry`, `LikePressAnchorsTest`, `.repeat`, `AutoAdvancePatch.kt`, `SettingsL10nTest`, `.emptyList`, `.`a slot asking both checks as it's built, or a trigger in high registers or reusing p0, leaves the screens out``, `.takes`, `LiveControlsPatch.kt`, `progressClearRegistersAt`, `.execute`, `FoldableSplitViewConfigurationTest`, `RenderFirstFrameAnchorTest`, `BottomTabLabelsAnchorsTest`, `LaunchCrashKeepListTest`, `OwnedShareActionHooks.kt`, `feedfilter/Fingerprints.kt`, `.dexContainer`, `AccentColorPatch.kt`, `GridSort.kt`, `.`the bar's progress and style methods resolve from the show-type setter``, `.method`, `BlockPopupsAnchorsTest`, `.`native list mode joins primary then extra stubs and applies loading predicates to state``, `.single`, `.`the click wrapper and the Function2 lambda are the ones the old name check found``, `StoryOverLive.kt`, `GateCatalogGenerator.kt`, `FixtureResourceTable`, `ChatDeclutter.kt`, `settings/Fingerprints.kt`, `rawAdvertisingIdReads`, `LiveGiftWidgetAnchorsTest`, `.`each declared build has one Auto adjust boot step, one rollback and one default-on clean-up and the guards fit them``, `LazyAbGateTest`, `FeedTranslationsAnchorsTest`, `.`each declared build has one step decision that reads the step's id``, `PhotoSlideFitAnchorsTest`, `CaptionSearchPanelAnchorsTest`, `SmartSearchCaptionAnchorsTest`, `RenderFirstFrameAnchorTest.kt`, `.`all reviewed native request entries guard before effects and retain every original instruction``, `FeedMutePatch.kt`, `.methodsOf`, `DmTranslationHooks.kt`, `SearchRewardsGettersTest`, `PreferenceCommitFailure`, `MusicDiscSpinAnchorsTest`, `CommentPageSceneRegisterTest`, `.`each declared build has one offline lifetime, the fingerprint takes it and the guard fits it``, `SoundSeekbar.kt`, `TelemetrySendAnchorsTest`, `FeedTextContracts.kt`, `ForYouLongPressTest`, `ChatDeclutterAnchorsTest`, `InboxQueryPublicationHooks.kt`, `PictureInPictureAnchorsTest`, `LocalProfileCountHooks.kt`, `.single`, `NetworkProxyAnchorsTest`, `CaptchaMemberContractsTest`, `CommentBoxButtons.kt`, `ConfirmInteractionsPatch.kt`?**
   _High betweenness centrality (0.017) - this node is a cross-community bridge._
 - **Should `file` be split into smaller, more focused modules?**
-  _Cohesion score 0.01794563979437929 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.01655209652966709 - nodes in this community are weakly interconnected._

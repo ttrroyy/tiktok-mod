@@ -44,4 +44,4 @@
 
 ---
 
-На основе [Hushfeed 0.78.0](https://github.com/SysAdminDoc/HushFeed). [Лицензия](LICENSE) · [Авторство](NOTICE) · [Сборка из исходников](UPSTREAM.md) · [Статус и ограничения](PORT_STATUS.md)
+На основе [Hushfeed 0.78.0](https://github.com/SysAdminDoc/HushFeed). [Лицензия](https://github.com/ttrroyy/tiktok-mod/blob/main/LICENSE) · [Авторство](https://github.com/ttrroyy/tiktok-mod/blob/main/NOTICE) · [Сборка из исходников](https://github.com/ttrroyy/tiktok-mod/blob/main/UPSTREAM.md) · [Статус и ограничения](https://github.com/ttrroyy/tiktok-mod/blob/main/PORT_STATUS.md)

@@ -6,9 +6,9 @@ import java.io.IOException;
 import java.net.URL;
 
 final class UpdateSpec {
-    static final int CURRENT_BUILD = 4;
+    static final int CURRENT_BUILD = 5;
     static final String REPOSITORY = "https://github.com/ttrroyy/tiktok-mod";
-    static final String MANIFEST_URL = REPOSITORY + "/releases/latest/download/update.json";
+    static final String MANIFEST_URL = "https://raw.githubusercontent.com/ttrroyy/tiktok-mod/main/update.json";
     static final long MAX_APK_BYTES = 900L * 1024 * 1024;
     final int build;
     final String version, changes, url, hash;
@@ -48,7 +48,9 @@ final class UpdateSpec {
         if (!"https".equals(url.getProtocol()) || url.getUserInfo() != null
                 || url.getPort() != -1 && url.getPort() != 443
                 || !("github.com".equals(host) || "release-assets.githubusercontent.com".equals(host)
-                || "objects.githubusercontent.com".equals(host) || "github-releases.githubusercontent.com".equals(host)))
+                || "objects.githubusercontent.com".equals(host) || "github-releases.githubusercontent.com".equals(host)
+                || "raw.githubusercontent.com".equals(host) && "/ttrroyy/tiktok-mod/main/update.json".equals(url.getPath())
+                        && url.getQuery() == null && url.getRef() == null))
             throw new IOException("Недопустимый адрес обновления");
     }
 }

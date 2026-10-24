@@ -1,6 +1,10 @@
 # Status of this port
 
-Current release: 0.1.3, updater build 4. The selected profile contains 38 patches.
+Current release: 0.1.4, updater build 5. The selected profile contains 38 patches.
+Update metadata is read from this repository's main/update.json through raw.githubusercontent.com.
+Only that exact raw path is accepted; APK downloads retain their release URL, size, hash,
+package and signing-certificate checks. Releases contain only three APK assets and GitHub's
+source archives. Builds through 0.1.3 need a one-time manual APK installation to migrate.
 Posted Android notifications use the system's default color and disable app colorization;
 their content, reply actions, sounds and channel settings are retained.
 The settings menu has seven entries: Region, Downloads, Feed, Fonts, Extra features,
