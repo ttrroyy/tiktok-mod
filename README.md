@@ -1,8 +1,4 @@
-# TikTok 47.5.3 - mod 0.1.3
-
-TikTok mod
-
-[Скачать APK](https://github.com/ttrroyy/tiktok-mod/releases/latest) · [Что изменилось](https://github.com/ttrroyy/tiktok-mod/releases/tag/v0.1.3)
+# TikTok mod
 
 Настройки открываются через **Настройки и конфиденциальность → Функции мода**. Root не нужен.
 
