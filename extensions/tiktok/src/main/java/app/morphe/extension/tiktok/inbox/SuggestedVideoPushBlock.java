@@ -32,12 +32,21 @@ public final class SuggestedVideoPushBlock {
 
     public static void notify(NotificationManager manager, String tag, int id, Notification notification) {
         if (shouldBlock(notification)) return;
+        useSystemAppearance(notification);
         manager.notify(tag, id, notification);
     }
 
     public static void notify(NotificationManager manager, int id, Notification notification) {
         if (shouldBlock(notification)) return;
+        useSystemAppearance(notification);
         manager.notify(id, notification);
+    }
+
+    /** Keep content and actions intact; let Android choose the notification surface and accent. */
+    public static void useSystemAppearance(Notification notification) {
+        if (notification == null) return;
+        notification.color = Notification.COLOR_DEFAULT;
+        if (notification.extras != null) notification.extras.putBoolean("android.colorized", false);
     }
 
     static boolean shouldBlock(Notification notification) {

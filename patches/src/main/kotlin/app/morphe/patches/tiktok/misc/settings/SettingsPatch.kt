@@ -350,7 +350,8 @@ val settingsPatch = bytecodePatch(
     default = true,
 ) {
     category("Settings")
-    dependsOn(sharedExtensionPatch, app.morphe.patches.tiktok.misc.update.modUpdatesManifestPatch)
+    dependsOn(sharedExtensionPatch, app.morphe.patches.tiktok.misc.update.modUpdatesManifestPatch,
+        app.morphe.patches.tiktok.misc.inbox.notificationFilterPatch)
 
     compatibleWith(*AppCompatibilities.tiktokAndPineDrama())
 

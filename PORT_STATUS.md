@@ -1,6 +1,8 @@
 # Status of this port
 
 Current release: 0.1.2, updater build 3. The selected profile contains 38 patches.
+Posted Android notifications use the system's default color and disable app colorization;
+their content, reply actions, sounds and channel settings are retained.
 The settings menu has seven entries: Region, Downloads, Feed, Fonts, Extra features,
 Mod diagnostics and Check for updates. The original project's search, quick setups,
 status/pause card, About, support and bug-report routes are not exposed.
