@@ -1,0 +1,22 @@
+{
+  "build": 5,
+  "version": "0.1.4 (TikTok 47.5.3)",
+  "changes": "- Проверка обновлений теперь использует файл в репозитории. APK по-прежнему скачиваются из релизов.",
+  "assets": {
+    "arm64-v8a": {
+      "url": "https://github.com/ttrroyy/tiktok-mod/releases/download/v0.1.4/tiktok-mod-47.5.3-arm64-v8a.apk",
+      "sha256": "72e20219fcbd1af563f7ce38d83009220b83b56cf0b9ce98c913e333d27428f7",
+      "size": 375814267
+    },
+    "armeabi-v7a": {
+      "url": "https://github.com/ttrroyy/tiktok-mod/releases/download/v0.1.4/tiktok-mod-47.5.3-armeabi-v7a.apk",
+      "sha256": "302aab70f51c8dc97a535e62da2de756eb53ed8af733a0fcc547618a2c3f04ce",
+      "size": 360827188
+    },
+    "universal": {
+      "url": "https://github.com/ttrroyy/tiktok-mod/releases/download/v0.1.4/tiktok-mod-47.5.3-universal.apk",
+      "sha256": "641807697dad1ff40e06610049ce6f59ea153b6821e9e1ab578420a8bdff203e",
+      "size": 504529802
+    }
+  }
+}
