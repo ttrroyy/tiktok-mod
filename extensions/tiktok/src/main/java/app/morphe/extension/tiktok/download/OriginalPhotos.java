@@ -28,6 +28,7 @@ public final class OriginalPhotos {
     private OriginalPhotos() {}
 
     public static boolean start(Object aweme, Context context) {
+        if (SlideshowVideo.offer(aweme, null)) return true;
         // Handing the link to another app replaces the save, so it comes before all of it.
         if (ExternalDownloader.handOff(aweme, context)) return true;
         // With Ask for the quality on each save on, the choice comes before any of the save, the
@@ -173,9 +174,10 @@ public final class OriginalPhotos {
         }
         Retry run = new Retry(id, SignedInUser.id(), photoSnapshot, List.copyOf(names), path, chosen,
                 SystemClock.elapsedRealtime());
+        run.post = new java.lang.ref.WeakReference<>(aweme);
         // The scheduler already reports a refusal. A requested image save must not become a
         // native converted video merely because the image queue is full.
-        return queue(context.getApplicationContext(), run, true) || owned;
+        return queue(context.getApplicationContext(), run, true, aweme) || owned;
     }
 
     /**
@@ -186,6 +188,9 @@ public final class OriginalPhotos {
      * and the first photo that lands is recorded under the post's id.
      */
     private static boolean queue(Context app, Retry run, boolean check) {
+        return queue(app, run, check, run.post.get());
+    }
+    private static boolean queue(Context app, Retry run, boolean check, Object post) {
         String key = jobKey(run.id);
         if (!ACTIVE.add(run.id)) {
             Utils.showToastShort(MediaJobScheduler.busyMessage(key));
@@ -193,7 +198,7 @@ public final class OriginalPhotos {
         }
         List<Integer> chosen = run.positions;
         // Every original-photo save has a file count and Cancel, including one chosen still.
-        SaveProgress progress = SaveProgress.queuedFiles(chosen.size());
+        SaveProgress progress = SaveProgress.queuedFiles(chosen.size()).forPost(post);
         boolean checkSaved = Settings.CHECK_SAVED_VIDEOS.get();
         // Read as the save is accepted: a forget in settings while it runs leaves it unrecorded.
         long archiveGeneration = SavedVideoArchive.generation();
@@ -207,7 +212,7 @@ public final class OriginalPhotos {
                 if (checkSaved && check) {
                     Runnable saveAgain = () -> {
                         ACTIVE.remove(run.id);
-                        if (!queue(app, run, false)) Utils.showToastLong(L10n.t("None of the photos could be saved. Try again."));
+                        if (!queue(app, run, false, post)) Utils.showToastLong(L10n.t("None of the photos could be saved. Try again."));
                     };
                     asking.set(true);
                     SavedVideoArchive.Check found = SavedVideoArchive.check(app, run.id, saveAgain,
@@ -312,6 +317,7 @@ public final class OriginalPhotos {
      * anywhere.
      */
     static final class Retry {
+        java.lang.ref.WeakReference<Object> post = new java.lang.ref.WeakReference<>(null);
         final String id;
         final String account;
         final List<List<String>> photos;
@@ -341,7 +347,9 @@ public final class OriginalPhotos {
             if (outcome.unsaved.isEmpty()) return null;
             List<Integer> left = new ArrayList<>();
             for (int index : outcome.unsaved) left.add(positions.get(index));
-            return new Retry(id, account, photos, names, path, left, madeAt);
+            Retry retry = new Retry(id, account, photos, names, path, left, madeAt);
+            retry.post = post;
+            return retry;
         }
 
         /** Whether it may run now, which it can do once: same account, inside the window. */

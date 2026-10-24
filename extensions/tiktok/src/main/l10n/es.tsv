@@ -1507,7 +1507,6 @@ Save again	Guardar de nuevo
 The saved-video choice couldn't open. Try again.	No se pudieron abrir las opciones del video guardado. Inténtalo de nuevo.
 The saved-video choice is still open	Las opciones del video guardado siguen abiertas
 This video isn't available as a complete file. Try again later.	Este video no está disponible como archivo completo. Inténtalo más tarde.
-Saving video to %1$s	Guardando video en %1$s
 Video and details saved to %1$s	Video y detalles guardados en %1$s
 The video was saved, but its record couldn't be updated. A later save may make another copy.	El video se guardó, pero no se pudo actualizar su registro. Si lo guardas de nuevo, puede crearse otra copia.
 The already-saved check failed. Try again.	No se pudieron comprobar los videos ya guardados. Inténtalo de nuevo.
@@ -1597,7 +1596,6 @@ Copy build details	Copiar detalles de la compilación
 Save build details	Guardar detalles de la compilación
 Build details copied to the clipboard	Detalles de la compilación copiados al portapapeles
 Sends one message a day to each person below at the time below, so your streaks keep going on days you don't open TikTok.	Envía un mensaje al día a cada persona de abajo a la hora indicada, para mantener tus rachas los días que no abres TikTok.
-Their usernames, separated by commas or new lines. Each person must already have a chat with you.	Sus nombres de usuario, separados por comas o saltos de línea. Ya debes tener un chat con cada persona.
 Delivery unconfirmed: %1$d/%2$d chats. Those chats won't be retried today.	Entrega sin confirmar: %1$d/%2$d chats. No se volverá a intentar en esos chats hoy.
 Delivery unconfirmed: %1$d/%2$d chats. Remaining chats still need a message.	Entrega sin confirmar: %1$d/%2$d chats. Los demás chats todavía necesitan un mensaje.
 Sent to %1$d/%2$d chats. They won't get another message today.	Enviado a %1$d/%2$d chats. Hoy no recibirán otro mensaje.
@@ -1702,8 +1700,6 @@ Save photos or a video?	¿Guardar fotos o un vídeo?
 Save photos	Guardar fotos
 Save as video	Guardar como vídeo
 Making a video of the photos	Creando un vídeo con las fotos
-Saved the photos as a video in %1$s	Fotos guardadas como vídeo en %1$s
-Saved the photos as a video in %1$s. The sound couldn't be added, so it's silent.	Fotos guardadas como vídeo en %1$s. No se pudo añadir el sonido, así que no tiene audio.
 The video couldn't be made from these photos. Try again.	No se pudo crear el vídeo con estas fotos. Inténtalo de nuevo.
 Video of photos	Vídeo de fotos
 # context: search words for the Log diagnostics switch. Never shown, only matched when someone searches settings. Give the words people type for debug logging in this language, separated by spaces.
@@ -2329,3 +2325,15 @@ TikTok uses the selected SIM country. Restart after changing the country.	TikTok
 Only videos TikTok marks with the selected country stay in For You. The feed can be empty if no videos match.	Only videos TikTok marks with the selected country stay in For You. The feed can be empty if no videos match.
 Download folders	Download folders
 Navigation	Navigation
+Advanced region settings	Advanced region settings
+Choose a carrier or edit country, operator and request region separately.	Choose a carrier or edit country, operator and request region separately.
+Choose people from your TikTok contacts.	Choose people from your TikTok contacts.
+Selected: %1$d	Selected: %1$d
+Account changed. Open the picker again.	Account changed. Open the picker again.
+Sign in to TikTok first	Sign in to TikTok first
+Open Inbox and your Friends list in TikTok, then try again	Open Inbox and your Friends list in TikTok, then try again
+The video was saved without sound	The video was saved without sound
+Also save the video's audio as a separate file.	Also save the video's audio as a separate file.
+Save each photo at its original resolution.	Save each photo at its original resolution.
+Hold a profile picture to save it in the photo folder.	Hold a profile picture to save it in the photo folder.
+Add a download button to a story's Share menu.	Add a download button to a story's Share menu.

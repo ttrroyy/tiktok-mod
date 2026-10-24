@@ -276,12 +276,8 @@ public final class InboxPreferenceCategory extends ConditionalPreferenceCategory
         });
         addPreference(keep);
 
-        InputTextPreference who = new InputTextPreference(
-                context,
-                "Who to message",
-                "Their usernames, separated by commas or new lines. Each person must already have a chat with you.",
-                Settings.AUTO_STREAK_RECIPIENT
-        ).withNameKeyboard().withNote(value -> AutoStreak.recipientNote(context, value));
+        app.morphe.extension.tiktok.inbox.StreakRecipientsPreference who =
+                new app.morphe.extension.tiktok.inbox.StreakRecipientsPreference(context);
         who.setOnPreferenceChangeListener((preference, value) -> {
             String before = Settings.AUTO_STREAK_RECIPIENT.get();
             Utils.runOnMainThread(() -> {

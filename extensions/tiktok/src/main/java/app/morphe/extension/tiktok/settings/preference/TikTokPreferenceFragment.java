@@ -339,7 +339,9 @@ public class TikTokPreferenceFragment extends AbstractPreferenceFragment {
     protected void syncPreferenceWithStoredValue(@NonNull Preference pref,
                                                 @NonNull Setting<?> setting,
                                                 @NonNull SharedPreferences preferences) {
-        if (pref instanceof NumberInputPreference) {
+        if (pref instanceof app.morphe.extension.tiktok.inbox.StreakRecipientsPreference) {
+            ((app.morphe.extension.tiktok.inbox.StreakRecipientsPreference) pref).refresh();
+        } else if (pref instanceof NumberInputPreference) {
             NumberInputPreference numberPref = (NumberInputPreference) pref;
             numberPref.setValueWithoutPersisting(preferences.getString(setting.key, setting.defaultValue.toString()));
         } else if (pref instanceof CreatorListPreference) {
@@ -365,7 +367,9 @@ public class TikTokPreferenceFragment extends AbstractPreferenceFragment {
             @NonNull Setting setting,
             boolean applySettingToPreference
     ) {
-        if (pref instanceof NumberInputPreference) {
+        if (pref instanceof app.morphe.extension.tiktok.inbox.StreakRecipientsPreference) {
+            ((app.morphe.extension.tiktok.inbox.StreakRecipientsPreference) pref).refresh();
+        } else if (pref instanceof NumberInputPreference) {
             NumberInputPreference numberInputPreference = (NumberInputPreference) pref;
             if (applySettingToPreference) {
                 numberInputPreference.setValueWithoutPersisting(setting.savedValue().toString());

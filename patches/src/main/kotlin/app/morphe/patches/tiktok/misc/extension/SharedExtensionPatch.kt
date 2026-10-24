@@ -61,6 +61,12 @@ private val initHook = ExtensionHook(
     postContextMethodName = "install",
 )
 
+private val shareWarmupHook = ExtensionHook(
+    fingerprint = MainActivityOnCreateFingerprint,
+    postContextClassDescriptor = "Lapp/morphe/extension/tiktok/share/ShareMenuWarmup;",
+    postContextMethodName = "install",
+)
+
 private val hostApplicationInitHook = ExtensionHook(
     fingerprint = HostApplicationAttachBaseContextFingerprint,
     insertIndexResolver = { method ->
@@ -92,6 +98,7 @@ private val tiktokExtensionPatch = extendShared(
     isYouTubeOrYouTubeMusic = false,
     hostApplicationInitHook,
     initHook,
+    shareWarmupHook,
     jatoInitHook,
     storeRegionInitHook,
 )

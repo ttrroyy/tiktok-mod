@@ -162,6 +162,7 @@ About Hushfeed,About Hushfeed
 About overrides,About overrides
 "Above moves the caption and the buttons up a little so the time fits over the right end of the bar. When something else is in the way, the time goes beside the bar.","Above moves the caption and the buttons up a little so the time fits over the right end of the bar. When something else is in the way, the time goes beside the bar."
 Above the bar,Above the bar
+Account changed. Open the picker again.,Account changed. Open the picker again.
 Account facts,Account facts
 Account facts copied,Account facts copied
 Account facts on profiles,Account facts on profiles
@@ -174,6 +175,7 @@ Add a button beside the block control that turns the feed's sound off and on.,Ad
 Add a button beside the block control to send feedback about the current video.,Add a button beside the block control to send feedback about the current video.
 Add a button that hides the current creator on this phone without blocking them.,Add a button that hides the current creator on this phone without blocking them.
 Add a creator,Add a creator
+Add a download button to a story's Share menu.,Add a download button to a story's Share menu.
 "Add a line along the bottom of a sound's cover while its preview plays, with the time played and the preview's length. Tap or drag it to move through the preview.","Add a line along the bottom of a sound's cover while its preview plays, with the time played and the preview's length. Tap or drag it to move through the preview."
 Add a seen-history file saved by Hushfeed to the videos @%1$s has seen. A video in both keeps the newer date.,Add a seen-history file saved by Hushfeed to the videos @%1$s has seen. A video in both keeps the newer date.
 Add a seen-history file saved by Hushfeed to this account's seen videos. A video in both keeps the newer date.,Add a seen-history file saved by Hushfeed to this account's seen videos. A video in both keeps the newer date.
@@ -198,6 +200,7 @@ Adds a Record button to LIVE rooms. A recording starts when you tap it and ends 
 Ads,Ads
 Advanced,Advanced
 Advanced JSON value,Advanced JSON value
+Advanced region settings,Advanced region settings
 Advanced. Find and force the hidden switches TikTok uses to test features.,Advanced. Find and force the hidden switches TikTok uses to test features.
 After 1 minute,After 1 minute
 After 15 minutes,After 15 minutes
@@ -226,6 +229,7 @@ Also hide videos whose text stickers match a blocked caption word. Text stickers
 "Also on a block list, so still hidden: %1$s","Also on a block list, so still hidden: %1$s"
 Also on opened videos,Also on opened videos
 Also replaces the saved region and country code TikTok sends with every request. Signing in still sends your real region. Your IP address and your account's own rules still apply.,Also replaces the saved region and country code TikTok sends with every request. Signing in still sends your real region. Your IP address and your account's own rules still apply.
+Also save the video's audio as a separate file.,Also save the video's audio as a separate file.
 Also turns on TikTok's own Auto scroll for videos opened from search. Restart TikTok to apply this.,Also turns on TikTok's own Auto scroll for videos opened from search. Restart TikTok to apply this.
 Always show publish date,Always show publish date
 Always show the publish date in video author information. Restart TikTok to apply this.,Always show the publish date in video author information. Restart TikTok to apply this.
@@ -357,10 +361,12 @@ Check for already-saved videos,Check for already-saved videos
 Checking for an update,Checking for an update
 Choose %1$d to %2$d videos. Values outside this range use the nearest valid limit. Restart TikTok to apply this.,Choose %1$d to %2$d videos. Values outside this range use the nearest valid limit. Restart TikTok to apply this.
 Choose a backup file. Your current settings are kept for Undo.,Choose a backup file. Your current settings are kept for Undo.
+"Choose a carrier or edit country, operator and request region separately.","Choose a carrier or edit country, operator and request region separately."
 Choose a folder on internal storage. SD cards aren't supported.,Choose a folder on internal storage. SD cards aren't supported.
 Choose a preset to fill the SIM details.,Choose a preset to fill the SIM details.
 Choose a subfolder under %1$s.,Choose a subfolder under %1$s.
 Choose counts for this signed-in account. Leave a field empty to use TikTok's count. Zero shows zero. Choices stay on this phone.,Choose counts for this signed-in account. Leave a field empty to use TikTok's count. Zero shows zero. Choices stay on this phone.
+Choose people from your TikTok contacts.,Choose people from your TikTok contacts.
 Choose what reaches your feed,Choose what reaches your feed
 Choose which bottom tabs stay visible.,Choose which bottom tabs stay visible.
 "Choose which feed tabs stay visible. If only For You is left, its tab name is hidden.","Choose which feed tabs stay visible. If only For You is left, its tab name is hidden."
@@ -889,6 +895,7 @@ Historical,Historical
 Historical values,Historical values
 Hold a gate to choose several,Hold a gate to choose several
 Hold a photo story,Hold a photo story
+Hold a profile picture to save it in the photo folder.,Hold a profile picture to save it in the photo folder.
 Hold speed on Comment,Hold speed on Comment
 Hold speed on Favorites,Hold speed on Favorites
 Hold speed on Share,Hold speed on Share
@@ -1230,6 +1237,7 @@ Only these caption languages,Only these caption languages
 Only videos TikTok marks with the selected country stay in For You. The feed can be empty if no videos match.,Only videos TikTok marks with the selected country stay in For You. The feed can be empty if no videos match.
 Open,Open
 Open Hushfeed settings,Open Hushfeed settings
+"Open Inbox and your Friends list in TikTok, then try again","Open Inbox and your Friends list in TikTok, then try again"
 Open TikTok on,Open TikTok on
 "Open a share sheet once, then return here to choose its actions.","Open a share sheet once, then return here to choose its actions."
 Open and close TikTok's screens without their slide. Swipes inside a screen still follow your finger.,Open and close TikTok's screens without their slide. Swipes inside a screen still follow your finger.
@@ -1490,6 +1498,7 @@ Save cover,Save cover
 Save cover button in the share sheet,Save cover button in the share sheet
 Save details as JSON,Save details as JSON
 Save details beside the video,Save details beside the video
+Save each photo at its original resolution.,Save each photo at its original resolution.
 "Save every photo in the post at full size, not as the screen shows it. Each one is a JPEG unless Keep photos as TikTok sent them is on.","Save every photo in the post at full size, not as the screen shows it. Each one is a JPEG unless Keep photos as TikTok sent them is on."
 Save field values,Save field values
 Save full report,Save full report
@@ -1530,8 +1539,6 @@ Saved one video,Saved one video
 "Saved photos, covers, story photos and stickers that don't move are the exact files TikTok sent, not a new JPEG or PNG. Some galleries and computers can't open HEIF or WebP.","Saved photos, covers, story photos and stickers that don't move are the exact files TikTok sent, not a new JPEG or PNG. Some galleries and computers can't open HEIF or WebP."
 Saved post,Saved post
 Saved posts,Saved posts
-Saved the photos as a video in %1$s,Saved the photos as a video in %1$s
-"Saved the photos as a video in %1$s. The sound couldn't be added, so it's silent.","Saved the photos as a video in %1$s. The sound couldn't be added, so it's silent."
 Saved videos forgotten. The files are still there.,Saved videos forgotten. The files are still there.
 Saved videos put back,Saved videos put back
 "Saved videos show the @username and the first line of the caption in the bottom left corner. The phone encodes the whole video again to do it, so saving takes longer. Applies to saves made by Hushfeed.","Saved videos show the @username and the first line of the caption in the bottom left corner. The phone encodes the whole video again to do it, so saving takes longer. Applies to saves made by Hushfeed."
@@ -1562,7 +1569,6 @@ Saving the sound,Saving the sound
 Saving the sticker,Saving the sticker
 Saving the story,Saving the story
 Saving video,Saving video
-Saving video to %1$s,Saving video to %1$s
 Saving video: %1$s,Saving video: %1$s
 Screen,Screen
 Screen layout recorded. Export the diagnostic report to send it.,Screen layout recorded. Export the diagnostic report to send it.
@@ -1602,6 +1608,7 @@ Select,Select
 Select at least one field.,Select at least one field.
 Select every tab,Select every tab
 Selected,Selected
+Selected: %1$d,Selected: %1$d
 Semi-bold,Semi-bold
 Send TikTok through a proxy,Send TikTok through a proxy
 Send it now,Send it now
@@ -1725,6 +1732,7 @@ Shows the Duet and Stitch options even when the creator turned them off. TikTok 
 "Shows the country's flag in place of its two letters, by the creator's name and by a commenter's time.","Shows the country's flag in place of its two letters, by the creator's name and by a commenter's time."
 Sign in to TikTok before importing watch history.,Sign in to TikTok before importing watch history.
 Sign in to TikTok before saving or restoring seen history.,Sign in to TikTok before saving or restoring seen history.
+Sign in to TikTok first,Sign in to TikTok first
 Sign in to edit your own profile counts,Sign in to edit your own profile counts
 Sign in to view this list,Sign in to view this list
 Sign in without a passkey,Sign in without a passkey
@@ -1988,12 +1996,12 @@ The story couldn't be saved. Try again.,The story couldn't be saved. Try again.
 The time of day the message goes out.,The time of day the message goes out.
 The video couldn't be made from these photos. Try again.,The video couldn't be made from these photos. Try again.
 "The video couldn't be saved. Try again, or choose Automatic.","The video couldn't be saved. Try again, or choose Automatic."
+The video was saved without sound,The video was saved without sound
 "The video was saved, but its record couldn't be updated. A later save may make another copy.","The video was saved, but its record couldn't be updated. A later save may make another copy."
 "The video without the watermark couldn't be fetched, so TikTok's watermarked copy was saved to %1$s. Try again later for the clean copy.","The video without the watermark couldn't be fetched, so TikTok's watermarked copy was saved to %1$s. Try again later for the clean copy."
 "The video you're watching keeps playing to its end after you leave TikTok or turn the screen off, with TikTok's own media notification to pause it. TikTok's background play switch stays on while this is on. Restart TikTok to apply this.","The video you're watching keeps playing to its end after you leave TikTok or turn the screen off, with TikTok's own media notification to pause it. TikTok's background play switch stays on while this is on. Restart TikTok to apply this."
 "The voice and video call buttons leave the top of a chat. Calls still ring, and the chat details button stays.","The voice and video call buttons leave the top of a chat. Calls still ring, and the chat details button stays."
 "The words under the bottom tab icons go away. The icons stay, and each tab opens what it always did.","The words under the bottom tab icons go away. The icons stay, and each tab opens what it always did."
-"Their usernames, separated by commas or new lines. Each person must already have a chat with you.","Their usernames, separated by commas or new lines. Each person must already have a chat with you."
 There is no Lab change to undo.,There is no Lab change to undo.
 There is no diagnostic data to clear,There is no diagnostic data to clear
 There is no diagnostic data to put back,There is no diagnostic data to put back

@@ -42,7 +42,23 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * so once. More than {@link #MAX_ROWS} rows at once keep the rest out of sight behind a single
  * line that counts them, so a long queue can't cover the video.
  */
-final class SaveProgress {
+public final class SaveProgress {
+    private Object nativePost;
+    private boolean nativeShown;
+    private int nativeResult = 3;
+    private static volatile SaveProgress nativeCurrent;
+
+    SaveProgress forPost(Object post) { nativePost = post; return this; }
+
+    /** Filled by the patch with TikTok's own download-status dispatcher. */
+    public static boolean nativeEvent(Object post, int state, int percent) { return false; }
+
+    public static void cancelNative() {
+        SaveProgress current = nativeCurrent;
+        if (current == null) return;
+        if (current.job != null && current.job.cancel()) return;
+        current.cancel();
+    }
     /** The default count row starts here; optional stream progress also covers smaller saves. */
     static final int MIN_FILES = 3;
     /** Room under the row for a banner (a block's Undo, a finished save) to appear beneath it. */
@@ -188,7 +204,7 @@ final class SaveProgress {
         // Cancel needs the job to take a waiting save out of line.
         job = queued;
         queued.progress = this;
-        if (showsRow()) show();
+        if (showsRow() || nativePost != null) show();
         return queued;
     }
 
@@ -205,7 +221,7 @@ final class SaveProgress {
 
     /** The current stream, not an estimate of later streams, muxing or publication. */
     void transfer(long bytes, long expected) {
-        if (!showTransfer || finished || cancelled.get()) return;
+        if ((!showTransfer && nativePost == null) || finished || cancelled.get()) return;
         int next = expected <= 0 ? -1 : (int) Math.max(0, Math.min(99, bytes * 100.0 / expected));
         if (next == percent) return;
         percent = next;
@@ -251,6 +267,11 @@ final class SaveProgress {
 
     private void updateTransfer() {
         Utils.runOnMainThread(() -> {
+            if (nativeShown) {
+                if (!finished && !cancelled.get()) nativeEvent(nativePost, 2,
+                        Math.max(0, Math.min(99, ((current - 1) * 100 + Math.max(0, percent)) / total)));
+                return;
+            }
             TextView label = count;
             if (label == null || cancelled.get() || finished) return;
             String text = progressText();
@@ -362,6 +383,7 @@ final class SaveProgress {
                     }
                 }
                 result[0] = new Outcome(total, saved, skipped, total - index, stop, unsaved);
+                nativeResult = result[0].complete() ? 4 : isCancelled() ? 3 : 5;
             });
         } finally {
             dismiss();
@@ -386,11 +408,19 @@ final class SaveProgress {
     }
 
     private void show() {
+        if (nativePost != null) {
+            Utils.runOnMainThread(() -> {
+                if (!finished && !nativeShown && nativeEvent(nativePost, 1, 0)) {
+                    nativeShown = true;
+                    nativeCurrent = this;
+                }
+            });
+        }
         // Not at once: a save starts as TikTok swaps its share sheet away, and a row put on the
         // window on top at that instant goes with the sheet, unseen (the save banner learnt this
         // first and waits the same). A save that is over inside the wait never gets a row.
         Utils.runOnMainThreadDelayed(() -> {
-            if (finished) return;
+            if (finished || nativeShown || !showsRow()) return;
             try {
                 Activity activity = Utils.getActivity();
                 if (activity == null || activity.isFinishing() || activity.isDestroyed()) return;
@@ -664,6 +694,11 @@ final class SaveProgress {
     void dismiss() {
         finished = true;
         Utils.runOnMainThread(() -> {
+            if (nativeShown) {
+                nativeEvent(nativePost, nativeResult, nativeResult == 4 ? 100 : 0);
+                nativeShown = false;
+                if (nativeCurrent == this) nativeCurrent = null;
+            }
             View view = row;
             row = null;
             count = null;

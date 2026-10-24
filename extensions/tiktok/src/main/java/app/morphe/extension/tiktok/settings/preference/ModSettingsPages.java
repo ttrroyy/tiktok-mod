@@ -47,7 +47,12 @@ public final class ModSettingsPages {
             boolean ghost = title.equals("Ghost mode") && Settings.GHOST_MODE.key.equals(row.getKey());
             if (!ghost && !L10n.t(context, title).contentEquals(row.getTitle())) continue;
             source.removePreference(row);
-            if (row instanceof android.preference.SwitchPreference) row.setSummary(null);
+            switch (title) {
+                case "Save the sound as well": row.setSummary(L10n.t(context, "Also save the video's audio as a separate file.")); break;
+                case "Download original photos": row.setSummary(L10n.t(context, "Save each photo at its original resolution.")); break;
+                case "Save a profile picture on a long press": row.setSummary(L10n.t(context, "Hold a profile picture to save it in the photo folder.")); break;
+                case "Save a story from its share sheet": row.setSummary(L10n.t(context, "Add a download button to a story's Share menu.")); break;
+            }
             add(row);
             break;
         }
@@ -62,7 +67,12 @@ public final class ModSettingsPages {
             return true;
         });
         add(enabled);
-        Preference country = new Preference(context);
+        Preference country = new Preference(context) {
+            @Override protected void onBindView(android.view.View view) {
+                refreshCountry(this);
+                super.onBindView(view);
+            }
+        };
         country.setKey("mod_sim_country");
         country.setTitle(L10n.t(context, "SIM country"));
         refreshCountry(country);
@@ -70,6 +80,26 @@ public final class ModSettingsPages {
         add(country);
         add(new TogglePreference(context, "Force SIM country feed",
                 "Only videos TikTok marks with the selected country stay in For You. The feed can be empty if no videos match.", Settings.FORCE_SIM_REGION));
+        PreferenceCategory source = new SimSpoofPreferenceCategory(context, scratch());
+        List<Preference> advancedRows = new ArrayList<>();
+        for (int i = 0; i < source.getPreferenceCount(); i++) {
+            Preference p = source.getPreference(i);
+            if (p instanceof SimPresetPreference || Settings.SIM_SPOOF_ISO.key.equals(p.getKey())
+                    || Settings.SIMSPOOF_MCCMNC.key.equals(p.getKey()) || Settings.SIMSPOOF_OP_NAME.key.equals(p.getKey())
+                    || Settings.REGION_SPOOF.key.equals(p.getKey()) || Settings.REGION_REQUEST_SPOOF.key.equals(p.getKey())
+                    || Settings.REGION_STORE_SPOOF.key.equals(p.getKey())) advancedRows.add(p);
+        }
+        for (Preference p : advancedRows) source.removePreference(p);
+        TogglePreference advanced = new TogglePreference(context, "Advanced region settings",
+                "Choose a carrier or edit country, operator and request region separately.", Settings.MOD_REGION_ADVANCED);
+        add(advanced);
+        if (Settings.MOD_REGION_ADVANCED.savedValue()) for (Preference p : advancedRows) add(p);
+        advanced.setOnPreferenceChangeListener((p, value) -> {
+            for (Preference row : advancedRows) {
+                if (Boolean.TRUE.equals(value)) add(row); else target.removePreference(row);
+            }
+            return true;
+        });
     }
     private void refreshCountry(Preference row) {
         row.setSummary(new Locale("", Settings.SIM_SPOOF_ISO.savedValue()).getDisplayCountry(Locale.getDefault()));
@@ -103,9 +133,8 @@ public final class ModSettingsPages {
     }
     private void downloads() {
         PreferenceCategory source = new DownloadsPreferenceCategory(context, scratch());
-        take(source, "Remove watermark", "Video download quality", "Show download progress", "Save the sound as well",
-                "Download original photos", "Save photo posts as a video", "Save a profile picture on a long press",
-                "Save a story from its share sheet", "Animated sticker format");
+        take(source, "Remove watermark", "Video download quality", "Save the sound as well",
+                "Download original photos", "Save a profile picture on a long press", "Save a story from its share sheet");
         heading("Download folders");
         take(source, "Video destination", "Photo destination", "Sticker destination");
         heading("Offline videos");
@@ -136,7 +165,7 @@ public final class ModSettingsPages {
         heading("Privacy");
         take(new PrivacyPreferenceCategory(context, scratch()), "Ghost mode", "Hide online status", "Clean up shared links",
                 "Stop analytics and tracking", "Hide a VPN connection", "Block the advertising ID");
-        take(new ExtensionPreferenceCategory(context, scratch()), "Keep the language picked in TikTok", "Skip the splash ad", "Skip update checks");
+        take(new ExtensionPreferenceCategory(context, scratch()), "Keep the language picked in TikTok", "Skip the splash ad");
         heading("Comments");
         take(new CommentsPreferenceCategory(context, scratch()), "Lift text length limits");
         heading("Streak");

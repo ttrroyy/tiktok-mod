@@ -1469,8 +1469,6 @@ Saved one original photo,保存了一张原始照片
 Saved one video,已保存一个视频
 Saved post,已保存的帖子
 Saved posts,已保存的帖子
-Saved the photos as a video in %1$s,将照片另存为 %1$s 中的视频
-"Saved the photos as a video in %1$s. The sound couldn't be added, so it's silent.",将照片另存为 %1$s 中的视频。声音无法添加，所以一片寂静.
 Saved videos forgotten. The files are still there.,已保存的视频被遗忘。文件还在那里.
 Saved videos put back,保存的视频放回
 "Saved videos show the @username and the first line of the caption in the bottom left corner. The phone encodes the whole video again to do it, so saving takes longer. Applies to saves made by Hushfeed.",保存的视频在左下角显示@用户名和标题的第一行。手机会再次对整个视频进行编码来完成此操作，因此保存时间会更长。适用于 Hushfeed 进行的保存.
@@ -1499,7 +1497,6 @@ Saving the sound,保存声音
 Saving the sticker,保存贴纸
 Saving the story,保存故事
 Saving video,保存视频
-Saving video to %1$s,将视频保存到 %1$s
 Saving video: %1$s,保存视频：%1$s
 Screen layout recorded. Export the diagnostic report to send it.,记录屏幕布局。导出诊断报告以发送.
 Screen time,屏幕时间
@@ -1917,7 +1914,6 @@ The video couldn't be made from these photos. Try again.,无法根据这些照�
 "The video you're watching keeps playing to its end after you leave TikTok or turn the screen off, with TikTok's own media notification to pause it. TikTok's background play switch stays on while this is on. Restart TikTok to apply this.",在您离开 TikTok 或关闭屏幕后，您正在观看的视频将继续播放到最后，并通过 TikTok 自己的媒体通知来暂停。当此功能打开时，TikTok 的后台播放开关保持打开状态。重新启动 TikTok 以应用此操作.
 "The voice and video call buttons leave the top of a chat. Calls still ring, and the chat details button stays.",语音和视频通话按钮离开了聊天的顶部。来电仍然响起，并且聊天详细信息按钮仍然保留.
 "The words under the bottom tab icons go away. The icons stay, and each tab opens what it always did.",底部选项卡图标下方的文字消失。图标保留下来，每个选项卡都会像往常一样打开.
-"Their usernames, separated by commas or new lines. Each person must already have a chat with you.",他们的用户名，以逗号或换行符分隔。每个人都必须已经与您聊天过.
 There is no Lab change to undo.,没有可撤消的实验室更改.
 There is no diagnostic data to clear,没有要清除的诊断数据
 There is no diagnostic data to put back,没有可放回的诊断数据
@@ -2305,3 +2301,15 @@ TikTok uses the selected SIM country. Restart after changing the country.,TikTok
 Only videos TikTok marks with the selected country stay in For You. The feed can be empty if no videos match.,Only videos TikTok marks with the selected country stay in For You. The feed can be empty if no videos match.
 Download folders,Download folders
 Navigation,Navigation
+Advanced region settings,Advanced region settings
+"Choose a carrier or edit country, operator and request region separately.","Choose a carrier or edit country, operator and request region separately."
+Choose people from your TikTok contacts.,Choose people from your TikTok contacts.
+Selected: %1$d,Selected: %1$d
+Account changed. Open the picker again.,Account changed. Open the picker again.
+Sign in to TikTok first,Sign in to TikTok first
+"Open Inbox and your Friends list in TikTok, then try again","Open Inbox and your Friends list in TikTok, then try again"
+The video was saved without sound,The video was saved without sound
+Also save the video's audio as a separate file.,Also save the video's audio as a separate file.
+Save each photo at its original resolution.,Save each photo at its original resolution.
+Hold a profile picture to save it in the photo folder.,Hold a profile picture to save it in the photo folder.
+Add a download button to a story's Share menu.,Add a download button to a story's Share menu.

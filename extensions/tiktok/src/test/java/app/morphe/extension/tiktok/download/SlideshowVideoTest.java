@@ -189,8 +189,7 @@ public class SlideshowVideoTest {
         var one = post("slideshow-off-one", List.of(photo("https://example.com/one")));
         var two = post("slideshow-off-two", List.of(photo("https://example.com/one"), photo("https://example.com/two")));
         Settings.DOWNLOAD_PHOTOS_AS_VIDEO.save(false);
-        assertFalse(OriginalPhotos.startImageAsVideo(one));
-        assertFalse(OriginalPhotos.startPhotos(two, Set.of(0, 1), true));
+        assertTrue("The old settings switch no longer hides the per-download choice", SlideshowVideo.enabled());
 
         Settings.DOWNLOAD_PHOTOS_AS_VIDEO.save(true);
         setPaused(true);

@@ -29,6 +29,13 @@ final class SaveNotice {
     private SaveNotice() {
     }
 
+    /** A normal completed video needs no folder banner or automatic Open action. */
+    static void completed() {
+        String text = L10n.t("Video saved");
+        MediaJobScheduler.said(text);
+        Utils.showToastShort(text);
+    }
+
     /** Announces a completed save of {@code saved}, or by toast alone when it has no row. */
     static void saved(String message, MediaFileWriter.Saved saved) {
         saved(message, saved, null);

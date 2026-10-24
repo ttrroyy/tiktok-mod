@@ -19,6 +19,7 @@ import java.lang.reflect.Proxy;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.Locale;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
@@ -157,6 +158,30 @@ final class StreakMessenger {
         } finally {
             if (database != null) database.close();
         }
+    }
+
+    /** Contacts cached by TikTok for this account only; never fetches or sends a message. */
+    static List<String[]> selectableContacts(Context context, String selfUid) {
+        List<String[]> result = new ArrayList<>();
+        if (selfUid == null || !selfUid.matches("[0-9]+")) return result;
+        File file = context.getDatabasePath("db_im_contact-" + selfUid);
+        if (!file.isFile()) return result;
+        try (SQLiteDatabase db = SQLiteDatabase.openDatabase(file.getPath(), null,
+                SQLiteDatabase.OPEN_READONLY | SQLiteDatabase.NO_LOCALIZED_COLLATORS);
+             Cursor rows = db.rawQuery("SELECT UID, NICK_NAME, UNIQUE_ID FROM IM_USER_BASE_INFO ORDER BY NICK_NAME COLLATE NOCASE", null)) {
+            Set<String> seen = new java.util.HashSet<>();
+            while (rows.moveToNext()) {
+                String uid = rows.getString(0), name = rows.getString(1), handle = rows.getString(2);
+                if (uid == null || !uid.matches("[0-9]+") || selfUid.equals(uid) || handle == null) continue;
+                String clean = handleOf(handle).toLowerCase(Locale.ROOT);
+                if (clean.isEmpty() || !clean.equals(handle.toLowerCase(Locale.ROOT)) || !seen.add(clean)) continue;
+                result.add(new String[]{clean, name == null || name.isEmpty() ? "@" + clean : name});
+            }
+        } catch (RuntimeException failure) {
+            Logger.printInfo(() -> "Auto streak: contact picker unavailable", failure);
+            result.clear();
+        }
+        return result;
     }
 
     /** TikTok's IM service, created on the first request for it, or null. */

@@ -1,17 +1,29 @@
 # Status of this port
 
-Current release: 0.1.1, updater build 2. The selected profile contains 38 patches.
+Current release: 0.1.2, updater build 3. The selected profile contains 38 patches.
 The settings menu has seven entries: Region, Downloads, Feed, Fonts, Extra features,
 Mod diagnostics and Check for updates. The original project's search, quick setups,
 status/pause card, About, support and bug-report routes are not exposed.
 
 The SIM country and carrier override is on by default. Upgrading from 0.1.0 enables
 it once while retaining the chosen country; switching it off afterwards is respected.
-Country selection fills the operator fields without displaying raw MCC/MNC settings.
+Country selection fills the operator fields. An Advanced switch reveals the carrier preset,
+ISO, MCC/MNC, operator name and separate region/request controls. Descriptions are visible.
 The optional forced-region rule applies to recommendations, compares TikTok's video
 country with the selected SIM country, and rejects unknown countries. It does not
 change IP addresses or force TikTok's server to supply matching videos. An empty feed
 is possible. Explicitly opened videos retain their normal handling.
+
+The downloads page omits the separate progress switch and persistent photo-to-video switch.
+Photo downloads offer photos or an MP4 at the moment of saving. Normal video saves at automatic
+quality keep TikTok's downloader; custom saves report through its native status bus, with the
+native Cancel connected to the active job. Normal completed video saves have no folder banner.
+The streak recipient selector reads the signed-in account's local TikTok contact cache, retains
+existing selections, and rejects saving after an account switch. Open Inbox and Friends first
+to populate missing contacts; it does not fetch the complete server-side friends list itself.
+Share-menu warm-up initializes the reviewed 47.5.3 native configuration/order before the first
+sheet opens. The reported first-open repost movement still needs device confirmation; the code
+does not force a repost button on videos TikTok considers ineligible.
 
 Base: original TikTok 47.5.3, versionCode 2024705030, package
 `com.zhiliaoapp.musically`. Foundation: Hushfeed 0.78.0, upstream commit

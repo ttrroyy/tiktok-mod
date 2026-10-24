@@ -591,7 +591,7 @@ Hide	Скрыть
 Hide AI-generated videos	Скрывать видео, созданные ИИ
 Hide CAPTCHA popups	Скрывать всплывающие окна CAPTCHA
 Hide LIVE replays	Скрывать повторы LIVE
-Hide LIVE videos	Скрывать видео LIVE
+Hide LIVE videos	Скрыть стримы
 Hide Series	Скрывать сериалы
 Hide the Tako bubble	Скрывать значок Tako
 Hide TikTok Shop	Скрывать TikTok Shop
@@ -652,7 +652,7 @@ Hide the LIVE button	Скрывать кнопку LIVE
 Hide the LIVE button in the top left corner of the feed.	Скрывать кнопку LIVE в левом верхнем углу ленты.
 Hide the side menu button	Скрывать кнопку бокового меню
 Hide the button at the top left of the feed that opens TikTok's side menu, with Your orders, TikTok Minis and more.	Скрывать кнопку в левом верхнем углу ленты, которая открывает боковое меню TikTok с разделами «Ваши заказы», TikTok Minis и другими.
-Hide LIVE videos from the feed.	Скрывать видео LIVE из ленты.
+Hide LIVE videos from the feed.	Убирает прямые эфиры из ленты рекомендаций.
 The Message requests row leaves the Inbox. Requests keep arriving and wait there until you turn this off.	Строка «Запросы на сообщения» исчезает из Входящих. Запросы продолжают поступать и ждут там, пока вы не выключите это.
 The New followers row leaves the top of the Inbox. The accounts still follow you.	Строка «Новые подписчики» исчезает сверху Входящих. Аккаунты по-прежнему подписаны на вас.
 Hide the Send to row	Скрывать строку «Отправить»
@@ -1645,7 +1645,6 @@ Save again	Сохранить снова
 The saved-video choice couldn't open. Try again.	Не удалось открыть выбор для сохранённого видео. Повторите попытку.
 The saved-video choice is still open	Выбор для сохранённого видео всё ещё открыт
 This video isn't available as a complete file. Try again later.	Это видео недоступно в виде полного файла. Повторите попытку позже.
-Saving video to %1$s	Видео сохраняется в %1$s
 Video and details saved to %1$s	Видео и детали сохранены в %1$s
 The video was saved, but its record couldn't be updated. A later save may make another copy.	Видео сохранено, но его запись не удалось обновить. Последующее сохранение может создать ещё одну копию.
 The already-saved check failed. Try again.	Проверка уже сохранённых не удалась. Повторите попытку.
@@ -1735,7 +1734,6 @@ Copy build details	Копировать сведения о сборке
 Save build details	Сохранить сведения о сборке
 Build details copied to the clipboard	Сведения о сборке скопированы в буфер обмена
 Sends one message a day to each person below at the time below, so your streaks keep going on days you don't open TikTok.	Отправляет одно сообщение в день каждому из указанных ниже людей в выбранное время, чтобы ваши серии продолжались и в дни, когда вы не открываете TikTok.
-Their usernames, separated by commas or new lines. Each person must already have a chat with you.	Имена пользователей через запятую или с новой строки. У вас уже должен быть чат с каждым из них.
 Delivery unconfirmed: %1$d/%2$d chats. Those chats won't be retried today.	Доставка не подтверждена: %1$d/%2$d чатов. Сегодня повторных попыток в этих чатах не будет.
 Delivery unconfirmed: %1$d/%2$d chats. Remaining chats still need a message.	Доставка не подтверждена: %1$d/%2$d чатов. В остальные чаты ещё нужно отправить сообщение.
 Sent to %1$d/%2$d chats. They won't get another message today.	Отправлено в %1$d/%2$d чатов. Сегодня они больше не получат сообщений.
@@ -1836,12 +1834,10 @@ Save photo posts as a video	Сохранять фотопубликации ка
 On a one-photo post, Download video makes an MP4 with the post's sound and no TikTok logo or end card. On a post with several photos, Download asks if you want the originals or one video.	В посте с одним фото «Скачать видео» делает MP4 со звуком поста, без логотипа TikTok и заключительной заставки. В посте с несколькими фото «Скачать» спрашивает, нужны ли оригиналы или одно видео.
 Seconds per photo	Секунд на фото
 How long each photo stays on screen in a video made from a photo post.	Сколько каждое фото остаётся на экране в видео из фотопубликации.
-Save photos or a video?	Сохранить фото или видео?
-Save photos	Сохранить фото
-Save as video	Сохранить как видео
+Save photos or a video?	Как скачать фотопубликацию?
+Save photos	Скачать фото
+Save as video	Скачать как видео
 Making a video of the photos	Создаём видео из фото
-Saved the photos as a video in %1$s	Фото сохранены как видео в %1$s
-Saved the photos as a video in %1$s. The sound couldn't be added, so it's silent.	Фото сохранены как видео в %1$s. Не удалось добавить звук, поэтому видео без звука.
 The video couldn't be made from these photos. Try again.	Не удалось создать видео из этих фото. Попробуйте ещё раз.
 Video of photos	Видео из фото
 # context: search words for the Log diagnostics switch. Never shown, only matched when someone searches settings. Give the words people type for debug logging in this language, separated by spaces.
@@ -2510,3 +2506,15 @@ TikTok uses the selected SIM country. Restart after changing the country.	TikTok
 Only videos TikTok marks with the selected country stay in For You. The feed can be empty if no videos match.	В рекомендациях остаются только ролики из выбранной страны по данным TikTok. Если подходящих роликов нет, лента может быть пустой.
 Download folders	Папки загрузок
 Navigation	Навигация
+Advanced region settings	Дополнительно
+Choose a carrier or edit country, operator and request region separately.	Открывает выбор оператора и отдельные настройки страны, SIM и региона запросов.
+Choose people from your TikTok contacts.	Выбери получателей из загруженных чатов и друзей TikTok.
+Selected: %1$d	Выбрано: %1$d
+Account changed. Open the picker again.	Аккаунт сменился. Открой выбор получателей заново.
+Sign in to TikTok first	Сначала войди в аккаунт TikTok
+Open Inbox and your Friends list in TikTok, then try again	Открой входящие и список друзей в TikTok, затем попробуй ещё раз
+The video was saved without sound	Видео сохранено без звука
+Also save the video's audio as a separate file.	Сохраняет звук видео отдельным аудиофайлом.
+Save each photo at its original resolution.	Сохраняет фотографии в исходном разрешении.
+Hold a profile picture to save it in the photo folder.	Удерживай фото профиля, чтобы сохранить его в папку фотографий.
+Add a download button to a story's Share menu.	Добавляет кнопку скачивания в меню «Поделиться» у истории.

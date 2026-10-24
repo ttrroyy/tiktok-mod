@@ -63,7 +63,8 @@ public final class SlideshowVideo {
     private SlideshowVideo() {}
 
     static boolean enabled() {
-        return SettingsStatus.advancedDownloadsEnabled && Settings.DOWNLOAD_PHOTOS_AS_VIDEO.get();
+        return SettingsStatus.advancedDownloadsEnabled
+                && !app.morphe.extension.shared.settings.Setting.isPaused();
     }
 
     /**
@@ -75,7 +76,8 @@ public final class SlideshowVideo {
         if (!enabled()) return false;
         Object info = Reflect.property(aweme, "getPhotoModeImageInfo", "photoModeImageInfo");
         Object raw = Reflect.property(info, "getImageList", "imageList");
-        if (!(raw instanceof List<?>) || ((List<?>) raw).size() < 2) return false;
+        if (!(raw instanceof List<?>) || ((List<?>) raw).isEmpty()
+                || OriginalPhotos.anyChosenIsLive(aweme, indices)) return false;
         Activity activity = Utils.getVisibleActivity();
         if (activity == null || activity.isFinishing() || activity.isDestroyed()) return false;
         Set<Object> picked = indices == null ? null : new HashSet<Object>(indices);
@@ -151,7 +153,7 @@ public final class SlideshowVideo {
             return true;
         }
         Context app = context.getApplicationContext();
-        SaveProgress progress = SaveProgress.queued(1, Settings.DOWNLOAD_PROGRESS.get());
+        SaveProgress progress = SaveProgress.queued(1, Settings.DOWNLOAD_PROGRESS.get()).forPost(aweme);
         boolean checkSaved = Settings.CHECK_SAVED_VIDEOS.get();
         // Read as the save is accepted: a forget in settings while it runs leaves it unrecorded.
         long archiveGeneration = SavedVideoArchive.generation();
@@ -183,9 +185,8 @@ public final class SlideshowVideo {
                             : L10n.t("The video couldn't be made from these photos. Try again."));
                 } else {
                     if (checkSaved) SavedVideoArchive.rememberQuietly(app, id, saved[0], archiveGeneration);
-                    SaveNotice.saved(silent[0]
-                            ? L10n.f("Saved the photos as a video in %1$s. The sound couldn't be added, so it's silent.", path)
-                            : L10n.f("Saved the photos as a video in %1$s", path), saved[0]);
+                    if (silent[0]) Utils.showToastLong(L10n.t("The video was saved without sound"));
+                    else SaveNotice.completed();
                 }
             } catch (RuntimeException exception) {
                 Logger.printException(() -> "Photo video failed", exception);

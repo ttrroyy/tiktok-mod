@@ -95,8 +95,26 @@ public class ModSettingsLayoutTest {
                     assertNull(screen.findPreference(SettingsStatusPreference.KEY));
                 }
                 if (page.equals("REGION")) {
-                    assertEquals(Arrays.asList(Settings.SIM_SPOOF.key, "mod_sim_country", Settings.FORCE_SIM_REGION.key), nonNull(keys));
+                    assertEquals(Arrays.asList(Settings.SIM_SPOOF.key, "mod_sim_country", Settings.FORCE_SIM_REGION.key,
+                            Settings.MOD_REGION_ADVANCED.key), nonNull(keys));
                     assertTrue(Settings.SIM_SPOOF.savedValue());
+                    Preference advanced = screen.findPreference(Settings.MOD_REGION_ADVANCED.key);
+                    advanced.getOnPreferenceChangeListener().onPreferenceChange(advanced, true);
+                    ((android.preference.SwitchPreference) advanced).setChecked(true);
+                    Shadows.shadowOf(Looper.getMainLooper()).idle();
+                    assertNotNull(screen.findPreference(Settings.SIMSPOOF_MCCMNC.key));
+                    assertNotNull(screen.findPreference(Settings.SIMSPOOF_OP_NAME.key));
+                    assertNotNull(screen.findPreference(Settings.REGION_REQUEST_SPOOF.key));
+                    capture(activity, "region-expanded");
+                    advanced.getOnPreferenceChangeListener().onPreferenceChange(advanced, false);
+                    ((android.preference.SwitchPreference) advanced).setChecked(false);
+                    Shadows.shadowOf(Looper.getMainLooper()).idle();
+                    assertNull(screen.findPreference(Settings.SIMSPOOF_MCCMNC.key));
+                }
+                if (page.equals("DOWNLOADS")) {
+                    assertNull(screen.findPreference(Settings.DOWNLOAD_PROGRESS.key));
+                    assertNull(screen.findPreference(Settings.DOWNLOAD_PHOTOS_AS_VIDEO.key));
+                    assertNotNull(screen.findPreference(Settings.DOWNLOAD_ORIGINAL_PHOTOS.key).getSummary());
                 }
                 if (page.equals("BEHAVIOR")) assertNotNull(screen.findPreference(Settings.IMPORTED_FONT.key));
                 capture(activity, page);

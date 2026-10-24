@@ -1510,7 +1510,6 @@ Save again	Erneut speichern
 The saved-video choice couldn't open. Try again.	Die Auswahl zum gespeicherten Video konnte nicht geöffnet werden. Versuch es erneut.
 The saved-video choice is still open	Die Auswahl zum gespeicherten Video ist noch offen
 This video isn't available as a complete file. Try again later.	Dieses Video ist nicht als vollständige Datei verfügbar. Versuch es später erneut.
-Saving video to %1$s	Video wird in %1$s gespeichert
 Video and details saved to %1$s	Video und Details in %1$s gespeichert
 The video was saved, but its record couldn't be updated. A later save may make another copy.	Das Video wurde gespeichert, sein Eintrag konnte aber nicht aktualisiert werden. Ein erneutes Speichern kann eine weitere Kopie erstellen.
 The already-saved check failed. Try again.	Die Prüfung bereits gespeicherter Videos ist fehlgeschlagen. Versuch es erneut.
@@ -1600,7 +1599,6 @@ Copy build details	Build-Informationen kopieren
 Save build details	Build-Informationen speichern
 Build details copied to the clipboard	Build-Informationen in die Zwischenablage kopiert
 Sends one message a day to each person below at the time below, so your streaks keep going on days you don't open TikTok.	Sendet jeden Tag zur unten angegebenen Zeit eine Nachricht an jede der unten genannten Personen, damit eure Flammen auch an Tagen erhalten bleiben, an denen du TikTok nicht öffnest.
-Their usernames, separated by commas or new lines. Each person must already have a chat with you.	Ihre Benutzernamen, durch Kommas oder Zeilenumbrüche getrennt. Mit jeder Person muss bereits ein Chat bestehen.
 Delivery unconfirmed: %1$d/%2$d chats. Those chats won't be retried today.	Zustellung unbestätigt: %1$d/%2$d Chats. Für diese Chats gibt es heute keinen weiteren Versuch.
 Delivery unconfirmed: %1$d/%2$d chats. Remaining chats still need a message.	Zustellung unbestätigt: %1$d/%2$d Chats. Die übrigen Chats brauchen noch eine Nachricht.
 Sent to %1$d/%2$d chats. They won't get another message today.	An %1$d/%2$d Chats gesendet. Sie bekommen heute keine weitere Nachricht.
@@ -1705,8 +1703,6 @@ Save photos or a video?	Fotos oder ein Video speichern?
 Save photos	Fotos speichern
 Save as video	Als Video speichern
 Making a video of the photos	Video aus den Fotos wird erstellt
-Saved the photos as a video in %1$s	Fotos als Video in %1$s gespeichert
-Saved the photos as a video in %1$s. The sound couldn't be added, so it's silent.	Fotos als Video in %1$s gespeichert. Der Sound ließ sich nicht hinzufügen, daher ist es stumm.
 The video couldn't be made from these photos. Try again.	Aus diesen Fotos ließ sich kein Video erstellen. Versuche es erneut.
 Video of photos	Video aus Fotos
 # context: search words for the Log diagnostics switch. Never shown, only matched when someone searches settings. Give the words people type for debug logging in this language, separated by spaces.
@@ -2333,3 +2329,15 @@ TikTok uses the selected SIM country. Restart after changing the country.	TikTok
 Only videos TikTok marks with the selected country stay in For You. The feed can be empty if no videos match.	Only videos TikTok marks with the selected country stay in For You. The feed can be empty if no videos match.
 Download folders	Download folders
 Navigation	Navigation
+Advanced region settings	Advanced region settings
+Choose a carrier or edit country, operator and request region separately.	Choose a carrier or edit country, operator and request region separately.
+Choose people from your TikTok contacts.	Choose people from your TikTok contacts.
+Selected: %1$d	Selected: %1$d
+Account changed. Open the picker again.	Account changed. Open the picker again.
+Sign in to TikTok first	Sign in to TikTok first
+Open Inbox and your Friends list in TikTok, then try again	Open Inbox and your Friends list in TikTok, then try again
+The video was saved without sound	The video was saved without sound
+Also save the video's audio as a separate file.	Also save the video's audio as a separate file.
+Save each photo at its original resolution.	Save each photo at its original resolution.
+Hold a profile picture to save it in the photo folder.	Hold a profile picture to save it in the photo folder.
+Add a download button to a story's Share menu.	Add a download button to a story's Share menu.

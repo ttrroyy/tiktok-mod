@@ -353,8 +353,8 @@ public final class SettingsUi {
 
     public static void stylePreferenceRow(View view) {
         Context context = view.getContext();
-        view.setPaddingRelative(dp(context, 16), dp(context, 16), dp(context, 16), dp(context, 16));
-        view.setMinimumHeight(dp(context, 76));
+        view.setPaddingRelative(dp(context, 16), dp(context, 12), dp(context, 16), dp(context, 12));
+        view.setMinimumHeight(dp(context, 56));
         TextView title = view.findViewById(android.R.id.title);
         if (title != null) {
             if (title.getParent() instanceof View && title.getParent() != view) {

@@ -1502,7 +1502,6 @@ Save again,Simpan lagi
 The saved-video choice couldn't open. Try again.,Pilihan untuk video tersimpan tidak dapat dibuka. Coba lagi.
 The saved-video choice is still open,Pilihan untuk video tersimpan masih terbuka
 This video isn't available as a complete file. Try again later.,Video ini belum tersedia sebagai file lengkap. Coba lagi nanti.
-Saving video to %1$s,Menyimpan video ke %1$s
 Video and details saved to %1$s,Video dan detail disimpan ke %1$s
 "The video was saved, but its record couldn't be updated. A later save may make another copy.","Video telah disimpan, tetapi catatannya tidak dapat diperbarui. Penyimpanan berikutnya mungkin membuat salinan lain."
 The already-saved check failed. Try again.,Pemeriksaan video tersimpan gagal. Coba lagi.
@@ -1592,7 +1591,6 @@ Copy build details,Salin detail build
 Save build details,Simpan detail build
 Build details copied to the clipboard,Detail build disalin ke papan klip
 "Sends one message a day to each person below at the time below, so your streaks keep going on days you don't open TikTok.",Mengirim satu pesan per hari ke setiap orang di bawah pada waktu yang ditentukan agar streak tetap berjalan saat kamu tidak membuka TikTok.
-"Their usernames, separated by commas or new lines. Each person must already have a chat with you.","Nama pengguna mereka, dipisahkan dengan koma atau baris baru. Kamu harus sudah memiliki chat dengan setiap orang."
 Delivery unconfirmed: %1$d/%2$d chats. Those chats won't be retried today.,Pengiriman belum terkonfirmasi: %1$d/%2$d chat. Chat tersebut tidak akan dicoba lagi hari ini.
 Delivery unconfirmed: %1$d/%2$d chats. Remaining chats still need a message.,Pengiriman belum terkonfirmasi: %1$d/%2$d chat. Chat lainnya masih memerlukan pesan.
 Sent to %1$d/%2$d chats. They won't get another message today.,Terkirim ke %1$d/%2$d chat. Hari ini tidak akan ada pesan lain.
@@ -1695,8 +1693,6 @@ Save photos or a video?,Simpan foto atau video?
 Save photos,Simpan foto
 Save as video,Simpan sebagai video
 Making a video of the photos,Membuat video dari foto
-Saved the photos as a video in %1$s,Foto disimpan sebagai video di %1$s
-"Saved the photos as a video in %1$s. The sound couldn't be added, so it's silent.","Foto disimpan sebagai video di %1$s. Suara tidak dapat ditambahkan, jadi videonya tanpa suara."
 The video couldn't be made from these photos. Try again.,Video tidak dapat dibuat dari foto ini. Coba lagi.
 Video of photos,Video dari foto
 debug debugging logs logging,debug debugging log catatan
@@ -2307,3 +2303,15 @@ TikTok uses the selected SIM country. Restart after changing the country.,TikTok
 Only videos TikTok marks with the selected country stay in For You. The feed can be empty if no videos match.,Only videos TikTok marks with the selected country stay in For You. The feed can be empty if no videos match.
 Download folders,Download folders
 Navigation,Navigation
+Advanced region settings,Advanced region settings
+"Choose a carrier or edit country, operator and request region separately.","Choose a carrier or edit country, operator and request region separately."
+Choose people from your TikTok contacts.,Choose people from your TikTok contacts.
+Selected: %1$d,Selected: %1$d
+Account changed. Open the picker again.,Account changed. Open the picker again.
+Sign in to TikTok first,Sign in to TikTok first
+"Open Inbox and your Friends list in TikTok, then try again","Open Inbox and your Friends list in TikTok, then try again"
+The video was saved without sound,The video was saved without sound
+Also save the video's audio as a separate file.,Also save the video's audio as a separate file.
+Save each photo at its original resolution.,Save each photo at its original resolution.
+Hold a profile picture to save it in the photo folder.,Hold a profile picture to save it in the photo folder.
+Add a download button to a story's Share menu.,Add a download button to a story's Share menu.

@@ -245,7 +245,6 @@ final class VideoDownloads {
                 Utils.showToastLong(L10n.t("This video isn't available as a complete file. Try again later."));
                 return;
             }
-            Utils.showToastShort(L10n.f("Saving video to %1$s", path));
             List<File> temporary = new ArrayList<>();
             // The row offers Cancel, which lets the file under way finish and leaves the rest.
             // The video is the save itself: when it fails nothing else is tried; a sound or a
@@ -360,7 +359,7 @@ final class VideoDownloads {
                     boolean onlyTracks = details == null && outcome.cancelled == 0
                             && outcome.stop == SaveProgress.Stop.NONE && !soundSkipped[0];
                     String said = onlyTracks ? own : SaveProgress.message(outcome, own);
-                    SaveNotice.saved(said, published[0]);
+                    SaveNotice.completed();
                     // A count took the banner, so the watermark is said on its own.
                     if (stamped[0] && !said.equals(own)) Utils.showToastLong(own);
                     if (!remembered[0]) Utils.showToastLong(L10n.t("The video was saved, but its record couldn't be updated. A later save may make another copy."));
@@ -377,11 +376,11 @@ final class VideoDownloads {
         Runnable saveAgain = () -> {
             ASKING.remove(id);
             if (withCover) CoverSaver.beside(app, aweme);
-            SaveProgress again = SaveProgress.queued(files, showRow);
+            SaveProgress again = SaveProgress.queued(files, showRow).forPost(aweme);
             again.submit("video", key, () -> save.accept(again), release);
             again.acknowledge(null, L10n.t("Waiting to save video"));
         };
-        SaveProgress first = SaveProgress.queued(files, showRow);
+        SaveProgress first = SaveProgress.queued(files, showRow).forPost(aweme);
         AtomicBoolean asking = new AtomicBoolean();
         MediaJobScheduler.Job job = first.submit("video", key, () -> {
             if (checkSaved) {

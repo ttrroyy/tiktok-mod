@@ -9,6 +9,7 @@ package app.morphe.patches.tiktok.interaction.downloads
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.methodCall
 import app.morphe.util.addInstruction
+import app.morphe.util.addInstructions
 import app.morphe.util.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.PatchException
@@ -27,6 +28,7 @@ import app.morphe.patches.tiktok.misc.settings.SettingsStatusLoadFingerprint
 import app.morphe.patches.tiktok.misc.settings.settingsPatch
 import app.morphe.patches.tiktok.shared.requireLocals
 import app.morphe.util.getReference
+import app.morphe.util.cloneMutable
 import app.morphe.util.implementationOrPatchException
 import app.morphe.util.numberOfParameterRegisters
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -34,6 +36,8 @@ import com.android.tools.smali.dexlib2.iface.Field
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val VIDEO = "Lcom/ss/android/ugc/aweme/feed/model/Video;"
 private const val URL = "Lcom/ss/android/ugc/aweme/base/model/UrlModel;"
@@ -270,6 +274,49 @@ internal fun MutableMethod.interceptPhotoVideoConversion() {
     """, ExternalLabel("native_photo_conversion", getInstruction(0)))
 }
 
+private object NativeDownloadCancelFingerprint : Fingerprint(
+    definingClass = "Lcom/ss/android/ugc/aweme/share/ShareServiceImpl;",
+    strings = listOf("video_download_status"), parameters = emptyList(), returnType = "V",
+)
+
+/** Reuse the host's status bus so its own saving indicator and Cancel handle mod downloads. */
+context(context: app.morphe.patcher.patch.BytecodePatchContext)
+private fun hookNativeDownloadProgress() {
+    val instructions = PhotoVideoConversionFingerprint.method.implementation!!.instructions.toList()
+    val calls = instructions.mapNotNull { it.getReference<MethodReference>() }
+    val factory = calls.single { it.parameterTypes.map(CharSequence::toString) == listOf("I", AWEME, "I", "I") }
+    val channel = calls.single { it.parameterTypes.map(CharSequence::toString) == listOf(STRING) &&
+        it.returnType == "Lcom/ss/android/ugc/aweme/arch/widgets/base/NextLiveData;" }
+    val bus = instructions.mapNotNull { it.getReference<FieldReference>() }
+        .distinct().single { it.type == channel.definingClass }
+    val post = calls.single { it.name == "postValue" && it.parameterTypes.map(CharSequence::toString) == listOf("Ljava/lang/Object;") }
+    check(factory.returnType.startsWith("L") && instructions.any {
+        it.getReference<StringReference>()?.string == "video_download_status"
+    }) { "Advanced downloads: native progress dispatcher changed" }
+    val owner = context.mutableClassDefBy("${EXTENSION}SaveProgress;")
+    val original = owner.methods.single { it.name == "nativeEvent" && it.parameterTypes.size == 3 }
+    val bridge = original.cloneMutable(additionalRegisters = 4).apply {
+        check(implementation!!.registerCount <= 16) { "Native progress bridge exceeds register encoding" }
+        addInstructions(0, """
+            check-cast p0, $AWEME
+            const/16 v3, 0x8
+            invoke-static { p1, p0, p2, v3 }, $factory
+            move-result-object v0
+            sget-object v1, $bus
+            const-string v2, "video_download_status"
+            invoke-virtual { v1, v2 }, $channel
+            move-result-object v1
+            invoke-virtual { v1, v0 }, $post
+            const/4 v0, 0x1
+            return v0
+        """)
+    }
+    owner.methods.remove(original)
+    owner.methods.add(bridge)
+    NativeDownloadCancelFingerprint.method.addInstruction(0,
+        "invoke-static {}, ${EXTENSION}SaveProgress;->cancelNative()V")
+}
+
 @Suppress("unused")
 val advancedDownloadsPatch = bytecodePatch(
     name = "Advanced downloads",
@@ -320,6 +367,7 @@ val advancedDownloadsPatch = bytecodePatch(
                 return-void
             """, ExternalLabel("original", getInstruction(0)))
         }
+        hookNativeDownloadProgress()
         PhotoVideoConversionFingerprint.method.interceptPhotoVideoConversion()
         ProfileUserResponseFingerprint.method.addInstruction(
             0,
