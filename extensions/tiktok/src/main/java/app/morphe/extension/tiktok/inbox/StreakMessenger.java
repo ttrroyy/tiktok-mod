@@ -168,10 +168,17 @@ final class StreakMessenger {
         if (!file.isFile()) return result;
         try (SQLiteDatabase db = SQLiteDatabase.openDatabase(file.getPath(), null,
                 SQLiteDatabase.OPEN_READONLY | SQLiteDatabase.NO_LOCALIZED_COLLATORS);
-             Cursor rows = db.rawQuery("SELECT UID, NICK_NAME, UNIQUE_ID FROM IM_USER_BASE_INFO ORDER BY NICK_NAME COLLATE NOCASE", null)) {
+             Cursor rows = db.rawQuery("SELECT * FROM IM_USER_BASE_INFO ORDER BY NICK_NAME COLLATE NOCASE", null)) {
+            int uidColumn = rows.getColumnIndexOrThrow("UID"), nameColumn = rows.getColumnIndexOrThrow("NICK_NAME");
+            int handleColumn = rows.getColumnIndexOrThrow("UNIQUE_ID"), suggested = rows.getColumnIndex("MAF_STATUS");
+            int followed = rows.getColumnIndex("FOLLOW_STATUS"), deleted = rows.getColumnIndex("DELETED");
+            int blocked = rows.getColumnIndex("BLOCK"), blockedBy = rows.getColumnIndex("BLOCKED_BY");
             Set<String> seen = new java.util.HashSet<>();
             while (rows.moveToNext()) {
-                String uid = rows.getString(0), name = rows.getString(1), handle = rows.getString(2);
+                if ((deleted >= 0 && rows.getInt(deleted) != 0) || (blocked >= 0 && rows.getInt(blocked) != 0)
+                        || (blockedBy >= 0 && rows.getInt(blockedBy) != 0)
+                        || (suggested >= 0 && rows.getInt(suggested) == 1 && (followed < 0 || rows.getInt(followed) != 2))) continue;
+                String uid = rows.getString(uidColumn), name = rows.getString(nameColumn), handle = rows.getString(handleColumn);
                 if (uid == null || !uid.matches("[0-9]+") || selfUid.equals(uid) || handle == null) continue;
                 String clean = handleOf(handle).toLowerCase(Locale.ROOT);
                 if (clean.isEmpty() || !clean.equals(handle.toLowerCase(Locale.ROOT)) || !seen.add(clean)) continue;

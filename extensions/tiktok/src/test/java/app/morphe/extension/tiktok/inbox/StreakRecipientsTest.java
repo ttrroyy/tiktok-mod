@@ -23,8 +23,8 @@ public class StreakRecipientsTest {
     private void contact(Activity a, String self, String uid, String name, String handle) {
         var file = a.getDatabasePath("db_im_contact-" + self); file.getParentFile().mkdirs();
         try (var db = SQLiteDatabase.openOrCreateDatabase(file, null)) {
-            db.execSQL("CREATE TABLE IF NOT EXISTS IM_USER_BASE_INFO (UID TEXT, NICK_NAME TEXT, UNIQUE_ID TEXT)");
-            db.execSQL("INSERT INTO IM_USER_BASE_INFO VALUES (?, ?, ?)", new Object[]{uid,name,handle});
+            db.execSQL("CREATE TABLE IF NOT EXISTS IM_USER_BASE_INFO (UID TEXT, NICK_NAME TEXT, UNIQUE_ID TEXT, MAF_STATUS INTEGER DEFAULT 0, FOLLOW_STATUS INTEGER DEFAULT 0, DELETED INTEGER DEFAULT 0, BLOCK INTEGER DEFAULT 0, BLOCKED_BY INTEGER DEFAULT 0)");
+            db.execSQL("INSERT INTO IM_USER_BASE_INFO (UID,NICK_NAME,UNIQUE_ID) VALUES (?, ?, ?)", new Object[]{uid,name,handle});
         }
     }
     @Test public void pickerIsAccountScopedDeduplicatedAndDoesNotSend() throws Exception {
@@ -33,6 +33,11 @@ public class StreakRecipientsTest {
             contact(a,"100","200","Alice","alice"); contact(a,"100","200","Alice duplicate","ALICE");
             contact(a,"100","100","Self","self"); contact(a,"100","300","Invalid","bad/name");
             contact(a,"999","400","Other account","bob");
+            contact(a,"100","500","Suggested","suggested"); contact(a,"100","600","Blocked","blocked");
+            try(var db=SQLiteDatabase.openOrCreateDatabase(a.getDatabasePath("db_im_contact-100"),null)) {
+                db.execSQL("UPDATE IM_USER_BASE_INFO SET MAF_STATUS=1 WHERE UID='500'");
+                db.execSQL("UPDATE IM_USER_BASE_INFO SET BLOCK=1 WHERE UID='600'");
+            }
             var contacts = StreakMessenger.selectableContacts(a,"100");
             assertEquals(1,contacts.size()); assertEquals("alice",contacts.get(0)[0]);
             assertTrue(StreakMessenger.selectableContacts(a,"../999").isEmpty());

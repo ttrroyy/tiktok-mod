@@ -1,7 +1,7 @@
 # Graph Report - tiktok-mod  (2026-10-24)
 
 ## Corpus Check
-- 1837 files · ~3,303,802 words
+- 1837 files · ~3,303,908 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 33 file(s) not represented in the graph (top: .tsv 9, .xml 8, (none) 5)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `ba125341`
+- Built from commit: `bbe5c4f1`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -3043,7 +3043,7 @@ Nodes (3): bundleManifest(), object@L172, object@L173
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Method` connect `Method` to `patchexception`, `previewCheckOf`, `opcode`, `CommentTranslateButtonAnchorsTest`, `android.preference.Preference`, `.listOf`, `.forEachDeclared`, `.listOf`, `.versionOf`, `DmTranslationAnchorsTest`, `addInstructionsAtControlFlowLabel`, `.apks`, `TikTokPatchAnchorsMatchFixturesTest.kt`, `LaunchCrashKeepListTest`, `SwitchedReturnFixturesTest.kt`, `guardAtEntry`, `LikePressAnchorsTest`, `.repeat`, `SettingsL10nTest`, `.emptyList`, `.takes`, `LiveControlsPatch.kt`, `progressClearRegistersAt`, `.execute`, `FoldableSplitViewConfigurationTest`, `RenderFirstFrameAnchorTest`, `.declared`, `FeatureGatePresetFixturesTest`, `feedfilter/Fingerprints.kt`, `BackgroundPlayPatch.kt`, `BytecodeUtils.kt`, `.dexContainer`, `SystemFontPatch.kt`, `GridSort.kt`, `.`the bar's progress and style methods resolve from the show-type setter``, `.method`, `BlockPopupsAnchorsTest`, `.`native list mode joins primary then extra stubs and applies loading predicates to state``, `.single`, `GhostModeCallSites.kt`, `settings/Fingerprints.kt`, `.`the click wrapper and the Function2 lambda are the ones the old name check found``, `StoryOverLive.kt`, `RegistrationPackageAnchorsTest`, `.`each front flash is one method whose one brightness store goes to the switch``, `FeatureGateLabFramesTest`, `GateCatalogGenerator.kt`, `FixtureResourceTable`, `ChatDeclutter.kt`, `Build`, `.`each declared build has one Auto adjust boot step, one rollback and one default-on clean-up and the guards fit them``, `LazyAbGateTest`, `FeedTranslationsAnchorsTest`, `.assertSame`, `rawAdvertisingIdReads`, `AutoAdvancePatch.kt`, `CaptionSearchPanelAnchorsTest`, `SmartSearchCaptionAnchorsTest`, `.methodsOf`, `.`each declared build has one step decision that reads the step's id``, `RenderFirstFrameAnchorTest.kt`, `ClearDisplayCompletion.kt`, `seekbar/Fingerprints.kt`, `FeedMutePatch.kt`, `DmTranslationHooks.kt`, `SearchRewardsGettersTest`, `MusicDiscSpinAnchorsTest`, `.`each declared host has exactly one view report and one batch send``, `DmTranslationHooks.kt`, `CommentPageSceneRegisterTest`, `VideoAutoTranslateAnchorsTest`, `StartPageAnchorsTest`, `.visit`, `InboxQueryPublicationHooks.kt`, `TelemetrySendAnchorsTest`, `FeedTextContracts.kt`, `ForYouLongPressTest`, `ChatDeclutterAnchorsTest`, `LocalProfileCountHooks.kt`, `PictureInPictureAnchorsTest`, `RegionSpoofPatch.kt`, `.single`, `NetworkProxyAnchorsTest`, `CaptchaMemberContractsTest`, `CommentBoxButtons.kt`, `ConfirmInteractionsPatch.kt`?**
-  _High betweenness centrality (0.028) - this node is a cross-community bridge._
+  _High betweenness centrality (0.023) - this node is a cross-community bridge._
 - **What connects `DEBUG`, `INFO`, `ERROR` to the rest of the system?**
   _547 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `org.robolectric.annotation.Config` be split into smaller, more focused modules?**
@@ -3053,6 +3053,6 @@ _Questions this graph is uniquely positioned to answer:_
 - **Should `list` be split into smaller, more focused modules?**
   _Cohesion score 0.018698245442336656 - nodes in this community are weakly interconnected._
 - **Why does `Utils` connect `org.robolectric.annotation.Config` to `Settings.java`, `list`, `file`, `SettingsUi`, `.t`, `android.content.Context`, `android.preference.Preference`, `CustomDialog`, `SettingsStatus`, `.printDebug`, `android.app.Activity`, `androidx.annotation.ChecksSdkIntAtLeast`, `StorySeekbarTest`, `.printException`, `.getChildView`, `list`, `FeatureGateLabFragment`, `.getTextDirectionString`, `Sort`, `.indexOfFirstFound`?**
-  _High betweenness centrality (0.018) - this node is a cross-community bridge._
+  _High betweenness centrality (0.021) - this node is a cross-community bridge._
 - **Should `file` be split into smaller, more focused modules?**
   _Cohesion score 0.019321178763903223 - nodes in this community are weakly interconnected._
