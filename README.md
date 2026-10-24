@@ -37,4 +37,4 @@
 
 ---
 
-[Исходный проект](https://github.com/SysAdminDoc/HushFeed) · [Лицензия](https://github.com/ttrroyy/tiktok-mod/blob/main/LICENSE) · [Авторство](https://github.com/ttrroyy/tiktok-mod/blob/main/NOTICE)
+На основе [Hushfeed 0.78.0](https://github.com/SysAdminDoc/HushFeed). [Лицензия](https://github.com/ttrroyy/tiktok-mod/blob/main/LICENSE) · [Авторство](https://github.com/ttrroyy/tiktok-mod/blob/main/NOTICE)
