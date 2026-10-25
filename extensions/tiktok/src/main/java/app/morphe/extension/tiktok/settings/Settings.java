@@ -299,7 +299,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting FILL_VIDEO_TO_SCREEN =
             new BooleanSetting("fill_video_to_screen", FALSE);
     public static final BooleanSetting UNCAP_REFRESH_RATE =
-            new BooleanSetting("uncap_refresh_rate", FALSE);
+            new BooleanSetting("uncap_refresh_rate", TRUE);
     /**
      * Skips TikTok's brightness boost in the camera, editor and post screens, and the full
      * brightness the cameras' front flash and fill light store (issue #200). The patch is in the
@@ -1372,11 +1372,16 @@ public class Settings extends BaseSettings {
     }
 
     public static void upgradeModDefaults() {
-        if (Settings.MOD_MENU_REVISION.savedValue() >= 3) return;
+        if (Settings.MOD_MENU_REVISION.savedValue() >= 4) return;
+        Settings.UNCAP_REFRESH_RATE.save(true);
+        if (Settings.MOD_MENU_REVISION.savedValue() >= 3) {
+            Settings.MOD_MENU_REVISION.save(4);
+            return;
+        }
         Settings.DOWNLOAD_PROGRESS.save(false);
         Settings.DOWNLOAD_VIDEO_QUALITY.save("auto");
         if (Settings.MOD_MENU_REVISION.savedValue() >= 2) {
-            Settings.MOD_MENU_REVISION.save(3);
+            Settings.MOD_MENU_REVISION.save(4);
             return;
         }
         if (app.morphe.extension.shared.settings.BaseSettings.PAUSED.savedValue()) {
@@ -1396,7 +1401,7 @@ public class Settings extends BaseSettings {
         Settings.SEE_THROUGH_STATUS_BAR.save(false);
         Settings.SWIPE_LEVELS.save(false);
         Settings.FADE_CONTROLS_OPACITY.save(100);
-        Settings.MOD_MENU_REVISION.save(3);
+        Settings.MOD_MENU_REVISION.save(4);
     }
 
     /** A Normal-weight captions switch left on becomes Caption boldness's Normal, once. */

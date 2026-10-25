@@ -51,8 +51,8 @@ internal object RefreshRateWriteFingerprint : Fingerprint(
 val refreshRatePatch = bytecodePatch(
     name = "Keep the screen's refresh rate",
     description = "Stops TikTok slowing your screen down to the video's frame rate, so " +
-        "scrolling stays smooth on 90 or 120 Hz phones. Starts off. Turn it on in Hushfeed " +
-        "settings > App.",
+        "scrolling can use the phone's normal refresh rate. Enabled by default; Android " +
+        "still chooses the display mode.",
 ) {
     category("Playback")
     dependsOn(settingsPatch, sharedExtensionPatch)

@@ -2,6 +2,7 @@ package app.morphe.extension.tiktok.misc;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
@@ -28,6 +29,20 @@ public class RefreshRateTest {
         @Override public void onCreate(android.os.Bundle state) {
             setTheme(android.R.style.Theme_Material_NoActionBar);
             super.onCreate(state);
+        }
+    }
+
+    @Test public void screenIsUncappedByDefault() {
+        assertTrue(Settings.UNCAP_REFRESH_RATE.defaultValue);
+        try {
+            Settings.UNCAP_REFRESH_RATE.resetToDefault();
+            RefreshRate.setHighestSupported(120f);
+            android.view.WindowManager.LayoutParams params = new android.view.WindowManager.LayoutParams();
+            RefreshRate.apply(params, 30f);
+            assertEquals(0f, params.preferredRefreshRate, 0.001f);
+        } finally {
+            Settings.UNCAP_REFRESH_RATE.resetToDefault();
+            RefreshRate.setHighestSupported(-1f);
         }
     }
 

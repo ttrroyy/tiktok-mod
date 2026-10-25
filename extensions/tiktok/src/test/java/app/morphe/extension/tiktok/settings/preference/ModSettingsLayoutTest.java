@@ -61,6 +61,23 @@ public class ModSettingsLayoutTest {
         assertFalse(Settings.SIM_SPOOF.savedValue());
     }
 
+    @Test public void upgradeEnablesRefreshRateOnceWithoutResettingExistingChoices() {
+        Settings.MOD_MENU_REVISION.save(3);
+        Settings.UNCAP_REFRESH_RATE.save(false);
+        Settings.SIM_SPOOF.save(false);
+        Settings.DOWNLOAD_PROGRESS.save(true);
+        Settings.DOWNLOAD_VIDEO_QUALITY.save("1080p");
+        Settings.upgradeModDefaults();
+        assertTrue(Settings.UNCAP_REFRESH_RATE.savedValue());
+        assertEquals(4, (int) Settings.MOD_MENU_REVISION.savedValue());
+        assertFalse(Settings.SIM_SPOOF.savedValue());
+        assertTrue(Settings.DOWNLOAD_PROGRESS.savedValue());
+        assertEquals("1080p", Settings.DOWNLOAD_VIDEO_QUALITY.savedValue());
+        Settings.UNCAP_REFRESH_RATE.save(false);
+        Settings.upgradeModDefaults();
+        assertFalse(Settings.UNCAP_REFRESH_RATE.savedValue());
+    }
+
     @Test public void onlyTheCuratedPagesRemainAndRegionHasThreeControls() throws Exception {
         render("HOME", "REGION", "DOWNLOADS", "FEED_FILTER", "BEHAVIOR", "PLAYBACK", "DIAGNOSTICS");
     }
