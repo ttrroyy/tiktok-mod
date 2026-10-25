@@ -18,6 +18,7 @@ import app.morphe.patches.tiktok.misc.settings.SettingsStatusLoadFingerprint
 import app.morphe.patches.tiktok.misc.settings.settingsPatch
 import app.morphe.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
@@ -31,6 +32,11 @@ private fun writesRefreshRate(instruction: Instruction) =
             reference.definingClass == LAYOUT_PARAMS && reference.name == "preferredRefreshRate"
         } == true
 
+internal fun Method.writesHostRefreshRate(): Boolean =
+    // The extension's own store must stay direct or apply() calls itself forever.
+    !definingClass.startsWith("Lapp/morphe/extension/") &&
+        implementation?.instructions?.any(::writesRefreshRate) == true
+
 /**
  * Anything that asks the window for a refresh rate. The field is Android's, so the write is
  * named in full whatever TikTok called the method around it, and taking every one of them
@@ -43,7 +49,7 @@ internal object RefreshRateWriteFingerprint : Fingerprint(
     // classes that make it (#54).
     filters = listOf(fieldAccess(definingClass = LAYOUT_PARAMS, name = "preferredRefreshRate", opcode = Opcode.IPUT)),
     custom = { method, _ ->
-        method.implementation?.instructions?.any(::writesRefreshRate) == true
+        method.writesHostRefreshRate()
     },
 )
 
