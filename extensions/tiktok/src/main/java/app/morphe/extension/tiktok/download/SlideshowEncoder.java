@@ -66,36 +66,25 @@ final class SlideshowEncoder implements Closeable {
         this.surface = surface;
     }
 
-    /**
-     * Starts an encoder at the first of {@code sizes} one will take. Each size goes first to the
-     * encoders that say they support it, then to the default one, because a phone's list of what
-     * it supports is sometimes stricter than what it will actually do.
-     */
-    static SlideshowEncoder open(File output, List<int[]> sizes, int fps) throws IOException {
+    /** Open exactly this candidate; a failure during encoding must move to a different codec. */
+    static SlideshowEncoder open(File output, int[] size, int fps, String name) throws IOException {
         File directory = output.getAbsoluteFile().getParentFile();
         MediaBudget.checkStreamingDiskSpace(directory, null);
-        MediaMuxer muxer = new MediaMuxer(output.getAbsolutePath(), MediaMuxer.OutputFormat.MUXER_OUTPUT_MPEG_4);
-        IOException failure = new IOException("No H.264 encoder took any of " + sizes.size() + " frame sizes");
-        for (int[] size : sizes) {
-            List<String> names = encodersFor(size[0], size[1]);
-            names.add(null);
-            for (String name : names) {
-                MediaCodec encoder = null;
-                AnimatedWebpMp4Converter.CodecSurface surface = null;
-                try {
-                    encoder = name == null ? MediaCodec.createEncoderByType(VIDEO_MIME) : MediaCodec.createByCodecName(name);
-                    encoder.configure(format(size[0], size[1], fps), null, null, MediaCodec.CONFIGURE_FLAG_ENCODE);
-                    surface = new AnimatedWebpMp4Converter.CodecSurface(encoder.createInputSurface(), size[0], size[1]);
-                    encoder.start();
-                    return new SlideshowEncoder(size[0], size[1], fps, directory, muxer, encoder, surface);
-                } catch (IOException | RuntimeException | OutOfMemoryError refused) {
-                    failure.addSuppressed(refused);
-                    release(encoder, surface);
-                }
-            }
+        MediaMuxer muxer = null;
+        MediaCodec encoder = null;
+        AnimatedWebpMp4Converter.CodecSurface surface = null;
+        try {
+            encoder = name == null ? MediaCodec.createEncoderByType(VIDEO_MIME) : MediaCodec.createByCodecName(name);
+            encoder.configure(format(size[0], size[1], fps), null, null, MediaCodec.CONFIGURE_FLAG_ENCODE);
+            surface = new AnimatedWebpMp4Converter.CodecSurface(encoder.createInputSurface(), size[0], size[1]);
+            encoder.start();
+            muxer = new MediaMuxer(output.getAbsolutePath(), MediaMuxer.OutputFormat.MUXER_OUTPUT_MPEG_4);
+            return new SlideshowEncoder(size[0], size[1], fps, directory, muxer, encoder, surface);
+        } catch (IOException | RuntimeException | OutOfMemoryError refused) {
+            release(encoder, surface);
+            releaseMuxer(muxer);
+            throw refused;
         }
-        releaseMuxer(muxer);
-        throw failure;
     }
 
     private static MediaFormat format(int width, int height, int fps) {

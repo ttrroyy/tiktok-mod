@@ -163,7 +163,7 @@ final class CaptionBurner {
             state.companion = audio;
 
             // Each size goes first to the encoders that say they take it, then to the default
-            // one, as SlideshowEncoder.open does, since a phone's list is sometimes too strict.
+            // one, as the slideshow does, since a phone's list is sometimes too strict.
             IOException refused = new IOException("No H.264 encoder took " + outWidth + " by " + outHeight);
             List<String> names = SlideshowEncoder.encodersFor(outWidth, outHeight);
             names.add(null);

@@ -22,6 +22,8 @@ import app.morphe.extension.tiktok.settings.SettingsStatus;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -248,23 +250,28 @@ public final class SlideshowVideo {
             first.recycle();
         }
         MediaBudget.deadline().allowAtLeast(renderTimeMs(photos.size(), seconds));
-        renderWithFallback(sizes, size -> renderPhotos(files, seconds, output, progress, size));
+        renderWithFallback(sizes, (size, codec) -> renderPhotos(files, seconds, output, progress, size, codec));
     }
 
-    interface Render { void run(int[] size) throws IOException; }
+    interface Render { void run(int[] size, String codec) throws IOException; }
 
     static void renderWithFallback(List<int[]> sizes, Render render) throws IOException {
         IOException failure = new IOException("No frame size could be encoded");
         for (int[] size : sizes) {
-            MediaBudget.check(null);
-            try {
-                render.run(size);
-                return;
-            } catch (MediaBudget.StopException stop) {
-                throw stop;
-            } catch (IOException | RuntimeException | OutOfMemoryError refused) {
-                failure.addSuppressed(refused);
-                Logger.printInfo(() -> "Photo video retry after an encoder failure at " + size[0] + "x" + size[1]);
+            List<String> codecs = SlideshowEncoder.encodersFor(size[0], size[1]);
+            codecs.add(null);
+            for (String codec : codecs) {
+                MediaBudget.check(null);
+                try {
+                    render.run(size, codec);
+                    return;
+                } catch (MediaBudget.StopException stop) {
+                    throw stop;
+                } catch (IOException | RuntimeException | OutOfMemoryError refused) {
+                    failure.addSuppressed(refused);
+                    Logger.printInfo(() -> "Photo video encoder " + (codec == null ? "default" : codec)
+                            + " failed at " + size[0] + "x" + size[1], new IOException("Photo video render failed", refused));
+                }
             }
         }
         throw failure;
@@ -276,13 +283,13 @@ public final class SlideshowVideo {
     }
 
     private static void renderPhotos(List<File> photos, int seconds, File output,
-            SaveProgress progress, int[] size) throws IOException {
+            SaveProgress progress, int[] size, String codec) throws IOException {
         int perPhoto = framesPerPhoto(seconds);
         long total = (long) perPhoto * photos.size();
         SlideshowEncoder encoder = null;
         Bitmap frame = null, previous = null, photo = null;
         try {
-            encoder = SlideshowEncoder.open(output, Collections.singletonList(size), FPS);
+            encoder = SlideshowEncoder.open(output, size, FPS, codec);
             frame = Bitmap.createBitmap(encoder.width, encoder.height, Bitmap.Config.ARGB_8888);
             Canvas canvas = new Canvas(frame);
             Paint paint = new Paint(Paint.FILTER_BITMAP_FLAG | Paint.DITHER_FLAG);
@@ -347,7 +354,11 @@ public final class SlideshowVideo {
                 RemoteMedia.fetch(Collections.singletonList(url), file, RemoteMedia.Kind.IMAGE);
                 Bitmap bitmap = decode(file, null);
                 if (bitmap != null) {
-                    bitmap.recycle();
+                    try {
+                        cachePhoto(file, bitmap);
+                    } finally {
+                        bitmap.recycle();
+                    }
                     temporary.add(file);
                     keep = true;
                     return file;
@@ -363,6 +374,17 @@ public final class SlideshowVideo {
             }
         }
         throw failure;
+    }
+
+    /** HEIF's media decoder must finish before the video encoder claims the phone's codec resources. */
+    static void cachePhoto(File file, Bitmap bitmap) throws IOException {
+        MediaBudget.check(null);
+        try (OutputStream output = MediaFileWriter.withDiskBudget(new FileOutputStream(file), file.getParentFile())) {
+            if (!bitmap.compress(Bitmap.CompressFormat.PNG, 100, output)) {
+                throw new IOException("Could not cache the decoded photo");
+            }
+        }
+        MediaBudget.moved(null);
     }
 
     /**

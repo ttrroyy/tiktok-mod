@@ -219,7 +219,14 @@ public class SlideshowVideoTest {
             assertEquals(128, decoded.getHeight());
             assertEquals(android.graphics.Color.GREEN, decoded.getPixel(10, 10));
             assertTrue(primary.isRecycled());
+            SlideshowVideo.cachePhoto(file, decoded);
             decoded.recycle();
+            PhotoToJpeg.primaryImageReader = source -> { throw new AssertionError("HEIF decoder called during encoding"); };
+            Bitmap cached = SlideshowVideo.decode(file, new int[]{80, 80});
+            assertNotNull(cached);
+            assertEquals(android.graphics.Color.GREEN, cached.getPixel(10, 10));
+            assertEquals(80, cached.getWidth());
+            cached.recycle();
         } finally {
             PhotoToJpeg.primaryImageReader = reader;
             if (!primary.isRecycled()) primary.recycle();
@@ -230,7 +237,7 @@ public class SlideshowVideoTest {
     @Test public void encoderFailureRetriesSmallerFramesButCancellationNeverRetries() throws Exception {
         List<int[]> sizes = SlideshowVideo.frameSizes(1080, 1920);
         List<Integer> attempted = new ArrayList<>();
-        SlideshowVideo.renderWithFallback(sizes, size -> {
+        SlideshowVideo.renderWithFallback(sizes, (size, codec) -> {
             attempted.add(size[0]);
             if (attempted.size() == 1) throw new IllegalStateException("Codec reclaimed");
             if (attempted.size() == 2) throw new OutOfMemoryError("Frame allocation");
@@ -239,11 +246,34 @@ public class SlideshowVideoTest {
         attempted.clear();
         var stop = new MediaBudget.StopException("Cancelled", MediaBudget.StopException.Reason.CANCELLED);
         assertSame(stop, assertThrows(MediaBudget.StopException.class, () ->
-                SlideshowVideo.renderWithFallback(sizes, size -> { attempted.add(size[0]); throw stop; })));
+                SlideshowVideo.renderWithFallback(sizes, (size, codec) -> { attempted.add(size[0]); throw stop; })));
         assertEquals(1, attempted.size());
         assertEquals(3, assertThrows(java.io.IOException.class, () ->
-                SlideshowVideo.renderWithFallback(sizes, size -> { throw new java.io.IOException("Codec failed"); }))
+                SlideshowVideo.renderWithFallback(sizes, (size, codec) -> { throw new java.io.IOException("Codec failed"); }))
                 .getSuppressed().length);
+    }
+
+    @Test public void failureAfterStartingHardwareEncoderTriesAnotherCodecAtTheSameResolution() throws Exception {
+        var avc = new android.media.MediaCodecInfo.CodecProfileLevel();
+        avc.profile = android.media.MediaCodecInfo.CodecProfileLevel.AVCProfileBaseline;
+        avc.level = android.media.MediaCodecInfo.CodecProfileLevel.AVCLevel4;
+        for (String name : List.of("hardware.avc.encoder", "software.avc.encoder")) {
+            org.robolectric.shadows.ShadowMediaCodecList.addCodec(
+                    org.robolectric.shadows.MediaCodecInfoBuilder.newBuilder().setName(name).setIsEncoder(true)
+                            .setCapabilities(org.robolectric.shadows.MediaCodecInfoBuilder.CodecCapabilitiesBuilder.newBuilder()
+                                    .setMediaFormat(android.media.MediaFormat.createVideoFormat("video/avc", 720, 1280))
+                                    .setColorFormats(new int[]{android.media.MediaCodecInfo.CodecCapabilities.COLOR_FormatSurface})
+                                    .setProfileLevels(new android.media.MediaCodecInfo.CodecProfileLevel[]{avc})
+                                    .setIsEncoder(true).build()).build());
+        }
+        assertEquals(List.of("hardware.avc.encoder", "software.avc.encoder"), SlideshowEncoder.encodersFor(720, 1280));
+        List<String> attempted = new ArrayList<>();
+        SlideshowVideo.renderWithFallback(List.of(new int[]{720, 1280}, new int[]{528, 960}), (size, codec) -> {
+            attempted.add(codec);
+            assertArrayEquals(new int[]{720, 1280}, size);
+            if ("hardware.avc.encoder".equals(codec)) throw new IllegalStateException("Failed on the first frame");
+        });
+        assertEquals(List.of("hardware.avc.encoder", "software.avc.encoder"), attempted);
     }
 
     @Test public void longPhotoPostsHaveEncodingTimeBeyondTheNetworkDeadline() {
