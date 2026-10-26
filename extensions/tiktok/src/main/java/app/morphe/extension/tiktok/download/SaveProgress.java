@@ -45,19 +45,27 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public final class SaveProgress {
     private Object nativePost;
     private boolean nativeShown;
-    private int nativeResult = 3;
     private static volatile SaveProgress nativeCurrent;
+
+    interface NativeEvents { boolean send(Object post, int state, int percent); }
+    static volatile NativeEvents nativeEventsForTests;
 
     SaveProgress forPost(Object post) { nativePost = post; return this; }
 
     /** Filled by the patch with TikTok's own download-status dispatcher. */
     public static boolean nativeEvent(Object post, int state, int percent) { return false; }
 
-    public static void cancelNative() {
+    private static boolean sendNativeEvent(Object post, int state, int percent) {
+        NativeEvents stand = nativeEventsForTests;
+        return stand == null ? nativeEvent(post, state, percent) : stand.send(post, state, percent);
+    }
+
+    public static boolean cancelNative() {
         SaveProgress current = nativeCurrent;
-        if (current == null) return;
-        if (current.job != null && current.job.cancel()) return;
+        if (current == null) return false;
+        if (current.job != null && current.job.cancel()) return true;
         current.cancel();
+        return true;
     }
     /** The default count row starts here; optional stream progress also covers smaller saves. */
     static final int MIN_FILES = 3;
@@ -268,7 +276,7 @@ public final class SaveProgress {
     private void updateTransfer() {
         Utils.runOnMainThread(() -> {
             if (nativeShown) {
-                if (!finished && !cancelled.get()) nativeEvent(nativePost, 2,
+                if (!finished && !cancelled.get() && nativeCurrent == this) sendNativeEvent(nativePost, 2,
                         Math.max(0, Math.min(99, ((current - 1) * 100 + Math.max(0, percent)) / total)));
                 return;
             }
@@ -383,7 +391,6 @@ public final class SaveProgress {
                     }
                 }
                 result[0] = new Outcome(total, saved, skipped, total - index, stop, unsaved);
-                nativeResult = result[0].complete() ? 4 : isCancelled() ? 3 : 5;
             });
         } finally {
             dismiss();
@@ -410,7 +417,7 @@ public final class SaveProgress {
     private void show() {
         if (nativePost != null) {
             Utils.runOnMainThread(() -> {
-                if (!finished && !nativeShown && nativeEvent(nativePost, 1, 0)) {
+                if (!finished && !nativeShown && nativeCurrent == null && sendNativeEvent(nativePost, 1, 0)) {
                     nativeShown = true;
                     nativeCurrent = this;
                 }
@@ -695,7 +702,8 @@ public final class SaveProgress {
         finished = true;
         Utils.runOnMainThread(() -> {
             if (nativeShown) {
-                nativeEvent(nativePost, nativeResult, nativeResult == 4 ? 100 : 0);
+                // Terminal host states are replayed on scroll and Retry starts the host's own job.
+                if (nativeCurrent == this) sendNativeEvent(nativePost, 3, 0);
                 nativeShown = false;
                 if (nativeCurrent == this) nativeCurrent = null;
             }

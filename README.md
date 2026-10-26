@@ -7,7 +7,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Android-6%2B-22863A?style=for-the-badge&amp;logo=android&amp;logoColor=white" alt="Android 6+">
   <img src="https://img.shields.io/badge/TikTok-47.5.3-161823?style=for-the-badge&amp;logo=tiktok&amp;logoColor=white" alt="TikTok 47.5.3">
-  <a href="https://github.com/ttrroyy/tiktok-mod/releases/latest"><img src="https://img.shields.io/badge/mod-0.1.5-7B61FF?style=for-the-badge" alt="mod 0.1.5"></a>
+  <a href="https://github.com/ttrroyy/tiktok-mod/releases/latest"><img src="https://img.shields.io/badge/mod-0.1.6-7B61FF?style=for-the-badge" alt="mod 0.1.6"></a>
 </p>
 
 Настройки мода находятся в разделе «Настройки и конфиденциальность → Функции мода».
@@ -23,7 +23,7 @@
 - Видео и фотографии без водяного знака TikTok при наличии оригинала.
 - Выбор качества видео, сохранение фотографий в исходном разрешении и звука отдельным файлом.
 - Сохранение аватаров долгим нажатием и историй через меню «Поделиться».
-- Сохранение выбранных фотографий одним MP4 со звуком поста. Галочка «Сохранить как видео» находится над «Выбрать все» в окне скачивания. Без галочки сохраняются отдельные фото.
+- Сохранение выбранных фотографий одним MP4 с плавным перелистыванием и звуком поста. Галочка «Сохранить как видео» находится над «Выбрать все» в окне скачивания. Без галочки сохраняются отдельные фото.
 - Выбор папок и настройка лимита офлайн-видео.
 - Штатный индикатор сохранения и отмена загрузки.
 

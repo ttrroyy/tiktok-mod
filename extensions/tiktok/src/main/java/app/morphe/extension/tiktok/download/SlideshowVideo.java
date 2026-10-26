@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.ImageDecoder;
 import android.graphics.Paint;
 import android.graphics.Rect;
 
@@ -40,8 +41,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * method here, so a test can reach it without a codec.
  */
 public final class SlideshowVideo {
-    /** Frames a second. A still doesn't need more, and a 35-photo post has to fit the job's time. */
-    static final int FPS = 15;
+    static final int FPS = 30;
+    static final int SWIPE_FRAMES = 10;
     static final int KEYFRAME_SECONDS = 1;
     /** The frame a portrait photo fills, as long and short sides. Landscape turns it round. */
     static final int LONG_SIDE = 1920;
@@ -133,7 +134,8 @@ public final class SlideshowVideo {
                 SaveProgress.Outcome outcome = progress.run(index ->
                         saved[0] = make(app, sources, sound, seconds, name, path, progress, silent));
                 if (saved[0] == null) {
-                    Utils.showToastLong(outcome.stop == SaveProgress.Stop.SERVER_WAIT
+                    if (outcome.cancelled > 0 && outcome.stop == SaveProgress.Stop.NONE) return;
+                    Utils.showToastLong(outcome.stop != SaveProgress.Stop.NONE
                             ? SaveProgress.message(outcome, "")
                             : L10n.t("The video couldn't be made from these photos. Try again."));
                 } else {
@@ -197,7 +199,7 @@ public final class SlideshowVideo {
         try {
             MediaBudget.checkDiskSpace(app.getCacheDir(), -1L);
             File video = temp(app, temporary, ".mp4");
-            drawPhotos(app, photos, seconds, video, progress);
+            drawPhotos(app, photos, seconds, video, progress, temporary);
             File result = video;
             try {
                 if (sound.isEmpty()) throw new IOException("The post lists no sound");
@@ -228,55 +230,128 @@ public final class SlideshowVideo {
         return file;
     }
 
-    /** One photo at a time, each fetched, drawn into the frame and let go before the next. */
+    /** Cache the sources once so a reclaimed codec can retry without fetching signed URLs again. */
     private static void drawPhotos(Context app, List<List<String>> photos, int seconds, File output,
-            SaveProgress progress) throws IOException {
+            SaveProgress progress, List<File> temporary) throws IOException {
+        List<File> files = new ArrayList<>();
+        for (int i = 0; i < photos.size(); i++) {
+            MediaBudget.check(null);
+            files.add(fetchPhoto(app, photos.get(i), i + 1, temporary));
+            progress.transfer(i + 1, photos.size() * 10L);
+        }
+        Bitmap first = decode(files.get(0), null);
+        if (first == null) throw new IOException("The first photo could not be decoded");
+        List<int[]> sizes;
+        try {
+            sizes = frameSizes(first.getWidth(), first.getHeight());
+        } finally {
+            first.recycle();
+        }
+        MediaBudget.deadline().allowAtLeast(renderTimeMs(photos.size(), seconds));
+        renderWithFallback(sizes, size -> renderPhotos(files, seconds, output, progress, size));
+    }
+
+    interface Render { void run(int[] size) throws IOException; }
+
+    static void renderWithFallback(List<int[]> sizes, Render render) throws IOException {
+        IOException failure = new IOException("No frame size could be encoded");
+        for (int[] size : sizes) {
+            MediaBudget.check(null);
+            try {
+                render.run(size);
+                return;
+            } catch (MediaBudget.StopException stop) {
+                throw stop;
+            } catch (IOException | RuntimeException | OutOfMemoryError refused) {
+                failure.addSuppressed(refused);
+                Logger.printInfo(() -> "Photo video retry after an encoder failure at " + size[0] + "x" + size[1]);
+            }
+        }
+        throw failure;
+    }
+
+    static long renderTimeMs(int photos, int seconds) {
+        return Math.min(MediaBudget.MOVING_CEILING_MS,
+                MediaBudget.JOB_DEADLINE_MS + durationUs(photos, seconds) / 500);
+    }
+
+    private static void renderPhotos(List<File> photos, int seconds, File output,
+            SaveProgress progress, int[] size) throws IOException {
         int perPhoto = framesPerPhoto(seconds);
         long total = (long) perPhoto * photos.size();
         SlideshowEncoder encoder = null;
-        Bitmap frame = null;
+        Bitmap frame = null, previous = null, photo = null;
         try {
-            Canvas canvas = null;
+            encoder = SlideshowEncoder.open(output, Collections.singletonList(size), FPS);
+            frame = Bitmap.createBitmap(encoder.width, encoder.height, Bitmap.Config.ARGB_8888);
+            Canvas canvas = new Canvas(frame);
             Paint paint = new Paint(Paint.FILTER_BITMAP_FLAG | Paint.DITHER_FLAG);
+            SlideshowEncoder.Progress drawn = count -> {
+                MediaBudget.moved(null);
+                progress.transfer(total + count * 9, total * 10);
+            };
             for (int i = 0; i < photos.size(); i++) {
-                if (progress.isCancelled()) {
-                    throw new MediaBudget.StopException("Photo video cancelled", MediaBudget.StopException.Reason.CANCELLED);
+                MediaBudget.check(null);
+                photo = decode(photos.get(i), new int[]{encoder.width, encoder.height});
+                if (photo == null) throw new IOException("Photo " + (i + 1) + " could not be decoded");
+                int transition = previous == null ? 0 : Math.min(SWIPE_FRAMES, perPhoto);
+                for (int step = 1; step <= transition; step++) {
+                    drawSwipe(canvas, previous, photo, frame.getWidth(), frame.getHeight(), paint,
+                            step / (float) transition);
+                    encoder.add(frame, 1, drawn);
                 }
-                Bitmap photo = fetchPhoto(app, photos.get(i), encoder == null ? null : new int[]{encoder.width, encoder.height}, i + 1);
-                try {
-                    if (encoder == null) {
-                        encoder = SlideshowEncoder.open(output, frameSizes(photo.getWidth(), photo.getHeight()), FPS);
-                        frame = Bitmap.createBitmap(encoder.width, encoder.height, Bitmap.Config.ARGB_8888);
-                        canvas = new Canvas(frame);
-                    }
-                    canvas.drawColor(Color.BLACK);
-                    canvas.drawBitmap(photo, null, fit(photo.getWidth(), photo.getHeight(), frame.getWidth(), frame.getHeight()), paint);
-                } finally {
-                    photo.recycle();
-                }
-                encoder.add(frame, perPhoto, drawn -> progress.transfer(drawn, total));
+                if (previous != null) previous.recycle();
+                previous = photo;
+                photo = null;
+                drawSwipe(canvas, null, previous, frame.getWidth(), frame.getHeight(), paint, 1f);
+                encoder.add(frame, perPhoto - transition, drawn);
             }
-            if (encoder == null) throw new IOException("The post had no photos to draw");
             encoder.finish();
         } finally {
             if (encoder != null) encoder.close();
             if (frame != null) frame.recycle();
+            if (previous != null) previous.recycle();
+            if (photo != null) photo.recycle();
         }
+    }
+
+    static void drawSwipe(Canvas canvas, Bitmap previous, Bitmap next, int width, int height,
+            Paint paint, float fraction) {
+        float t = Math.max(0f, Math.min(1f, fraction));
+        float eased = t * t * (3f - 2f * t);
+        int offset = Math.round(width * eased);
+        canvas.drawColor(Color.BLACK);
+        if (previous != null) drawPhoto(canvas, previous, width, height, paint, -offset);
+        drawPhoto(canvas, next, width, height, paint, previous == null ? 0 : width - offset);
+    }
+
+    private static void drawPhoto(Canvas canvas, Bitmap photo, int width, int height, Paint paint, int offset) {
+        Rect destination = fit(photo.getWidth(), photo.getHeight(), width, height);
+        destination.offset(offset, 0);
+        int save = canvas.save();
+        canvas.clipRect(offset, 0, offset + width, height);
+        canvas.drawBitmap(photo, null, destination, paint);
+        canvas.restoreToCount(save);
     }
 
     /**
      * Fetches one photo and decodes it small enough for the frame, trying each copy TikTok lists
-     * in turn: a phone that can't read the HEIF copy can still read the WebP one. {@code frame}
-     * is null for the first photo, which the frame is then sized from.
+     * in turn: a phone that can't read the HEIF copy can still read the WebP one.
      */
-    private static Bitmap fetchPhoto(Context app, List<String> urls, int[] frame, int position) throws IOException {
+    private static File fetchPhoto(Context app, List<String> urls, int position, List<File> temporary) throws IOException {
         IOException failure = new IOException("No copy of photo " + position + " could be drawn");
         for (String url : urls) {
             File file = MediaCache.createTempFile(app, "photo-video-", ".tmp");
+            boolean keep = false;
             try {
                 RemoteMedia.fetch(Collections.singletonList(url), file, RemoteMedia.Kind.IMAGE);
-                Bitmap bitmap = decode(file, frame);
-                if (bitmap != null) return bitmap;
+                Bitmap bitmap = decode(file, null);
+                if (bitmap != null) {
+                    bitmap.recycle();
+                    temporary.add(file);
+                    keep = true;
+                    return file;
+                }
                 failure.addSuppressed(new IOException("Photo " + position + " didn't decode from "
                         + RemoteMedia.summarizeUrl(url)));
             } catch (MediaBudget.StopException stop) {
@@ -284,7 +359,7 @@ public final class SlideshowVideo {
             } catch (IOException | RuntimeException | OutOfMemoryError skipped) {
                 failure.addSuppressed(skipped);
             } finally {
-                if (!MediaCache.delete(file)) Logger.printInfo(() -> "Could not remove a photo video temporary file");
+                if (!keep && !MediaCache.delete(file)) Logger.printInfo(() -> "Could not remove a photo video temporary file");
             }
         }
         throw failure;
@@ -298,13 +373,40 @@ public final class SlideshowVideo {
         BitmapFactory.Options bounds = new BitmapFactory.Options();
         bounds.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(file.getAbsolutePath(), bounds);
-        if (bounds.outWidth <= 0 || bounds.outHeight <= 0) return null;
-        int[] target = frame != null ? frame : frameSize(bounds.outWidth, bounds.outHeight, LONG_SIDE, SHORT_SIDE);
-        Rect fitted = fit(bounds.outWidth, bounds.outHeight, target[0], target[1]);
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inSampleSize = sampleSize(bounds.outWidth, bounds.outHeight, fitted.width(), fitted.height());
-        options.inPreferredConfig = Bitmap.Config.ARGB_8888;
-        return BitmapFactory.decodeFile(file.getAbsolutePath(), options);
+        if (bounds.outWidth > 0 && bounds.outHeight > 0) {
+            int[] target = frame != null ? frame : frameSize(bounds.outWidth, bounds.outHeight, LONG_SIDE, SHORT_SIDE);
+            Rect fitted = fit(bounds.outWidth, bounds.outHeight, target[0], target[1]);
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inSampleSize = sampleSize(bounds.outWidth, bounds.outHeight, fitted.width(), fitted.height());
+            options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+            Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath(), options);
+            if (bitmap != null) return bitmap;
+        }
+        if (android.os.Build.VERSION.SDK_INT >= 28) {
+            try {
+                return ImageDecoder.decodeBitmap(ImageDecoder.createSource(file), (decoder, info, source) -> {
+                    int width = info.getSize().getWidth(), height = info.getSize().getHeight();
+                    int[] target = frame != null ? frame : frameSize(width, height, LONG_SIDE, SHORT_SIDE);
+                    Rect fitted = fit(width, height, target[0], target[1]);
+                    decoder.setTargetSize(Math.max(1, fitted.width()), Math.max(1, fitted.height()));
+                    decoder.setAllocator(ImageDecoder.ALLOCATOR_SOFTWARE);
+                });
+            } catch (IOException | RuntimeException refused) {
+                Logger.printInfo(() -> "The photo's alternate decoder refused the image");
+            }
+            Bitmap primary = PhotoToJpeg.primaryImageReader.read(file);
+            if (primary != null) {
+                int[] target = frame != null ? frame : frameSize(primary.getWidth(), primary.getHeight(), LONG_SIDE, SHORT_SIDE);
+                Rect fitted = fit(primary.getWidth(), primary.getHeight(), target[0], target[1]);
+                if (primary.getWidth() <= fitted.width() && primary.getHeight() <= fitted.height()) return primary;
+                try {
+                    return Bitmap.createScaledBitmap(primary, Math.max(1, fitted.width()), Math.max(1, fitted.height()), true);
+                } finally {
+                    primary.recycle();
+                }
+            }
+        }
+        return null;
     }
 
     /** Where the post's sound can be fetched: its sound entry, then the addresses its video lists. */

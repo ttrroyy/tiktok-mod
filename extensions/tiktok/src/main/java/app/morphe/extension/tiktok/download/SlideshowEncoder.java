@@ -88,7 +88,7 @@ final class SlideshowEncoder implements Closeable {
                     surface = new AnimatedWebpMp4Converter.CodecSurface(encoder.createInputSurface(), size[0], size[1]);
                     encoder.start();
                     return new SlideshowEncoder(size[0], size[1], fps, directory, muxer, encoder, surface);
-                } catch (IOException | RuntimeException refused) {
+                } catch (IOException | RuntimeException | OutOfMemoryError refused) {
                     failure.addSuppressed(refused);
                     release(encoder, surface);
                 }

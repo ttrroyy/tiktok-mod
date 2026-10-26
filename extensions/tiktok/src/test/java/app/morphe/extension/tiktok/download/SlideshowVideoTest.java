@@ -128,7 +128,7 @@ public class SlideshowVideoTest {
         assertEquals(3, (int) Settings.PHOTO_VIDEO_SECONDS.defaultValue);
         assertFalse(Settings.DOWNLOAD_PHOTOS_AS_VIDEO.defaultValue);
 
-        assertEquals(45, SlideshowVideo.framesPerPhoto(3));
+        assertEquals(90, SlideshowVideo.framesPerPhoto(3));
         assertEquals(0L, SlideshowVideo.presentationTimeNs(0, 15));
         assertEquals(66_666_666L, SlideshowVideo.presentationTimeNs(1, 15));
         assertEquals(1_000_000_000L, SlideshowVideo.presentationTimeNs(15, 15));
@@ -179,6 +179,76 @@ public class SlideshowVideoTest {
             assertTrue(png.delete());
             assertTrue(junk.delete());
         }
+    }
+
+    @Test public void swipeMovesTheWholePhotosLeftWithoutChangingTheirOrder() {
+        Bitmap previous = Bitmap.createBitmap(20, 10, Bitmap.Config.ARGB_8888);
+        Bitmap next = Bitmap.createBitmap(20, 10, Bitmap.Config.ARGB_8888);
+        Bitmap frame = Bitmap.createBitmap(20, 10, Bitmap.Config.ARGB_8888);
+        try {
+            previous.eraseColor(android.graphics.Color.RED);
+            next.eraseColor(android.graphics.Color.BLUE);
+            var canvas = new android.graphics.Canvas(frame);
+            var paint = new android.graphics.Paint();
+            SlideshowVideo.drawSwipe(canvas, previous, next, 20, 10, paint, 0f);
+            assertEquals(android.graphics.Color.RED, frame.getPixel(18, 5));
+            SlideshowVideo.drawSwipe(canvas, previous, next, 20, 10, paint, .5f);
+            assertEquals(android.graphics.Color.RED, frame.getPixel(2, 5));
+            assertEquals(android.graphics.Color.BLUE, frame.getPixel(17, 5));
+            SlideshowVideo.drawSwipe(canvas, previous, next, 20, 10, paint, 1f);
+            assertEquals(android.graphics.Color.BLUE, frame.getPixel(2, 5));
+            assertEquals(android.graphics.Color.BLUE, frame.getPixel(18, 5));
+            SlideshowVideo.drawSwipe(canvas, null, next, 20, 10, paint, 0f);
+            assertEquals(android.graphics.Color.BLUE, frame.getPixel(2, 5));
+        } finally {
+            previous.recycle(); next.recycle(); frame.recycle();
+        }
+    }
+
+    @Test public void imageDecoderRefusalUsesTheSamePrimaryImageReaderAsPhotoDownloads() throws Exception {
+        File file = File.createTempFile("slideshow-heif-", ".tmp", RuntimeEnvironment.getApplication().getCacheDir());
+        var reader = PhotoToJpeg.primaryImageReader;
+        Bitmap primary = Bitmap.createBitmap(1000, 800, Bitmap.Config.ARGB_8888);
+        primary.eraseColor(android.graphics.Color.GREEN);
+        try {
+            Files.write(file.toPath(), "HEIF rejected by the image decoders".getBytes(StandardCharsets.UTF_8));
+            PhotoToJpeg.primaryImageReader = source -> primary;
+            Bitmap decoded = SlideshowVideo.decode(file, new int[]{160, 160});
+            assertNotNull(decoded);
+            assertEquals(160, decoded.getWidth());
+            assertEquals(128, decoded.getHeight());
+            assertEquals(android.graphics.Color.GREEN, decoded.getPixel(10, 10));
+            assertTrue(primary.isRecycled());
+            decoded.recycle();
+        } finally {
+            PhotoToJpeg.primaryImageReader = reader;
+            if (!primary.isRecycled()) primary.recycle();
+            assertTrue(file.delete());
+        }
+    }
+
+    @Test public void encoderFailureRetriesSmallerFramesButCancellationNeverRetries() throws Exception {
+        List<int[]> sizes = SlideshowVideo.frameSizes(1080, 1920);
+        List<Integer> attempted = new ArrayList<>();
+        SlideshowVideo.renderWithFallback(sizes, size -> {
+            attempted.add(size[0]);
+            if (attempted.size() == 1) throw new IllegalStateException("Codec reclaimed");
+            if (attempted.size() == 2) throw new OutOfMemoryError("Frame allocation");
+        });
+        assertEquals(List.of(sizes.get(0)[0], sizes.get(1)[0], sizes.get(2)[0]), attempted);
+        attempted.clear();
+        var stop = new MediaBudget.StopException("Cancelled", MediaBudget.StopException.Reason.CANCELLED);
+        assertSame(stop, assertThrows(MediaBudget.StopException.class, () ->
+                SlideshowVideo.renderWithFallback(sizes, size -> { attempted.add(size[0]); throw stop; })));
+        assertEquals(1, attempted.size());
+        assertEquals(3, assertThrows(java.io.IOException.class, () ->
+                SlideshowVideo.renderWithFallback(sizes, size -> { throw new java.io.IOException("Codec failed"); }))
+                .getSuppressed().length);
+    }
+
+    @Test public void longPhotoPostsHaveEncodingTimeBeyondTheNetworkDeadline() {
+        assertTrue(SlideshowVideo.renderTimeMs(35, 10) > MediaBudget.JOB_DEADLINE_MS);
+        assertTrue(SlideshowVideo.renderTimeMs(35, 10) <= MediaBudget.MOVING_CEILING_MS);
     }
 
     // Gating.

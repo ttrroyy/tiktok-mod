@@ -324,7 +324,11 @@ private fun hookNativeDownloadProgress() {
         it.returnType == "Lcom/ss/android/ugc/aweme/arch/widgets/base/NextLiveData;" }
     val bus = instructions.mapNotNull { it.getReference<FieldReference>() }
         .distinct().single { it.type == channel.definingClass }
-    val post = calls.single { it.name == "postValue" && it.parameterTypes.map(CharSequence::toString) == listOf("Ljava/lang/Object;") }
+    check(calls.any { it.name == "postValue" && it.parameterTypes.map(CharSequence::toString) == listOf("Ljava/lang/Object;") })
+    check(context.mutableClassDefBy(channel.returnType).methods.any {
+        it.name == "setValue" && it.parameterTypes.map(CharSequence::toString) == listOf("Ljava/lang/Object;") &&
+            AccessFlags.PUBLIC.isSet(it.accessFlags)
+    }) { "Advanced downloads: native progress must support synchronous delivery" }
     check(factory.returnType.startsWith("L") && instructions.any {
         it.getReference<StringReference>()?.string == "video_download_status"
     }) { "Advanced downloads: native progress dispatcher changed" }
@@ -341,15 +345,22 @@ private fun hookNativeDownloadProgress() {
             const-string v2, "video_download_status"
             invoke-virtual { v1, v2 }, $channel
             move-result-object v1
-            invoke-virtual { v1, v0 }, $post
+            invoke-virtual { v1, v0 }, ${channel.returnType}->setValue(Ljava/lang/Object;)V
             const/4 v0, 0x1
             return v0
         """)
     }
     owner.methods.remove(original)
     owner.methods.add(bridge)
-    NativeDownloadCancelFingerprint.method.addInstruction(0,
-        "invoke-static {}, ${EXTENSION}SaveProgress;->cancelNative()V")
+    NativeDownloadCancelFingerprint.method.apply {
+        requireLocals("Advanced downloads cancel", 1)
+        addInstructionsWithLabels(0, """
+            invoke-static {}, ${EXTENSION}SaveProgress;->cancelNative()Z
+            move-result v0
+            if-eqz v0, :native_cancel
+            return-void
+        """, ExternalLabel("native_cancel", getInstruction(0)))
+    }
 }
 
 @Suppress("unused")
