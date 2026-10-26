@@ -1,21 +1,21 @@
 {
-  "build": 7,
-  "version": "0.1.6 (TikTok 47.5.3)",
-  "changes": "- Плавное перелистывание фотографий при сохранении публикации как видео.\n- Повтор кодирования в меньшем разрешении при сбое кодека. Фото для повтора берутся из временного кэша.\n- Дополнительный способ чтения фото и увеличенное время на создание длинных видео.\n- Исправлено управление нижней полосой при нескольких загрузках и после ошибки. Завершённые задачи больше не оставляют штатную кнопку повтора.",
+  "build": 8,
+  "version": "0.1.7 (TikTok 47.5.3)",
+  "changes": "- Исправлен повтор создания видео: после сбоя используются другие доступные кодировщики, затем меньшее разрешение.\n- Фото подготавливаются до запуска видеокодировщика. HEIF больше не декодируется повторно во время сборки видео.",
   "assets": {
     "arm64-v8a": {
-      "url": "https://github.com/ttrroyy/tiktok-mod/releases/download/v0.1.6/tiktok-mod-47.5.3-arm64-v8a.apk",
-      "sha256": "3d3d75cb9a72266166758615ec47bd71987ce12d5ecfcca2f9df4a8677ae2b6c",
+      "url": "https://github.com/ttrroyy/tiktok-mod/releases/download/v0.1.7/tiktok-mod-47.5.3-arm64-v8a.apk",
+      "sha256": "fa4ea50b80f9bf360780a23c8a3838b38d9408c2c66f1d2b44bb24ea4877b85c",
       "size": 375818363
     },
     "armeabi-v7a": {
-      "url": "https://github.com/ttrroyy/tiktok-mod/releases/download/v0.1.6/tiktok-mod-47.5.3-armeabi-v7a.apk",
-      "sha256": "78aed4762cf941126b39e3a0302f8fa2c6677d478a756d1feb2301d0a7e00518",
+      "url": "https://github.com/ttrroyy/tiktok-mod/releases/download/v0.1.7/tiktok-mod-47.5.3-armeabi-v7a.apk",
+      "sha256": "b219c6b764a583759921057db04d87383821692cc5a4c5ad4ad1b3526b42cc2a",
       "size": 360827188
     },
     "universal": {
-      "url": "https://github.com/ttrroyy/tiktok-mod/releases/download/v0.1.6/tiktok-mod-47.5.3-universal.apk",
-      "sha256": "93aac7b697768e9f7943fb8c96b0656bf997b91e4cea141e70e08347c6e8ba98",
+      "url": "https://github.com/ttrroyy/tiktok-mod/releases/download/v0.1.7/tiktok-mod-47.5.3-universal.apk",
+      "sha256": "12e6117a989e864cd5a64fb660215f22bab363d9b9c09f5be69b13c1a84252d6",
       "size": 504529802
     }
   }
