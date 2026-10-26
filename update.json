@@ -1,22 +1,22 @@
 {
-  "build": 6,
-  "version": "0.1.5 (TikTok 47.5.3)",
-  "changes": "- Включено по умолчанию снятие ограничения частоты обновления экрана со стороны TikTok, в том числе при обновлении с предыдущих версий.",
+  "build": 7,
+  "version": "0.1.6 (TikTok 47.5.3)",
+  "changes": "- Плавное перелистывание фотографий при сохранении публикации как видео.\n- Повтор кодирования в меньшем разрешении при сбое кодека. Фото для повтора берутся из временного кэша.\n- Дополнительный способ чтения фото и увеличенное время на создание длинных видео.\n- Исправлено управление нижней полосой при нескольких загрузках и после ошибки. Завершённые задачи больше не оставляют штатную кнопку повтора.",
   "assets": {
     "arm64-v8a": {
-      "url": "https://github.com/ttrroyy/tiktok-mod/releases/download/v0.1.5/tiktok-mod-47.5.3-arm64-v8a.apk",
-      "sha256": "ccda5512b14f330b70cda0b1d633d6b58878d6daf1d1553d6cd025955835300b",
+      "url": "https://github.com/ttrroyy/tiktok-mod/releases/download/v0.1.6/tiktok-mod-47.5.3-arm64-v8a.apk",
+      "sha256": "3d3d75cb9a72266166758615ec47bd71987ce12d5ecfcca2f9df4a8677ae2b6c",
       "size": 375818363
     },
     "armeabi-v7a": {
-      "url": "https://github.com/ttrroyy/tiktok-mod/releases/download/v0.1.5/tiktok-mod-47.5.3-armeabi-v7a.apk",
-      "sha256": "57b197ee7247ea97ea4aa97324e6150d4f0529c319cb800405c38acc26698313",
+      "url": "https://github.com/ttrroyy/tiktok-mod/releases/download/v0.1.6/tiktok-mod-47.5.3-armeabi-v7a.apk",
+      "sha256": "78aed4762cf941126b39e3a0302f8fa2c6677d478a756d1feb2301d0a7e00518",
       "size": 360827188
     },
     "universal": {
-      "url": "https://github.com/ttrroyy/tiktok-mod/releases/download/v0.1.5/tiktok-mod-47.5.3-universal.apk",
-      "sha256": "8fa47ef8b89abbaa9b6bb9ba02488f7abe0c2b9f2f9731340353082f67745f08",
-      "size": 504525706
+      "url": "https://github.com/ttrroyy/tiktok-mod/releases/download/v0.1.6/tiktok-mod-47.5.3-universal.apk",
+      "sha256": "93aac7b697768e9f7943fb8c96b0656bf997b91e4cea141e70e08347c6e8ba98",
+      "size": 504529802
     }
   }
 }
