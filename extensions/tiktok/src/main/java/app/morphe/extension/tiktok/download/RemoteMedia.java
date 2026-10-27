@@ -6,6 +6,7 @@
  */
 package app.morphe.extension.tiktok.download;
 
+import android.graphics.BitmapFactory;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -86,7 +87,9 @@ final class RemoteMedia {
                         if (offset != header.length) throw new IOException("Media response is too short");
                         input.reset();
                         String extension = extensionFor(kind, header);
-                        if (extension == null) throw new IOException("Media server returned an unsupported format");
+                        if (extension == null && kind != Kind.IMAGE) {
+                            throw new IOException("Media server returned an unsupported format");
+                        }
                         long count;
                         if (progress != null) progress.copied(0, expected);
                         try (FileOutputStream output = new FileOutputStream(target)) {
@@ -95,6 +98,8 @@ final class RemoteMedia {
                                     progress == null ? null : countSoFar -> progress.copied(countSoFar, expected));
                         }
                         if (expected >= 0 && count != expected) throw new IOException("Media download is incomplete");
+                        if (extension == null) extension = decodedImageExtension(target);
+                        if (extension == null) throw new IOException("Media server returned an unsupported image");
                         return extension;
                 }
                 } catch (IOException | RuntimeException exception) {
@@ -198,8 +203,32 @@ final class RemoteMedia {
             String brand = signature.substring(8, 12);
             if (brand.equals("avif") || brand.equals("avis")) return "avif";
             if (brand.equals("heic") || brand.equals("heix")) return "heic";
+            if (brand.equals("hevc") || brand.equals("hevx")) return "heif";
             if (brand.equals("mif1") || brand.equals("msf1")) return "heif";
         }
         return null;
+    }
+
+    /** The platform recognizes more image containers than the short signature list above. */
+    private static String decodedImageExtension(File file) {
+        BitmapFactory.Options bounds = new BitmapFactory.Options();
+        bounds.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(file.getAbsolutePath(), bounds);
+        if (bounds.outWidth <= 0 || bounds.outHeight <= 0 || bounds.outMimeType == null) return null;
+        switch (bounds.outMimeType) {
+            case "image/jpeg": return "jpg";
+            case "image/png": return "png";
+            case "image/webp": return "webp";
+            case "image/gif": return "gif";
+            case "image/heic": return "heic";
+            case "image/heif": return "heif";
+            case "image/avif": return "avif";
+            case "image/bmp":
+            case "image/x-ms-bmp": return "bmp";
+            case "image/vnd.wap.wbmp": return "wbmp";
+            case "image/x-icon":
+            case "image/vnd.microsoft.icon": return "ico";
+            default: return null;
+        }
     }
 }
