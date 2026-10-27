@@ -1,21 +1,21 @@
 {
-  "build": 9,
-  "version": "0.1.8 (TikTok 47.5.3)",
-  "changes": "- Исправлена ошибка распознавания фотографий при скачивании и сохранении как видео.\n- Добавлена поддержка дополнительных вариантов HEIF.",
+  "build": 10,
+  "version": "0.1.9 (TikTok 47.5.3)",
+  "changes": "- Подключены встроенные декодеры изображений TikTok. Фотографии, которые не может прочитать Android, обрабатываются самим TikTok перед сохранением в видео.",
   "assets": {
     "arm64-v8a": {
-      "url": "https://github.com/ttrroyy/tiktok-mod/releases/download/v0.1.8/tiktok-mod-47.5.3-arm64-v8a.apk",
-      "sha256": "5d3d72a38d7d14121cb7e9a6c873b5eeb5bd2414060068b4f09e2491d582f1bc",
-      "size": 375818363
+      "url": "https://github.com/ttrroyy/tiktok-mod/releases/download/v0.1.9/tiktok-mod-47.5.3-arm64-v8a.apk",
+      "sha256": "b460e54500a3c0bbbf44cbeac14d049eb3e540d7f9990076baa49b6801947806",
+      "size": 375822459
     },
     "armeabi-v7a": {
-      "url": "https://github.com/ttrroyy/tiktok-mod/releases/download/v0.1.8/tiktok-mod-47.5.3-armeabi-v7a.apk",
-      "sha256": "03bea5033d28cb7854e51505319aafa8bb6c068b5bbd0c64beb8b85970b91284",
-      "size": 360827188
+      "url": "https://github.com/ttrroyy/tiktok-mod/releases/download/v0.1.9/tiktok-mod-47.5.3-armeabi-v7a.apk",
+      "sha256": "1189053280e9d7dea4a6baacd6e150e2df7bcab78650f4de02ef618bbde74269",
+      "size": 360831284
     },
     "universal": {
-      "url": "https://github.com/ttrroyy/tiktok-mod/releases/download/v0.1.8/tiktok-mod-47.5.3-universal.apk",
-      "sha256": "1d80e3225224c5f99b50cf4a9113f282d789dc4e6d668a2577c9e19f663f7c18",
+      "url": "https://github.com/ttrroyy/tiktok-mod/releases/download/v0.1.9/tiktok-mod-47.5.3-universal.apk",
+      "sha256": "2faebb1738dcdcbc99efdb5009daee08bae6bc44b4fb0d20b488322464c21448",
       "size": 504529802
     }
   }
