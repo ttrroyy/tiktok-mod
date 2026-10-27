@@ -1,6 +1,7 @@
 {
   "patches": [
     "Settings",
+    "Prevent duplicate share sheets",
     "Feed filter",
     "Skip the splash ad",
     "Hide comment popup ads",
