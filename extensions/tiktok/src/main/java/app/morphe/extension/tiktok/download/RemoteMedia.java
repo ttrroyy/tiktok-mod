@@ -99,7 +99,9 @@ final class RemoteMedia {
                         }
                         if (expected >= 0 && count != expected) throw new IOException("Media download is incomplete");
                         if (extension == null) extension = decodedImageExtension(target);
+                        if (extension == null && TikTokImageDecoder.convertToPng(target)) extension = "png";
                         if (extension == null) throw new IOException("Media server returned an unsupported image");
+                        MediaBudget.check(deadline);
                         return extension;
                 }
                 } catch (IOException | RuntimeException exception) {

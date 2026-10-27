@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.net.URL;
 
 final class UpdateSpec {
-    static final int CURRENT_BUILD = 9;
+    static final int CURRENT_BUILD = 10;
     static final String REPOSITORY = "https://github.com/ttrroyy/tiktok-mod";
     static final String MANIFEST_URL = "https://raw.githubusercontent.com/ttrroyy/tiktok-mod/main/update.json";
     static final long MAX_APK_BYTES = 900L * 1024 * 1024;

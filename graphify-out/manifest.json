@@ -834,9 +834,9 @@
     "semantic_hash": ""
   },
   "extensions/tiktok/src/main/java/app/morphe/extension/tiktok/download/RemoteMedia.java": {
-    "mtime": 1793081914.4519634,
-    "seen": 1793082788.0005622,
-    "ast_hash": "b84eb6b17d7e9240954385ab97f25420",
+    "mtime": 1793086236.8733811,
+    "seen": 1793087365.3800004,
+    "ast_hash": "316f5c4875deeee151c1e336ac3c98c3",
     "semantic_hash": ""
   },
   "extensions/tiktok/src/main/java/app/morphe/extension/tiktok/download/SaveNotice.java": {
@@ -888,9 +888,9 @@
     "semantic_hash": ""
   },
   "extensions/tiktok/src/main/java/app/morphe/extension/tiktok/download/SlideshowVideo.java": {
-    "mtime": 1793002417.997757,
-    "seen": 1793002657.2180886,
-    "ast_hash": "92e27640a0c7cb1935cebac9b929730c",
+    "mtime": 1793086956.4474964,
+    "seen": 1793087365.386364,
+    "ast_hash": "66dcd16252d476b9caa61b2d09cdc67d",
     "semantic_hash": ""
   },
   "extensions/tiktok/src/main/java/app/morphe/extension/tiktok/download/SoundFormat.java": {
@@ -3138,9 +3138,9 @@
     "semantic_hash": ""
   },
   "extensions/tiktok/src/main/java/app/morphe/extension/tiktok/update/UpdateSpec.java": {
-    "mtime": 1793082086.517628,
-    "seen": 1793082788.308773,
-    "ast_hash": "1c586603795fc1fa9af537435c57ae31",
+    "mtime": 1793086138.5564468,
+    "seen": 1793087365.6689515,
+    "ast_hash": "0b5ce001eec0ae870aeecfbc37fd5999",
     "semantic_hash": ""
   },
   "extensions/tiktok/src/main/java/app/morphe/extension/tiktok/upload/HdUpload.java": {
@@ -6822,8 +6822,8 @@
     "semantic_hash": ""
   },
   "patches-list.json": {
-    "mtime": 1793082730.8306787,
-    "seen": 1793082788.7416124,
+    "mtime": 1793087672.4295306,
+    "seen": 1793087722.9672515,
     "ast_hash": "a9227a10fd735b8a4741d24be912bfc1",
     "semantic_hash": ""
   },
@@ -10914,9 +10914,9 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1793082086.518138,
-    "seen": 1793082789.20564,
-    "ast_hash": "8d1478d53e46a42a5756bd0e5bb0d25e",
+    "mtime": 1793086138.5574539,
+    "seen": 1793087366.5818903,
+    "ast_hash": "3126b9d01ae99be5db325f4f34eb3dbc",
     "semantic_hash": ""
   },
   "UPSTREAM.md": {
@@ -11670,9 +11670,9 @@
     "semantic_hash": ""
   },
   "update.json": {
-    "mtime": 1793003571.1488428,
-    "seen": 1793082789.2016406,
-    "ast_hash": "79e8eedfd42a8a99c6fcad19a9eb8b8b",
+    "mtime": 1793083536.5845017,
+    "seen": 1793087366.5773842,
+    "ast_hash": "09fee2d087d3c54121041b573e828e85",
     "semantic_hash": ""
   },
   "DEVELOPMENT.md": {
@@ -11697,6 +11697,24 @@
     "mtime": 1793082086.5166261,
     "seen": 1793082788.4254565,
     "ast_hash": "3eb0f6ed4634383d19213b34e22109d8",
+    "semantic_hash": ""
+  },
+  "extensions/tiktok/src/main/java/app/morphe/extension/tiktok/download/TikTokImageDecoder.java": {
+    "mtime": 1793087461.6793525,
+    "seen": 1793087722.2311583,
+    "ast_hash": "846afacffe7d0b23e3d6a48db526daac",
+    "semantic_hash": ""
+  },
+  "extensions/tiktok/src/test/java/app/morphe/extension/tiktok/download/NativeImageHostFixtures.java": {
+    "mtime": 1793087218.410096,
+    "seen": 1793087365.7696252,
+    "ast_hash": "0587f9fc10e8a36d7e682195520de20e",
+    "semantic_hash": ""
+  },
+  "extensions/tiktok/src/test/java/app/morphe/extension/tiktok/download/TikTokImageDecoderTest.java": {
+    "mtime": 1793087461.680587,
+    "seen": 1793087722.6456335,
+    "ast_hash": "459a2bf4ac36beaf584531cc63d2c6fd",
     "semantic_hash": ""
   }
 }

@@ -353,6 +353,7 @@ public final class SlideshowVideo {
             try {
                 RemoteMedia.fetch(Collections.singletonList(url), file, RemoteMedia.Kind.IMAGE);
                 Bitmap bitmap = decode(file, null);
+                if (bitmap == null && TikTokImageDecoder.convertToPng(file)) bitmap = decode(file, null);
                 if (bitmap != null) {
                     try {
                         cachePhoto(file, bitmap);
